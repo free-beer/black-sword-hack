@@ -1,0 +1,67 @@
+<div class="bsh-tab-body bsh-magic-tab {{tabBodySelectionClass "magic"}}">
+	<br>
+
+{{#if hasDemons}}	
+	<h2>
+	    {{localize "bsh.headers.demons"}}
+	    <div class="bsh-float-right">
+	    	<span class="bsh-summoning-state">{{summoningState data.summoning.demon}}</span>
+	    	<i class="fas fa-undo-alt bsh-reset-dark-pact-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllDemons"}}" data-actor="{{actor._id}}" data-type="demon"></i>
+	    </div>
+	</h2>
+	<div class="bsh-demon-entries">
+		<div>
+			<span class="bsh-column-header">{{localize "bsh.headers.demonName"}}</span>
+		</div>
+		<div></div>
+
+	{{#each demons as |demon id|}}
+	    {{> "systems/black-sword-hack/templates/partials/cs-demon-entry.hbs" demon}}
+	{{/each}}
+	</div>
+	<br>
+{{/if}}
+
+{{#if hasSpirits}}	
+	<h2>
+	    {{localize "bsh.headers.spirits"}}
+	    <div class="bsh-float-right">
+	    	<span class="bsh-summoning-state">{{summoningState data.summoning.spirit}}</span>
+	    	<i class="fas fa-undo-alt bsh-reset-dark-pact-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllSpirits"}}" data-actor="{{actor._id}}" data-type="spirit"></i>
+	    </div>
+	</h2>
+	<div class="bsh-spirit-entries">
+		<div>
+			<span class="bsh-column-header">{{localize "bsh.headers.spiritName"}}</span>
+		</div>
+		<div></div>
+
+	{{#each spirits as |spirit id|}}
+	    {{> "systems/black-sword-hack/templates/partials/cs-spirit-entry.hbs" spirit}}
+	{{/each}}
+	</div>
+	<br>
+{{/if}}
+
+{{#if hasSpells}}	
+	<h2>
+	    {{localize "bsh.headers.spells"}}
+	    <div class="bsh-float-right">
+	    	<i class="fas fa-undo-alt bsh-reset-all-spells-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllSpells"}}" data-actor="{{actor._id}}"></i>
+	    </div>
+	</h2>
+	<div class="bsh-spell-entries">
+		<div>
+			<span class="bsh-column-header">{{localize "bsh.headers.spellName"}}</span>
+		</div>
+		<div>
+			<span class="bsh-column-header">{{localize "bsh.headers.spellState"}}</span>
+		</div>
+		<div></div>
+
+	{{#each spells as |spell id|}}
+	    {{> "systems/black-sword-hack/templates/partials/cs-spell-entry.hbs" spell}}
+	{{/each}}
+    </div>
+{{/if}}
+</div>

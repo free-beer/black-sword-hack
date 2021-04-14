@@ -1,0 +1,369 @@
+.bsh-action-icon {
+	cursor: pointer;
+	margin: 0 5px;
+}
+
+.bsh-attribute-input {
+	font-size: 1.8em !important;
+	height: 2.8em !important;
+	margin: 10px 0;
+	text-align: center !important;
+	width: 70% !important;
+}
+
+.bsh-attribute-roll-icon, .bsh-dice-roll-icon, .bsh-usage-die-roll-icon {
+	cursor: pointer;
+}
+
+.bsh-base-attribute-input {
+	background-color: #fff  !important;
+	font-size: 1.2em !important;
+	font-weight: bold;
+	height: 3.2em !important;
+	text-align: center !important;
+	width: 50% !important;
+}
+
+.bsh-base-attributes-list-container {
+	display: grid;
+	gap: 0 3px;
+	grid-template-columns: auto auto auto auto auto auto;
+	margin-bottom: 25px;
+}
+
+.bsh-base-attribute-title {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 3px 0;
+}
+
+.bsh-blurb {
+	margin: 5px 10px 10px 10px;
+	text-align: justify;
+}
+
+.bsh-centered-input {
+	text-align: center !important;
+}
+
+.bsh-coins-container {
+	display: grid;
+	gap: 0px 5px;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	width: 95%;
+}
+
+.bsh-column-header {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.bsh-consumable-body {
+	display: grid;
+	gap: 0 5px;
+	grid-template-columns: 33% 33% 33%;
+	margin: 10px 0;
+	width: 98%;
+}
+
+.bsh-consumable-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 75px 75px 175px;
+	margin-bottom: 15px;
+	width: 98%;
+}
+
+.bsh-cs-attribute-container-body {
+	background-color: #fff;
+	border: solid 1px #333;
+	height: 5em;
+	line-height: 5em;
+	margin: 0 15px;
+}
+
+.bsh-cs-attribute-container-header {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.bsh-cs-attributes-list {
+	display: grid;
+	gap: 15px 0;
+	grid-template-columns: 100%;
+}
+
+.bsh-cs-attribute-value {
+	font-size: 1.8em;
+	font-weight: bold;
+	margin: 15px 0;
+}
+
+.bsh-cs-container {
+	display: grid;
+	gap: 0 5px;
+	grid-template-columns: 100px auto;
+}
+
+.bsh-damage-button-container {
+	margin-top: 5px;
+}
+
+.bsh-damage-details {
+	color: #a00;
+	font-size: 120%;
+	text-align: center;
+}
+
+.bsh-demon-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 75px;
+	margin-bottom: 15px;
+	width: 98%;
+}
+
+.bsh-doomed-noticed {
+	color: #a00;
+	font-size: 120%;
+	text-align: center;
+}
+
+.bsh.field {
+	width: 100%;
+}
+
+.bsh-float-right {
+	float: right;
+}
+
+.bsh-equipment-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 50px;
+	margin-bottom: 20px;
+}
+
+.bsh-grid {
+	display: grid;
+	gap: 5px 3px;
+	width: 98%;
+}
+
+.bsh-grid-2-col {
+	grid-template-columns: 50% 50%;
+}
+
+.bsh-grid-3-col {
+	grid-template-columns: 33% 33% 33%;
+}
+
+.bsh-grid-4-col {
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.bsh-hidden {
+	display: none;
+}
+
+.bsh-input {
+	width: 100%;
+}
+
+.bsh-item-name {
+	cursor: pointer;
+}
+
+.bsh-label {
+	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.bsh-level-name {
+	align-items: center;
+	display: flex;
+	font-size: 1.1em;
+	height: 100%;
+	justify-content: center;
+}
+
+.bsh-possession-field {
+	margin: 5px 0;
+}
+
+.bsh-roll-column {
+	float: left;
+	padding: 5px 0;
+	margin: 0;
+	width: 50%;
+}
+
+.bsh-roll-column-content {
+	font-size: 120%;
+	text-align: center;
+}
+
+.bsh-roll-column-title {
+	font-size: 120%;
+	font-weight: bold;
+	margin: 3px 0;
+	text-align: center;
+}
+
+.bsh-spell-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 125px 100px;
+	margin-bottom: 15px;
+	width: 98%;
+}
+
+.bsh-spirit-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 75px;
+	margin-bottom: 15px;
+	width: 98%;
+}
+
+.bsh-stats-line-2 {
+	display: grid;
+	gap: 0 3px;
+	grid-template-columns: auto 100px 100px;
+	margin-bottom: 10px;
+	width: 98%;
+}
+
+.bsh-stats-line-3 {
+	display: grid;
+	gap: 0 3px;
+	grid-template-columns: 55% 30% 15%;
+	margin-bottom: 10px;
+	width: 98%;
+}
+
+.bsh-stats-line-4 {
+	display: grid;
+	gap: 0 3px;
+	grid-template-columns: 25% 25% 25% 25%;
+	margin-bottom: 10px;
+	width: 98%;
+}
+
+.bsh-stories-container {
+	display: grid;
+	gap: 3px 5px;
+	grid-template-columns: 90% 10%;
+}
+
+.bsh-summoning-state {
+	font-size: 0.75em;
+}
+
+.bsh-roll-column-content {
+	font-size: 120%;
+	text-align: center;
+}
+
+.bsh-roll-column-title {
+	font-size: 120%;
+	font-weight: bold;
+	margin: 3px 0;
+	text-align: center;
+}
+
+.bsh-roll-failure {
+	background-color: #a00;
+	clear: both;
+	color: #fff;
+	margin-top: 5px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.bsh-roll-success {
+	background-color: #0a0;
+	clear: both;
+	color: #fff;
+	margin-top: 5px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.bsh-roll-title {
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+	padding: 5px 0;
+	text-align: center;
+}
+
+
+.bsh-tab-body-container {
+	border-top: solid 1px #777;
+	min-height: 100px;
+	padding: 5px;
+}
+
+.bsh-tab-label {
+	background-color: #ccc;
+	border-left: solid 1px #777;
+	border-right: solid 1px #777;
+	border-top: solid 1px #777;
+	color: #777;
+	cursor: pointer;
+	font-size: 1.1em;
+	padding: 5px 10px;
+}
+
+.bsh-tab-hidden {
+	display: none;
+}
+
+.bsh-tab-label-container {
+	display: grid;
+	gap: 0 2px;
+	grid-template-columns: auto auto auto auto auto;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 25px;
+}
+
+.bsh-tab-selected {
+	color: #000;
+	background-color: #fff;
+	font-weight: bold;
+}
+
+.bsh-weapon-body {
+	display: grid;
+	gap: 0 5px;
+	grid-template-columns: 33% 33% 33%;
+	margin: 10px 0;
+	width: 98%;
+}
+
+.bsh-weapon-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 75px 85px;
+	margin-bottom: 15px;
+	width: 98%;
+}
+
+.editor {
+	height: 200px;
+}
+
+.editor-content {
+	height: 200px;
+}

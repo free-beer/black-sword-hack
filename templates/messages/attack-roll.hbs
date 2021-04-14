@@ -1,0 +1,13 @@
+{{#doomed}}
+  {{> "systems/black-sword-hack/templates/messages/doomed.hbs"}}
+{{/doomed}}
+
+<p>
+    {{localize "bsh.messages.blurbs.attacksWith"}}: {{weapon}}
+</p>
+
+{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+
+{{#damage}}
+  {{> "systems/black-sword-hack/templates/messages/damage.hbs"}}
+{{/damage}}

@@ -1,0 +1,138 @@
+{
+  "Actor": {
+    "types" : ["character"],
+    "character": {
+      "armour": {
+        "description": "",
+        "type": "none",
+        "shield": "no"
+      },
+      "attributes": {
+        "strength": 10,
+        "dexterity" : 10,
+        "constitution": 10,
+        "intelligence": 10,
+        "wisdom": 10,
+        "charisma": 10
+      },
+      "backgrounds": {
+        "first": "",
+        "second": "",
+        "third": ""
+      },
+      "birth": "",
+      "coins": {
+        "first": 0,
+        "second": 0,
+        "third": 0,
+        "fourth": 0,
+        "fifth": 0
+      },
+      "currentHitPoints": 0,
+      "description": "",
+      "damageDice": {
+        "armed": "d6",
+        "unarmed": "d4"
+      },
+      "doom": "d6",
+      "gifts": [
+        "", "", "", "", ""
+      ],
+      "languages": [
+        "", "", "", "", ""
+      ],
+      "level": 1,
+      "origin": "barbarian",
+      "playerName": "",
+      "stories": {
+        "story01": "",
+        "story02": "",
+        "story03": "",
+        "story04": "",
+        "story05": "",
+        "story06": "",
+        "story07": "",
+        "story08": "",
+        "story09": "",
+        "story10": "",
+        "story11": "",
+        "story12": "",
+        "story13": "",
+        "story14": "",
+        "story15": "",
+        "story16": "",
+        "story17": "",
+        "story18": "",
+        "story19": "",
+        "story20": "",
+        "story21": "",
+        "story22": "",
+        "story23": "",
+        "story24": "",
+        "story25": "",
+        "story26": "",
+        "story27": "",
+        "story28": "",
+        "story29": "",
+        "story31": "",
+        "story32": "",
+        "story33": "",
+        "story34": "",
+        "story35": "",
+        "story36": "",
+        "story37": "",
+        "story38": "",
+        "story39": "",
+        "story40": "",
+        "story41": "",
+        "story42": "",
+        "story43": "",
+        "story44": "",
+        "story45": "",
+        "story46": "",
+        "story47": "",
+        "story48": "",
+        "story49": "",
+        "story50": ""
+      },
+      "summoning": {
+        "demon": "unused",
+        "spirit": "unused"
+      },
+      "tabSelected": "front-page"
+    }
+  },
+  "Item": {
+  	"types": ["consumable", "demon", "equipment", "spell", "spirit", "weapon"],
+  	"templates": {
+  	},
+    "consumable": {
+      "description": "",
+      "quantity": 1,
+      "rarity": "common",
+      "usageDie": {
+        "current": "^",
+        "maximum": "d4"}
+    },
+    "demon": {
+      "description": ""
+    },
+    "equipment": {
+      "description": "",
+      "rarity": "common"
+    },
+    "spell": {
+      "description": "",
+      "state": "available"
+    },
+    "spirit": {
+      "description": ""
+    },
+    "weapon": {
+      "description": "",
+      "hands": 1,
+      "rarity": "common",
+      "type": "melee"
+    }
+  }
+}

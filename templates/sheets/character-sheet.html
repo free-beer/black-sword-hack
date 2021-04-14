@@ -1,0 +1,54 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="bsh-cs-container" data-actor="{{actor._id}}">
+		<div class="bsh-cs-left-side">
+			<!-- Character Image -->
+			<div class="bsh-cs-img">
+				<center>
+				    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="96" width="96"/>
+				</center>
+			</div>
+			<hr>
+
+			<!-- Attribute List -->
+			{{> "systems/black-sword-hack/templates/partials/cs-attribute-list.hbs"}}
+		</div>
+
+		<div class="bsh-cs-main-body">
+			<div class="bsh-field">
+				<label class="bsh-label" for="actor.name">{{localize "bsh.fields.labels.name"}}</label>
+				<input type="text" name="name" value="{{actor.name}}" class="bsh-input"/>
+			</div>
+
+            <div class="bsh-stats-line-2">
+				<div class="bsh-field">
+					<label class="bsh-label" for="data.playerName">{{localize "bsh.fields.labels.playerName"}}</label>
+					<input type="text" name="data.playerName" value="{{data.playerName}}" class="bsh-input"/>
+				</div>
+
+				<div class="bsh-field">
+					<label class="bsh-label" for="level">{{localize "bsh.fields.labels.level"}}</label>
+					<input type="number" name="level" value="{{data.level}}" class="bsh-input bsh-centered-input" readonly />
+				</div>
+
+				<div class="bsh-field">
+					<label class="bsh-label" for="data.doom">
+                        <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor._id}}"></i>
+					    {{localize "bsh.fields.labels.doomDie"}}
+					</label>
+			    	<select name="data.doom" class="bsh-input bsh-select">
+					{{#select data.doom}}
+					{{#each configuration.usageDieList as |label value|}}
+			    		<option value="{{value}}">{{localize label}}</option>
+					{{/each}}
+					{{/select}}
+			    	</select>
+				</div>
+			</div>
+
+			<div class="bsh-tab-container">
+				{{> "systems/black-sword-hack/templates/partials/cs-tab-labels.hbs"}}
+				{{> "systems/black-sword-hack/templates/partials/cs-tab-bodies.hbs"}}
+			</div>
+		</div>
+	</div>
+</form>

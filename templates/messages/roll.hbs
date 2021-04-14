@@ -1,0 +1,29 @@
+<div class="bsh-roll-title">
+    <strong>{{labels.title}}</strong>
+</div>
+
+{{#expanded}}
+<div class="bsh-roll-details">
+{{/expanded}}
+{{^expanded}}
+<div class="bsh-roll-details bsh-hidden">
+{{/expanded}}
+    <div class="bsh-roll-column">
+        <div class="bsh-roll-column-title">{{localize "bsh.messages.titles.formula"}}</div>
+        <div class="bsh-roll-column-content">{{formula}}</div>
+    </div>
+    <div class="bsh-roll-column">
+        <div class="bsh-roll-column-title">{{localize "bsh.messages.titles.roll"}}</div>
+        <div class="bsh-roll-column-content">{{result}}</div>
+    </div>
+</div>
+
+{{#tested}}
+  {{#success}}
+<div class="bsh-roll-success">{{labels.result}}</div>
+  {{/success}}
+
+  {{^success}}
+<div class="bsh-roll-failure">{{labels.result}}</div>
+  {{/success}}
+{{/tested}}

@@ -1,0 +1,8 @@
+{{#doomed}}
+  {{> "systems/black-sword-hack/templates/messages/doomed.hbs"}}
+{{/doomed}}
+
+{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+<p class="bsh-damage-details">
+    {{localize "bsh.messages.blurbs.damageInflicted"}}: {{roll.result}}
+</p>
