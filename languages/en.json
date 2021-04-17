@@ -157,7 +157,8 @@
   			"notFound": "Unable to locate the specified spell."
   		},
   		"usageDie": {
-  			"exhausted": "Unable to make usage die roll as the usage die is currently exhausted."
+  			"exhausted": "Unable to make usage die roll as the usage die is currently exhausted.",
+        "notFound": "Unable to locate the item usage die details."
   		},
   		"weapons": {
   			"notFound": "Unable to locate the specified weapon.",
@@ -277,7 +278,9 @@
       "blurbs": {
         "attacksWith": "Attacks With",
         "damageInflicted": "Damage Inflicted",
-        "doomed": "Character Is Doomed!"
+        "doomed": "Character Is Doomed!",
+        "rollsDoom": "Doom Roll For",
+        "rollsUsageDie": "Usage Die Roll For"
       },
   		"demons": {
   			"summonFumbled": "Summoning of the %NAME% demon was unsuccessful. Roll on the %TABLE% table.",
@@ -311,11 +314,13 @@
       "titles": {
         "attackRoll": "Attack Roll",
         "damageRoll": "Damage Roll",
+        "doomRoll": "Doom Roll",
         "formula": "Roll",
-        "roll": "Result"
+        "roll": "Result",
+        "usageDieRoll": "Usage Die"
       },
   		"usageDie": {
-  			"downgraded": "Die is downgraded to a %DIE%.",
+  			"downgraded": "Die is downgraded to %DIE%.",
   			"exhausted": "Die is now exhausted.",
   			"unchanged": "Die is unchanged."
   		}

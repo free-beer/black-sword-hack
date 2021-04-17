@@ -8,7 +8,7 @@ import {downgradeDie, getActorById, interpolate} from './shared.js';
  * should be made with "advantage", "disadvantage" or just a "standard" single
  * die roll (the default).
  */
-export async function rollDoom(actor, rollType="standard") {
+export function rollDoom(actor, rollType="standard") {
     let result    = {die: {ending: null,
                            starting: null},
                      downgraded: false,
@@ -32,12 +32,12 @@ export async function rollDoom(actor, rollType="standard") {
         }
 
         roll.roll();
-        await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
+        result.formula = roll.formula;
+        result.result  = roll.total;
         if(roll.total < 3) {
             let newDie = downgradeDie(actorData.doom);
 
             console.log(`The doom die for ${actor.name} will be downgraded.`);
-            ui.notifications.warn(interpolate("bsh.messages.doom.downgraded", {die: newDie, name: actor.name}));
             result.downgraded = true;
             result.die.ending = newDie;
             data.data.doom    = newDie;

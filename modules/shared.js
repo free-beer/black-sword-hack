@@ -1,5 +1,5 @@
 import {BSHConfiguration} from './configuration.js';
-import {logAttackRoll, logAttributeTest, logDieRoll} from './chat_messages.js';
+import {logAttackRoll, logAttributeTest, logDieRoll, logItemUsageDieRoll} from './chat_messages.js';
 
 /**
  * Retrieves an actor from the game list of actors based on it's unique
@@ -259,38 +259,6 @@ export async function handleRollAttributeDieEvent(event) {
 
         if(actor) {
             logAttributeTest(actor, element.dataset.attribute, event.shiftKey, event.ctrlKey);
-            // let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
-
-            // if(element.dataset.attribute && attributes[element.dataset.attribute]) {
-            //     let data    = actor.data;
-            //     let roll    = null;
-            //     let message = null;
-
-            //     if(event.shiftKey) {
-            //         console.log("Making attribute test roll with advantage.");
-            //         roll = new Roll("2d20kl");
-            //     } else if(event.ctrlKey) {
-            //         console.log("Making attribute test roll with disadvantage.");
-            //         roll = new Roll("2d20kh");
-            //     } else {
-            //         console.log("Making attribute test roll.");
-            //         roll = new Roll("1d20");
-            //     }
-            //     roll.roll();
-            //     await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
-
-            //     if(roll.total < attributes[element.dataset.attribute]) {
-            //         message = interpolate("bsh.messages.attributeRollSuccess", {name: actor.name, attribute: element.dataset.attribute});
-            //     } else {
-            //         message = interpolate("bsh.messages.attributeRollFailed", {name: actor.name, attribute: element.dataset.attribute});
-            //     }
-            //     ChatMessage.create({content: message,
-            //                         speaker: ChatMessage.getSpeaker(),
-            //                         user:    game.user._id});
-            // } else {
-            //     console.error(`Unable to locate a valid attribute setting for attribute die roll.`);
-            //     ui.notifications.error(game.i18n.localize("bsh.errors.attributes.notFound"));
-            // }
         } else {
             console.error(`Unable to locate an actor with the id ${element.dataset.actor} for attribute die roll.`);
             ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
@@ -389,44 +357,45 @@ async function handleItemUsageDieRollEvent(event) {
     event.preventDefault();
     if(item) {
         if(element.dataset.die) {
-            let usageDie = getObjectField(`${element.dataset.die}.current`, item.data);
+            logItemUsageDieRoll(item, element.dataset.die, event.shiftKey, event.ctrlKey);
+            // let usageDie = getObjectField(`${element.dataset.die}.current`, item.data);
 
-            if(!usageDie || usageDie === "^") {
-                usageDie = getObjectField(`${element.dataset.die}.maximum`, item.data);
-            }
+            // if(!usageDie || usageDie === "^") {
+            //     usageDie = getObjectField(`${element.dataset.die}.maximum`, item.data);
+            // }
 
-            if(usageDie) {
-                if(usageDie !== "exhausted") {
-                    let roll    = new Roll(`1${usageDie}`);
-                    let message = "";
+            // if(usageDie) {
+            //     if(usageDie !== "exhausted") {
+            //         let roll    = new Roll(`1${usageDie}`);
+            //         let message = "";
 
-                    roll.roll();
-                    await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
-                    if(roll.total < 3) {
-                        let newDie = downgradeDie(usageDie);
-                        let data   = setObjectField(`${element.dataset.die}.current`, newDie);
+            //         roll.roll();
+            //         await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
+            //         if(roll.total < 3) {
+            //             let newDie = downgradeDie(usageDie);
+            //             let data   = setObjectField(`${element.dataset.die}.current`, newDie);
 
-                        item.update(data, {diff: true});
-                        if(newDie !== "exhausted") {
-                            message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
-                        } else {
-                            decrementItemQuantity(item._id);
-                            message = game.i18n.localize("bsh.messages.usageDie.exhausted");
-                        }
-                    } else {
-                        message = game.i18n.localize("bsh.messages.usageDie.unchanged");
-                    }
-                    await ChatMessage.create({content: message,
-                                              speaker: ChatMessage.getSpeaker(),
-                                              user:    game.user._id});
-                } else {
-                    console.warn(`Unable to roll usage die for item id ${item._id} as the particular usage die request is exhausted.`);
-                    ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
-                }
-            } else {
-                console.error(`Unable to locate the ${element.dataset.die} usage die setting for item id ${item._id}.`);
-                ui.notifications.error(game.i18n.localize("bsh.errors.attributes.invalid"));
-            }
+            //             item.update(data, {diff: true});
+            //             if(newDie !== "exhausted") {
+            //                 message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+            //             } else {
+            //                 decrementItemQuantity(item._id);
+            //                 message = game.i18n.localize("bsh.messages.usageDie.exhausted");
+            //             }
+            //         } else {
+            //             message = game.i18n.localize("bsh.messages.usageDie.unchanged");
+            //         }
+            //         await ChatMessage.create({content: message,
+            //                                   speaker: ChatMessage.getSpeaker(),
+            //                                   user:    game.user._id});
+            //     } else {
+            //         console.warn(`Unable to roll usage die for item id ${item._id} as the particular usage die request is exhausted.`);
+            //         ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
+            //     }
+            // } else {
+            //     console.error(`Unable to locate the ${element.dataset.die} usage die setting for item id ${item._id}.`);
+            //     ui.notifications.error(game.i18n.localize("bsh.errors.attributes.invalid"));
+            // }
         } else {
             console.error("Usage die roll requested but requesting element has no die path attribute.");
             ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));

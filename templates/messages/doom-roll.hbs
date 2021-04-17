@@ -1,0 +1,9 @@
+<p>
+    {{localize "bsh.messages.blurbs.rollsDoom"}}: {{actor}}
+</p>
+
+{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+
+{{#doomed}}
+  {{> "systems/black-sword-hack/templates/messages/doomed.hbs"}}
+{{/doomed}}

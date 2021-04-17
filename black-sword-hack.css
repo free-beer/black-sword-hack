@@ -126,10 +126,7 @@
 	width: 98%;
 }
 
-.bsh-doomed-noticed {
-	color: #a00;
-	font-size: 120%;
-	text-align: center;
+.bsh-doomed-notice {
 }
 
 .bsh.field {
@@ -299,7 +296,7 @@
 }
 
 .bsh-roll-title {
-	background-color: #000;
+	background-color: #4d0026;
 	color: #fff;
 	cursor: pointer;
 	padding: 5px 0;
@@ -358,6 +355,12 @@
 	grid-template-columns: auto 75px 85px;
 	margin-bottom: 15px;
 	width: 98%;
+}
+
+.bsh-usage-die-feedback {
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
 }
 
 .editor {

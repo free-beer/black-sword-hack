@@ -1,0 +1,11 @@
+<p>
+    {{localize "bsh.messages.blurbs.rollsUsageDie"}}: {{item}}
+</p>
+
+{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+
+{{#downgraded}}
+<p class="bsh-usage-die-feedback">
+    {{feedback}}
+</p>
+{{/downgraded}}

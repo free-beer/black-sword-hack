@@ -1,9 +1,13 @@
 import {BSHConfiguration} from './configuration.js';
+import {rollDoom} from './doom.js';
 import {calculateAttributeValues,
+        decrementItemQuantity,
+        downgradeDie,
         generateDamageRollFormula,
         generateDieRollFormula,
-        interpolate} from './shared.js';
-
+        getObjectField,
+        interpolate,
+        setObjectField} from './shared.js';
 
 export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false) {
     let actor  = game.actors.find((a) => a._id === actorId);
@@ -123,6 +127,32 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
 }
 
+export function logDamageRoll(event) {
+    let element  = event.currentTarget;
+    let rollData = element.dataset;
+
+    if(rollData.formula && rollData.actor) {
+        let actor   = game.actors.find((a) => a._id === rollData.actor);
+        let data    = {doomed: (rollData.doomed === "true"),
+                       roll:   {expanded: true,
+                                labels: {title: interpolate("bsh.messages.titles.damageRoll")},
+                                tested: false}};
+        let formula = rollData.formula;
+        let roll    = null;
+
+        data.roll.formula = formula;
+        roll              = new Roll(formula)
+        roll.roll();
+        data.roll.result  = roll.total;
+
+        showMessage(actor, "systems/black-sword-hack/templates/messages/damage-roll.hbs", data)
+    } else {
+        console.error("Damage roll requested but requesting element did not have a damage formula attribute.");
+    }
+
+    return(false);
+}
+
 export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false) {
     let doomed  = (actor.data.data.doom === "exhausted");
     let formula = (doomed ? `2${dieType}kl` : `1${dieType}`);
@@ -149,30 +179,101 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
     showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
 }
 
-export function logDamageRoll(event) {
-    let element  = event.currentTarget;
-    let rollData = element.dataset;
+export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
+    if(actor.data.data.doom !== "exhausted") {
+        let message  = {actor:    actor.name,
+                        actorId:  actor._id,
+                        roll:     {expanded: false,
+                                   formula:  "",
+                                   labels:   {result: "",
+                                              title:  interpolate("bsh.messages.titles.doomRoll")},
+                                   result:   0,
+                                   tested:   true}};
+        let rollType = "standard";
+        let result   = null;
 
-    if(rollData.formula && rollData.actor) {
-        let actor   = game.actors.find((a) => a._id === rollData.actor);
-        let data    = {doomed: (rollData.doomed === "true"),
-                       roll:   {expanded: true,
-                                labels: {title: interpolate("bsh.messages.titles.damageRoll")},
-                                tested: false}};
-        let formula = rollData.formula;
-        let roll    = null;
+        if(shiftKey) {
+            rollType = "advantage";
+        } else if(ctrlKey) {
+            rollType = "disadvantage";
+        }
+        result               = rollDoom(actor, rollType);
+        message.roll.formula = result.formula;
+        message.roll.result  = result.result;
+        message.roll.success = !result.downgraded;
+        if(!message.roll.success) {
+            message.roll.labels.result = interpolate("bsh.fields.titles.failure");
+            console.log("NEW DIE ROLL: ", result);
+            message.doomed = (result.die.ending === "exhausted");
+        } else {
+            message.roll.labels.result = interpolate("bsh.fields.titles.success");
+        }
 
-        data.roll.formula = formula;
-        roll              = new Roll(formula)
-        roll.roll();
-        data.roll.result  = roll.total;
-
-        showMessage(actor, "systems/black-sword-hack/templates/messages/damage-roll.hbs", data)
+        showMessage(actor, "systems/black-sword-hack/templates/messages/doom-roll.hbs", message);
     } else {
-        console.error("Damage roll requested but requesting element did not have a damage formula attribute.");
+        console.error(`Unable to make a doom roll for '${actor.name}' as their doom die is exhausted.`);
+        ui.notifications.error(interpolate("bsh.messages.doom.exhausted", {name: actor.name}));
+    }
+}
+
+export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) {
+    let usageDie = getObjectField(`${field}.current`, item.data);
+
+    if(!usageDie || usageDie === "^") {
+        usageDie = getObjectField(`${field}.maximum`, item.data);
     }
 
-    return(false);
+    if(usageDie) {
+        if(usageDie !== "exhausted") {
+            let message = {downgraded: false,
+                           item:       item.name,
+                           itemId:     item._id,
+                           roll:       {expanded: false,
+                                        formula:  `1${usageDie}`,
+                                        labels:   {result: "",
+                                                   title:  interpolate("bsh.messages.titles.usageDieRoll")},
+                                        result:   0,
+                                        tested:   true}};
+            let roll    = null;
+
+            if(shiftKey) {
+                message.roll.formula = `2${usageDie}kh`;
+            } else if(ctrlKey) {
+                message.roll.formula = `2${usageDie}kl`;
+            }
+            roll = new Roll(message.roll.formula)
+            roll.roll();
+
+            message.roll.result = roll.total;
+            if(roll.total < 3) {
+                let newDie = downgradeDie(usageDie);
+                let data   = setObjectField(`${field}.current`, newDie);
+
+                message.downgraded         = true;
+                message.roll.success       = false;
+                message.roll.labels.result = interpolate("bsh.fields.titles.failure");
+                item.update(data, {diff: true});
+                if(newDie === "exhausted") {
+                    decrementItemQuantity(item._id);
+                    message.feedback = game.i18n.localize("bsh.messages.usageDie.exhausted");
+                } else {
+                    message.feedback = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+                }
+            } else {
+                message.roll.success       = true;
+                message.roll.labels.result = interpolate("bsh.fields.titles.success");                
+            }
+
+            showMessage(item.actor, "systems/black-sword-hack/templates/messages/usage-die-roll.hbs", message);
+        } else {
+            console.warn(`Unable to roll usage die for item id ${item._id} as the particular usage die request is exhausted.`);
+            ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
+        }
+    } else {
+        console.error(`Unable to locate the ${field} usage die setting for item id ${item._id} (${item.name}).`);
+        ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.notFound"));
+    }
+
 }
 
 export function showMessage(actor, templateKey, data) {

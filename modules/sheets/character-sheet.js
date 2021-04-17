@@ -1,3 +1,4 @@
+import {logDoomDieRoll} from '../chat_messages.js';
 import {resetDarkPact,
         summonDemon,
         summonSpirit} from '../darkpacts.js';
@@ -225,14 +226,7 @@ export default class CharacterSheet extends ActorSheet {
 			let actor = getActorById(element.dataset.actor);
 
 			if(actor) {
-				let rollType = "standard";
-
-				if(event.shiftKey) {
-					rollType = "advantage";
-				} else if(event.ctrlKey) {
-					rollType = "disadvantage";
-				}
-				rollDoom(actor, rollType).then((result) => console.log("Doom Roll Result:", result));
+				logDoomDieRoll(actor, event.shiftKey, event.ctrlKey)
 			} else {
 				console.error(`Unable to find an actor with the id '${element.dataset.actor}'.`);
 			}
