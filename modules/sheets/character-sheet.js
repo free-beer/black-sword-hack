@@ -1,3 +1,4 @@
+import {randomizeCharacter} from '../characters.js';
 import {logDoomDieRoll} from '../chat_messages.js';
 import {resetDarkPact,
         summonDemon,
@@ -61,6 +62,7 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-reset-dark-pact-icon").click(this._onResetDarkPactClicked.bind(this));
 		html.find(".bsh-summon-demon-icon").click(this._onSummonDemonClicked.bind(this));
 		html.find(".bsh-summon-spirit-icon").click(this._onSummonSpiritClicked.bind(this));
+		html.find(".bsh-random-character-generator-button").click(this._onRandomizeMyCharacterClicked.bind(this));
 		super.activateListeners(html);
 	}
 
@@ -102,6 +104,16 @@ export default class CharacterSheet extends ActorSheet {
 		}
 
 		return(false);
+	}
+
+	_onRandomizeMyCharacterClicked(event) {
+		let element = event.currentTarget;
+		let actor   = game.actors.find((a) => a._id === element.dataset.id);
+
+		event.preventDefault();
+		if(actor) {
+			randomizeCharacter(actor);
+		}
 	}
 
 	_onResetDarkPactClicked(event) {

@@ -34,61 +34,61 @@
   	},
   	"backgrounds": {
   		"assassin": {
-  		  "name": "Assassin (Unique)"
+  		  "name": "Assassin (Decadent, Unique)"
   		},
   		"berserker": {
-  			"name": "Berserker (Unique)"
+  			"name": "Berserker (Barbarian, Unique)"
   		},
   		"bookworm": {
-  			"name": "Bookworm"
+  			"name": "Bookworm (Civilized)"
   		},
   		"forbidden_knowledge": {
-  			"name": "Forbidden Knowledge"
+  			"name": "Forbidden Knowledge (Decadent)"
   		},
   		"herbalist": {
-  			"name": "Herbalist"
+  			"name": "Herbalist (Barbarian)"
   		},
   		"hunter": {
-  			"name": "Hunter"
+  			"name": "Hunter (Barbarian)"
   		},
   		"inventor": {
-  			"name": "Inventor (Unique)"
+  			"name": "Inventor (Civilized, Unique)"
   		},
   		"legionnaire": {
-  			"name": "Legionnaire"
+  			"name": "Legionnaire (Civilized)"
   		},
   		"pit_fighter": {
-  			"name": "Pit Fighter"
+  			"name": "Pit Fighter (Decadent)"
   		},
   		"shaman": {
-  			"name": "Shaman"
+  			"name": "Shaman (Barbarian)"
   		},
   		"snake_blood": {
-  			"name": "Snake Blood"
+  			"name": "Snake Blood (Decadent)"
   		},
   		"sophist": {
-  			"name": "Sophist"
+  			"name": "Sophist (Civilized)"
   		},
   		"storyteller": {
-  			"name": "Storyteller"
+  			"name": "Storyteller (Barbarian)"
   		},
   		"street_urchin": {
-  			"name": "Street Urchin"
+  			"name": "Street Urchin (Civilized)"
   		},
   		"surgeon": {
-  		  "name": "Surgeon"
+  		  "name": "Surgeon (Civilized)"
   		},
   		"swordmaster": {
-  			"name": "Swordmaster"
+  			"name": "Swordmaster (Civilized)"
   		},
   		"vicious": {
-  			"name": "Vicious"
+  			"name": "Vicious (Decadent)"
   		},
   		"warlock": {
-  			"name": "Warlock"
+  			"name": "Warlock (Decadent)"
   		},
   		"wildling": {
-  			"name": "Wildling"
+  			"name": "Wildling (Barbarian)"
   		}
   	},
   	"births": {
@@ -115,8 +115,12 @@
   	},
   	"blurbs": {
   		"base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
+      "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
   		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The table below records the stories you've been part of and what level that makes you."
   	},
+    "buttons": {
+      "random_generation": "Randomize Me A Character!"
+    },
   	"data": {
   		"descriptions": {
   			"armedDamage": "damage",
@@ -246,6 +250,7 @@
   		"itemQuantity": "Quantity",
   		"itemUsageDie": "Die",
   		"level": "Level",
+      "random": "Randomly Generate Character",
   		"spellName": "Spell",
   		"spells": "Spells",
   		"spellState": "State",
