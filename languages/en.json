@@ -115,6 +115,7 @@
   	},
   	"blurbs": {
   		"base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
+      "critical_failure": "Your next attribute test should be made with disadvantage!",
       "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
   		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The table below records the stories you've been part of and what level that makes you."
   	},
@@ -232,6 +233,8 @@
   			"resetSpell": "Reset this spells state.",
   			"rollAttack": "Roll attack for weapon.",
   			"rollAttributeTest": "Roll attribute test.",
+        "rollDodge": "Roll to defend (Dodge).",
+        "rollParry": "Roll to defend (Parry).",
   			"rollDie": "Roll die.",
         "success": "Success!",
   			"summonDemon": "Summon this demon.",
@@ -301,10 +304,14 @@
         "buttons": {
           "rollDamage": "Roll Damage"
         },
-        "criticalFailure": "Critical Miss!",
-        "criticalSuccess": "Critical Hit!",
+        "criticalFailure": "Critical Fail!",
+        "criticalHit": "Critical Hit!",
+        "criticalMiss": "Critical Miss!",
+        "criticalSuccess": "Critical Success!",
+        "failure": "Failed.",
         "hit": "Hit!",
-        "miss": "Missed."
+        "miss": "Missed.",
+        "success": "Success!"
       },
   		"spells": {
   			"castFumbled": "Casting of the %NAME% spelled failed badly. Roll on the %TABLE% table!",
@@ -319,8 +326,10 @@
       "titles": {
         "attackRoll": "Attack Roll",
         "damageRoll": "Damage Roll",
+        "dodgeRoll": "Dodge Roll",
         "doomRoll": "Doom Roll",
         "formula": "Roll",
+        "parryRoll": "Parry Roll",
         "roll": "Result",
         "usageDieRoll": "Usage Die"
       },

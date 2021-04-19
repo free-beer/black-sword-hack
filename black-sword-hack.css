@@ -126,6 +126,12 @@
 	width: 98%;
 }
 
+.bsh-dice-roll-additional {
+	color: #a00;
+	font-size: 120%;
+	text-align: center;
+}
+
 .bsh-doomed-notice {
 }
 

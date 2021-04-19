@@ -56,9 +56,9 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false) 
                 data.roll.labels.result = interpolate(data.roll.success ? "bsh.messages.labels.hit" : "bsh.messages.labels.miss");
             } else {
                 if(critical.success) {
-                    data.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+                    data.roll.labels.result = interpolate("bsh.messages.labels.criticalHit");
                 } else {
-                    data.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
+                    data.roll.labels.result = interpolate("bsh.messages.labels.criticalMiss");
                 }
             }
 
@@ -87,7 +87,7 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     let message    = {actor:    actor.name, 
                       actorId:  actor._id,
                       roll:     {doomed:   doomed,
-                                 expanded: true,
+                                 expanded: false,
                                  formula:  (doomed ? "2d20kh" : "1d20"),
                                  labels:   {result: "", title: ""},
                                  result:   0,
@@ -112,7 +112,7 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     message.roll.result  = roll.total;
     message.roll.success = (critical.success || roll.total < attributes[attribute]);
     if(message.roll.success) {
-        if(critical.failure) {
+        if(critical.success) {
             message.roll.labels.result = game.i18n.localize("bsh.fields.titles.criticalSuccess");
         } else {
             message.roll.labels.result = game.i18n.localize("bsh.fields.titles.success");
@@ -120,6 +120,8 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     } else {
         if(critical.failure) {
             message.roll.labels.result = game.i18n.localize("bsh.fields.titles.criticalFailure");
+            message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                                          show: true};
         } else {
             message.roll.labels.result = game.i18n.localize("bsh.fields.titles.failure");
         }
@@ -153,6 +155,26 @@ export function logDamageRoll(event) {
     return(false);
 }
 
+export function logDefendRoll(event) {
+    let element = event.currentTarget;
+
+    if(element.dataset.attribute && element.dataset.actor) {
+        let actor = game.actors.find((a) => a._id === element.dataset.actor);
+
+        if(actor) {
+            if(element.dataset.attribute === "strength") {
+                logParryRoll(actor);
+            } else {
+                logDodgeRoll(actor);
+            }
+        } else {
+            console.error(`Unable to find an actor with the id of '${element.dataset.id}'.`);
+        }
+    } else {
+        console.error("Defend roll request but requesting element is missing an attribute and/or id data attribute.");
+    }
+}
+
 export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false) {
     let doomed  = (actor.data.data.doom === "exhausted");
     let formula = (doomed ? `2${dieType}kl` : `1${dieType}`);
@@ -176,6 +198,47 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
     roll = new Roll(formula);
     roll.roll();
     message.roll.result = roll.total;
+    showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+}
+
+export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
+    let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
+    let critical   = {failure: false, success: false};
+    let dice       = null;
+    let doomed     = (actor.data.data.doom === "exhausted");
+    let title      = interpolate("bsh.messages.titles.dodgeRoll");
+    let message    = {actor:    actor.name, 
+                      actorId:  actor._id,
+                      doomed:   doomed,
+                      roll:     {expanded: false,
+                                 formula:  "",
+                                 labels:   {title: title},
+                                 result:   0,
+                                 tested:   true}};
+
+    if(doomed) {
+        message.roll.formula = (shiftKey ? "1d20" : "2d20kh");
+    } else {
+        message.roll.formula = (shiftKey ? "2d20kl" : "1d20");
+    }
+    dice = new Roll(message.roll.formula);
+    dice.roll();
+
+    critical.failure     = (dice.total === 20);
+    critical.success     = (dice.total === 1);
+    message.roll.result  = dice.total;
+    message.roll.success = (critical.success || dice.total < attributes["dexterity"]);
+
+    if(!critical.success && !critical.failure) {
+        message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+    } else {
+        if(critical.success) {
+            message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+        } else {
+            message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
+        }
+    }
+
     showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
 }
 
@@ -203,7 +266,6 @@ export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
         message.roll.success = !result.downgraded;
         if(!message.roll.success) {
             message.roll.labels.result = interpolate("bsh.fields.titles.failure");
-            console.log("NEW DIE ROLL: ", result);
             message.doomed = (result.die.ending === "exhausted");
         } else {
             message.roll.labels.result = interpolate("bsh.fields.titles.success");
@@ -274,6 +336,48 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
         ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.notFound"));
     }
 
+}
+
+export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
+    let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
+    let critical   = {failure: false, success: false};
+    let dice       = null;
+    let doomed     = (actor.data.data.doom === "exhausted");
+    let title      = interpolate("bsh.messages.titles.parryRoll");
+    let message    = {actor:    actor.name, 
+                      actorId:  actor._id,
+                      doomed:   doomed,
+                      roll:     {expanded: false,
+                                 formula:  "",
+                                 labels:   {title: title},
+                                 result:   0,
+                                 tested:   true}};
+    let shield     = (actor.data.data.armour.shield === "yes");
+
+    if(doomed) {
+        message.roll.formula = (shiftKey || shield ? "1d20" : "2d20kh");
+    } else {
+        message.roll.formula = (shiftKey || shield ? "2d20kl" : "1d20");
+    }
+    dice = new Roll(message.roll.formula);
+    dice.roll();
+
+    critical.failure     = (dice.total === 20);
+    critical.success     = (dice.total === 1);
+    message.roll.result  = dice.total;
+    message.roll.success = (critical.success || dice.total < attributes["strength"]);
+
+    if(!critical.success && !critical.failure) {
+        message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+    } else {
+        if(critical.success) {
+            message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+        } else {
+            message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
+        }
+    }
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
 }
 
 export function showMessage(actor, templateKey, data) {
