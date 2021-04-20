@@ -139,6 +139,10 @@
 	width: 100%;
 }
 
+.bsh-float-left {
+	float: left;
+}
+
 .bsh-float-right {
 	float: right;
 }
@@ -367,6 +371,10 @@
 	font-size: 120%;
 	font-weight: bold;
 	text-align: center;
+}
+
+.collapsible-widget {
+	margin-bottom: 20px;
 }
 
 .editor {

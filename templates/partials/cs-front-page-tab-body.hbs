@@ -68,46 +68,79 @@
         </div>
     </div>
 
-	<h2>{{localize "bsh.headers.weapons"}}</h2>
-	<div class="bsh-weapon-entries">
-    	<div>
-    	    <span class="bsh-column-header">{{localize "bsh.headers.weaponName"}}</span>
-    	</div>
-    	<div>
-	    	<span class="bsh-column-header">{{localize "bsh.headers.weaponKind"}}</span>
-    	</div>
-    	<div></div>
-	{{#each weapons as |weapon id|}}
-	    {{> "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs" weapon}}
-	{{/each}}
+    <div class="collapsible-widget" data-expanded="true">
+    	<h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.weapons"}}
+        </h2>
+        <div class="collapsible-widget-target">
+        	<div class="bsh-weapon-entries">
+            	<div>
+            	    <span class="bsh-column-header">{{localize "bsh.headers.weaponName"}}</span>
+            	</div>
+            	<div>
+        	    	<span class="bsh-column-header">{{localize "bsh.headers.weaponKind"}}</span>
+            	</div>
+                <div></div>
+        	{{#each weapons as |weapon id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs" weapon}}
+        	{{/each}}
+            </div>
+        </div>
     </div>
 
-    <h2>{{localize "bsh.headers.consumables"}}</h2>
-    <div class="bsh-consumable-entries">
-    	<div>
-    	    <span class="bsh-column-header">{{localize "bsh.headers.itemName"}}</span>
-    	</div>
-    	<div>
-    	    <center>
-    	    	<span class="bsh-column-header">{{localize "bsh.headers.itemQuantity"}}</span>
-    	    </center>
-    	</div>
-    	<div>
-    	    <center>
-    	    	<span class="bsh-column-header">{{localize "bsh.headers.itemUsageDie"}}</span>
-    	    </center>
-    	</div>
-    	<div></div>
-	{{#each consumables as |consumable id|}}
-	    {{> "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs" consumable}}
-	{{/each}}
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.consumables"}}
+        </h2>
+        <div class="collapsible-widget-target">
+            <div class="bsh-consumable-entries">
+            	<div>
+            	    <span class="bsh-column-header">{{localize "bsh.headers.itemName"}}</span>
+            	</div>
+            	<div>
+            	    <center>
+            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemQuantity"}}</span>
+            	    </center>
+            	</div>
+            	<div>
+            	    <center>
+            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemUsageDie"}}</span>
+            	    </center>
+            	</div>
+            	<div></div>
+        	{{#each consumables as |consumable id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs" consumable}}
+        	{{/each}}
+            </div>
+        </div>
     </div>
 
-    <h2>{{localize "bsh.headers.equipment"}}</h2>
-    <div class="bsh-equipment-entries">
-	{{#each equipment as |item id|}}
-	    {{> "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs" item}}
-	{{/each}}
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.equipment"}}
+        </h2>
+        <div class="collapsible-widget-target">
+            <div class="bsh-equipment-entries">
+        	{{#each equipment as |item id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs" item}}
+        	{{/each}}
+            </div>
+        </div>
     </div>
 
     <h2>{{localize "bsh.headers.wealth"}}</h2>
