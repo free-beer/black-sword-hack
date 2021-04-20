@@ -377,6 +377,10 @@
 	margin-bottom: 20px;
 }
 
+.collapsible-widget-toggle i {
+	font-size: 80%;
+}
+
 .editor {
 	height: 200px;
 }
