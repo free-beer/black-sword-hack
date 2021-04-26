@@ -289,6 +289,62 @@ export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
     }
 }
 
+export function logInitiativeRoll(event) {
+    let element = event.currentTarget;
+
+    if(element.dataset.actor) {
+        let actor      = game.actors.find((a) => a._id === element.dataset.actor);
+        let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
+        let critical   = {failure: false, success: false};
+        let dice       = null;
+        let doomed     = (actor.data.data.doom === "exhausted");
+        let title      = interpolate("bsh.messages.titles.initiativeRoll");
+        let message    = {actor:    actor.name, 
+                          actorId:  actor._id,
+                          doomed:   doomed,
+                          roll:     {expanded: false,
+                                     formula:  "",
+                                     labels:   {title: title},
+                                     result:   0,
+                                     tested:   true}};
+
+        if(!doomed) {
+            if(event.shiftKey) {
+                message.roll.formula = "2d20kl";
+            } else if(event.ctrlKey) {
+                message.roll.formula = "2d20kh";
+            } else {
+                message.roll.formula = "1d20";
+            }
+        } else {
+            message.roll.formula = (event.shiftKey ? "1d20" : "2d20kh");
+        }
+        dice = new Roll(message.roll.formula);
+        dice.roll();
+
+        critical.failure     = (dice.total === 20);
+        critical.success     = (dice.total === 1);
+        message.roll.result  = dice.total;
+        message.roll.success = (critical.success || dice.total < attributes["wisdom"]);
+
+        if(!critical.success && !critical.failure) {
+            message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+        } else {
+            if(critical.success) {
+                message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+            } else {
+                message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
+                message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                                              show: true};
+            }
+        }
+
+        showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+    } else {
+        console.error("Initiative roll requested but requesting element is missing an actor id data attribute.");
+    }
+}
+
 export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) {
     let usageDie = getObjectField(`${field}.current`, item.data);
 

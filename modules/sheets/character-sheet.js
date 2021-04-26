@@ -2,6 +2,7 @@ import {randomizeCharacter} from '../characters.js';
 import {initializeCollapsibles} from '../collapsible.js';
 import {logDefendRoll,
 	    logDoomDieRoll,
+	    logInitiativeRoll,
 	    logPerceptionRoll} from '../chat_messages.js';
 import {resetDarkPact,
         summonDemon,
@@ -67,7 +68,8 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-summon-spirit-icon").click(this._onSummonSpiritClicked.bind(this));
 		html.find(".bsh-random-character-generator-button").click(this._onRandomizeMyCharacterClicked.bind(this));
 		html.find(".bsh-defend-roll-icon").click(logDefendRoll);
-		html.find(".bsh-preception-roll-icon").click(logPerceptionRoll);
+		html.find(".bsh-initiative-roll-icon").click(logInitiativeRoll);
+		html.find(".bsh-perception-roll-icon").click(logPerceptionRoll);
 		initializeCollapsibles();
 		super.activateListeners(html);
 	}
