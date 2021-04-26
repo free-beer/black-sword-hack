@@ -245,7 +245,7 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
             message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
         } else {
             message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-            message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+            message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.defend_fumble"),
                                           show: true};
         }
     }
@@ -447,7 +447,7 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
             message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
         } else {
             message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-            message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+            message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.defend_fumble"),
                                           show: true};
         }
     }
