@@ -115,7 +115,7 @@
   	},
   	"blurbs": {
   		"base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
-      "critical_failure": "Your next attribute test should be made with disadvantage!",
+      "critical_failure": "Your next attribute test or attack roll should be made with disadvantage!",
       "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
   		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The table below records the stories you've been part of and what level that makes you."
   	},
@@ -235,6 +235,7 @@
   			"rollAttributeTest": "Roll attribute test.",
         "rollDodge": "Roll to defend (Dodge).",
         "rollParry": "Roll to defend (Parry).",
+        "rollPerception": "Roll perception.",
   			"rollDie": "Roll die.",
         "success": "Success!",
   			"summonDemon": "Summon this demon.",
@@ -330,6 +331,7 @@
         "doomRoll": "Doom Roll",
         "formula": "Roll",
         "parryRoll": "Parry Roll",
+        "perceptionRoll": "Perception Roll",
         "roll": "Result",
         "usageDieRoll": "Usage Die"
       },
