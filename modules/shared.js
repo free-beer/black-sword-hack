@@ -91,7 +91,7 @@ export function calculateAttributeValues(data, configuration) {
  * and level.
  */
 export function calculateMaximumHitPoints(data, level) {
-    let total = data.attributes.constitution;
+    let total = data.calculated.constitution;
 
     if(level < 10) {
         total += (level - 1);
@@ -358,44 +358,6 @@ async function handleItemUsageDieRollEvent(event) {
     if(item) {
         if(element.dataset.die) {
             logItemUsageDieRoll(item, element.dataset.die, event.shiftKey, event.ctrlKey);
-            // let usageDie = getObjectField(`${element.dataset.die}.current`, item.data);
-
-            // if(!usageDie || usageDie === "^") {
-            //     usageDie = getObjectField(`${element.dataset.die}.maximum`, item.data);
-            // }
-
-            // if(usageDie) {
-            //     if(usageDie !== "exhausted") {
-            //         let roll    = new Roll(`1${usageDie}`);
-            //         let message = "";
-
-            //         roll.roll();
-            //         await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
-            //         if(roll.total < 3) {
-            //             let newDie = downgradeDie(usageDie);
-            //             let data   = setObjectField(`${element.dataset.die}.current`, newDie);
-
-            //             item.update(data, {diff: true});
-            //             if(newDie !== "exhausted") {
-            //                 message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
-            //             } else {
-            //                 decrementItemQuantity(item._id);
-            //                 message = game.i18n.localize("bsh.messages.usageDie.exhausted");
-            //             }
-            //         } else {
-            //             message = game.i18n.localize("bsh.messages.usageDie.unchanged");
-            //         }
-            //         await ChatMessage.create({content: message,
-            //                                   speaker: ChatMessage.getSpeaker(),
-            //                                   user:    game.user._id});
-            //     } else {
-            //         console.warn(`Unable to roll usage die for item id ${item._id} as the particular usage die request is exhausted.`);
-            //         ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
-            //     }
-            // } else {
-            //     console.error(`Unable to locate the ${element.dataset.die} usage die setting for item id ${item._id}.`);
-            //     ui.notifications.error(game.i18n.localize("bsh.errors.attributes.invalid"));
-            // }
         } else {
             console.error("Usage die roll requested but requesting element has no die path attribute.");
             ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
@@ -418,34 +380,6 @@ export async function handleWeaponRollEvent(event) {
         if(weapon) {
             if(weapon.actor) {
                 logAttackRoll(weapon.actor._id, weapon._id, event.shiftKey, event.ctrlKey);
-                // let roll        = null;
-                // let targetValue = 0;
-                // let message     = "";
-                // let attributes  = calculateAttributeValues(weapon.actor.data.data, BSHConfiguration);
-
-                // if(event.shiftKey) {
-                //     roll = new Roll("2d20kl");
-                // } else if(event.ctrlKey) {
-                //     roll = new Roll("2d20kh");
-                // } else {
-                //     roll = new Roll("1d20");
-                // }
-                // roll.roll();
-                // await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
-
-                // if(weapon.data.data.type !== "ranged") {
-                //     targetValue = attributes.strength;
-                // } else {
-                //     targetValue = attributes.dexterity;
-                // }
-                // if(roll.total < targetValue) {
-                //     message = game.i18n.localize("bsh.messages.attackHit");
-                // } else {
-                //     message = game.i18n.localize("bsh.messages.attackMiss");
-                // }
-                // await ChatMessage.create({content: message,
-                //                           speaker: ChatMessage.getSpeaker(),
-                //                           user:    game.user._id});
             } else {
                 console.error(`Unable to make a weapon attack roll for weapon id '${weapon._id}' as it is not an owned item.`);
                 ui.notifications.error(game.i18n.localize("bsh.errors.weapons.unowned"));
