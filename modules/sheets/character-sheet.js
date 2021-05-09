@@ -8,6 +8,8 @@ import {resetDarkPact,
         summonDemon,
         summonSpirit} from '../darkpacts.js';
 import {rollDoom} from '../doom.js';
+import {takeLongRest,
+        takeShortRest} from '../rests.js';
 import {calculateCharacterData,
 	    decrementItemQuantity,
 	    getActorById,
@@ -70,6 +72,7 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-defend-roll-icon").click(logDefendRoll);
 		html.find(".bsh-initiative-roll-icon").click(logInitiativeRoll);
 		html.find(".bsh-perception-roll-icon").click(logPerceptionRoll);
+		html.find(".bsh-rest-icon").click(this._onTakeRestClicked.bind(this));
 		initializeCollapsibles();
 		super.activateListeners(html);
 	}
@@ -281,6 +284,32 @@ export default class CharacterSheet extends ActorSheet {
 			this.showTabBody(element.dataset.tab);
 		}
 		return(false);
+	}
+
+	_onTakeRestClicked(event) {
+		let element = event.currentTarget;
+
+        if(element.dataset.actor) {
+		    if(element.dataset.type) {
+		    	let actor = getActorById(element.dataset.actor);
+
+		    	if(actor) {
+		    		if(element.dataset.type === "long") {
+		    			takeLongRest(actor);
+		    		} else if(element.dataset.type === "short") {
+		    			takeShortRest(actor);
+		    		} else {
+		    			console.error(`Unrecognised type '${element.dataset.type}' specified for rest.`);
+		    		}
+		    	} else {
+		    		console.error(`Unable to locate an actor with the id ${element.dataset.actor}.`);
+		    	}
+		    } else {
+		    	console.error("Rest requested but requesting element has no rest type data attribute.");
+		    }
+        } else {
+        	console.error("Rest requested but requesting element has no actor data attribute.");
+        }
 	}
 
 	_onUsageDieRollClicked(event) {

@@ -123,6 +123,12 @@
     "buttons": {
       "random_generation": "Randomize Me A Character!"
     },
+    "controls": {
+      "titles": {
+        "longRest": "Take a long rest",
+        "shortRest": "Take a short rest"
+      }
+    },
   	"data": {
   		"descriptions": {
   			"armedDamage": "damage",
@@ -288,10 +294,17 @@
   		"attributeRollSuccess": "%NAME% %ATTRIBUTE% attribute test successful.",
       "blurbs": {
         "attacksWith": "Attacks With",
+        "calls": "Calls",
+        "callFailure": "The spirit chooses to ignore the call!",
+        "callSuccess": "The spirit responds to the call!",
         "damageInflicted": "Damage Inflicted",
         "doomed": "Character Is Doomed!",
         "rollsDoom": "Doom Roll For",
-        "rollsUsageDie": "Usage Die Roll For"
+        "rollsUsageDie": "Usage Die Roll For",
+        "summons": "Summons",
+        "summonFailure": "The demon chooses to ignore the summoning!",
+        "summonFumble": "The demon is angered by the summoning (roll on the Demon's Revenge table)!",
+        "summonSuccess": "The demon answers the summoning!"
       },
   		"demons": {
   			"summonFumbled": "Summoning of the %NAME% demon was unsuccessful. Roll on the %TABLE% table.",
@@ -316,6 +329,10 @@
         "miss": "Missed.",
         "success": "Success!"
       },
+      "rests": {
+        "longRest": "The benefits of a long rest have been applied to %NAME%.",
+        "shortRest": "The benefits of a short rest have been applied to %NAME%."
+      },
   		"spells": {
   			"castFumbled": "Casting of the %NAME% spelled failed badly. Roll on the %TABLE% table!",
   			"castFailed": "Casting of the %NAME% spell failed.",
@@ -336,6 +353,8 @@
         "parryRoll": "Parry Roll",
         "perceptionRoll": "Perception Roll",
         "roll": "Result",
+        "summonDemon": "Summon Demon (Doom Roll)",
+        "summonSpirit": "Call Spirit (Doom Roll)",
         "usageDieRoll": "Usage Die"
       },
   		"usageDie": {

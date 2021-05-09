@@ -9,7 +9,7 @@ import {calculateAttributeValues,
         interpolate,
         setObjectField} from './shared.js';
 
-export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, expanded=true) {
+export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, expanded=false) {
     let actor  = game.actors.find((a) => a._id === actorId);
 
     if(actor) {
@@ -178,6 +178,41 @@ export function logDefendRoll(event) {
     }
 }
 
+export function logDemonSummoning(demon, result) {
+    let actor   = demon.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor._id,
+                   demon:   demon.name,
+                   doomed:  result.doomed,
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
+                                        title: game.i18n.localize("bsh.messages.titles.summonDemon")},
+                             result:   result.result,
+                             success:  true,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/demon-success.hbs", message);
+}
+
+export function logDemonSummoningFailure(demon, result) {
+    let actor   = demon.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor._id,
+                   demon:   demon.name,
+                   doomed:  result.doomed,
+                   fumble:  (result.die.ending === "exhausted"),
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
+                                        title: game.i18n.localize("bsh.messages.titles.summonDemon")},
+                             result:   result.result,
+                             success:  false,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/demon-failure.hbs", message);
+}
+
 export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false) {
     let doomed  = (actor.data.data.doom === "exhausted");
     let formula = (doomed ? `2${dieType}kl` : `1${dieType}`);
@@ -188,7 +223,7 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
                               formula:  formula,
                               labels:   {title: title},
                               result:   0,
-                              tested:   false}};
+                              tested:   true}};
     let roll    = null;
 
     if(shiftKey) {

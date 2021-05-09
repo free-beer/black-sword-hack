@@ -204,6 +204,11 @@
 	margin: 5px 0;
 }
 
+.bsh-rest-icon {
+	font-size: 1.5em;
+	margin: 5px 7px;
+}
+
 .bsh-roll-column {
 	float: left;
 	padding: 5px 0;
@@ -269,6 +274,12 @@
 	display: grid;
 	gap: 3px 5px;
 	grid-template-columns: 90% 10%;
+}
+
+.bsh-summon-results {
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;	
 }
 
 .bsh-summoning-state {

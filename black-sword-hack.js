@@ -12,6 +12,8 @@ async function preloadHandlebarsTemplates() {
     const paths = ["systems/black-sword-hack/templates/messages/attack-roll.hbs",
                    "systems/black-sword-hack/templates/messages/damage.hbs",
                    "systems/black-sword-hack/templates/messages/damage-roll.hbs",
+                   "systems/black-sword-hack/templates/messages/demon-failure.hbs",
+                   "systems/black-sword-hack/templates/messages/demon-success.hbs",
                    "systems/black-sword-hack/templates/messages/die-roll.hbs",
                    "systems/black-sword-hack/templates/messages/doomed.hbs",
                    "systems/black-sword-hack/templates/messages/doom-roll.hbs",

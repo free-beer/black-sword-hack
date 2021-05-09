@@ -1,5 +1,5 @@
 import {BSHConfiguration} from './configuration.js';
-import {downgradeDie, getActorById, interpolate} from './shared.js';
+import {calculateCharacterData, downgradeDie, getActorById, interpolate} from './shared.js';
 
 /**
  * This function makes a doom role for a specified actor, downgrading the actors
@@ -63,9 +63,35 @@ export async function exhaustDoomDie(actor) {
     }
 
     if(actor) {
-        let data = {data: {doom: "exhausted",
-                           summoning: {demon: "unavailable", spirit: "unavailable"}}};
+        let updates = {data:      {doom: "exhausted",
+                       summoning: {demon: "unavailable",
+                                   spirit: "unavailable"}}};
+
+        actor.update(updates, {diff: true});
     } else {
         console.error("Unable to find the specified actor to exhaust their Doom die.");
+    }
+}
+
+/**
+ * Resets a characters Doom Die to it's normal maximum level.
+ */
+export function resetDoomDie(actor) {
+    if(typeof actor === "string") {
+        actor = getActorById(actor);
+    }
+
+    if(actor) {
+        let data    = actor.data.data;
+        let updates = {data: {doom: "d6"}};
+
+        calculateCharacterData(data, CONFIG.configuration);
+        if(actor.level > 9) {
+            updates.data.doom = "d8";
+        }
+        console.log(`Resetting the Doom Die for ${actor.name} to 1${updates.data.doom}.`);
+        actor.update(updates, {diff: true});
+    } else {
+        console.error("Unable to find the specified actor to reset their Doom die.");
     }
 }

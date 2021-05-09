@@ -1,3 +1,5 @@
+import {logDemonSummoning,
+        logDemonSummoningFailure} from './chat_messages.js';
 import {BSHConfiguration} from './configuration.js';
 import {rollDoom} from './doom.js';
 import {calculateAttributeValues,
@@ -43,16 +45,15 @@ export async function summonDemon(demonId, rollType) {
                 }
             }
 
-            rollDoom(demon.actor, rollType).then((result) => {
-                demon.actor.update({data: {summoning: {demon: "used"}}}, {diff: true});
-                if(!result.die.ending !== "exhausted") {
-                    ui.notifications.info(interpolate("bsh.messages.demons.summonSuccessful", {name: demon.name}));
-                } else {
-                    let tableName = game.i18n.localize("bsh.demons.tableName");
-                    ui.notifications.warn(interpolate("bsh.messages.demons.summonFumbled",
-                                                      {name: demon.name, table: tableName}));
-                }
-            });
+            let result = rollDoom(demon.actor, rollType);
+
+            demon.actor.update({data: {summoning: {demon: "used"}}}, {diff: true});
+            result.doomed = (result.die.ending === "exhausted");
+            if(result.downgraded) {
+                logDemonSummoningFailure(demon, result);
+            } else {
+                logDemonSummoning(demon, result);
+            }
         } else {
             console.error(`Unable to summon the '${demon.name}' demon as your Doom die is exhausted.`);
             ui.notifications.error(interpolate("bsh.messages.demons.unavailable", {name: demon.name}));
