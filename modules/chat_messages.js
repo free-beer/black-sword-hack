@@ -258,7 +258,7 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
                               formula:  formula,
                               labels:   {title: title},
                               result:   0,
-                              tested:   true}};
+                              tested:   false}};
     let roll    = null;
 
     if(shiftKey) {
