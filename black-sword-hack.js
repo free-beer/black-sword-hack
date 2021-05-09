@@ -18,6 +18,8 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/messages/doomed.hbs",
                    "systems/black-sword-hack/templates/messages/doom-roll.hbs",
                    "systems/black-sword-hack/templates/messages/roll.hbs",
+                   "systems/black-sword-hack/templates/messages/spirit-failure.hbs",
+                   "systems/black-sword-hack/templates/messages/spirit-success.hbs",
                    "systems/black-sword-hack/templates/messages/usage-die-roll.hbs",
                    "systems/black-sword-hack/templates/partials/cs-attribute-list.hbs",
                    "systems/black-sword-hack/templates/partials/cs-background-tab-body.hbs",

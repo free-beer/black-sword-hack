@@ -294,7 +294,7 @@
   		"attributeRollSuccess": "%NAME% %ATTRIBUTE% attribute test successful.",
       "blurbs": {
         "attacksWith": "Attacks With",
-        "calls": "Calls",
+        "calls": "Calls Upon",
         "callFailure": "The spirit chooses to ignore the call!",
         "callSuccess": "The spirit responds to the call!",
         "damageInflicted": "Damage Inflicted",
@@ -345,6 +345,7 @@
   		},
       "titles": {
         "attackRoll": "Attack Roll",
+        "callSpirit": "Call Spirit (Doom Roll)",
         "damageRoll": "Damage Roll",
         "dodgeRoll": "Dodge Roll",
         "doomRoll": "Doom Roll",
@@ -354,7 +355,6 @@
         "perceptionRoll": "Perception Roll",
         "roll": "Result",
         "summonDemon": "Summon Demon (Doom Roll)",
-        "summonSpirit": "Call Spirit (Doom Roll)",
         "usageDieRoll": "Usage Die"
       },
   		"usageDie": {

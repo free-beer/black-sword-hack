@@ -132,6 +132,41 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
 }
 
+export function logCallSpirit(spirit, result) {
+    let actor   = spirit.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor._id,
+                   spirit:  spirit.name,
+                   doomed:  result.doomed,
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
+                                        title: game.i18n.localize("bsh.messages.titles.callSpirit")},
+                             result:   result.result,
+                             success:  true,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/spirit-success.hbs", message);
+}
+
+export function logCallSpiritFailure(spirit, result) {
+    let actor   = spirit.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor._id,
+                   spirit:  spirit.name,
+                   doomed:  result.doomed,
+                   fumble:  (result.die.ending === "exhausted"),
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
+                                        title: game.i18n.localize("bsh.messages.titles.callSpirit")},
+                             result:   result.result,
+                             success:  false,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/spirit-failure.hbs", message);
+}
+
 export function logDamageRoll(event) {
     let element  = event.currentTarget;
     let rollData = element.dataset;

@@ -1,4 +1,6 @@
-import {logDemonSummoning,
+import {logCallSpirit,
+        logCallSpiritFailure,
+        logDemonSummoning,
         logDemonSummoningFailure} from './chat_messages.js';
 import {BSHConfiguration} from './configuration.js';
 import {rollDoom} from './doom.js';
@@ -72,7 +74,7 @@ export async function summonSpirit(spiritId, rollType) {
 
     if(spirit && spirit.type === "spirit") {
         if(spirit.actor.data.data.doom !== "exhausted") {
-            if(spirit.actor.data.data.summoning.demon !== "unused") {
+            if(spirit.actor.data.data.summoning.spirit !== "unused") {
                 if(rollType === "advantage") {
                     console.log("Summoning roll downgrade from advantage to standard as demon already summoned.");
                     rollType = "standard";
@@ -82,15 +84,15 @@ export async function summonSpirit(spiritId, rollType) {
                 }
             }
 
-            rollDoom(spirit.actor, rollType).then((result) => {
-                spirit.actor.update({data: {summoning: {spirit: "used"}}}, {diff: true});
-                if(!result.die.ending !== "exhausted") {
-                    ui.notifications.info(interpolate("bsh.messages.spirits.summonSuccessful", {name: spirit.name}));
-                } else {
-                    let tableName = game.i18n.localize("bsh.spirits.tableName");
-                    ui.notifications.warn(interpolate("bsh.messages.spirits.summonFailed", {name: spirit.name}));
-                }
-            });
+            let result = rollDoom(spirit.actor, rollType);
+
+            spirit.actor.update({data: {summoning: {spirit: "used"}}}, {diff: true});
+            result.doomed = (result.die.ending === "exhausted");
+            if(result.downgraded) {
+                logCallSpiritFailure(spirit, result);
+            } else {
+                logCallSpirit(spirit, result);
+            }
         } else {
             console.error(`Unable to summon the '${spirit.name}' spirit as your Doom die is exhausted.`);
             ui.notifications.error(interpolate("bsh.messages.spirits.unavailable", {name: spirit.name}));
