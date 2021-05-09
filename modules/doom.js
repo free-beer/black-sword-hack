@@ -41,6 +41,9 @@ export function rollDoom(actor, rollType="standard") {
             result.downgraded = true;
             result.die.ending = newDie;
             data.data.doom    = newDie;
+            if(result.die.ending === "exhausted") {
+                ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
+            }
         } else {
             console.log(`The doom die for ${actor.name} will be unchanged.`);
             result.die.ending = actor.doom;

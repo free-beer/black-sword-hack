@@ -312,9 +312,10 @@
   			"unavailable": "Summoning of the %NAME% demon failed - Doom die is exhausted!"
   		},
   		"doom": {
-  			"downgraded": "Doom die for %NAME% has been downgraded to %DIE%.",
-  			"exhausted": "Unable to roll doom for %NAME% as their doom die is exhausted!",
-  			"unchanged": "Doom die for %NAME% is unchanged."
+        "downgraded": "Doom die for %NAME% has been downgraded to %DIE%.",
+        "exhausted": "Unable to roll doom for %NAME% as their doom die is exhausted!",
+        "failExhausted": "%NAME% has exhausted their Doom die!",
+        "unchanged": "Doom die for %NAME% is unchanged."
   		},
       "labels": {
         "buttons": {
