@@ -1,4 +1,6 @@
+import {BSHActor} from './modules/documents/bsh_actor.js';
 import {BSHConfiguration} from './modules/configuration.js';
+import {BSHItem} from './modules/documents/bsh_item.js';
 import CharacterSheet from './modules/sheets/character-sheet.js';
 import ConsumableSheet from './modules/sheets/consumable-sheet.js';
 import EquipmentSheet from './modules/sheets/equipment-sheet.js';
@@ -42,7 +44,9 @@ async function preloadHandlebarsTemplates() {
 Hooks.once("init", function() {
     console.log("Initializing the Black Sword Hack System.");
 
-    CONFIG.configuration = BSHConfiguration;
+    CONFIG.Actor.documentClass = BSHActor;
+    CONFIG.configuration       = BSHConfiguration;
+    CONFIG.Item.documentClass  = BSHItem;
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("black-sword-hack", ConsumableSheet, {types: ["consumable"]});
@@ -119,7 +123,7 @@ Hooks.once("init", function() {
     // Add hook functions.
     Hooks.on("renderChatMessage", (message, speaker) => {
         setTimeout(() => {
-            let element = document.querySelector(`[data-message-id="${message._id}"]`);
+            let element = document.querySelector(`[data-message-id="${message.id}"]`);
             let node    = element.querySelector(".bsh-roll-title");
 
             if(node) {

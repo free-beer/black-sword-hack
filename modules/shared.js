@@ -6,7 +6,7 @@ import {logAttackRoll, logAttributeTest, logDieRoll, logItemUsageDieRoll} from '
  * identifier.
  */
 export function getActorById(actorId) {
-    return(game.actors.find((a) => a._id === actorId));
+    return(game.actors.find((a) => a.id === actorId));
 }
 
 /**
@@ -14,7 +14,7 @@ export function getActorById(actorId) {
  * not found.
  */
 export function getItemById(itemId) {
-    return(game.items.find((a) => a._id === itemId));
+    return(game.items.find((a) => a.id === itemId));
 }
 
 /**
@@ -25,7 +25,7 @@ export function getOwnedItemById(itemId) {
     let item = undefined;
 
     game.actors.find((actor) => {
-        item = actor.items.find((item) => item._id === itemId);
+        item = actor.items.find((item) => item.id === itemId);
         return(item ? true : false);
     });
     return(item);
@@ -48,10 +48,10 @@ export function deleteOwnedItem(itemId) {
 /**
  * Calculates a set of dynamic data values related to a character.
  */
-export function calculateCharacterData(data, configuration) {
-    data.level = calculateLevel(data, configuration);
-    data.calculated = calculateAttributeValues(data, configuration);
-    data.maximumHitPoints = calculateMaximumHitPoints(data, data.level);
+export function calculateCharacterData(context, configuration) {
+    context.level = calculateLevel(context.data, configuration);
+    context.calculated = calculateAttributeValues(context.data, configuration);
+    context.maximumHitPoints = calculateMaximumHitPoints(context, context.level);
 }
 
 /**
@@ -90,8 +90,8 @@ export function calculateAttributeValues(data, configuration) {
  * Calculates a characters maximum hit points based on their constitution value
  * and level.
  */
-export function calculateMaximumHitPoints(data, level) {
-    let total = data.calculated.constitution;
+export function calculateMaximumHitPoints(context, level) {
+    let total = context.calculated.constitution;
 
     if(level < 10) {
         total += (level - 1);
@@ -278,7 +278,7 @@ export async function handleRollAttributeDieEvent(event) {
  */
 export async function handleRollDieEvent(event) {
     let element = event.currentTarget;
-    let actor   = game.actors.find((a) => a._id === element.dataset.id);
+    let actor   = game.actors.find((a) => a.id === element.dataset.id);
     let title   = game.i18n.localize(`bsh.fields.titles.dieRolls.${element.dataset.type}`)
 
     event.preventDefault();
@@ -301,7 +301,7 @@ export async function handleRollUsageDieEvent(event) {
 
 async function handleActorUsageDieRollEvent(event) {
     let element = event.currentTarget;
-    let actor   = game.actors.find((a) => a._id === element.dataset.actor);
+    let actor   = game.actors.find((a) => a.id === element.dataset.actor);
 
     event.preventDefault();
     if(actor) {
@@ -314,7 +314,7 @@ async function handleActorUsageDieRollEvent(event) {
                     let message = "";
 
                     roll.roll();
-                    await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
+                    await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
                     if(roll.total < 3) {
                         let newDie = downgradeDie(usageDie);
                         let data   = setObjectField(element.dataset.die, newDie);
@@ -330,13 +330,13 @@ async function handleActorUsageDieRollEvent(event) {
                     }
                     ChatMessage.create({content: message,
                                         speaker: ChatMessage.getSpeaker(),
-                                        user:    game.user._id});
+                                        user:    game.user.id});
                 } else {
-                    console.warn(`Unable to roll usage die for actor id ${actor._id} as the particular usage die request is exhausted.`);
+                    console.warn(`Unable to roll usage die for actor id ${actor.id} as the particular usage die request is exhausted.`);
                     ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
                 }
             } else {
-                console.error(`Unable to locate the ${element.dataset.die} usage die setting for actor id ${actor._id}.`);
+                console.error(`Unable to locate the ${element.dataset.die} usage die setting for actor id ${actor.id}.`);
                 ui.notifications.error(game.i18n.localize("bsh.errors.attributes.invalid"));
             }
         } else {
@@ -379,9 +379,9 @@ export async function handleWeaponRollEvent(event) {
 
         if(weapon) {
             if(weapon.actor) {
-                logAttackRoll(weapon.actor._id, weapon._id, event.shiftKey, event.ctrlKey);
+                logAttackRoll(weapon.actor.id, weapon.id, event.shiftKey, event.ctrlKey);
             } else {
-                console.error(`Unable to make a weapon attack roll for weapon id '${weapon._id}' as it is not an owned item.`);
+                console.error(`Unable to make a weapon attack roll for weapon id '${weapon.id}' as it is not an owned item.`);
                 ui.notifications.error(game.i18n.localize("bsh.errors.weapons.unowned"));
             }
 

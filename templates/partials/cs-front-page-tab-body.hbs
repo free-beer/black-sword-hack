@@ -31,7 +31,7 @@
     <div class="bsh-stats-line-4">
         <div class="bsh-field">
             <label class="bsh-label" for="data.damageDice.armed">
-                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{data.damageDice.armed}}" data-id="{{actor._id}}" data-type="armedDamage"></i>
+                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{data.damageDice.armed}}" data-id="{{actor.id}}" data-type="armedDamage"></i>
                 {{localize "bsh.fields.labels.damageArmed"}}
             </label>
             <select name="data.damageDice.armed" class="bsh-input bsh-select">
@@ -45,7 +45,7 @@
 
         <div class="bsh-field">
             <label class="bsh-label" for="data.damageDice.unarmed">
-                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{data.damageDice.unarmed}}" data-id="{{actor._id}}" data-type="unarmedDamage"></i>
+                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{data.damageDice.unarmed}}" data-id="{{actor.id}}" data-type="unarmedDamage"></i>
                 {{localize "bsh.fields.labels.damageUnarmed"}}
             </label>
             <select name="data.damageDice.unarmed" class="bsh-input bsh-select">

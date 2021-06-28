@@ -1,5 +1,5 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="bsh-cs-container" data-actor="{{actor._id}}">
+	<div class="bsh-cs-container" data-actor="{{actor.id}}">
 		<div class="bsh-cs-left-side">
 			<!-- Character Image -->
 			<div class="bsh-cs-img">
@@ -8,8 +8,8 @@
 				</center>
 				<div>
 					<center>
-						<i class="far fa-pause-circle bsh-rest-icon" title="{{localize "bsh.controls.titles.shortRest"}}" data-actor="{{actor._id}}" data-type="short"></i>
-						<i class="fas fa-bed bsh-rest-icon" title="{{localize "bsh.controls.titles.longRest"}}" data-actor="{{actor._id}}" data-type="long"></i>
+						<i class="far fa-pause-circle bsh-rest-icon" title="{{localize "bsh.controls.titles.shortRest"}}" data-actor="{{actor.id}}" data-type="short"></i>
+						<i class="fas fa-bed bsh-rest-icon" title="{{localize "bsh.controls.titles.longRest"}}" data-actor="{{actor.id}}" data-type="long"></i>
 					</center>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 
 				<div class="bsh-field">
 					<label class="bsh-label" for="data.doom">
-                        <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor._id}}"></i>
+                        <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
 					    {{localize "bsh.fields.labels.doomDie"}}
 					</label>
 			    	<select name="data.doom" class="bsh-input bsh-select">

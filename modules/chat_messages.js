@@ -10,10 +10,10 @@ import {calculateAttributeValues,
         setObjectField} from './shared.js';
 
 export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, expanded=false) {
-    let actor  = game.actors.find((a) => a._id === actorId);
+    let actor  = game.actors.find((a) => a.id === actorId);
 
     if(actor) {
-        let weapon = actor.items.find((i) => i._id === weaponId);
+        let weapon = actor.items.find((i) => i.id === weaponId);
 
         if(weapon) {
             let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
@@ -25,7 +25,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                               actorId:  actorId,
                               doomed:   doomed,
                               weapon:   weapon.name,
-                              weaponId: weapon._id};
+                              weaponId: weapon.id};
 
             if(shiftKey) {
                 if(!doomed) {
@@ -43,8 +43,8 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                 }
             }
             roll.roll();
-            critical.failure = (roll.results[0] === 20);
-            critical.success = (roll.results[0] === 1);
+            critical.failure = (roll.terms[0].results[0] === 20);
+            critical.success = (roll.terms[0].results[0] === 1);
             data.roll        = {expanded: expanded,
                                 formula:  roll.formula,
                                 labels:   {title: interpolate("bsh.messages.titles.attackRoll")},
@@ -66,12 +66,12 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
             }
 
             if(data.roll.success) {
-                data.damage = {actorId:  actor._id, 
+                data.damage = {actorId:  actor.id, 
                                critical: critical.success,
                                doomed:   doomed,
                                formula:  generateDamageRollFormula(actor, weapon, {critical: critical.success, doomed: doomed}),
                                weapon:   weapon.name,
-                               weaponId: weapon._id};
+                               weaponId: weapon.id};
             }
 
             showMessage(actor, "systems/black-sword-hack/templates/messages/attack-roll.hbs", data);
@@ -88,7 +88,7 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     let critical   = {failure: false, success: true};
     let doomed     = (actor.data.data.doom === "exhausted");
     let message    = {actor:    actor.name, 
-                      actorId:  actor._id,
+                      actorId:  actor.id,
                       roll:     {doomed:   doomed,
                                  expanded: expanded,
                                  formula:  (doomed ? "2d20kh" : "1d20"),
@@ -110,8 +110,8 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     }
     roll = new Roll(message.roll.formula);
     roll.roll();
-    critical.failure     = (roll.results[0] === 20);
-    critical.success     = (roll.results[0] === 1);
+    critical.failure     = (roll.terms[0].results[0] === 20);
+    critical.success     = (roll.terms[0].results[0] === 1);
     message.roll.result  = roll.total;
     message.roll.success = (critical.success || roll.total < attributes[attribute]);
     if(message.roll.success) {
@@ -135,7 +135,7 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
 export function logCallSpirit(spirit, result) {
     let actor   = spirit.actor;
     let message = {actor:   actor.name,
-                   actorId: actor._id,
+                   actorId: actor.id,
                    spirit:  spirit.name,
                    doomed:  result.doomed,
                    roll:    {expanded: false,
@@ -152,7 +152,7 @@ export function logCallSpirit(spirit, result) {
 export function logCallSpiritFailure(spirit, result) {
     let actor   = spirit.actor;
     let message = {actor:   actor.name,
-                   actorId: actor._id,
+                   actorId: actor.id,
                    spirit:  spirit.name,
                    doomed:  result.doomed,
                    fumble:  (result.die.ending === "exhausted"),
@@ -172,7 +172,7 @@ export function logDamageRoll(event) {
     let rollData = element.dataset;
 
     if(rollData.formula && rollData.actor) {
-        let actor   = game.actors.find((a) => a._id === rollData.actor);
+        let actor   = game.actors.find((a) => a.id === rollData.actor);
         let data    = {doomed: (rollData.doomed === "true"),
                        roll:   {expanded: true,
                                 labels: {title: interpolate("bsh.messages.titles.damageRoll")},
@@ -197,7 +197,7 @@ export function logDefendRoll(event) {
     let element = event.currentTarget;
 
     if(element.dataset.attribute && element.dataset.actor) {
-        let actor = game.actors.find((a) => a._id === element.dataset.actor);
+        let actor = game.actors.find((a) => a.id === element.dataset.actor);
 
         if(actor) {
             if(element.dataset.attribute === "strength") {
@@ -216,7 +216,7 @@ export function logDefendRoll(event) {
 export function logDemonSummoning(demon, result) {
     let actor   = demon.actor;
     let message = {actor:   actor.name,
-                   actorId: actor._id,
+                   actorId: actor.id,
                    demon:   demon.name,
                    doomed:  result.doomed,
                    roll:    {expanded: false,
@@ -233,7 +233,7 @@ export function logDemonSummoning(demon, result) {
 export function logDemonSummoningFailure(demon, result) {
     let actor   = demon.actor;
     let message = {actor:   actor.name,
-                   actorId: actor._id,
+                   actorId: actor.id,
                    demon:   demon.name,
                    doomed:  result.doomed,
                    fumble:  (result.die.ending === "exhausted"),
@@ -252,7 +252,7 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
     let doomed  = (actor.data.data.doom === "exhausted");
     let formula = (doomed ? `2${dieType}kl` : `1${dieType}`);
     let message = {actor:    actor.name, 
-                   actorId:  actor._id,
+                   actorId:  actor.id,
                    doomed:   doomed,
                    roll:     {expanded: true,
                               formula:  formula,
@@ -281,7 +281,7 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
     let doomed     = (actor.data.data.doom === "exhausted");
     let title      = interpolate("bsh.messages.titles.dodgeRoll");
     let message    = {actor:    actor.name, 
-                      actorId:  actor._id,
+                      actorId:  actor.id,
                       doomed:   doomed,
                       roll:     {expanded: false,
                                  formula:  "",
@@ -326,7 +326,7 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
 export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
     if(actor.data.data.doom !== "exhausted") {
         let message  = {actor:    actor.name,
-                        actorId:  actor._id,
+                        actorId:  actor.id,
                         roll:     {expanded: false,
                                    formula:  "",
                                    labels:   {result: "",
@@ -363,14 +363,14 @@ export function logInitiativeRoll(event) {
     let element = event.currentTarget;
 
     if(element.dataset.actor) {
-        let actor      = game.actors.find((a) => a._id === element.dataset.actor);
+        let actor      = game.actors.find((a) => a.id === element.dataset.actor);
         let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
         let critical   = {failure: false, success: false};
         let dice       = null;
         let doomed     = (actor.data.data.doom === "exhausted");
         let title      = interpolate("bsh.messages.titles.initiativeRoll");
         let message    = {actor:    actor.name, 
-                          actorId:  actor._id,
+                          actorId:  actor.id,
                           doomed:   doomed,
                           roll:     {expanded: false,
                                      formula:  "",
@@ -426,7 +426,7 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
         if(usageDie !== "exhausted") {
             let message = {downgraded: false,
                            item:       item.name,
-                           itemId:     item._id,
+                           itemId:     item.id,
                            roll:       {expanded: false,
                                         formula:  `1${usageDie}`,
                                         labels:   {result: "",
@@ -453,7 +453,7 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
                 message.roll.labels.result = interpolate("bsh.fields.titles.failure");
                 item.update(data, {diff: true});
                 if(newDie === "exhausted") {
-                    decrementItemQuantity(item._id);
+                    decrementItemQuantity(item.id);
                     message.feedback = game.i18n.localize("bsh.messages.usageDie.exhausted");
                 } else {
                     message.feedback = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
@@ -465,11 +465,11 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
 
             showMessage(item.actor, "systems/black-sword-hack/templates/messages/usage-die-roll.hbs", message);
         } else {
-            console.warn(`Unable to roll usage die for item id ${item._id} as the particular usage die request is exhausted.`);
+            console.warn(`Unable to roll usage die for item id ${item.id} as the particular usage die request is exhausted.`);
             ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
         }
     } else {
-        console.error(`Unable to locate the ${field} usage die setting for item id ${item._id} (${item.name}).`);
+        console.error(`Unable to locate the ${field} usage die setting for item id ${item.id} (${item.name}).`);
         ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.notFound"));
     }
 
@@ -482,7 +482,7 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
     let doomed     = (actor.data.data.doom === "exhausted");
     let title      = interpolate("bsh.messages.titles.parryRoll");
     let message    = {actor:    actor.name, 
-                      actorId:  actor._id,
+                      actorId:  actor.id,
                       doomed:   doomed,
                       roll:     {expanded: false,
                                  formula:  "",
@@ -529,14 +529,14 @@ export function logPerceptionRoll(event) {
     let element = event.currentTarget;
 
     if(element.dataset.actor) {
-        let actor      = game.actors.find((a) => a._id === element.dataset.actor);
+        let actor      = game.actors.find((a) => a.id === element.dataset.actor);
         let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
         let critical   = {failure: false, success: false};
         let dice       = null;
         let doomed     = (actor.data.data.doom === "exhausted");
         let title      = interpolate("bsh.messages.titles.perceptionRoll");
         let message    = {actor:    actor.name, 
-                          actorId:  actor._id,
+                          actorId:  actor.id,
                           doomed:   doomed,
                           roll:     {expanded: false,
                                      formula:  "",

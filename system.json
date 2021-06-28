@@ -5,7 +5,7 @@
   "author": "Peter Wood",
   "version": "0.0.1",
   "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.8.8",
   "esmodules": ["black-sword-hack.js"],
   "styles": ["black-sword-hack.css"],
   "languages": [

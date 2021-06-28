@@ -30,7 +30,7 @@ export function takeLongRest(character) {
         }
     }
 
-    resetSpellStatesForActor(character._id);
+    resetSpellStatesForActor(character.id);
     resetDoomDie(character);
 
     if(Object.keys(updates.data).length > 0) {

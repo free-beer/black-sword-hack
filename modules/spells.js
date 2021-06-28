@@ -24,7 +24,7 @@ export async function castSpell(spellId) {
                 roll = new Roll("2d20kh");
             }
             roll.roll();
-            await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user._id});
+            await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
 
             if(roll.total < attributes.intelligence) {
                 message = interpolate("bsh.messages.spells.castSuccessful", {name: spell.name});
@@ -41,7 +41,7 @@ export async function castSpell(spellId) {
             spell.update(data, {diff: true});
             await ChatMessage.create({content: message,
                                       speaker: ChatMessage.getSpeaker(),
-                                      user:    game.user._id});
+                                      user:    game.user.id});
         } else {
             console.log(`Unable to cast the ${spell.name} spell as it is not currently available for use.`);
         }
@@ -66,12 +66,12 @@ export async function resetSpellState(spellId) {
 }
 
 export async function resetSpellStatesForActor(actorId) {
-    let actor = game.actors.find((a) => a._id === actorId);
+    let actor = game.actors.find((a) => a.id === actorId);
 
     if(actor) {
         actor.items.forEach((item) => {
             if(item.type === "spell") {
-                resetSpellState(item._id);
+                resetSpellState(item.id);
             }
         });
     } else {

@@ -33,22 +33,25 @@ export default class CharacterSheet extends ActorSheet {
 	    	               	template: "systems/black-sword-hack/templates/sheets/character-sheet.html"}));
 	}
 
+    /** @override */
 	getData() {
-		let data = super.getData();
+        const context   = super.getData();
+        const actorData = context.actor.data;
 
-		data.configuration = CONFIG.configuration;
-		calculateCharacterData(data.data, CONFIG.configuration);
-		data.consumables = data.items.filter((item) => item.type === "consumable");
-		data.demons      = data.items.filter((item) => item.type === "demon");
-		data.equipment   = data.items.filter((item) => item.type === "equipment");
-		data.spells      = data.items.filter((item) => item.type === "spell");
-		data.spirits     = data.items.filter((item) => item.type === "spirit");
-		data.weapons     = data.items.filter((item) => item.type === "weapon");
-		data.hasDemons   = (data.demons.length > 0);
-		data.hasSpells   = (data.spells.length > 0);
-		data.hasSpirits  = (data.spirits.length > 0);
-		return(data);
+        context.data  = actorData.data;
+        context.flags = actorData.flags;
+
+        if(actorData.type === "character") {
+            this._prepareCharacterData(context);
+        }
+
+        return(context);
 	}
+
+    /** @override */
+    get template() {
+        return(`systems/black-sword-hack/templates/sheets/character-sheet.html`);
+    }
 
 	activateListeners(html) {
 		html.find(".bsh-tab-label").click(this._onTabLabelClicked.bind(this));
@@ -119,7 +122,7 @@ export default class CharacterSheet extends ActorSheet {
 
 	_onRandomizeMyCharacterClicked(event) {
 		let element = event.currentTarget;
-		let actor   = game.actors.find((a) => a._id === element.dataset.id);
+		let actor   = game.actors.find((a) => a.id === element.dataset.id);
 
 		event.preventDefault();
 		if(actor) {
@@ -275,10 +278,10 @@ export default class CharacterSheet extends ActorSheet {
 
 	        actor = getActorById(container.dataset.actor);
 	        if(!actor) {
-	        	throw(`Failed to locate an actor with an id of ${container.data._id}.`);
+	        	throw(`Failed to locate an actor with an id of ${container.data.id}.`);
 	        }
 
-	        data._id = actor._id;
+	        data.id = actor.id;
 			actor.update(data, {diff: true});
 			this.selectTabLabel(element.dataset.tab);
 			this.showTabBody(element.dataset.tab);
@@ -319,6 +322,20 @@ export default class CharacterSheet extends ActorSheet {
 	_onWeaponRollClicked(event) {
 		return(handleWeaponRollEvent(event));
 	}
+
+    _prepareCharacterData(context) {
+        context.configuration = CONFIG.configuration;
+        calculateCharacterData(context, CONFIG.configuration);
+        context.consumables = context.items.filter((item) => item.type === "consumable");
+        context.demons      = context.items.filter((item) => item.type === "demon");
+        context.equipment   = context.items.filter((item) => item.type === "equipment");
+        context.spells      = context.items.filter((item) => item.type === "spell");
+        context.spirits     = context.items.filter((item) => item.type === "spirit");
+        context.weapons     = context.items.filter((item) => item.type === "weapon");
+        context.hasDemons   = (context.demons.length > 0);
+        context.hasSpells   = (context.spells.length > 0);
+        context.hasSpirits  = (context.spirits.length > 0);
+    }
 
 	selectTabLabel(tabName) {
 		let tabLabels = document.getElementsByClassName("bsh-tab-label");
