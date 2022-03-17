@@ -13,35 +13,36 @@ export async function castSpell(spellId) {
     if(spell && spell.type === "spell") {
         if(spell.data.data.state !== "unavailable") {
             let caster     = spell.actor;
-            let roll       = null;
+            let dice       = null;
             let attributes = calculateAttributeValues(caster.data.data, BSHConfiguration);
             let message;
             let data       = {data: {state: "cast"}};
 
             if(spell.data.data.state === "available") {
-                roll = new Roll("1d20");
+                dice = new Roll("1d20");
             } else {
-                roll = new Roll("2d20kh");
+                dice = new Roll("2d20kh");
             }
-            roll.roll();
-            await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
+            dice.evaluate({async: true}).then((roll) => {
+                roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
 
-            if(roll.total < attributes.intelligence) {
-                message = interpolate("bsh.messages.spells.castSuccessful", {name: spell.name});
-            } else {
-                data.data.state = "unavailable";
-                if(roll.total === 20) {
-                    let tableName = game.i18n.localize("bsh.spells.tableName");
-                    message = interpolate("bsh.messages.spells.castFumbled", {name: spell.name,
-                                                                              table: tableName});
+                if(roll.total < attributes.intelligence) {
+                    message = interpolate("bsh.messages.spells.castSuccessful", {name: spell.name});
                 } else {
-                    message = interpolate("bsh.messages.spells.castFailed", {name: spell.name});
+                    data.data.state = "unavailable";
+                    if(roll.total === 20) {
+                        let tableName = game.i18n.localize("bsh.spells.tableName");
+                        message = interpolate("bsh.messages.spells.castFumbled", {name: spell.name,
+                                                                                  table: tableName});
+                    } else {
+                        message = interpolate("bsh.messages.spells.castFailed", {name: spell.name});
+                    }
                 }
-            }
-            spell.update(data, {diff: true});
-            await ChatMessage.create({content: message,
-                                      speaker: ChatMessage.getSpeaker(),
-                                      user:    game.user.id});
+                spell.update(data, {diff: true});
+                ChatMessage.create({content: message,
+                                    speaker: ChatMessage.getSpeaker(),
+                                    user:    game.user.id});
+            });
         } else {
             console.log(`Unable to cast the ${spell.name} spell as it is not currently available for use.`);
         }

@@ -299,7 +299,7 @@ export async function handleRollUsageDieEvent(event) {
     }
 }
 
-async function handleActorUsageDieRollEvent(event) {
+function handleActorUsageDieRollEvent(event) {
     let element = event.currentTarget;
     let actor   = game.actors.find((a) => a.id === element.dataset.actor);
 
@@ -310,27 +310,27 @@ async function handleActorUsageDieRollEvent(event) {
 
             if(usageDie) {
                 if(usageDie !== "exhausted") {
-                    let roll    = new Roll(`1${usageDie}`);
                     let message = "";
 
-                    roll.roll();
-                    await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
-                    if(roll.total < 3) {
-                        let newDie = downgradeDie(usageDie);
-                        let data   = setObjectField(element.dataset.die, newDie);
+                    (new Roll(`1${usageDie}`)).evaluate({async: true}).then(async (roll) => {
+                        await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
+                        if(roll.total < 3) {
+                            let newDie = downgradeDie(usageDie);
+                            let data   = setObjectField(element.dataset.die, newDie);
 
-                        actor.update(data, {diff: true});
-                        if(newDie !== "exhausted") {
-                            message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+                            actor.update(data, {diff: true});
+                            if(newDie !== "exhausted") {
+                                message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+                            } else {
+                                message = game.i18n.localize("bsh.messages.usageDie.exhausted");
+                            }
                         } else {
-                            message = game.i18n.localize("bsh.messages.usageDie.exhausted");
+                            message = game.i18n.localize("bsh.messages.usageDie.unchanged");
                         }
-                    } else {
-                        message = game.i18n.localize("bsh.messages.usageDie.unchanged");
-                    }
-                    ChatMessage.create({content: message,
-                                        speaker: ChatMessage.getSpeaker(),
-                                        user:    game.user.id});
+                        ChatMessage.create({content: message,
+                                            speaker: ChatMessage.getSpeaker(),
+                                            user:    game.user.id});
+                    });
                 } else {
                     console.warn(`Unable to roll usage die for actor id ${actor.id} as the particular usage die request is exhausted.`);
                     ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
