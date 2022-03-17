@@ -23,6 +23,85 @@ const ROLL_TABLE = {
 const ORIGINS = ["barbarian", "civilized", "decadent"];
 
 /**
+ * Returns an array of background after filtering by a number of criteria (i.e.
+ * origin, whether uniques are allowed and what backgrounds are excluded).
+ */
+function filterBackgroundsByOrigin(origin, allowUniques, ignoreList) {
+    let backgrounds = [];
+
+    Object.keys(BSHConfiguration.backgroundList).forEach((key) => {
+        let background = BSHConfiguration.backgroundList[key];
+
+        if(background.origin === origin) {
+            if(allowUniques || !background.unique) {
+                if(!ignoreList.includes(background.key)) {
+                    backgrounds.push(background);
+                }
+            }
+        }
+    });
+
+    return(backgrounds)
+}
+
+/**
+ * Generates an array of attribute scores for a character. Returns a promise
+ * that yields a JS object containing the attributes scores when resolved.
+ */
+function generateAttributeScores() {
+    let attributes = {};
+
+    return(generateAttributeScore()
+        .then((roll) => {
+            attributes.strength = roll;
+            return(generateAttributeScore());
+        })
+        .then((roll) => {
+            attributes.dexterity = roll;
+            return(generateAttributeScore());
+        })
+        .then((roll) => {
+            attributes.constitution = roll;
+            return(generateAttributeScore());
+        })
+        .then((roll) => {
+            attributes.intelligence = roll;
+            return(generateAttributeScore());
+        })
+        .then((roll) => {
+            attributes.wisdom = roll;
+            return(generateAttributeScore());
+        })
+        .then((roll) => {
+            attributes.charisma = roll;
+            return(attributes);
+        }));
+}
+
+/**
+ * Generate an attribute score by rolling 2d6 and looking up the result in the
+ * ROLL_TABLE. Returns a promise that yields the score when resolved.
+ */
+function generateAttributeScore() {
+    let dice = new Roll("2d6");
+
+    return(dice.evaluate({async: true})).then((roll) => ROLL_TABLE[`${roll.total}`]);
+}
+
+/**
+ * Selects a background option within the context of a set of parameters (e.g.
+ * whether a unique background may be selected or whether there are backgrounds
+ * that should not be selected). Returns a promise the yields the background
+ * selected when resolved.
+ */
+function generateBackground(origin, allowUniques, ignoreList) {
+    let options = filterBackgroundsByOrigin(origin, allowUniques, ignoreList);
+    return((new Roll(`1d${options.length}-1`)).evaluate({async: true}).then((roll) => {
+        return(options[roll.total]);
+    }));
+}
+
+/**
  * Randomly generates all of the basic aspects of a character.
  */
 export function randomizeCharacter(actor) {
@@ -44,105 +123,80 @@ export function randomizeCharacter(actor) {
                 origin: ""};
 
     console.log("Generating character attributes.");
-    data.attributes.strength     = generateAttributeScore();
-    data.attributes.dexterity    = generateAttributeScore();
-    data.attributes.constitution = generateAttributeScore();
-    data.attributes.intelligence = generateAttributeScore();
-    data.attributes.wisdom       = generateAttributeScore();
-    data.attributes.charisma     = generateAttributeScore();
-    console.log("Base Attribute Scores:", data.attributes);
+    generateAttributeScores()
+        .then((attributes) => {
+            console.log("Base Attribute Scores:", attributes);
+            data.attributes = attributes;
+            return((new Roll("2d6")).evaluate({async: true}));
+        })
+        .then((roll) => {
+            data.birth = BSHConfiguration.birthList[roll.total];
+            console.log("Birth Option:", data.birth);
+            return(randomOrigin());
+        })
+        .then((origin) => {
+            data.origin = origin;
+            console.log("Character Origin:", data.origin);
+            return(selectBackgrounds(data.origin));
+        })
+        .then((backgrounds) => {
+            data.backgrounds = backgrounds;
+            switch(data.origin) {
+                case "barbarian":
+                    data.coins.first = 25;
+                    break;
 
-    console.log("Generating where the character was born.");
-    data.birth = sampleFrom(BSHConfiguration.birthList);
-    console.log("Birth Option:", data.birth);
+                case "civilized":
+                    data.coins.first = 50;
+                    break;
 
-    console.log("Generating character origin.");
-    data.origin = sampleFrom(ORIGINS);
-    console.log("Character Origin:", data.origin);
-
-    data.backgrounds = selectBackgrounds(data.origin);
-
-    switch(data.origin) {
-        case "barbarian":
-            data.coins.first = 25;
-            break;
-
-        case "civilized":
-            data.coins.first = 50;
-            break;
-
-        default:
-            data.coins.first = 100;
-    }
-
-    console.log("Applying choices to the character record.");
-    actor.update({data: data}, {diff: true});
+                default:
+                    data.coins.first = 100;
+            }
+            return(data);
+        })
+        .then(async (data) => {
+            console.log("Applying choices to the character record. Data:", data);
+            await actor.update({data: data});
+        });
 }
 
 /**
- * Generate an attribute score by rolling 2d6 and looking up the result in the
- * ROLL_TABLE.
+ * Randomly selects an origin, returning a promise that will yield the origin
+ * selected.
  */
-function generateAttributeScore() {
-    let dice = new Roll("2d6");
-
-    dice.roll();
-    return(ROLL_TABLE[`${dice.total}`]);
+function randomOrigin() {
+    return(new Roll("1d3-1")).evaluate({async: true}).then((roll) => {
+        return(ORIGINS[roll.total]);
+    });
 }
 
 /**
- * Random select an option from a list passed in.
+ * Selects a triplet of backgrounds for a character. Returns a promise that
+ * yields an JS object containing the selected backgrounds under the first,
+ * second and third properties.
  */
-function sampleFrom(list) {
-    let dice = new Roll(`1d${list.length}-1`);
-
-    dice.roll();
-    return(list[dice.total]);
-}
-
 function selectBackgrounds(origin) {
-    let backgrounds    = {first: "", second: "", third: ""};
-    let background     = null;
-    let allBackgrounds = Object.values(BSHConfiguration.backgroundList);
-    let options        = {barbarian: {},
-                          civilized: {},
-                          decadent:  {}};
-    let otherOrigin    = null;
-    let uniqueUsed     = false;
+    let backgrounds  = {first: "", second: "", third: ""};
+    let allowUniques = true;
 
-    for(const name in BSHConfiguration.backgroundList) {
-        let entry = BSHConfiguration.backgroundList[name];
-        options[entry.origin][name] = entry; 
-    }
-
-    console.log("Selecting first character background.");
-    backgrounds.first = sampleFrom(Object.keys(options[origin]));
-    background        = options[origin][backgrounds.first];
-    uniqueUsed        = background.unique;
-    console.log("First Background: ", background);
-
-    console.log("Selecting second character background.");
-    backgrounds.second = sampleFrom(Object.keys(options[origin]));
-    background         = options[origin][backgrounds.second];
-    while(background.unique && uniqueUsed) {
-        background.second = sampleFrom(Object.keys(options[origin]));
-        background        = options[origin][backgrounds.second];
-    }
-    uniqueUsed = uniqueUsed || background.unique;
-    console.log("Second Background: ", background);
-
-    console.log("Selecting origin for third background.");
-    otherOrigin = sampleFrom(["barbarian", "civilized", "decadent"].filter((b) => b !== origin));
-    console.log("Origin For Third Background:", otherOrigin);
-
-    console.log("Selecting third character background.");
-    backgrounds.third = sampleFrom(Object.keys(options[otherOrigin]));
-    background        = options[otherOrigin][backgrounds.third];
-    while(background.unique && uniqueUsed) {
-        background.second = sampleFrom(Object.keys(options[otherOrigin]));
-        background        = options[otherOrigin][backgrounds.third];
-    }
-    console.log("Third Background: ", background);
-
-    return(backgrounds);
+    return(generateBackground(origin, allowUniques, [])
+            .then((background) => {
+                allowUniques = !background.unique;
+                backgrounds.first = background.key;
+                return(generateBackground(origin, allowUniques, [backgrounds.first]));
+            })
+            .then((background) => {
+                allowUniques = allowUniques && !background.unique;
+                backgrounds.second = background.key;
+                return(randomOrigin());
+            })
+            .then((newOrigin) => {
+                console.log(`Generating third background for the '${newOrigin}' origin. (allowUniques=${allowUniques})`)
+                return(generateBackground(newOrigin, allowUniques, [backgrounds.first, backgrounds.second]));
+            })
+            .then((background) => {
+                backgrounds.third = background.key;
+                return(backgrounds)
+            }));
 }

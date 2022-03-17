@@ -24,6 +24,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"dexterity": 1
 		},
+		"key": "assassin",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.assassin.name",
 		"unique": true
@@ -32,6 +33,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"strength": 1
 		},
+		"key": "berserker",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.berserker.name",
 		"unique": true
@@ -40,6 +42,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"intelligence": 1
 		},
+		"key": "bookworm",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.bookworm.name",
 		"unique": false
@@ -48,6 +51,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"intelligence": 1
 		},
+		"key": "forbidden_knowledge",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.forbidden_knowledge.name",
 		"unique": false
@@ -56,6 +60,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"intelligence": 1
 		},
+		"key": "herbalist",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.herbalist.name",
 		"unique": false
@@ -64,6 +69,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"dexterity": 1
 		},
+		"key": "hunter",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.hunter.name",
 		"unique": false
@@ -72,6 +78,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"intelligence": 1
 		},
+		"key": "inventor",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.inventor.name",
 		"unique": true
@@ -80,6 +87,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"strength": 1
 		},
+		"key": "legionnaire",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.legionnaire.name",
 		"unique": false
@@ -88,6 +96,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"strength": 1
 		},
+		"key": "pit-fighter",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.pit_fighter.name",
 		"unique": false
@@ -96,6 +105,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"wisdom": 1
 		},
+		"key": "shaman",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.shaman.name",
 		"unique": false
@@ -104,6 +114,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"constitution": 1
 		},
+		"key": "snake_blood",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.snake_blood.name",
 		"unique": false
@@ -112,6 +123,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"charisma": 1
 		},
+		"key": "sophist",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.sophist.name",
 		"unique": false
@@ -120,6 +132,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"charisma": 1
 		},
+		"key": "storyteller",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.storyteller.name",
 		"unique": false
@@ -128,6 +141,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"dexterity": 1
 		},
+		"key": "street_urchin",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.street_urchin.name",
 		"unique": false
@@ -136,6 +150,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"intelligence": 1
 		},
+		"key": "surgeon",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.surgeon.name",
 		"unique": false
@@ -144,6 +159,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"dexterity": 1
 		},
+		"key": "swordmaster",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.swordmaster.name",
 		"unique": false
@@ -152,6 +168,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"strength": 1
 		},
+		"key": "vicious",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.vicious.name",
 		"unique": false
@@ -160,6 +177,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"charisma": 1
 		},
+		"key": "warlock",
 		"origin": "decadent",
 		"name": "bsh.backgrounds.warlock.name",
 		"unique": false
@@ -168,6 +186,7 @@ BSHConfiguration.backgroundList = {
 		"attributes": {
 			"constitution": 1
 		},
+		"key": "wildling",
 		"origin": "barbarian",
 		"name": "bsh.backgrounds.wildling.name",
 		"unique": false

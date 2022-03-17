@@ -76,9 +76,7 @@ Hooks.once("init", function() {
             		backgrounds[key] = BSHConfiguration.backgroundList[key].name;
             	}
             } else {
-                if(BSHConfiguration.backgroundList[key].origin !== this.data.origin) {
-                    backgrounds[key] = BSHConfiguration.backgroundList[key].name;
-                }
+                backgrounds[key] = BSHConfiguration.backgroundList[key].name;
             }
         }        
 
