@@ -1,3 +1,5 @@
+import {logSpellCast,
+        logSpellCastFailure} from './chat_messages.js';
 import {BSHConfiguration} from './configuration.js';
 import {calculateAttributeValues,
         getOwnedItemById,
@@ -25,24 +27,13 @@ export async function castSpell(spellId) {
                 dice = new Roll("2d20kh");
             }
             rollEm(dice).then((roll) => {
-                roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
-
-                if(roll.total < attributes.intelligence) {
-                    message = interpolate("bsh.messages.spells.castSuccessful", {name: spell.name});
-                } else {
+                if(roll.total >= attributes.intelligence) {
                     data.data.state = "unavailable";
-                    if(roll.total === 20) {
-                        let tableName = game.i18n.localize("bsh.spells.tableName");
-                        message = interpolate("bsh.messages.spells.castFumbled", {name: spell.name,
-                                                                                  table: tableName});
-                    } else {
-                        message = interpolate("bsh.messages.spells.castFailed", {name: spell.name});
-                    }
+                    logSpellCastFailure(spell, roll);
+                } else {
+                    logSpellCast(spell, roll);
                 }
                 spell.update(data, {diff: true});
-                ChatMessage.create({content: message,
-                                    speaker: ChatMessage.getSpeaker(),
-                                    user:    game.user.id});
             });
         } else {
             console.log(`Unable to cast the ${spell.name} spell as it is not currently available for use.`);

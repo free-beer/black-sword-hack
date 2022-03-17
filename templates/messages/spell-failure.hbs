@@ -1,0 +1,16 @@
+<p>
+    [{{actor}}] {{localize "bsh.messages.blurbs.casts"}}: {{spell}}
+</p>
+
+{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+
+<p class="bsh-summon-results">
+{{#fumble}}
+    {{localize "bsh.messages.blurbs.castFumble"}}
+{{/fumble}}
+
+{{^fumble}}
+    {{localize "bsh.messages.blurbs.castFailure"}}
+{{/fumble}}
+</p>
+

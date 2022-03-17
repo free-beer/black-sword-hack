@@ -570,6 +570,41 @@ export function logPerceptionRoll(event) {
     }
 }
 
+export function logSpellCast(spell, result) {
+    let actor   = spell.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor.id,
+                   spell:   spell.name,
+                   doomed:  result.doomed,
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
+                                        title: game.i18n.localize("bsh.messages.titles.castSpell")},
+                             result:   result.result,
+                             success:  true,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/spell-success.hbs", message);
+}
+
+export function logSpellCastFailure(spell, result) {
+    let actor   = spell.actor;
+    let message = {actor:   actor.name,
+                   actorId: actor.id,
+                   spell:  spell.name,
+                   doomed:  result.doomed,
+                   fumble:  (result.total === 20),
+                   roll:    {expanded: false,
+                             formula:  result.formula,
+                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
+                                        title: game.i18n.localize("bsh.messages.titles.castSpell")},
+                             result:   result.result,
+                             success:  false,
+                             tested:   true}};
+
+    showMessage(actor, "systems/black-sword-hack/templates/messages/spell-failure.hbs", message);
+}
+
 export function showMessage(actor, templateKey, data) {
     getTemplate(templateKey)
         .then((template) => {
