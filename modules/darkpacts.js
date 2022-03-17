@@ -47,15 +47,15 @@ export async function summonDemon(demonId, rollType) {
                 }
             }
 
-            let result = rollDoom(demon.actor, rollType);
-
-            demon.actor.update({data: {summoning: {demon: "used"}}}, {diff: true});
-            result.doomed = (result.die.ending === "exhausted");
-            if(result.downgraded) {
-                logDemonSummoningFailure(demon, result);
-            } else {
-                logDemonSummoning(demon, result);
-            }
+            rollDoom(demon.actor, rollType).then((result) => {
+                demon.actor.update({data: {summoning: {demon: "used"}}}, {diff: true});
+                result.doomed = (result.die.ending === "exhausted");
+                if(result.downgraded) {
+                    logDemonSummoningFailure(demon, result);
+                } else {
+                    logDemonSummoning(demon, result);
+                }
+            });
         } else {
             console.error(`Unable to summon the '${demon.name}' demon as your Doom die is exhausted.`);
             ui.notifications.error(interpolate("bsh.messages.demons.unavailable", {name: demon.name}));
@@ -84,15 +84,15 @@ export async function summonSpirit(spiritId, rollType) {
                 }
             }
 
-            let result = rollDoom(spirit.actor, rollType);
-
-            spirit.actor.update({data: {summoning: {spirit: "used"}}}, {diff: true});
-            result.doomed = (result.die.ending === "exhausted");
-            if(result.downgraded) {
-                logCallSpiritFailure(spirit, result);
-            } else {
-                logCallSpirit(spirit, result);
-            }
+            rollDoom(spirit.actor, rollType).then((result) => {
+                spirit.actor.update({data: {summoning: {spirit: "used"}}}, {diff: true});
+                result.doomed = (result.die.ending === "exhausted");
+                if(result.downgraded) {
+                    logCallSpiritFailure(spirit, result);
+                } else {
+                    logCallSpirit(spirit, result);
+                }
+            });
         } else {
             console.error(`Unable to summon the '${spirit.name}' spirit as your Doom die is exhausted.`);
             ui.notifications.error(interpolate("bsh.messages.spirits.unavailable", {name: spirit.name}));

@@ -18,42 +18,43 @@ export function rollDoom(actor, rollType="standard") {
     result.die.starting = result.die.ending = actorData.doom;
     if(actorData.doom !== "exhausted") {
         let data      = {data: {doom: actorData.doom}};
-        let roll;
+        let dice;
 
         console.log(`Rolling the doom die for ${actor.name}.`);
         result.die.starting = actorData.doom;
         result.rolled       = true;
         if(rollType === "advantage") {
-            roll = new Roll(`2${actorData.doom}kh`);
+            dice = new Roll(`2${actorData.doom}kh`);
         } else if(rollType === "disadvantage") {
-            roll = new Roll(`2${actorData.doom}kl`);
+            dice = new Roll(`2${actorData.doom}kl`);
         } else {
-            roll = new Roll(`1${actorData.doom}`);
+            dice = new Roll(`1${actorData.doom}`);
         }
 
-        roll.roll();
-        result.formula = roll.formula;
-        result.result  = roll.total;
-        if(roll.total < 3) {
-            let newDie = downgradeDie(actorData.doom);
+        return(dice.evaluate({async: true}).then((roll) => {
+                    result.formula = roll.formula;
+                    result.result  = roll.total;
+                    if(roll.total < 3) {
+                        let newDie = downgradeDie(actorData.doom);
 
-            console.log(`The doom die for ${actor.name} will be downgraded.`);
-            result.downgraded = true;
-            result.die.ending = newDie;
-            data.data.doom    = newDie;
-            if(result.die.ending === "exhausted") {
-                ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
-            }
-        } else {
-            console.log(`The doom die for ${actor.name} will be unchanged.`);
-            result.die.ending = actor.doom;
-        }
-        actor.update(data, {diff: true});
+                        console.log(`The doom die for ${actor.name} will be downgraded.`);
+                        result.downgraded = true;
+                        result.die.ending = newDie;
+                        data.data.doom    = newDie;
+                        if(result.die.ending === "exhausted") {
+                            ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
+                        }
+                    } else {
+                        console.log(`The doom die for ${actor.name} will be unchanged.`);
+                        result.die.ending = actor.doom;
+                    }
+                    actor.update(data, {diff: true});
+                    return(result);
+                }));
     } else {
         console.error(`Unable to roll doom for ${actor.name} as their doom die is exhausted.`);
         ui.notifications.error(interpolate("bsh.messages.doom.exhausted", {name: actor.name}));
     }
-    return(result);
 }
 
 /**
