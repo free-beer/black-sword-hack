@@ -10,7 +10,7 @@ export function takeLongRest(character) {
     let updates = {data: {}}
 
     console.log(`Applying the benefits of a long rest to ${character.name}.`);
-    calculateCharacterData(data, CONFIG.configuration);
+    calculateCharacterData(character.data, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
         console.log(`Restoring ${character.name} to maximum hit points.`);
         updates.data.currentHitPoints = data.maximumHitPoints;
@@ -47,7 +47,7 @@ export function takeShortRest(character) {
     let updates = {data: {}};
 
     console.log(`Applying the benefits of a short rest to ${character.name}.`);
-    calculateCharacterData(data, CONFIG.configuration);
+    calculateCharacterData(character.data, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
         console.log(`Character has lost hit points (${data.currentHitPoints} of ${data.maximumHitPoints}).`);
         updates.data.currentHitPoints = data.currentHitPoints + Math.floor(data.calculated.constitution / 2);

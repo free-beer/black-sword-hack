@@ -7,6 +7,7 @@ import {calculateAttributeValues,
         generateDieRollFormula,
         getObjectField,
         interpolate,
+        rollEm,
         setObjectField} from './shared.js';
 
 export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, expanded=false) {
@@ -42,7 +43,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                     dice = new Roll(generateDieRollFormula({kind: "disadvantage"}));
                 }
             }
-            dice.evaluate({async: true}).then((roll) => {
+            rollEm(dice).then((roll) => {
                 critical.failure = (roll.terms[0].results[0] === 20);
                 critical.success = (roll.terms[0].results[0] === 1);
                 data.roll        = {expanded: expanded,
@@ -108,7 +109,7 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
             message.roll.formula = "2d20kh";
         }
     }
-    (new Roll(message.roll.formula)).evaluate().then((roll) => {
+    rollEm(new Roll(message.roll.formula)).then((roll) => {
         critical.failure     = (roll.terms[0].results[0] === 20);
         critical.success     = (roll.terms[0].results[0] === 1);
         message.roll.result  = roll.total;
@@ -180,7 +181,7 @@ export function logDamageRoll(event) {
         let formula = rollData.formula;
 
         data.roll.formula = formula;
-        (new Roll(formula)).evaluate({async: true}).then((roll) => {
+        rollEm(new Roll(formula)).then((roll) => {
             data.roll.result  = roll.total;
             showMessage(actor, "systems/black-sword-hack/templates/messages/damage-roll.hbs", data)
         });
@@ -265,7 +266,7 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
             formula = `2${dieType}kl`;
         }
     }
-    (new Roll(formula)).evaluate({async: true}).then((roll) => {
+    rollEm(new Roll(formula)).then((roll) => {
         message.roll.result = roll.total;
         showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
     });
@@ -296,7 +297,7 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
     } else {
         message.roll.formula = (shiftKey || shield ? "1d20" : "2d20kh");
     }
-    (new Roll(message.roll.formula)).evaluate({async: true}).then((roll) => {
+    rollEm(new Roll(message.roll.formula)).then((roll) => {
         critical.failure     = (roll.total === 20);
         critical.success     = (roll.total === 1);
         message.roll.result  = roll.total;
@@ -384,7 +385,7 @@ export function logInitiativeRoll(event) {
         } else {
             message.roll.formula = (event.shiftKey ? "1d20" : "2d20kh");
         }
-        (new Roll(message.roll.formula)).evaluate({async: true}).then((roll) => {
+        rollEm(new Roll(message.roll.formula)).then((roll) => {
             critical.failure     = (roll.total === 20);
             critical.success     = (roll.total === 1);
             message.roll.result  = roll.total;
@@ -433,7 +434,7 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
             } else if(ctrlKey) {
                 message.roll.formula = `2${usageDie}kl`;
             }
-            (new Roll(message.roll.formula)).evaluate({async: true}).then((roll) => {
+            rollEm(new Roll(message.roll.formula)).then((roll) => {
                 message.roll.result = roll.total;
                 if(roll.total < 3) {
                     let newDie = downgradeDie(usageDie);
@@ -493,7 +494,7 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
     } else {
         message.roll.formula = (shiftKey || shield ? "1d20" : "2d20kh");
     }
-    (new Roll(message.roll.formula)).evaluate({async: true}).then((roll) => {
+    rollEm(new Roll(message.roll.formula)).then((roll) => {
         critical.failure     = (roll.total === 20);
         critical.success     = (roll.total === 1);
         message.roll.result  = roll.total;
@@ -544,7 +545,7 @@ export function logPerceptionRoll(event) {
         } else {
             message.roll.formula = (event.shiftKey ? "1d20" : "2d20kh");
         }
-        (new Roll(message.roll.formula)).evaluate({async: true}).then((roll) => {
+        rollEm(new Roll(message.roll.formula)).then((roll) => {
             critical.failure     = (roll.total === 20);
             critical.success     = (roll.total === 1);
             message.roll.result  = roll.total;

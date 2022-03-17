@@ -49,9 +49,9 @@ export function deleteOwnedItem(itemId) {
  * Calculates a set of dynamic data values related to a character.
  */
 export function calculateCharacterData(context, configuration) {
-    context.level = calculateLevel(context.data, configuration);
-    context.calculated = calculateAttributeValues(context.data, configuration);
-    context.maximumHitPoints = calculateMaximumHitPoints(context, context.level);
+    context.data.level = calculateLevel(context.data, configuration);
+    context.data.calculated = calculateAttributeValues(context.data, configuration);
+    context.data.maximumHitPoints = calculateMaximumHitPoints(context.data, context.level);
 }
 
 /**
@@ -59,6 +59,10 @@ export function calculateCharacterData(context, configuration) {
  * values.
  */
 export function calculateAttributeValues(data, configuration) {
+    if(data.data) {
+        data = data.data;
+    }
+
     let calculated      = {constitution: data.attributes.constitution,
                            charisma:     data.attributes.charisma,
                            dexterity:    data.attributes.dexterity,
@@ -312,7 +316,7 @@ function handleActorUsageDieRollEvent(event) {
                 if(usageDie !== "exhausted") {
                     let message = "";
 
-                    (new Roll(`1${usageDie}`)).evaluate({async: true}).then(async (roll) => {
+                    rollEm(new Roll(`1${usageDie}`)).then(async (roll) => {
                         await roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
                         if(roll.total < 3) {
                             let newDie = downgradeDie(usageDie);
@@ -500,6 +504,20 @@ export function getObjectField(path, object) {
     }
 
     return(value);
+}
+
+/**
+ * A function to encapsulate integration with the Dice So Nice add on module.
+ * Takes a Roll instance, evaluates it, shows the dice on screen (if available),
+ * and returns a promise that yields the roll once resolved.
+ */
+export function rollEm(dice) {
+    return(dice.evaluate({async: true}).then((roll) => {
+        if(game.dice3d) {
+            game.dice3d.showForRoll(roll);
+        }
+        return(roll);
+    }));
 }
 
 /**

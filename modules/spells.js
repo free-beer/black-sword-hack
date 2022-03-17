@@ -1,7 +1,8 @@
 import {BSHConfiguration} from './configuration.js';
 import {calculateAttributeValues,
         getOwnedItemById,
-        interpolate} from './shared.js';
+        interpolate,
+        rollEm} from './shared.js';
 
 /**
  * Retrieves a spell and attempts to cast it (if possible), reporting the
@@ -23,7 +24,7 @@ export async function castSpell(spellId) {
             } else {
                 dice = new Roll("2d20kh");
             }
-            dice.evaluate({async: true}).then((roll) => {
+            rollEm(dice).then((roll) => {
                 roll.toMessage({speaker: ChatMessage.getSpeaker(), user: game.user.id});
 
                 if(roll.total < attributes.intelligence) {
