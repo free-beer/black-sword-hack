@@ -1,8 +1,11 @@
 import {BSHActor} from './modules/documents/bsh_actor.js';
+import BSHCombat from './modules/combat.js';
 import {BSHConfiguration} from './modules/configuration.js';
 import {BSHItem} from './modules/documents/bsh_item.js';
 import CharacterSheet from './modules/sheets/character-sheet.js';
 import ConsumableSheet from './modules/sheets/consumable-sheet.js';
+import CreatureActionSheet from './modules/sheets/creature-action-sheet.js';
+import CreatureSheet from './modules/sheets/creature-sheet.js';
 import EquipmentSheet from './modules/sheets/equipment-sheet.js';
 import DemonSheet from './modules/sheets/demon-sheet.js';
 import SpellSheet from './modules/sheets/spell-sheet.js';
@@ -37,19 +40,22 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/partials/cs-spirit-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-tab-bodies.hbs",
                    "systems/black-sword-hack/templates/partials/cs-tab-labels.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs"];
+                   "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs",
+                   "systems/black-sword-hack/templates/partials/cr-action-entry.hbs"];
     return(loadTemplates(paths))
 }
 
 Hooks.once("init", function() {
     console.log("Initializing the Black Sword Hack System.");
 
-    CONFIG.Actor.documentClass = BSHActor;
-    CONFIG.configuration       = BSHConfiguration;
-    CONFIG.Item.documentClass  = BSHItem;
+    CONFIG.Actor.documentClass  = BSHActor;
+    CONFIG.Combat.documentClass = BSHCombat;
+    CONFIG.configuration        = BSHConfiguration;
+    CONFIG.Item.documentClass   = BSHItem;
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("black-sword-hack", ConsumableSheet, {types: ["consumable"]});
+    Items.registerSheet("black-sword-hack", CreatureActionSheet, {types: ["creature_action"]});
     Items.registerSheet("black-sword-hack", DemonSheet, {types: ["demon"]});
     Items.registerSheet("black-sword-hack", EquipmentSheet, {types: ["equipment"]});
     Items.registerSheet("black-sword-hack", SpellSheet, {types: ["spell"]});
@@ -58,6 +64,7 @@ Hooks.once("init", function() {
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("black-sword-hack", CharacterSheet, {makeDefault: true, types: ["character"]});
+    Actors.registerSheet("black-sword-hack", CreatureSheet, {makeDefault: true, types: ["creature"]});
     // Actors.registerSheet("bh2e", BH2eCreatureSheet, {makeDefault: true, types: ["creature"]});
 
     // Load templates.
@@ -82,6 +89,10 @@ Hooks.once("init", function() {
 
         return(options.fn(context));
     });
+
+    Handlebars.registerHelper("checkboxStateSelector", (setting) => {
+        return(setting ? "checked" : "");
+    })
 
     Handlebars.registerHelper("spellState", function(state) {
         return(game.i18n.localize(`bsh.spells.states.${state}`));

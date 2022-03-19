@@ -288,6 +288,16 @@ BSHConfiguration.languageList = {
 	}
 };
 
+BSHConfiguration.optionalAttributeList = {
+	"charisma": "bsh.attributes.charisma.long",
+	"constitution": "bsh.attributes.constitution.long",
+	"dexterity": "bsh.attributes.dexterity.long",
+	"intelligence": "bsh.attributes.intelligence.long",
+	"none": "bsh.none",
+	"strength": "bsh.attributes.strength.long",
+	"wisdom": "bsh.attributes.wisdom.long"
+};
+
 BSHConfiguration.originList = {
 	"barbarian": "bsh.origins.barbarian.name",
 	"civilized": "bsh.origins.civilized.name",

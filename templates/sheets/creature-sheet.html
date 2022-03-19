@@ -1,0 +1,61 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="bsh-sheet-header">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" weight="64">
+        <h1 class="bsh-sheet-title">
+            <input name="name" type="text" value="{{actor.name}}" />
+        </h1>
+    </header>
+
+    <div>
+        <div class="bsh-grid bsh-grid-2-col">
+            <div class="bsh-field">
+                <label class="bsh-label">{{localize "bsh.fields.labels.level"}}</label>
+                <input class="bsh-input" min="1" name="data.level" value="{{data.data.level}}" type="number"/>
+            </div>
+
+            <div class="bsh-field">
+                <label class="bsh-label">{{localize "bsh.fields.labels.hitPoints"}}</label>
+                <input class="bsh-input" min="0" name="data.hitPoints" value="{{data.data.hitPoints}}" type="number"/>
+            </div>
+        </div>
+
+        <div class="bsh-grid bsh-grid-2-col">
+            <div class="bsh-field">
+                <label class="bsh-label">{{localize "bsh.fields.labels.resistances"}}</label>
+                <input class="bsh-input" name="data.resistances" value="{{data.data.resistances}}" type="text"/>
+            </div>
+
+            <div class="bsh-field">
+                <label class="bsh-label">{{localize "bsh.fields.labels.vulnerabilities"}}</label>
+                <input class="bsh-input" name="data.vulnerabilities" value="{{data.data.vulnerabilities}}" type="text"/>
+            </div>
+        </div>
+        <br>
+
+        <h2>Actions</h2>
+        <table class="bsh-actions-table">
+            <thead>
+                <tr>
+                    <th>{{localize "bsh.tables.columns.name"}}</th>
+                    <th>{{localize "bsh.tables.columns.attribute"}}</th>
+                    <th>{{localize "bsh.tables.columns.damage"}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each actions as |action id|}}
+                    {{> "systems/black-sword-hack/templates/partials/cr-action-entry.hbs" action}}
+                {{/each}}
+            </tbody>
+        </table>
+        <hr>
+
+
+        <div class="bsh-field">
+            <label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+        <br>
+    </div>
+</form>

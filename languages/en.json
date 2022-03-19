@@ -130,6 +130,18 @@
         "shortRest": "Take a short rest"
       }
     },
+    "creatures": {
+      "actions": {
+        "attributes": {
+          "title": "Test Attributes"
+        },
+        "info": {
+          "dismiss": "Close",
+          "noDescription": "<center>No description provided for this action.</center>",
+          "title": "Action Description"
+        }
+      }
+    },
   	"data": {
   		"descriptions": {
   			"armedDamage": "damage",
@@ -183,11 +195,13 @@
         "advantage": "Advantage",
   			"armourDescription": "Armour Description",
   			"armourType": "Armour Type",
+        "attribute": "Attribute",
   			"backgroundFreeform": "Background (Any Origin)",
   			"backgroundFromOrigin": "Background (From Origin)",
         "bonusPenalty": "Bonus/Penalty",
   			"birth": "Born...",
   			"coins": "Coins",
+        "damage": "Damage",
   			"damageArmed": "Armed Damage",
   			"damageUnarmed": "Unarmed Damage",
   			"description": "Description",
@@ -195,6 +209,7 @@
   			"doomDie": "Doom",
   			"firstBackground": "Background 1",
   			"hands": "Hands",
+        "hitPoints": "HP",
   			"hitPointsCurrent": "HP (Current)",
   			"hitPointsMaximum": "HP (Maximum)",
   			"level": "Level",
@@ -204,6 +219,7 @@
   			"playerName": "Player",
   			"quantity": "Quantity",
   			"rarity": "Rarity",
+        "resistances": "Resistances",
         "rollType": "Roll Type",
   			"secondBackground": "Background 2",
   			"shield": "Shield?",
@@ -212,7 +228,8 @@
   			"thirdBackground": "Background 3",
         "threat": "Threat Level",
   			"type": "Type",
-  			"usageDie": "Usage Die"
+  			"usageDie": "Usage Die",
+        "vulnerabilities": "Vulnerabilities"
   		},
   		"titles": {
   			"calculatedAttribute": "Consult the Basics tab to alter your attributes.",
@@ -380,6 +397,7 @@
   		}
   	},
   	"no": "No",
+    "none": "None",
   	"origins": {
   		"barbarian": {
   			"backgrounds": {},
@@ -441,6 +459,14 @@
   		  "used": "Used Already"
   	  }
   	},
+    "tables": {
+      "columns": {
+        "attribute": "Test Attribute",
+        "damage": "Damage",
+        "description": "Description",
+        "name": "Action"
+      }
+    },
   	"tabs": {
   		"labels": {
   			"background": "Basics",

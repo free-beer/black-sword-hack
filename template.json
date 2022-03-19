@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types" : ["character"],
+    "types" : ["character", "creature"],
     "character": {
       "armour": {
         "description": "",
@@ -100,10 +100,17 @@
         "spirit": "unused"
       },
       "tabSelected": "front-page"
+    },
+    "creature": {
+      "description": "",
+      "level": 1,
+      "hitPoints": 5,
+      "resistances": "",
+      "vulnerabilities": ""
     }
   },
   "Item": {
-  	"types": ["consumable", "demon", "equipment", "spell", "spirit", "weapon"],
+  	"types": ["consumable", "creature_action", "demon", "equipment", "spell", "spirit", "weapon"],
   	"templates": {
   	},
     "consumable": {
@@ -113,6 +120,18 @@
       "usageDie": {
         "current": "^",
         "maximum": "d4"}
+    },
+    "creature_action": {
+      "attributes": {
+        "strength": false,
+        "dexterity": false,
+        "constitution": false,
+        "intelligence": false,
+        "wisdom": false,
+        "charisma": false
+      },
+      "damage": "",
+      "description": ""
     },
     "demon": {
       "description": ""

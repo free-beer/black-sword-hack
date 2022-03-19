@@ -1,0 +1,61 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="bsh-sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" weight="64">
+        <h1 class="bsh-sheet-title">
+            <input type="text" name="name" value="{{item.name}}" />
+        </h1>
+    </header>
+
+    <div class="bsh-creature-action-body">
+        <div class="bsh-grid bsh-creature-action-grid">
+            <div>
+                <div class="bsh-field">
+                    <label class="bsh-label">{{localize "bsh.fields.labels.damage"}}</label>
+                    <input class="bsh-input" name="data.damage" value="{{data.data.damage}}" type="text"/>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{localize "bsh.creatures.actions.attributes.title"}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.strength" type="checkbox" {{checkboxStateSelector data.data.attributes.strength}}></td>
+                            <td>{{localize "bsh.attributes.strength.long"}}</td>
+                        </tr> 
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.dexterity" type="checkbox" {{checkboxStateSelector data.data.attributes.dexterity}}></td>
+                            <td>{{localize "bsh.attributes.dexterity.long"}}</td>
+                        </tr> 
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.constitution" type="checkbox"  {{checkboxStateSelector data.data.attributes.constitution}}></td>
+                            <td>{{localize "bsh.attributes.constitution.long"}}</td>
+                        </tr> 
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.intelligence" type="checkbox" {{checkboxStateSelector data.data.attributes.intelligence}}></td>
+                            <td>{{localize "bsh.attributes.intelligence.long"}}</td>
+                        </tr> 
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.wisdom" type="checkbox" {{checkboxStateSelector data.data.attributes.wisdom}}></td>
+                            <td>{{localize "bsh.attributes.wisdom.long"}}</td>
+                        </tr> 
+                        <tr>
+                            <td><input class="bsh-attribute-selector" name="data.attributes.charisma" type="checkbox" {{checkboxStateSelector data.data.attributes.charisma}}></td>
+                            <td>{{localize "bsh.attributes.charisma.long"}}</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bsh-field">
+                <label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+                {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        <br>
+    </div>
+</form>
