@@ -135,8 +135,20 @@
 .bsh-doomed-notice {
 }
 
+.bsh-equipment-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 50px;
+	margin-bottom: 20px;
+}
+
 .bsh.field {
 	width: 100%;
+}
+
+.bsh-field-vspaced {
+	margin:  3px;
 }
 
 .bsh-float-left {
@@ -147,12 +159,24 @@
 	float: right;
 }
 
-.bsh-equipment-entries {
-	display: grid;
+.bsh-font-size-1 {
+	font-size: 1em;
+}
+
+.bsh-font-size-2 {
 	font-size: 1.1em;
-	gap: 5px 3px;
-	grid-template-columns: auto 50px;
-	margin-bottom: 20px;
+}
+
+.bsh-font-size-3 {
+	font-size: 1.2em;
+}
+
+.bsh-font-size-4 {
+	font-size: 1.3em;
+}
+
+.bsh-font-size-5 {
+	font-size: 1.4em;
 }
 
 .bsh-grid {
@@ -162,15 +186,19 @@
 }
 
 .bsh-grid-2-col {
-	grid-template-columns: 50% 50%;
+	grid-template-columns: 1fr 1fr;
 }
 
 .bsh-grid-3-col {
-	grid-template-columns: 33% 33% 33%;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .bsh-grid-4-col {
-	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.bsh-grid-extended-gap {
+	gap: 5px 10px;
 }
 
 .bsh-hidden {
@@ -187,6 +215,12 @@
 
 .bsh-label {
 	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.bsh-label-inline {
 	font-size: 1.1em;
 	font-weight: bold;
 	margin: 5px 0;

@@ -121,7 +121,8 @@
   		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The table below records the stories you've been part of and what level that makes you."
   	},
     "buttons": {
-      "random_generation": "Randomize Me A Character!"
+      "random_generation": "Randomize Me A Character!",
+      "rollIt": "Roll It!"
     },
     "controls": {
       "titles": {
@@ -179,15 +180,18 @@
   	},
   	"fields": {
   		"labels": {
+        "advantage": "Advantage",
   			"armourDescription": "Armour Description",
   			"armourType": "Armour Type",
   			"backgroundFreeform": "Background (Any Origin)",
   			"backgroundFromOrigin": "Background (From Origin)",
+        "bonusPenalty": "Bonus/Penalty",
   			"birth": "Born...",
   			"coins": "Coins",
-  			"damageArmed": "Damage (Armed)",
-  			"damageUnarmed": "Damage (Unarmed)",
+  			"damageArmed": "Armed Damage",
+  			"damageUnarmed": "Unarmed Damage",
   			"description": "Description",
+        "disadvantage": "Disadvantage",
   			"doomDie": "Doom",
   			"firstBackground": "Background 1",
   			"hands": "Hands",
@@ -200,10 +204,13 @@
   			"playerName": "Player",
   			"quantity": "Quantity",
   			"rarity": "Rarity",
+        "rollType": "Roll Type",
   			"secondBackground": "Background 2",
   			"shield": "Shield?",
+        "standardRoll": "Standard", 
   			"stories": "Stories",
   			"thirdBackground": "Background 3",
+        "threat": "Threat Level",
   			"type": "Type",
   			"usageDie": "Usage Die"
   		},
@@ -274,6 +281,9 @@
   		"weaponName": "Weapon",
   		"weapons": "Weapons"
   	},
+    "initiative": {
+      "roll": "Testing WIS for initiative."
+    },
   	"levels": {
   		"names": {
   			"2": "2nd",
@@ -387,6 +397,36 @@
   		"rare": "Rare",
   		"unique": "Unique"
   	},
+    "rollModal": {
+      "title": "Roll Modal!"
+    },
+    "rolls": {
+      "tests": {
+        "charisma": {
+          "title": "Test Charisma"
+        },
+        "constitution": {
+          "title": "Test Constitution"
+        },
+        "dexterity": {
+          "title": "Test Dexterity"
+        },
+        "intelligence": {
+          "title": "Test Intelligence"
+        },
+        "strength": {
+          "title": "Test Strength"
+        },
+        "wisdom": {
+          "title": "Test Wisdom"
+        }
+      },
+      "types": {
+        "advantage": "Advantage",
+        "disadvantage": "Disadvantage",
+        "standard": "Standard"
+      }
+    },
   	"spells": {
   		"states": {
   			"available": "Uncast",

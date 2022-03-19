@@ -1,4 +1,5 @@
 import {BSHConfiguration} from './configuration.js';
+import AttributeTestDialog from './attribute_test_dialog.js';
 import {logAttackRoll, logAttributeTest, logDieRoll, logItemUsageDieRoll} from './chat_messages.js';
 
 /**
@@ -262,7 +263,21 @@ export async function handleRollAttributeDieEvent(event) {
         let actor = getActorById(element.dataset.actor);
 
         if(actor) {
-            logAttributeTest(actor, element.dataset.attribute, event.shiftKey, event.ctrlKey);
+            if(event.altKey) {
+                let attribute = element.dataset.attribute;
+                let rollType = "standard";
+                let title     = game.i18n.localize(`bsh.rolls.tests.${attribute}.title`);
+
+                if(event.shiftKey) {
+                    rollType = "advantage";
+                } else if(event.ctrlKey) {
+                    rollType = "disadvantage";
+                }
+
+                showAttributeRollModal(actor, attribute, title, {rollType: rollType});
+            } else {
+                logAttributeTest(actor, element.dataset.attribute, event.shiftKey, event.ctrlKey);
+            }
         } else {
             console.error(`Unable to locate an actor with the id ${element.dataset.actor} for attribute die roll.`);
             ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
@@ -546,4 +561,12 @@ export function setObjectField(path, value, object=null) {
     }
 
     return(rootObject);
+}
+
+/**
+ * Displays a dialog that allows for manual and finer level control over an
+ * attribute test roll.
+ */
+export async function showAttributeRollModal(actor, attribute, title, options={}) {
+    AttributeTestDialog.build(actor, attribute, options).then((dialog) => dialog.render(true));
 }

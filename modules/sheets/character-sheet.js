@@ -20,7 +20,8 @@ import {calculateCharacterData,
 	    handleRollUsageDieEvent,
 	    handleWeaponRollEvent,
 	    incrementItemQuantity,
-	    resetItemUsageDie} from '../shared.js';
+	    resetItemUsageDie,
+	    showAttributeRollModal} from '../shared.js';
 import {castSpell,
         resetSpellState,
         resetSpellStatesForActor} from '../spells.js';
@@ -72,9 +73,6 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-summon-demon-icon").click(this._onSummonDemonClicked.bind(this));
 		html.find(".bsh-summon-spirit-icon").click(this._onSummonSpiritClicked.bind(this));
 		html.find(".bsh-random-character-generator-button").click(this._onRandomizeMyCharacterClicked.bind(this));
-		html.find(".bsh-defend-roll-icon").click(logDefendRoll);
-		html.find(".bsh-initiative-roll-icon").click(logInitiativeRoll);
-		html.find(".bsh-perception-roll-icon").click(logPerceptionRoll);
 		html.find(".bsh-rest-icon").click(this._onTakeRestClicked.bind(this));
 		initializeCollapsibles();
 		super.activateListeners(html);

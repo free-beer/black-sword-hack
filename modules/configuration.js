@@ -294,6 +294,12 @@ BSHConfiguration.originList = {
 	"decadent": "bsh.origins.decadent.name",
 };
 
+BSHConfiguration.rollTypes = {
+	"advantage": "bsh.rolls.types.advantage",
+	"disadvantage": "bsh.rolls.types.disadvantage",
+	"standard": "bsh.rolls.types.standard"
+};
+
 BSHConfiguration.spellStates = {
 	"available": "bsh.spells.states.available",
 	"cast": "bsh.spells.states.cast",

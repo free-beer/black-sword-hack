@@ -1,0 +1,33 @@
+<form autocomplete="off" class="{{cssClass}}">
+    <hr>
+    <div class="bsh-font-size-5">
+        <center>
+            <strong>{{attribute}}</strong>: {{score}}
+        </center>
+    </div>
+    <hr>
+
+    <div class="bsh-grid bsh-grid-3-col bsh-grid-extended-gap">
+        <div class="bsh-field">
+            <label class="bsh-label">{{localize "bsh.fields.labels.threat"}}</label>
+            <input class="bsh-input" name="threat" type="number" value="{{threat}}">
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label">{{localize "bsh.fields.labels.bonusPenalty"}}</label>
+            <input class="bsh-input" name="adjustment" type="number" value="{{adjustment}}">
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label">{{localize "bsh.fields.labels.rollType"}}</label>
+            <select name="type" class="bsh-input bsh-select">
+            {{#select type}}
+            {{#each configuration.rollTypes as |label value|}}
+                <option value="{{value}}">{{localize label}}</option>
+            {{/each}}
+            {{/select}}
+            </select>
+        </div>
+        <br>
+    </div>
+</form>

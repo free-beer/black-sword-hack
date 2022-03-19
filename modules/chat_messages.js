@@ -85,7 +85,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
     }
 }
 
-export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false, expanded=false) {
+export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false, expanded=false, adjustment=0) {
     let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
     let critical   = {failure: false, success: true};
     let doomed     = (actor.data.data.doom === "exhausted");
@@ -109,6 +109,13 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
             message.roll.formula = "2d20kh";
         }
     }
+
+    if(adjustment < 0) {
+        message.roll.formula = `${message.roll.formula}${adjustment}`;
+    } else if(adjustment > 0) {
+        message.roll.formula = `${message.roll.formula}+${adjustment}`;
+    }
+
     rollEm(new Roll(message.roll.formula)).then((roll) => {
         critical.failure     = (roll.terms[0].results[0] === 20);
         critical.success     = (roll.terms[0].results[0] === 1);
