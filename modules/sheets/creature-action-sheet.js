@@ -2,8 +2,8 @@ export default class CreatureActionSheet extends ItemSheet {
     static get defaultOptions() {
         return(mergeObject(super.defaultOptions,
                            {classes: ["bsh", "bsh-sheet", "bsh-creature-action"],
-                            height: 450,
-                            width: 800}));
+                            height: 375,
+                            width: 750}));
     }
 
     get template() {

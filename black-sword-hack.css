@@ -92,6 +92,16 @@
 	width: 98%;
 }
 
+.bsh-creature-action-body {
+	display: grid;
+	gap: 3px 15px;
+	grid-template-columns: 3fr 1fr;
+}
+
+.bsh-creature-action-body th {
+	text-align: left;
+}
+
 .bsh-creature-action-grid {
 	gap:  3px 20px !important;
 	grid-template-columns: 1fr 3fr;
