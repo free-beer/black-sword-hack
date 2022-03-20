@@ -2,9 +2,9 @@ export default class CreatureSheet extends ActorSheet {
     static get defaultOptions() {
         return(mergeObject(super.defaultOptions,
                            {classes: ["bsh", "bsh-sheet", "bsh-character"],
-                            height: 700,
+                            height: 750,
                             template: "systems/black-sword-hack/templates/sheets/creature-sheet.html",
-                            width: 650}));
+                            width: 700}));
     }
 
     /** @override */
