@@ -52,7 +52,7 @@ export function deleteOwnedItem(itemId) {
 export function calculateCharacterData(context, configuration) {
     context.data.level = calculateLevel(context.data, configuration);
     context.data.calculated = calculateAttributeValues(context.data, configuration);
-    context.data.maximumHitPoints = calculateMaximumHitPoints(context.data, context.level);
+    context.data.maximumHitPoints = calculateMaximumHitPoints(context.data, context.data.level);
 }
 
 /**
