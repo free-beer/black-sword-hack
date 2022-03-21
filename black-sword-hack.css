@@ -274,6 +274,14 @@
 	cursor: pointer;
 }
 
+.bsh-improvement-label {
+	align-items: center;
+	display: flex;
+	font-size: 1.1em;
+	height: 100%;
+	justify-content: center;
+}
+
 .bsh-label {
 	display: block;
 	font-size: 1.1em;
@@ -384,7 +392,13 @@
 .bsh-stories-container {
 	display: grid;
 	gap: 3px 5px;
-	grid-template-columns: 90% 10%;
+	grid-template-columns: 6fr 1fr 1fr;
+}
+
+.bsh-story-entry-improvements {
+	display: grid;
+	gap: 3px 5px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .bsh-summon-results {

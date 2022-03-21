@@ -45,55 +45,86 @@
       "origin": "barbarian",
       "playerName": "",
       "stories": {
-        "story01": "",
-        "story02": "",
-        "story03": "",
-        "story04": "",
-        "story05": "",
-        "story06": "",
-        "story07": "",
-        "story08": "",
-        "story09": "",
-        "story10": "",
-        "story11": "",
-        "story12": "",
-        "story13": "",
-        "story14": "",
-        "story15": "",
-        "story16": "",
-        "story17": "",
-        "story18": "",
-        "story19": "",
-        "story20": "",
-        "story21": "",
-        "story22": "",
-        "story23": "",
-        "story24": "",
-        "story25": "",
-        "story26": "",
-        "story27": "",
-        "story28": "",
-        "story29": "",
-        "story31": "",
-        "story32": "",
-        "story33": "",
-        "story34": "",
-        "story35": "",
-        "story36": "",
-        "story37": "",
-        "story38": "",
-        "story39": "",
-        "story40": "",
-        "story41": "",
-        "story42": "",
-        "story43": "",
-        "story44": "",
-        "story45": "",
-        "story46": "",
-        "story47": "",
-        "story48": "",
-        "story49": "",
-        "story50": ""
+        "00": {"improvements": {
+                 "attributes": {
+                   "first": {"choice": "none"},
+                   "granted": true
+                 },
+                 "gift": {
+                   "granted": false
+                 },
+                 "hitPoints": 1,
+                 "level": "bsh.levels.names.2"
+               },
+               "title": ""},
+        "01": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {
+                 "choice": "none",
+                 "granted": true
+               },
+               "hitPoints": 1,
+               "level": "bsh.levels.names.3"
+               },
+               "title": ""},
+        "02": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true,
+                              "second": {"choice": "none"}},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.4"
+               },
+               "title": ""},
+        "03": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.5"
+               },
+               "title": ""},
+        "04": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.6"
+               },
+               "title": ""},
+        "05": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.7"
+               },
+               "title": ""},
+        "06": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true,
+                              "second": {"choice": "none"}},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.8"
+               },
+               "title": ""},
+        "07": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.9"
+               },
+               "title": ""},
+        "08": {"improvements": {
+               "attributes": {"granted": false},
+               "doomDie": "d8",
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.10"
+               },
+               "title": ""}
       },
       "summoning": {
         "demon": "unused",

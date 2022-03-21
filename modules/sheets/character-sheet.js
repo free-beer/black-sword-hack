@@ -30,7 +30,7 @@ export default class CharacterSheet extends ActorSheet {
 	static get defaultOptions() {
 	    return(mergeObject(super.defaultOptions,
 	    	               {classes: ["bsh", "bsh-sheet", "bsh-character"],
-	    	                height: 880,
+	    	                height: 920,
 	    	               	template: "systems/black-sword-hack/templates/sheets/character-sheet.html"}));
 	}
 
@@ -41,11 +41,19 @@ export default class CharacterSheet extends ActorSheet {
 
         context.data  = actorData.data;
         context.flags = actorData.flags;
+        Object.keys(context.data.stories).forEach((key) => context.data.stories[key].configuration = CONFIG.configuration);
 
         if(actorData.type === "character") {
             this._prepareCharacterData(context);
         }
 
+        if(context.data.level === 10) {
+        	context.data.doom = "d8";
+        } else {
+        	context.data.doom = "d6";
+        }
+
+        console.log("CHARACTER DATA:", context);
         return(context);
 	}
 

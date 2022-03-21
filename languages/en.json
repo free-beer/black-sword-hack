@@ -118,7 +118,7 @@
       "critical_failure": "Your next attribute test or attack roll should be made with disadvantage!",
       "defend_fumble": "Your armour does not protect you from the damage of this attack!",
       "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
-  		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The table below records the stories you've been part of and what level that makes you."
+  		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your gifts and attribute bonuses as you attain the appropriate level."
   	},
     "buttons": {
       "random_generation": "Randomize Me A Character!",
@@ -162,6 +162,11 @@
   	"demons": {
   		"tableName": "Demon's Revenge"
   	},
+    "doom": {
+      "die": {
+        "upgraded": "Doom Die Upgraded To 1d8"
+      }
+    },
   	"errors": {
   		"actors": {
   			"notFound": "Unable to locate the required actor."
@@ -193,9 +198,11 @@
   	"fields": {
   		"labels": {
         "advantage": "Advantage",
+        "adventureName": "Story Name",
   			"armourDescription": "Armour Description",
   			"armourType": "Armour Type",
         "attribute": "Attribute",
+        "attributeBonus": "Attribute Bonus",
   			"backgroundFreeform": "Background (Any Origin)",
   			"backgroundFromOrigin": "Background (From Origin)",
         "bonusPenalty": "Bonus/Penalty",
@@ -207,7 +214,9 @@
   			"description": "Description",
         "disadvantage": "Disadvantage",
   			"doomDie": "Doom",
+        "doomDieUpgrade": "Doom Die Upgrade",
   			"firstBackground": "Background 1",
+        "gift": "Gift",
   			"hands": "Hands",
         "hitPoints": "HP",
   			"hitPointsCurrent": "HP (Current)",
@@ -226,6 +235,7 @@
         "standardRoll": "Standard", 
   			"stories": "Stories",
   			"thirdBackground": "Background 3",
+        "title": "Title",
         "threat": "Threat Level",
   			"type": "Type",
   			"usageDie": "Usage Die",
@@ -274,6 +284,68 @@
   			"summonSpirit": "Summon this spirit."
   		}
   	},
+    "gifts": {
+      "fortressOfTheMind": {
+        "label": "",
+        "name": "Fortress Of The Mind (Balance)"
+      },
+      "meditation": {
+        "label": "",
+        "name": "Meditation (Balance)"
+      },
+      "secondWind": {
+        "label": "",
+        "name": "Second Wind (Balance)"
+      },
+      "spiritAlliance": {
+        "label": "",
+        "name": "Spirit Alliance (Balance)"
+      },
+      "survivorsLuck": {
+        "label": "",
+        "name": "Survivors Luck (Balance)"
+      },
+      "armorOfScars": {
+        "label": "",
+        "name": "Armor Of Scars (Chaos)"
+      },
+      "bloodlust": {
+        "label": "",
+        "name": "Bloodlust (Chaos)"
+      },
+      "darkRevelation": {
+        "label": "",
+        "name": "Dark Revelation (Chaos)"
+      },
+      "dubiousFriendships": {
+        "label": "",
+        "name": "Dubious Friendships (Chaos)"
+      },
+      "paranoid": {
+        "label": "",
+        "name": "Paranoid (Chaos)"
+      },
+      "battleHardened": {
+        "label": "",
+        "name": "Battle Hardened (Law)"
+      },
+      "resourceful": {
+        "label": "",
+        "name": "ResourceFul (Law)"
+      },
+      "riddleOfSteel": {
+        "label": "",
+        "name": "Riddle Of Steel (Law)"
+      },
+      "toughAsNails": {
+        "label": "",
+        "name": "Tough As Nails (Law)"
+      },
+      "willToLive": {
+        "label": "",
+        "name": "Will To Live (Law)"
+      }
+    },
   	"headers": {
   		"background": "Origin & Backgrounds",
   		"base_attributes": "Base Attributes",

@@ -1,0 +1,71 @@
+<div class="bsh-story-entry-container">
+	<div class="bsh-field">
+		<label class="bsh-label">{{localize "bsh.fields.labels.adventureName"}}</label>
+		<input name="data.stories.{{@key}}.title" type="text" value="{{title}}">
+	</div>
+
+{{#if improvements}}
+	<div class="bsh-story-entry-improvements">
+	{{#if improvements.level}}
+		<div class="bsh-field">
+			<label class="bsh-label">{{localize "bsh.fields.labels.level"}}</label>
+			<div>
+				{{localize improvements.level}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{#if improvements.hitPoints}}
+		<div class="bsh-field">
+			<label class="bsh-label">{{localize "bsh.fields.labels.hitPoints"}}</label>
+			<div>
+				+{{improvements.hitPoints}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{#if improvements.gift.granted}}
+	    <div class="bsh-field">
+	    	<label class="bsh-label">{{localize "bsh.fields.labels.gift"}}</label>
+	    	<select name="data.stories.{{@key}}.improvements.attributes.first.choice">
+    	{{#each configuration.giftList}}
+            {{{selectGiftOption ../improvements.gift.choice}}}
+    	{{/each}}
+	    	</select>
+	    </div>
+	{{/if}}
+
+	{{#if improvements.attributes.granted}}
+	    {{#if improvements.attributes.first}}
+		    <div class="bsh-field">
+		    	<label class="bsh-label">{{localize "bsh.fields.labels.attributeBonus"}}</label>
+		    	<select name="data.stories.{{@key}}.improvements.attributes.first.choice">
+	    	{{#each configuration.optionalAttributeListLong}}
+                {{{selectAttributeOption ../improvements.attributes.first.choice}}}
+	    	{{/each}}
+		    	</select>
+		    </div>
+	    {{/if}}
+
+	    {{#if improvements.attributes.second}}
+		    <div class="bsh-field">
+		    	<label class="bsh-label">{{localize "bsh.fields.labels.attributeBonus"}}</label>
+		    	<select name="data.stories.{{@key}}.improvements.attributes.second.choice">
+	    	{{#each configuration.optionalAttributeListLong}}
+                {{{selectAttributeOption ../improvements.attributes.second.choice}}}
+	    	{{/each}}
+		    	</select>
+		    </div>
+	    {{/if}}
+	{{/if}}
+
+	{{#if improvements.doomDie}}
+	    <div>
+	    	<label class="bsh-label">{{localize "bsh.fields.labels.doomDieUpgrade"}}</label>
+	    	<div>1{{improvements.doomDie}}</div>
+	    </div>
+	{{/if}}
+	</div>
+{{/if}}
+</div>
+<hr>

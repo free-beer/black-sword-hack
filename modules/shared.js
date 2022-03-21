@@ -39,7 +39,7 @@ export function deleteOwnedItem(itemId) {
     let item = getOwnedItemById(itemId);
 
     if(item && item.actor) {
-        item.actor.deleteEmbeddedEntity("OwnedItem", itemId);
+        item.actor.deleteEmbeddedDocuments("Item", [itemId]);
     } else {
         console.error(`Delete of item id ${itemId} requested but unable to locate the actual item or it's owner.`);
         ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
@@ -81,9 +81,37 @@ export function calculateAttributeValues(data, configuration) {
     backgrounds.forEach((e) => {
         if(e && e.attributes) {
             for(let attribute in e.attributes) {
-                console.log(`Adding ${e.attributes[attribute]} to the characters ${attribute} attribute.`);
+                console.log(`Adding ${e.attributes[attribute]} to the characters ${attribute} attribute as part of background.`);
                 calculated[attribute] += e.attributes[attribute];
             }
+        }
+    });
+
+    Object.keys(data.stories).forEach((key) => {
+        let story = data.stories[key];
+
+        if(story.improvements && story.improvements.attributes && story.improvements.attributes.granted) {
+            let attribute = story.improvements.attributes.first.choice;
+
+            if(attribute in calculated) {
+                console.log(`Adding 1 to the characters ${attribute} attribute because of a level improvement.`);
+                calculated[attribute] += 1;
+            }
+
+            if(story.improvements.attributes.second) {
+                attribute = story.improvements.attributes.second.choice;
+                if(attribute in calculated) {
+                    console.log(`Adding 1 to the characters ${attribute} attribute because of a level improvement.`);
+                    calculated[attribute] += 1;
+                }
+            }
+        }
+    });
+
+    Object.keys(calculated).forEach((key) => {
+        if(calculated[key] > 18) {
+            console.log(`Reducing the ${key} attribute to it's maximum of 18.`);
+            calculated[key] = 18;
         }
     });
 
@@ -101,7 +129,7 @@ export function calculateMaximumHitPoints(context, level) {
     if(level < 10) {
         total += (level - 1);
     } else {
-        total += 8;
+        total += 9;
     }
 
     return(total);
@@ -114,33 +142,13 @@ export function calculateMaximumHitPoints(context, level) {
 export function calculateLevel(data, configuration) {
     let totalStories = 0;
 
-    for(let storyNumber in data.stories) {
-        if(data.stories[storyNumber].trim() !== "") {
+    Object.keys(data.stories).sort().forEach((index) => {
+        if(data.stories[index].title && data.stories[index].title.trim() !== "") {
             totalStories++;
         }
-    }
+    });
 
-    if(totalStories >= 45) {
-        return(10);
-    } else if(totalStories >= 36) {
-        return(9);
-    } else if(totalStories >= 28) {
-        return(8);
-    } else if(totalStories >= 21) {
-        return(7);
-    } else if(totalStories >= 15) {
-        return(6);
-    } else if(totalStories >= 10) {
-        return(5);
-    } else if(totalStories >= 6) {
-        return(4);
-    } else if(totalStories >= 3) {
-        return(3);
-    } else if(totalStories >= 1) {
-        return(2);
-    } else {
-        return(1);
-    }
+    return(totalStories + 1);
 }
 
 /**

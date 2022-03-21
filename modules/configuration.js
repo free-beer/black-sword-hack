@@ -225,6 +225,71 @@ BSHConfiguration.diceList = {
 	"d20": "bsh.dice.d20"
 };
 
+BSHConfiguration.giftList = [
+  {key: "none",
+   name: "bsh.none"},
+	{key:   "fortressOfTheMind",
+	 label: "bsh.gifts.fortressOfTheMind.label",
+	 name:  "bsh.gifts.fortressOfTheMind.name",
+	 power: "balance"},
+	{key:   "meditation",
+	 label: "bsh.gifts.meditation.label",
+	 name:  "bsh.gifts.meditation.name",
+	 power: "balance"},
+	{key:   "secondWind",
+	 label: "bsh.gifts.secondWind.label",
+	 name:  "bsh.gifts.secondWind.name",
+	 power: "balance"},
+	{key:   "spiritAlliance",
+	 label: "bsh.gifts.spiritAlliance.label",
+	 name:  "bsh.gifts.spiritAlliance.name",
+	 power: "balance"},
+	{key:   "survivorsLuck",
+	 label: "bsh.gifts.survivorsLuck.label",
+	 name:  "bsh.gifts.survivorsLuck.name",
+	 power: "balance"},
+	{key:   "armourOfScars",
+	 label: "bsh.gifts.armorOfScars.label",
+	 name:  "bsh.gifts.armorOfScars.name",
+	 power: "chaos"},
+	{key:   "bloodlust",
+	 label: "bsh.gifts.bloodlust.label",
+	 name:  "bsh.gifts.bloodlust.name",
+	 power: "chaos"},
+	{key:   "darkRevelation",
+	 label: "bsh.gifts.darkRevelation.label",
+	 name:  "bsh.gifts.darkRevelation.name",
+	 power: "chaos"},
+	{key:   "dubiousFriendships",
+	 label: "bsh.gifts.dubiousFriendships.label",
+	 name:  "bsh.gifts.dubiousFriendships.name",
+	 power: "chaos"},
+	{key:   "paranoid",
+	 label: "bsh.gifts.paranoid.label",
+	 name:  "bsh.gifts.paranoid.name",
+	 power: "chaos"},
+	{key:   "battleHardened",
+	 label: "bsh.gifts.battleHardened.label",
+	 name:  "bsh.gifts.battleHardened.name",
+	 power: "law"},
+	{key:   "resourceful",
+	 label: "bsh.gifts.resourceful.label",
+	 name:  "bsh.gifts.resourceful.name",
+	 power: "law"},
+	{key:   "riddleOfSteel",
+	 label: "bsh.gifts.riddleOfSteel.label",
+	 name:  "bsh.gifts.riddleOfSteel.name",
+	 power: "law"},
+	{key:   "toughAsNails",
+	 label: "bsh.gifts.toughAsNails.label",
+	 name:  "bsh.gifts.toughAsNails.name",
+	 power: "law"},
+	{key:   "willToLive",
+	 label: "bsh.gifts.willToLive.label",
+	 name:  "bsh.gifts.willToLive.name",
+	 power: "law"}
+];
+
 BSHConfiguration.itemRarityList = {
 	"common": "bsh.rarities.common",
 	"rare": "bsh.rarities.rare",
@@ -297,6 +362,16 @@ BSHConfiguration.optionalAttributeList = {
 	"strength": "bsh.attributes.strength.long",
 	"wisdom": "bsh.attributes.wisdom.long"
 };
+
+BSHConfiguration.optionalAttributeListLong = [
+    {"key": "charisma", "value": "bsh.attributes.charisma.long"},
+    {"key": "constitution", "value": "bsh.attributes.constitution.long"},
+    {"key": "dexterity", "value": "bsh.attributes.dexterity.long"},
+    {"key": "intelligence", "value": "bsh.attributes.intelligence.long"},
+    {"key": "none", "value": "bsh.none"},
+    {"key": "strength", "value": "bsh.attributes.strength.long"},
+    {"key": "wisdom", "value": "bsh.attributes.wisdom.long"}
+];
 
 BSHConfiguration.originList = {
 	"barbarian": "bsh.origins.barbarian.name",

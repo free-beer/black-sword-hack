@@ -38,6 +38,7 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/partials/cs-saga-tab-body.hbs",
                    "systems/black-sword-hack/templates/partials/cs-spell-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-spirit-entry.hbs",
+                   "systems/black-sword-hack/templates/partials/cs-story-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-tab-bodies.hbs",
                    "systems/black-sword-hack/templates/partials/cs-tab-labels.hbs",
                    "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs",
@@ -96,6 +97,16 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("spellState", function(state) {
         return(game.i18n.localize(`bsh.spells.states.${state}`));
+    });
+
+    Handlebars.registerHelper("selectAttributeOption", function(chosen) {
+        let selected = (chosen === this.key ? " selected" : " ");
+        return(`<option${selected} value="${this.key}">${game.i18n.localize(this.value)}</option>`);
+    });
+
+    Handlebars.registerHelper("selectGiftOption", function(chosen) {
+        let selected = (chosen === this.key ? " selected" : " ");
+        return(`<option${selected} value="${this.key}">${game.i18n.localize(this.name)}</option>`);
     });
 
     Handlebars.registerHelper("summoningState", function(state) {
