@@ -1,15 +1,19 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<header class="sheet-header">
-		<img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" weight="64">
-		<h1>
-			<input type="text" name="name" value="{{item.name}}" />
-		</h1>
-	</header>
+    <div class="bsh-demon-sheet-body">
+    	<div>
+			<div class="bsh-field">
+				<label class="bsh-label">{{localize "bsh.fields.labels.name"}}</label>
+				<input name="name" type="text" value="{{item.name}}" />
+			</div>
 
-	<div class="bsh-equipment-body">
-		<div class="bsh-field">
-			<label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
-			{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-		</div>
-	</div>
+			<div class="bsh-field">
+				<label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+			</div>
+    	</div>
+
+    	<div>
+    		<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+    	</div>
+    </div>
 </form>

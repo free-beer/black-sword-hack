@@ -169,6 +169,12 @@
 	width: 98%;
 }
 
+.bsh-demon-sheet-body {
+	display: grid;
+	gap:  3px 15px;
+	grid-template-columns: 5fr 2fr;
+}
+
 .bsh-dice-roll-additional {
 	color: #a00;
 	font-size: 120%;
