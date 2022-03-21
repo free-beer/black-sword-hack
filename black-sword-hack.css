@@ -92,6 +92,12 @@
 	width: 98%;
 }
 
+.bsh-consumable-sheet-body {
+	display: grid;
+	gap:  3px 10px;
+	grid-template-columns: 1fr 4fr;
+}
+
 .bsh-creature-action-body {
 	display: grid;
 	gap: 3px 15px;
@@ -180,7 +186,8 @@
 	margin-bottom: 20px;
 }
 
-.bsh.field {
+.bsh-field {
+	margin-bottom: 10px;
 	width: 100%;
 }
 
