@@ -91,17 +91,8 @@ export default class AttributeTestDialog extends Dialog {
         }
     }
 
-
     static build(actor, attribute, options={}) {
         let settings = Object.assign({}, options);
-        let callback = () => {
-                           console.log("THIS:", this);
-                           let field  = this.element[0].querySelector('select[name="type"]');
-                           let threat = parseInt(this.element[0].querySelector('input[name="threat"]').value);
-                           let other  = parseInt(this.element[0].querySelector('input[name="adjustment"]').value);
-
-                           logAttributeTest(actor, attribute, field.value === "advantage", field.value === "disadvantage", false, threat+other);
-                       };
         let data     = {adjustment:    (settings.adjustment || 0),
                         attribute:     game.i18n.localize(`bsh.attributes.${attribute}.long`),
                         configuration: CONFIG.configuration,
