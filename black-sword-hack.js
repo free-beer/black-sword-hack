@@ -93,7 +93,7 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("checkboxStateSelector", (setting) => {
         return(setting ? "checked" : "");
-    })
+    });
 
     Handlebars.registerHelper("spellState", function(state) {
         return(game.i18n.localize(`bsh.spells.states.${state}`));
