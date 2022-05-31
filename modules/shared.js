@@ -141,9 +141,10 @@ export function calculateMaximumHitPoints(context, level) {
  */
 export function calculateLevel(data, configuration) {
     let totalStories = 0;
+    let stories      = (data.stories || data.data.stories);
 
-    Object.keys(data.stories).sort().forEach((index) => {
-        if(data.stories[index].title && data.stories[index].title.trim() !== "") {
+    Object.keys(stories).sort().forEach((index) => {
+        if(stories[index].title && stories[index].title.trim() !== "") {
             totalStories++;
         }
     });
