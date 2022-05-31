@@ -152,7 +152,6 @@ Hooks.once("init", function() {
 
             node = element.querySelector(".bsh-damage-button");
             if(node) {
-                console.log()
                 node.addEventListener("click", logDamageRoll);
             }
         }, 250);

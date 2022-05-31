@@ -20,7 +20,6 @@ export class BSHActor extends Actor {
     _prepareCharacterData(actorData) {
         if(actorData.type === "character") {
             let data      = actorData.data;
-            console.log("ACTOR DATA:", actorData);
         }
     }
 }

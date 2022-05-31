@@ -53,7 +53,6 @@ export default class CharacterSheet extends ActorSheet {
         	context.data.doom = "d6";
         }
 
-        console.log("CHARACTER DATA:", context);
         return(context);
 	}
 
@@ -358,7 +357,6 @@ export default class CharacterSheet extends ActorSheet {
 	showTabBody(tabName) {
 		let tabBodies = document.getElementsByClassName("bsh-tab-body");
 
-        console.log(`Making the tab body for ${tabName} visible.`);
 		for(let i = 0; i < tabBodies.length; i++) {
 			tabBodies[i].classList.add("bsh-tab-hidden");
 		}

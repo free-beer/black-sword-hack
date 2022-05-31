@@ -36,7 +36,7 @@ export async function castSpell(spellId) {
                 spell.update(data, {diff: true});
             });
         } else {
-            console.log(`Unable to cast the ${spell.name} spell as it is not currently available for use.`);
+            console.warn(`Unable to cast the ${spell.name} spell as it is not currently available for use.`);
         }
     } else {
         console.error(`Unable to locate a spell with the id ${spellId}.`);

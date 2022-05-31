@@ -35,7 +35,6 @@ export default class CreatureSheet extends ActorSheet {
         if(actionId) {
             let data = super.getData();
 
-            console.log(`Deleting action id '${actionId}'.`);
             data.actor.deleteEmbeddedDocuments("Item", [actionId], {render: true});
         } else {
             console.error("Delete action clicked but clicked icon has no action id data attribute.");

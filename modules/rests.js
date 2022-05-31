@@ -9,20 +9,16 @@ export function takeLongRest(character) {
     let data    = character.data.data;
     let updates = {data: {}}
 
-    console.log(`Applying the benefits of a long rest to ${character.name}.`);
     calculateCharacterData(character.data, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
-        console.log(`Restoring ${character.name} to maximum hit points.`);
         updates.data.currentHitPoints = data.maximumHitPoints;
     }
 
     if(data.summoning.demon !== "unused") {
-        console.log("Resetting demon summoning for ${character.name}.");
         updates.data.summoning = {demon: "unused"};
     }
 
     if(data.summoning.spirit !== "unused") {
-        console.log("Resetting spirit summoning for ${character.name}.");
         if(!updates.data.summoning) {
             updates.data.summoning = {spirit: "unused"};
         } else {
@@ -46,10 +42,8 @@ export function takeShortRest(character) {
     let data    = character.data.data;
     let updates = {data: {}};
 
-    console.log(`Applying the benefits of a short rest to ${character.name}.`);
     calculateCharacterData(character.data, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
-        console.log(`Character has lost hit points (${data.currentHitPoints} of ${data.maximumHitPoints}).`);
         updates.data.currentHitPoints = data.currentHitPoints + Math.floor(data.calculated.constitution / 2);
         if(updates.data.currentHitPoints > data.maximumHitPoints) {
             updates.data.currentHitPoints = data.maximumHitPoints;

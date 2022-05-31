@@ -39,10 +39,8 @@ export async function summonDemon(demonId, rollType) {
         if(demon.actor.data.data.doom !== "exhausted") {
             if(demon.actor.data.data.summoning.demon !== "unused") {
                 if(rollType === "advantage") {
-                    console.log("Summoning roll downgrade from advantage to standard as demon already summoned.");
                     rollType = "standard";
                 } else if(rollType === "standard") {
-                    console.log("Summoning roll downgrade from standard to disadvantage as demon already summoned.");
                     rollType = "disadvantage";
                 }
             }
@@ -76,10 +74,8 @@ export async function summonSpirit(spiritId, rollType) {
         if(spirit.actor.data.data.doom !== "exhausted") {
             if(spirit.actor.data.data.summoning.spirit !== "unused") {
                 if(rollType === "advantage") {
-                    console.log("Summoning roll downgrade from advantage to standard as demon already summoned.");
                     rollType = "standard";
                 } else if(rollType === "standard") {
-                    console.log("Summoning roll downgrade from standard to disadvantage as demon already summoned.");
                     rollType = "disadvantage";
                 }
             }

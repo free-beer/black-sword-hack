@@ -122,21 +122,17 @@ export function randomizeCharacter(actor) {
                 coins: {first: 0},
                 origin: ""};
 
-    console.log("Generating character attributes.");
     generateAttributeScores()
         .then((attributes) => {
-            console.log("Base Attribute Scores:", attributes);
             data.attributes = attributes;
             return((new Roll("2d6")).evaluate({async: true}));
         })
         .then((roll) => {
             data.birth = BSHConfiguration.birthList[roll.total];
-            console.log("Birth Option:", data.birth);
             return(randomOrigin());
         })
         .then((origin) => {
             data.origin = origin;
-            console.log("Character Origin:", data.origin);
             return(selectBackgrounds(data.origin));
         })
         .then((backgrounds) => {
@@ -156,7 +152,6 @@ export function randomizeCharacter(actor) {
             return(data);
         })
         .then(async (data) => {
-            console.log("Applying choices to the character record. Data:", data);
             await actor.update({data: data});
         });
 }
@@ -192,7 +187,6 @@ function selectBackgrounds(origin) {
                 return(randomOrigin());
             })
             .then((newOrigin) => {
-                console.log(`Generating third background for the '${newOrigin}' origin. (allowUniques=${allowUniques})`)
                 return(generateBackground(newOrigin, allowUniques, [backgrounds.first, backgrounds.second]));
             })
             .then((background) => {

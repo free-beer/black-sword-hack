@@ -20,7 +20,7 @@ export function rollDoom(actor, rollType="standard") {
         let data      = {data: {doom: actorData.doom}};
         let dice;
 
-        console.log(`Rolling the doom die for ${actor.name}.`);
+
         result.die.starting = actorData.doom;
         result.rolled       = true;
         if(rollType === "advantage") {
@@ -37,7 +37,6 @@ export function rollDoom(actor, rollType="standard") {
                     if(roll.total < 3) {
                         let newDie = downgradeDie(actorData.doom);
 
-                        console.log(`The doom die for ${actor.name} will be downgraded.`);
                         result.downgraded = true;
                         result.die.ending = newDie;
                         data.data.doom    = newDie;
@@ -45,7 +44,6 @@ export function rollDoom(actor, rollType="standard") {
                             ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
                         }
                     } else {
-                        console.log(`The doom die for ${actor.name} will be unchanged.`);
                         result.die.ending = actor.doom;
                     }
                     actor.update(data, {diff: true});
@@ -93,7 +91,6 @@ export function resetDoomDie(actor) {
         if(actor.level > 9) {
             updates.data.doom = "d8";
         }
-        console.log(`Resetting the Doom Die for ${actor.name} to 1${updates.data.doom}.`);
         actor.update(updates, {diff: true});
     } else {
         console.error("Unable to find the specified actor to reset their Doom die.");

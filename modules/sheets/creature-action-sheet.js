@@ -14,9 +14,7 @@ export default class CreatureActionSheet extends ItemSheet {
         let data = super.getData();
         let attributes = data.data.data.attributes;
 
-        console.log("DATA:", data);
         data.configuration = CONFIG.configuration;
-        console.log("CREATURE ACTION DATA:", data);
         return(data);
     }
 
@@ -37,6 +35,5 @@ export default class CreatureActionSheet extends ItemSheet {
         } else {
             field.value = "none";
         }
-        console.log("FIELD:", field.value);
     }
 }

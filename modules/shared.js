@@ -76,12 +76,10 @@ export function calculateAttributeValues(data, configuration) {
     let backgrounds     = [];
 
     backgroundNames.forEach((name) => backgrounds.push(configuration.backgroundList[name]));
-    console.log(`Found ${backgrounds.length} backgrounds for the character.`);
 
     backgrounds.forEach((e) => {
         if(e && e.attributes) {
             for(let attribute in e.attributes) {
-                console.log(`Adding ${e.attributes[attribute]} to the characters ${attribute} attribute as part of background.`);
                 calculated[attribute] += e.attributes[attribute];
             }
         }
@@ -94,14 +92,12 @@ export function calculateAttributeValues(data, configuration) {
             let attribute = story.improvements.attributes.first.choice;
 
             if(attribute in calculated) {
-                console.log(`Adding 1 to the characters ${attribute} attribute because of a level improvement.`);
                 calculated[attribute] += 1;
             }
 
             if(story.improvements.attributes.second) {
                 attribute = story.improvements.attributes.second.choice;
                 if(attribute in calculated) {
-                    console.log(`Adding 1 to the characters ${attribute} attribute because of a level improvement.`);
                     calculated[attribute] += 1;
                 }
             }
@@ -110,12 +106,10 @@ export function calculateAttributeValues(data, configuration) {
 
     Object.keys(calculated).forEach((key) => {
         if(calculated[key] > 18) {
-            console.log(`Reducing the ${key} attribute to it's maximum of 18.`);
             calculated[key] = 18;
         }
     });
 
-    console.log("Calculated Attributes:", calculated);
     return(calculated);
 }
 
