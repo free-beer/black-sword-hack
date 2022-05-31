@@ -47,12 +47,6 @@ export default class CharacterSheet extends ActorSheet {
             this._prepareCharacterData(context);
         }
 
-        if(context.data.level === 10) {
-        	context.data.doom = "d8";
-        } else {
-        	context.data.doom = "d6";
-        }
-
         return(context);
 	}
 

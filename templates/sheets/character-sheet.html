@@ -41,13 +41,9 @@
                         <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
 					    {{localize "bsh.fields.labels.doomDie"}}
 					</label>
-			    	<select name="data.doom" class="bsh-input bsh-select">
-					{{#select data.doom}}
-					{{#each configuration.usageDieList as |label value|}}
-			    		<option value="{{value}}">{{localize label}}</option>
-					{{/each}}
-					{{/select}}
-			    	</select>
+					<select name="data.doom">
+						{{{selectOptions configuration.usageDieList selected=data.doom localize=true }}}
+					</select>
 				</div>
 			</div>
 
