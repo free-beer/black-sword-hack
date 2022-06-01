@@ -7,6 +7,7 @@ import ConsumableSheet from './modules/sheets/consumable-sheet.js';
 import CreatureActionSheet from './modules/sheets/creature-action-sheet.js';
 import CreatureSheet from './modules/sheets/creature-sheet.js';
 import EquipmentSheet from './modules/sheets/equipment-sheet.js';
+import GiftSheet from './modules/sheets/gift-sheet.js';
 import DemonSheet from './modules/sheets/demon-sheet.js';
 import SpellSheet from './modules/sheets/spell-sheet.js';
 import SpiritSheet from './modules/sheets/spirit-sheet.js';
@@ -34,6 +35,7 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-equipment-tab-body.hbs",
                    "systems/black-sword-hack/templates/partials/cs-front-page-tab-body.hbs",
+                   "systems/black-sword-hack/templates/partials/cs-gift-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-magic-tab-body.hbs",
                    "systems/black-sword-hack/templates/partials/cs-saga-tab-body.hbs",
                    "systems/black-sword-hack/templates/partials/cs-spell-entry.hbs",
@@ -59,6 +61,7 @@ Hooks.once("init", function() {
     Items.registerSheet("black-sword-hack", CreatureActionSheet, {types: ["creature_action"]});
     Items.registerSheet("black-sword-hack", DemonSheet, {types: ["demon"]});
     Items.registerSheet("black-sword-hack", EquipmentSheet, {types: ["equipment"]});
+    Items.registerSheet("black-sword-hack", GiftSheet, {types: ["gift"]});
     Items.registerSheet("black-sword-hack", SpellSheet, {types: ["spell"]});
     Items.registerSheet("black-sword-hack", SpiritSheet, {types: ["spirit"]});
     Items.registerSheet("black-sword-hack", WeaponSheet, {types: ["weapon"]});

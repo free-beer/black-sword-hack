@@ -143,6 +143,25 @@
         </div>
     </div>
 
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.gifts"}}
+        </h2>
+
+        <div class="collapsible-widget-target">
+            <div class="bsh-gift-entries">
+            {{#each gifts as |gift id|}}
+              {{> "systems/black-sword-hack/templates/partials/cs-gift-entry.hbs" gift}}
+            {{/each}}
+            </div>
+        </div>
+    </div>
+
     <h2>{{localize "bsh.headers.wealth"}}</h2>
     <div>
     	<span class="bsh-column-header">{{localize "bsh.headers.coins"}}</span>

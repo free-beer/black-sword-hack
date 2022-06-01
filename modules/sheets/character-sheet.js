@@ -20,6 +20,7 @@ import {calculateCharacterData,
 	    handleRollUsageDieEvent,
 	    handleWeaponRollEvent,
 	    incrementItemQuantity,
+	    onInfoIconClicked,
 	    resetItemUsageDie,
 	    showAttributeRollModal} from '../shared.js';
 import {castSpell,
@@ -65,6 +66,7 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-decrease-quantity-icon").click(this._onDecreaseItemQuantityClicked.bind(this));
 		html.find(".bsh-increase-quantity-icon").click(this._onIncreaseItemQuantityClicked.bind(this));
 		html.find(".bsh-reset-usage-die-icon").click(this._onResetUsageDieClicked.bind(this));
+		html.find(".bsh-info-icon").click(onInfoIconClicked);
 		html.find(".bsh-item-name").click(this._onItemNameClicked.bind(this));
 		html.find(".bsh-cast-spell-icon").click(this._onCastSpellClicked.bind(this));
 		html.find(".bsh-reset-spell-state-icon").click(this._onResetSpellStateClicked.bind(this));
@@ -328,6 +330,7 @@ export default class CharacterSheet extends ActorSheet {
         context.consumables = context.items.filter((item) => item.type === "consumable");
         context.demons      = context.items.filter((item) => item.type === "demon");
         context.equipment   = context.items.filter((item) => item.type === "equipment");
+        context.gifts       = context.items.filter((item) => item.type === "gift");
         context.spells      = context.items.filter((item) => item.type === "spell");
         context.spirits     = context.items.filter((item) => item.type === "spirit");
         context.weapons     = context.items.filter((item) => item.type === "weapon");

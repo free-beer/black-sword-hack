@@ -525,6 +525,24 @@ export function getObjectField(path, object) {
 }
 
 /**
+ * Event handler that pops up an information dialog when an info icon on the
+ * interface is clicked on.
+ */
+export function onInfoIconClicked(event) {
+    let icon    = event.currentTarget;
+    let content = icon.dataset.content.trim();
+
+    if(content === "") {
+        content = game.i18n.localize("bsh.creatures.actions.info.noDescription")
+    }
+    content = `<div class="bsh-action-description">${content}<div><br>`;
+    Dialog.prompt({callback: () => {},
+                   content:  content,
+                   label:    game.i18n.localize("bsh.creatures.actions.info.dismiss"),
+                   title:    game.i18n.localize("bsh.creatures.actions.info.title")}).render(true);
+}
+
+/**
  * A function to encapsulate integration with the Dice So Nice add on module.
  * Takes a Roll instance, evaluates it, shows the dice on screen (if available),
  * and returns a promise that yields the roll once resolved.

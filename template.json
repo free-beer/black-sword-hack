@@ -141,7 +141,7 @@
     }
   },
   "Item": {
-  	"types": ["consumable", "creature_action", "demon", "equipment", "spell", "spirit", "weapon"],
+  	"types": ["consumable", "creature_action", "demon", "equipment", "gift", "spell", "spirit", "weapon"],
   	"templates": {
   	},
     "consumable": {
@@ -170,6 +170,10 @@
     "equipment": {
       "description": "",
       "rarity": "common"
+    },
+    "gift": {
+      "description": "",
+      "power": "balance"
     },
     "spell": {
       "description": "",

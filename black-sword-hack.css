@@ -184,6 +184,17 @@
 .bsh-doomed-notice {
 }
 
+.bsh-enlarged-input {
+	font-size:  1.7em !important;
+	height: 1.6em !important;
+}
+
+.bsh-equipment-body {
+	display: grid;
+	grid-template-columns: 128px auto;
+	grid-gap: 5px 10px;
+}
+
 .bsh-equipment-entries {
 	display: grid;
 	font-size: 1.1em;
@@ -229,6 +240,20 @@
 	font-size: 1.4em;
 }
 
+.bsh-gift-body {
+	display: grid;
+	grid-template-columns: 128px auto;
+	grid-gap: 5px 10px;
+}
+
+.bsh-gift-entries {
+	display: grid;
+	font-size: 1.1em;
+	gap: 5px 3px;
+	grid-template-columns: auto 50px;
+	margin-bottom: 20px;	
+}
+
 .bsh-grid {
 	display: grid;
 	gap: 5px 3px;
@@ -272,6 +297,11 @@
 
 .bsh-item-name {
 	cursor: pointer;
+}
+
+.bsh-item-image {
+	max-height: 128px;
+	max-width: 128px;
 }
 
 .bsh-improvement-label {

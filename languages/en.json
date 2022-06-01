@@ -1,125 +1,125 @@
 {
   "bsh": {
-  	"armour": {
-  		"heavy": "Heavy (3pt)",
-  		"light": "Light (1pt)",
-  		"medium": "Medium (2pt)",
-  		"none": "None (0pt)"
-  	},
-  	"attributes": {
-  		"constitution": {
-  			"long": "Constitution",
-  			"short": "CON"
-  		},
-  		"charisma": {
-  			"long": "Charisma",
-  			"short": "CHA"
-  		},
-  		"dexterity": {
-  			"long": "Dexterity",
-  			"short": "DEX"
-  		},
-  		"intelligence": {
-  			"long": "Intelligence",
-  			"short": "INT"
-  		},
-  		"strength": {
-  			"long": "Strength",
-  			"short": "STR"
-  		},
-  		"wisdom": {
-  			"long": "Wisdom",
-  			"short": "WIS"
-  		}
-  	},
-  	"backgrounds": {
-  		"assassin": {
-  		  "name": "Assassin (Decadent, Unique)"
-  		},
-  		"berserker": {
-  			"name": "Berserker (Barbarian, Unique)"
-  		},
-  		"bookworm": {
-  			"name": "Bookworm (Civilized)"
-  		},
-  		"forbidden_knowledge": {
-  			"name": "Forbidden Knowledge (Decadent)"
-  		},
-  		"herbalist": {
-  			"name": "Herbalist (Barbarian)"
-  		},
-  		"hunter": {
-  			"name": "Hunter (Barbarian)"
-  		},
-  		"inventor": {
-  			"name": "Inventor (Civilized, Unique)"
-  		},
-  		"legionnaire": {
-  			"name": "Legionnaire (Civilized)"
-  		},
-  		"pit_fighter": {
-  			"name": "Pit Fighter (Decadent)"
-  		},
-  		"shaman": {
-  			"name": "Shaman (Barbarian)"
-  		},
-  		"snake_blood": {
-  			"name": "Snake Blood (Decadent)"
-  		},
-  		"sophist": {
-  			"name": "Sophist (Civilized)"
-  		},
-  		"storyteller": {
-  			"name": "Storyteller (Barbarian)"
-  		},
-  		"street_urchin": {
-  			"name": "Street Urchin (Civilized)"
-  		},
-  		"surgeon": {
-  		  "name": "Surgeon (Civilized)"
-  		},
-  		"swordmaster": {
-  			"name": "Swordmaster (Civilized)"
-  		},
-  		"vicious": {
-  			"name": "Vicious (Decadent)"
-  		},
-  		"warlock": {
-  			"name": "Warlock (Decadent)"
-  		},
-  		"wildling": {
-  			"name": "Wildling (Barbarian)"
-  		}
-  	},
-  	"births": {
-  		"1": "...in a jeweled tower of a corrupt empire",
-  		"2": "...in the shadows of a Theocracy",
-  		"3": "...in a brothel in the City Of Thieves",
-  		"4": "...in the bustling Merchant League",
-  		"5": "...in the harsh lands of a desert tribe",
-  		"6": "...in a secret society hideout in the Far East",
-  		"7": "...in a palace of the Caliphate",
-  		"8": "...among your Pict brothers and sisters after a raid",
-  		"9": "...aboard a longship of the Northern raiders",
-  		"10": "...in the last city of a dying species",
-  		"11": "...while the rest of the Iron Horde was attacking a caravan",
-  		"12": "...in an isolated farm on the frontier",
-  		"13": "...in a fortress burned by your family enemies",
-  		"14": "...in the ruins of a crystal palace",
-  		"15": "...in the middle of a mercenary camp",
-  		"16": "...on a tropical island just before it sank",
-  		"17": "...in an asylum deep within the Forbidden City",
-  		"18": "...inside a wicker man about to be burned",
-  		"19": "...at the top of a black pyramid",
-  		"20": "...in a hurricane summoned by your mother"
-  	},
-  	"blurbs": {
-  		"base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
+    "armour": {
+      "heavy": "Heavy (3pt)",
+      "light": "Light (1pt)",
+      "medium": "Medium (2pt)",
+      "none": "None (0pt)"
+    },
+    "attributes": {
+      "constitution": {
+        "long": "Constitution",
+        "short": "CON"
+      },
+      "charisma": {
+        "long": "Charisma",
+        "short": "CHA"
+      },
+      "dexterity": {
+        "long": "Dexterity",
+        "short": "DEX"
+      },
+      "intelligence": {
+        "long": "Intelligence",
+        "short": "INT"
+      },
+      "strength": {
+        "long": "Strength",
+        "short": "STR"
+      },
+      "wisdom": {
+        "long": "Wisdom",
+        "short": "WIS"
+      }
+    },
+    "backgrounds": {
+      "assassin": {
+        "name": "Assassin (Decadent, Unique)"
+      },
+      "berserker": {
+        "name": "Berserker (Barbarian, Unique)"
+      },
+      "bookworm": {
+        "name": "Bookworm (Civilized)"
+      },
+      "forbidden_knowledge": {
+        "name": "Forbidden Knowledge (Decadent)"
+      },
+      "herbalist": {
+        "name": "Herbalist (Barbarian)"
+      },
+      "hunter": {
+        "name": "Hunter (Barbarian)"
+      },
+      "inventor": {
+        "name": "Inventor (Civilized, Unique)"
+      },
+      "legionnaire": {
+        "name": "Legionnaire (Civilized)"
+      },
+      "pit_fighter": {
+        "name": "Pit Fighter (Decadent)"
+      },
+      "shaman": {
+        "name": "Shaman (Barbarian)"
+      },
+      "snake_blood": {
+        "name": "Snake Blood (Decadent)"
+      },
+      "sophist": {
+        "name": "Sophist (Civilized)"
+      },
+      "storyteller": {
+        "name": "Storyteller (Barbarian)"
+      },
+      "street_urchin": {
+        "name": "Street Urchin (Civilized)"
+      },
+      "surgeon": {
+        "name": "Surgeon (Civilized)"
+      },
+      "swordmaster": {
+        "name": "Swordmaster (Civilized)"
+      },
+      "vicious": {
+        "name": "Vicious (Decadent)"
+      },
+      "warlock": {
+        "name": "Warlock (Decadent)"
+      },
+      "wildling": {
+        "name": "Wildling (Barbarian)"
+      }
+    },
+    "births": {
+      "1": "...in a jeweled tower of a corrupt empire",
+      "2": "...in the shadows of a Theocracy",
+      "3": "...in a brothel in the City Of Thieves",
+      "4": "...in the bustling Merchant League",
+      "5": "...in the harsh lands of a desert tribe",
+      "6": "...in a secret society hideout in the Far East",
+      "7": "...in a palace of the Caliphate",
+      "8": "...among your Pict brothers and sisters after a raid",
+      "9": "...aboard a longship of the Northern raiders",
+      "10": "...in the last city of a dying species",
+      "11": "...while the rest of the Iron Horde was attacking a caravan",
+      "12": "...in an isolated farm on the frontier",
+      "13": "...in a fortress burned by your family enemies",
+      "14": "...in the ruins of a crystal palace",
+      "15": "...in the middle of a mercenary camp",
+      "16": "...on a tropical island just before it sank",
+      "17": "...in an asylum deep within the Forbidden City",
+      "18": "...inside a wicker man about to be burned",
+      "19": "...at the top of a black pyramid",
+      "20": "...in a hurricane summoned by your mother"
+    },
+    "blurbs": {
+      "base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
       "critical_failure": "Your next attribute test or attack roll should be made with disadvantage!",
       "defend_fumble": "Your armour does not protect you from the damage of this attack!",
       "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
-  		"stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your gifts and attribute bonuses as you attain the appropriate level."
-  	},
+      "stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your gifts and attribute bonuses as you attain the appropriate level."
+    },
     "buttons": {
       "random_generation": "Randomize Me A Character!",
       "rollIt": "Roll It!"
@@ -142,116 +142,119 @@
         }
       }
     },
-  	"data": {
-  		"descriptions": {
-  			"armedDamage": "damage",
-  			"doom": "doom",
-  			"unarmedDamage": "damage",
-  			"usageDie": "usage die"
-  		}
-  	},
-  	"dice": {
-  		"d4": "1d4",
-  		"d6": "1d6",
-  		"d8": "1d8",
-  		"d10": "1d10",
-  		"d12": "1d12",
-  		"d20": "1d20",
-  		"exhausted": "Exhausted"
-  	},
-  	"demons": {
-  		"tableName": "Demon's Revenge"
-  	},
+    "data": {
+      "descriptions": {
+        "armedDamage": "damage",
+        "doom": "doom",
+        "unarmedDamage": "damage",
+        "usageDie": "usage die"
+      }
+    },
+    "dice": {
+      "d4": "1d4",
+      "d6": "1d6",
+      "d8": "1d8",
+      "d10": "1d10",
+      "d12": "1d12",
+      "d20": "1d20",
+      "exhausted": "Exhausted"
+    },
+    "demons": {
+      "tableName": "Demon's Revenge"
+    },
     "doom": {
       "die": {
         "upgraded": "Doom Die Upgraded To 1d8"
       }
     },
-  	"errors": {
-  		"actors": {
-  			"notFound": "Unable to locate the required actor."
-  		},
-  		"attributes": {
-  			"invalid": "Actor attribute setting not found. This is a bug!",
-  			"missing": "Element attribute setting not found on element. This is a bug!",
-  			"notFound": "Unable to locate a valid attribute setting for attribute die roll."
-  		},
-  		"items": {
-  			"notFound": "Unable to locate the specified item.",
-  			"owned": {
-  				"notFound": "Unable to locate the item and/or it's owner.",
-  				"unavailable": "Unable to reset item usage die as the current quantity is zero."
-  			}
-  		},
-  		"spells": {
-  			"notFound": "Unable to locate the specified spell."
-  		},
-  		"usageDie": {
-  			"exhausted": "Unable to make usage die roll as the usage die is currently exhausted.",
+    "errors": {
+      "actors": {
+        "notFound": "Unable to locate the required actor."
+      },
+      "attributes": {
+        "invalid": "Actor attribute setting not found. This is a bug!",
+        "missing": "Element attribute setting not found on element. This is a bug!",
+        "notFound": "Unable to locate a valid attribute setting for attribute die roll."
+      },
+      "items": {
+        "notFound": "Unable to locate the specified item.",
+        "owned": {
+          "notFound": "Unable to locate the item and/or it's owner.",
+          "unavailable": "Unable to reset item usage die as the current quantity is zero."
+        }
+      },
+      "spells": {
+        "notFound": "Unable to locate the specified spell."
+      },
+      "usageDie": {
+        "exhausted": "Unable to make usage die roll as the usage die is currently exhausted.",
         "notFound": "Unable to locate the item usage die details."
-  		},
-  		"weapons": {
-  			"notFound": "Unable to locate the specified weapon.",
-  			"unowned": "The weapon specified isn't owned and cannot be used."
-  		}
-  	},
-  	"fields": {
-  		"labels": {
+      },
+      "weapons": {
+        "notFound": "Unable to locate the specified weapon.",
+        "unowned": "The weapon specified isn't owned and cannot be used."
+      }
+    },
+    "fields": {
+      "labels": {
         "advantage": "Advantage",
         "adventureName": "Story Name",
-  			"armourDescription": "Armour Description",
-  			"armourType": "Armour Type",
+        "armourDescription": "Armour Description",
+        "armourType": "Armour Type",
         "attribute": "Attribute",
         "attributeBonus": "Attribute Bonus",
-  			"backgroundFreeform": "Background (Any Origin)",
-  			"backgroundFromOrigin": "Background (From Origin)",
+        "backgroundFreeform": "Background (Any Origin)",
+        "backgroundFromOrigin": "Background (From Origin)",
         "bonusPenalty": "Bonus/Penalty",
-  			"birth": "Born...",
-  			"coins": "Coins",
+        "birth": "Born...",
+        "coins": "Coins",
         "damage": "Damage",
-  			"damageArmed": "Armed Damage",
-  			"damageUnarmed": "Unarmed Damage",
-  			"description": "Description",
+        "damageArmed": "Armed Damage",
+        "damageUnarmed": "Unarmed Damage",
+        "description": "Description",
         "disadvantage": "Disadvantage",
-  			"doomDie": "Doom",
+        "doomDie": "Doom",
         "doomDieUpgrade": "Doom Die Upgrade",
-  			"firstBackground": "Background 1",
+        "firstBackground": "Background 1",
         "gift": "Gift",
-  			"hands": "Hands",
+        "hands": "Hands",
         "hitPoints": "HP",
-  			"hitPointsCurrent": "HP (Current)",
-  			"hitPointsMaximum": "HP (Maximum)",
-  			"level": "Level",
-  			"name": "Name",
-  			"origin": "Origin",
-  			"otherPossessions": "Other Possessions",
-  			"playerName": "Player",
-  			"quantity": "Quantity",
-  			"rarity": "Rarity",
+        "hitPointsCurrent": "HP (Current)",
+        "hitPointsMaximum": "HP (Maximum)",
+        "level": "Level",
+        "name": "Name",
+        "origin": "Origin",
+        "otherPossessions": "Other Possessions",
+        "playerName": "Player",
+        "power": "Power",
+        "quantity": "Quantity",
+        "rarity": "Rarity",
         "resistances": "Resistances",
         "rollType": "Roll Type",
-  			"secondBackground": "Background 2",
-  			"shield": "Shield?",
+        "secondBackground": "Background 2",
+        "shield": "Shield?",
         "standardRoll": "Standard", 
-  			"stories": "Stories",
-  			"thirdBackground": "Background 3",
+        "stories": "Stories",
+        "thirdBackground": "Background 3",
         "title": "Title",
         "threat": "Threat Level",
-  			"type": "Type",
-  			"usageDie": "Usage Die",
+        "type": "Type",
+        "usageDie": "Usage Die",
         "vulnerabilities": "Vulnerabilities"
-  		},
-  		"titles": {
-  			"calculatedAttribute": "Consult the Basics tab to alter your attributes.",
-  			"castSpell": "Cast this spell.",
+      },
+      "titles": {
+        "calculatedAttribute": "Consult the Basics tab to alter your attributes.",
+        "castSpell": "Cast this spell.",
         "criticalFailure": "Critical Fail!",
         "criticalSuccess": "Critical Success!",
-  			"decrementConsumable": "Reduce item quantity.",
-  			"deleteDemon": "Delete this demon.",
-  			"deleteConsumable": "Delete this item.",
-  			"deleteSpell": "Delete this spell.",
-  			"deleteSpirit": "Delete this spirit.",
-  			"deleteWeapon": "Delete this weapon.",
+        "decrementConsumable": "Reduce item quantity.",
+        "deleteConsumable": "Delete this item.",
+        "deleteDemon": "Delete this demon.",
+        "deleteEquipment": "Delete this item.",
+        "deleteGift": "Delete this gift.",
+        "deleteSpell": "Delete this spell.",
+        "deleteSpirit": "Delete this spirit.",
+        "deleteWeapon": "Delete this weapon.",
         "dieRolls": {
           "armedDamage": "Damage Roll (Armed)",
           "attributes": {
@@ -266,24 +269,24 @@
           "unarmedDamage": "Damage Roll (Unarmed)"
         },
         "failure": "Failed",
-  			"incrementConsumable": "Increment item quantity.",
-  			"resetAllDemons": "Reset state for demonic invocation.",
-  			"resetAllSpells": "Reset state on all spells.",
-  			"resetAllSpirits": "Reset state for spirit invocation.",
-  			"resetConsumable": "Reset usage die (requires available quantity).",
-  			"resetSpell": "Reset this spells state.",
-  			"rollAttack": "Roll attack for weapon.",
-  			"rollAttributeTest": "Roll attribute test.",
+        "incrementConsumable": "Increment item quantity.",
+        "resetAllDemons": "Reset state for demonic invocation.",
+        "resetAllSpells": "Reset state on all spells.",
+        "resetAllSpirits": "Reset state for spirit invocation.",
+        "resetConsumable": "Reset usage die (requires available quantity).",
+        "resetSpell": "Reset this spells state.",
+        "rollAttack": "Roll attack for weapon.",
+        "rollAttributeTest": "Roll attribute test.",
         "rollDodge": "Roll to defend (Dodge).",
         "rollInitiative": "Roll Initiative.",
         "rollParry": "Roll to defend (Parry).",
         "rollPerception": "Roll perception.",
-  			"rollDie": "Roll die.",
+        "rollDie": "Roll die.",
         "success": "Success!",
-  			"summonDemon": "Summon this demon.",
-  			"summonSpirit": "Summon this spirit."
-  		}
-  	},
+        "summonDemon": "Summon this demon.",
+        "summonSpirit": "Summon this spirit."
+      }
+    },
     "gifts": {
       "fortressOfTheMind": {
         "label": "",
@@ -346,51 +349,52 @@
         "name": "Will To Live (Law)"
       }
     },
-  	"headers": {
-  		"background": "Origin & Backgrounds",
-  		"base_attributes": "Base Attributes",
-  		"coins": "Coins",
-  		"consumables": "Consumables",
-  		"demonName": "Name",
-  		"demons": "Demons",
-  		"equipment": "Other Equipment",
-  		"itemName": "Item",
-  		"itemQuantity": "Quantity",
-  		"itemUsageDie": "Die",
-  		"level": "Level",
+    "headers": {
+      "background": "Origin & Backgrounds",
+      "base_attributes": "Base Attributes",
+      "coins": "Coins",
+      "consumables": "Consumables",
+      "demonName": "Name",
+      "demons": "Demons",
+      "equipment": "Other Equipment",
+      "gifts": "Gifts",
+      "itemName": "Item",
+      "itemQuantity": "Quantity",
+      "itemUsageDie": "Die",
+      "level": "Level",
       "random": "Randomly Generate Character",
-  		"spellName": "Spell",
-  		"spells": "Spells",
-  		"spellState": "State",
-  		"spiritName": "Name",
-  		"spirits": "Spirits",
-  		"story": "Story",
-  		"wealth": "Wealth",
-  		"weaponKind": "Type",
-  		"weaponName": "Weapon",
-  		"weapons": "Weapons"
-  	},
+      "spellName": "Spell",
+      "spells": "Spells",
+      "spellState": "State",
+      "spiritName": "Name",
+      "spirits": "Spirits",
+      "story": "Story",
+      "wealth": "Wealth",
+      "weaponKind": "Type",
+      "weaponName": "Weapon",
+      "weapons": "Weapons"
+    },
     "initiative": {
       "roll": "Testing WIS for initiative."
     },
-  	"levels": {
-  		"names": {
-  			"2": "2nd",
-  			"3": "3rd",
-  			"4": "4th",
-  			"5": "5th",
-  			"6": "6th",
-  			"7": "7th",
-  			"8": "8th",
-  			"9": "9th",
-  			"10": "10th"
-  		}
-  	},
-  	"messages":{
-  		"attackHit": "That's a hit.",
-  		"attackMiss": "That's a miss.",
-  		"attributeRollFailed": "%NAME% %ATTRIBUTE% attribute test failed.",
-  		"attributeRollSuccess": "%NAME% %ATTRIBUTE% attribute test successful.",
+    "levels": {
+      "names": {
+        "2": "2nd",
+        "3": "3rd",
+        "4": "4th",
+        "5": "5th",
+        "6": "6th",
+        "7": "7th",
+        "8": "8th",
+        "9": "9th",
+        "10": "10th"
+      }
+    },
+    "messages":{
+      "attackHit": "That's a hit.",
+      "attackMiss": "That's a miss.",
+      "attributeRollFailed": "%NAME% %ATTRIBUTE% attribute test failed.",
+      "attributeRollSuccess": "%NAME% %ATTRIBUTE% attribute test successful.",
       "blurbs": {
         "attacksWith": "Attacks With",
         "calls": "Calls Upon",
@@ -409,17 +413,17 @@
         "summonFumble": "The demon is angered by the summoning (roll on the Demon's Revenge table)!",
         "summonSuccess": "The demon answers the summoning!"
       },
-  		"demons": {
-  			"summonFumbled": "Summoning of the %NAME% demon was unsuccessful. Roll on the %TABLE% table.",
-  			"summonSuccessful": "Summoning of the %NAME% demon was successful.",
-  			"unavailable": "Summoning of the %NAME% demon failed - Doom die is exhausted!"
-  		},
-  		"doom": {
+      "demons": {
+        "summonFumbled": "Summoning of the %NAME% demon was unsuccessful. Roll on the %TABLE% table.",
+        "summonSuccessful": "Summoning of the %NAME% demon was successful.",
+        "unavailable": "Summoning of the %NAME% demon failed - Doom die is exhausted!"
+      },
+      "doom": {
         "downgraded": "Doom die for %NAME% has been downgraded to %DIE%.",
         "exhausted": "Unable to roll doom for %NAME% as their doom die is exhausted!",
         "failExhausted": "%NAME% has exhausted their Doom die!",
         "unchanged": "Doom die for %NAME% is unchanged."
-  		},
+      },
       "labels": {
         "buttons": {
           "rollDamage": "Roll Damage"
@@ -437,16 +441,16 @@
         "longRest": "The benefits of a long rest have been applied to %NAME%.",
         "shortRest": "The benefits of a short rest have been applied to %NAME%."
       },
-  		"spells": {
-  			"castFumbled": "Casting of the %NAME% spelled failed badly. Roll on the %TABLE% table!",
-  			"castFailed": "Casting of the %NAME% spell failed.",
-  			"castSuccessful": "Casting of the %NAME% spell was successful."
-  		},
-  		"spirits": {
-  			"unavailable": "Summoning of the %NAME% spirit failed - Doom die is exhausted!",
-  			"summonFailed": "Summoning of the %NAME% spirit failed - Doom is now exhausted.",
-  			"summonSuccessful": "Your summoning of the %NAME% spirit was successful."
-  		},
+      "spells": {
+        "castFumbled": "Casting of the %NAME% spelled failed badly. Roll on the %TABLE% table!",
+        "castFailed": "Casting of the %NAME% spell failed.",
+        "castSuccessful": "Casting of the %NAME% spell was successful."
+      },
+      "spirits": {
+        "unavailable": "Summoning of the %NAME% spirit failed - Doom die is exhausted!",
+        "summonFailed": "Summoning of the %NAME% spirit failed - Doom is now exhausted.",
+        "summonSuccessful": "Your summoning of the %NAME% spirit was successful."
+      },
       "titles": {
         "attackRoll": "Attack Roll",
         "callSpirit": "Call Spirit (Doom Roll)",
@@ -462,31 +466,42 @@
         "summonDemon": "Summon Demon (Doom Roll)",
         "usageDieRoll": "Usage Die"
       },
-  		"usageDie": {
-  			"downgraded": "Die is downgraded to %DIE%.",
-  			"exhausted": "Die is now exhausted.",
-  			"unchanged": "Die is unchanged."
-  		}
-  	},
-  	"no": "No",
+      "usageDie": {
+        "downgraded": "Die is downgraded to %DIE%.",
+        "exhausted": "Die is now exhausted.",
+        "unchanged": "Die is unchanged."
+      }
+    },
+    "no": "No",
     "none": "None",
-  	"origins": {
-  		"barbarian": {
-  			"backgrounds": {},
-  		  "name": "Barbarian"},
-  		"civilized": {
-  			"backgrounds": {},
-  		  "name": "Civilized"},
-  		"decadent": {
-  			"backgrounds": {},
-  		  "name": "Decadent"}
-  	},
-  	"rarities": {
-  		"common": "Common",
-  		"exotic": "Exotic",
-  		"rare": "Rare",
-  		"unique": "Unique"
-  	},
+    "origins": {
+      "barbarian": {
+        "backgrounds": {},
+        "name": "Barbarian"},
+      "civilized": {
+        "backgrounds": {},
+        "name": "Civilized"},
+      "decadent": {
+        "backgrounds": {},
+        "name": "Decadent"}
+    },
+    "powers": {
+      "balance": {
+        "name": "Balance"
+      },
+      "chaos": {
+        "name": "Chaos"
+      },
+      "law": {
+        "name": "Law"
+      }
+    },
+    "rarities": {
+      "common": "Common",
+      "exotic": "Exotic",
+      "rare": "Rare",
+      "unique": "Unique"
+    },
     "rollModal": {
       "title": "Roll Modal!"
     },
@@ -517,20 +532,20 @@
         "standard": "Standard"
       }
     },
-  	"spells": {
-  		"states": {
-  			"available": "Uncast",
-  			"cast": "Cast Already",
-  			"unavailable": "Unavailable"
-  		},
-  		"tableName": "Torn Veil"
-  	},
-  	"summoning": {
-  		"states": {
-  		  "unused": "Unused",
-  		  "used": "Used Already"
-  	  }
-  	},
+    "spells": {
+      "states": {
+        "available": "Uncast",
+        "cast": "Cast Already",
+        "unavailable": "Unavailable"
+      },
+      "tableName": "Torn Veil"
+    },
+    "summoning": {
+      "states": {
+        "unused": "Unused",
+        "used": "Used Already"
+      }
+    },
     "tables": {
       "columns": {
         "attribute": "Test Attribute",
@@ -539,26 +554,26 @@
         "name": "Action"
       }
     },
-  	"tabs": {
-  		"labels": {
-  			"background": "Basics",
-  			"equipment": "Possessions",
-  			"front": "Combat & Equipment",
-  			"magic": "Magic",
-  			"saga": "Saga"
-  		}
-  	},
-  	"weapons": {
-  		"hands": {
-  			"one": "One",
-  			"two": "Two"
-  		},
-  		"types": {
-  			"melee": "Melee",
-  			"ranged": "Ranged",
-  			"unarmed": "Unarmed"
-  		}
-  	},
-  	"yes": "Yes"
+    "tabs": {
+      "labels": {
+        "background": "Basics",
+        "equipment": "Possessions",
+        "front": "Combat & Equipment",
+        "magic": "Magic",
+        "saga": "Saga"
+      }
+    },
+    "weapons": {
+      "hands": {
+        "one": "One",
+        "two": "Two"
+      },
+      "types": {
+        "melee": "Melee",
+        "ranged": "Ranged",
+        "unarmed": "Unarmed"
+      }
+    },
+    "yes": "Yes"
   }
 }

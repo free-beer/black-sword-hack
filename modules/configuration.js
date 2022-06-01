@@ -379,6 +379,12 @@ BSHConfiguration.originList = {
 	"decadent": "bsh.origins.decadent.name",
 };
 
+BSHConfiguration.powersList = {
+	"balance": "bsh.powers.balance.name",
+	"chaos": "bsh.powers.chaos.name",
+	"law": "bsh.powers.law.name"
+};
+
 BSHConfiguration.rollTypes = {
 	"advantage": "bsh.rolls.types.advantage",
 	"disadvantage": "bsh.rolls.types.disadvantage",
