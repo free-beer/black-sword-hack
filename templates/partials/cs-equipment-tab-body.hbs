@@ -1,105 +1,66 @@
 <div class="bsh-tab-body bsh-equipment-tab {{tabBodySelectionClass "equipment"}}">
-	<div class="bsh-field">
-		<h2>{{localize "bsh.fields.labels.coins"}}</h2>
+	<section>
+	    <h2>{{localize "bsh.headers.wealth"}}</h2>
+	    <div>
+	    	<span class="bsh-column-header">{{localize "bsh.headers.coins"}}</span>
+	    </div>
 		<div class="bsh-coins-container">
 			<input type="text" name="data.coins.first" value="{{data.coins.first}}" class="bsh-input" />
 			<input type="text" name="data.coins.second" value="{{data.coins.second}}" class="bsh-input" />
 			<input type="text" name="data.coins.third" value="{{data.coins.third}}" class="bsh-input" />
 			<input type="text" name="data.coins.fourth" value="{{data.coins.fourth}}" class="bsh-input" />
+			<input type="text" name="data.coins.fifth" value="{{data.coins.fifth}}" class="bsh-input" />
 		</div>
-	</div>
+    </section>
+    <br>
 
-	<br>
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.consumables"}}
+        </h2>
+        <div class="collapsible-widget-target">
+            <div class="bsh-consumable-entries">
+            	<div>
+            	    <span class="bsh-column-header">{{localize "bsh.headers.itemName"}}</span>
+            	</div>
+            	<div>
+            	    <center>
+            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemQuantity"}}</span>
+            	    </center>
+            	</div>
+            	<div>
+            	    <center>
+            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemUsageDie"}}</span>
+            	    </center>
+            	</div>
+            	<div></div>
+        	{{#each consumables as |consumable id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs" consumable}}
+        	{{/each}}
+            </div>
+        </div>
+    </div>
 
-	<h2>{{localize "bsh.fields.labels.otherPossessions"}}</h2>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item01" value="{{data.possessions.item01}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item02" value="{{data.possessions.item02}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item03" value="{{data.possessions.item03}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item04" value="{{data.possessions.item04}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item05" value="{{data.possessions.item05}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item06" value="{{data.possessions.item06}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item07" value="{{data.possessions.item07}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item08" value="{{data.possessions.item08}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item09" value="{{data.possessions.item09}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item10" value="{{data.possessions.item10}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item11" value="{{data.possessions.item11}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item12" value="{{data.possessions.item12}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item13" value="{{data.possessions.item13}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item14" value="{{data.possessions.item14}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item15" value="{{data.possessions.item15}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item16" value="{{data.possessions.item16}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item17" value="{{data.possessions.item17}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item18" value="{{data.possessions.item18}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item19" value="{{data.possessions.item19}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item20" value="{{data.possessions.item20}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item21" value="{{data.possessions.item21}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item22" value="{{data.possessions.item22}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item23" value="{{data.possessions.item23}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item24" value="{{data.possessions.item24}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item25" value="{{data.possessions.item25}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item26" value="{{data.possessions.item26}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item27" value="{{data.possessions.item27}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item28" value="{{data.possessions.item28}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item29" value="{{data.possessions.item29}}" />
-	</div>
-	<div class="bsh-field bsh-possession-field">
-		<input type="text" name="data.possessions.item30" value="{{data.possessions.item30}}" />
-	</div>
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.equipment"}}
+        </h2>
+        <div class="collapsible-widget-target">
+            <div class="bsh-equipment-entries">
+        	{{#each equipment as |item id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs" item}}
+        	{{/each}}
+            </div>
+        </div>
+    </div>
 </div>
