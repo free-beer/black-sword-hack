@@ -1,7 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="bsh-consumable-sheet-body">
+	<div class="bsh-equipment-body">
 		<div>
 			<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+			<hr>
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.quantity"}}</label>
@@ -33,8 +34,7 @@
 
 		<div>
 			<div class="bsh-field">
-				<label class="bsh-label">{{localize "bsh.fields.labels.name"}}</label>
-				<input name="name" type="text" value="{{item.name}}" />
+				<input class="bsh-enlarged-input" name="name" type="text" value="{{item.name}}" />
 			</div>
 
 			<div class="bsh-field">

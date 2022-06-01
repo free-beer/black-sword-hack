@@ -1,3 +1,5 @@
+import {onInfoIconClicked} from "../shared.js";
+
 export default class CreatureSheet extends ActorSheet {
     static get defaultOptions() {
         return(mergeObject(super.defaultOptions,
@@ -25,7 +27,7 @@ export default class CreatureSheet extends ActorSheet {
     activateListeners(html) {
         html.find('input[type="number"]').on("input", this._onNumericInputChanged.bind(this));
         html.find(".bsh-delete-action").click(this._onDeleteActionClicked.bind(this));
-        html.find(".bsh-info-icon").click(this._onInfoIconClicked.bind(this));
+        html.find(".bsh-info-icon").click(onInfoIconClicked);
         super.activateListeners(html);
     }
 
@@ -39,20 +41,6 @@ export default class CreatureSheet extends ActorSheet {
         } else {
             console.error("Delete action clicked but clicked icon has no action id data attribute.");
         }
-    }
-
-    _onInfoIconClicked(event) {
-        let icon    = event.currentTarget;
-        let content = icon.dataset.content.trim();
-
-        if(content === "") {
-            content = game.i18n.localize("bsh.creatures.actions.info.noDescription")
-        }
-        content = `<div class="bsh-action-description">${content}<div><br>`;
-        Dialog.prompt({callback: () => {},
-                       content:  content,
-                       label:    game.i18n.localize("bsh.creatures.actions.info.dismiss"),
-                       title:    game.i18n.localize("bsh.creatures.actions.info.title")}).render(true);
     }
 
     _onNumericInputChanged(event) {

@@ -12,8 +12,10 @@ export default class ConsumableSheet  extends ItemSheet {
 	}
 
 	getData() {
-		let data = super.getData();
-		data.configuration = CONFIG.configuration;
-		return(data);
+		let context = super.getData();
+
+		context.configuration = CONFIG.configuration;
+		context.data          = context.item.data.data;
+		return(context);
 	}
 }
