@@ -1,10 +1,19 @@
 {
-  "name": "black-sword-hack",
+  "id": "black-sword-hack",
   "title": "Black Sword Hack",
   "description": "System support for the Black Sword Hack RPG.",
-  "author": "Peter Wood",
-  "version": "0.0.1",
-  "compatibleCoreVersion": "9",
+  "authors": [
+        {
+            "name": "Peter Wood",
+            "url": "https://ko-fi.com/peterwood",
+            "ko-fi": "peterwood"
+        }
+    ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 9,
+    "verified": "10.286"
+  },
   "esmodules": ["black-sword-hack.js"],
   "styles": ["black-sword-hack.css"],
   "languages": [
