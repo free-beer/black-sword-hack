@@ -6,8 +6,8 @@
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.rarity"}}</label>
-		    	<select name="data.rarity" class="bsh-input bsh-select">
-		    		{{{selectOptions configuration.itemRarityList selected=data.rarity localize=true }}}
+		    	<select name="system.rarity" class="bsh-input bsh-select">
+		    		{{{selectOptions configuration.itemRarityList selected=item.system.rarity localize=true }}}
 		    	</select>
 			</div>
     	</section>
@@ -19,8 +19,8 @@
 		    <hr>
 
 			<div class="bsh-field">
-				<label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
-				{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
 			</div>
     	</section>
     </div>

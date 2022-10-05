@@ -83,7 +83,7 @@ Hooks.once("init", function() {
 
         for(var key in BSHConfiguration.backgroundList) {
             if(options.hash.fromOrigin) {
-            	if(BSHConfiguration.backgroundList[key].origin === this.data.origin) {
+            	if(BSHConfiguration.backgroundList[key].origin === this.actor.system.origin) {
             		backgrounds[key] = BSHConfiguration.backgroundList[key].name;
             	}
             } else {
@@ -96,6 +96,10 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("checkboxStateSelector", (setting) => {
         return(setting ? "checked" : "");
+    });
+
+    Handlebars.registerHelper("spellStateClass", function(state) {
+        return(state === "unavailable" ? "bsh-disabled" : "");
     });
 
     Handlebars.registerHelper("spellState", function(state) {
@@ -117,11 +121,11 @@ Hooks.once("init", function() {
     });
 
     Handlebars.registerHelper("tabLabelSelectionClass", function(name) {
-        return(this.data.tabSelected === name ? "bsh-tab-selected" : "");
+        return(this.actor.system.tabSelected === name ? "bsh-tab-selected" : "");
     });
 
     Handlebars.registerHelper("tabBodySelectionClass", function(name) {
-        return(this.data.tabSelected === name ? "": "bsh-tab-hidden");
+        return(this.actor.system.tabSelected === name ? "": "bsh-tab-hidden");
     });
 
     Handlebars.registerHelper("usageDie", function(die) {

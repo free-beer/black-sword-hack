@@ -6,8 +6,8 @@
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.power"}}</label>
-				<select name="data.power" class="bsh-input bsh-select">
-					{{{selectOptions configuration.powersList selected=data.power localize=true }}}
+				<select name="system.power" class="bsh-input bsh-select">
+					{{{selectOptions configuration.powersList selected=item.system.power localize=true }}}
 				</select>
 			</div>
 		</div>
@@ -19,8 +19,8 @@
 		    <hr>
 
 			<div class="bsh-field">
-				<label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
-				{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 	</div>

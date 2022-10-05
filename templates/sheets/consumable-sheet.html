@@ -6,13 +6,13 @@
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.quantity"}}</label>
-				<input type="number" name="data.quantity" value="{{data.data.quantity}}" class="bsh-input" />
+				<input type="number" name="system.quantity" value="{{item.system.quantity}}" class="bsh-input" />
 			</div>
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.usageDie"}}</label>
-		    	<select name="data.usageDie.maximum" class="bsh-input bsh-select">
-				{{#select data.data.usageDie.maximum}}
+		    	<select name="system.usageDie.maximum" class="bsh-input bsh-select">
+				{{#select item.system.usageDie.maximum}}
 				{{#each configuration.usageDieOptionList as |key value|}}
 		    		<option value="{{value}}">{{localize key}}</option>
 				{{/each}}
@@ -22,8 +22,8 @@
 
 			<div class="bsh-field">
 				<label class="bsh-label">{{localize "bsh.fields.labels.rarity"}}</label>
-		    	<select name="data.rarity" class="bsh-input bsh-select">
-				{{#select data.data.rarity}}
+		    	<select name="system.rarity" class="bsh-input bsh-select">
+				{{#select item.system.rarity}}
 				{{#each configuration.itemRarityList as |key value|}}
 		    		<option value="{{value}}">{{localize key}}</option>
 				{{/each}}
@@ -38,8 +38,8 @@
 			</div>
 
 			<div class="bsh-field">
-				<label for="data.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
-				{{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 	</div>

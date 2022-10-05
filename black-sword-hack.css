@@ -180,6 +180,10 @@
 	text-align: center;
 }
 
+.bsh-disabled {
+	color: #aaa;
+}
+
 .bsh-doomed-notice {
 }
 

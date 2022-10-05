@@ -37,14 +37,13 @@ export default class CharacterSheet extends ActorSheet {
 
     /** @override */
 	getData() {
-        const context   = super.getData();
-        const actorData = context.actor.data;
+        const context = super.getData();
+        let   data    = context.actor.system;
 
-        context.data  = actorData.data;
-        context.flags = actorData.flags;
-        Object.keys(context.data.stories).forEach((key) => context.data.stories[key].configuration = CONFIG.configuration);
+        context.flags = context.actor.flags;
+        Object.keys(data.stories).forEach((key) => data.stories[key].configuration = CONFIG.configuration);
 
-        if(actorData.type === "character") {
+        if(context.actor.type === "character") {
             this._prepareCharacterData(context);
         }
 
@@ -269,7 +268,7 @@ export default class CharacterSheet extends ActorSheet {
 		if(element.dataset.tab) {
 			let actor     = null;
 			let container = document.getElementsByClassName("bsh-cs-container")[0];
-			let data      = {data: {tabSelected: element.dataset.tab}};
+			let data      = {system: {tabSelected: element.dataset.tab}};
 
 			event.preventDefault();
 

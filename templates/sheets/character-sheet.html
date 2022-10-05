@@ -27,22 +27,22 @@
 
             <div class="bsh-stats-line-2">
 				<div class="bsh-field">
-					<label class="bsh-label" for="data.playerName">{{localize "bsh.fields.labels.playerName"}}</label>
-					<input type="text" name="data.playerName" value="{{data.playerName}}" class="bsh-input"/>
+					<label class="bsh-label" for="system.playerName">{{localize "bsh.fields.labels.playerName"}}</label>
+					<input type="text" name="system.playerName" value="{{actor.system.playerName}}" class="bsh-input"/>
 				</div>
 
 				<div class="bsh-field">
 					<label class="bsh-label" for="level">{{localize "bsh.fields.labels.level"}}</label>
-					<input type="number" name="level" value="{{data.level}}" class="bsh-input bsh-centered-input" readonly />
+					<input type="number" name="level" value="{{actor.system.level}}" class="bsh-input bsh-centered-input" readonly />
 				</div>
 
 				<div class="bsh-field">
-					<label class="bsh-label" for="data.doom">
+					<label class="bsh-label" for="system.doom">
                         <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
 					    {{localize "bsh.fields.labels.doomDie"}}
 					</label>
-					<select name="data.doom">
-						{{{selectOptions configuration.usageDieList selected=data.doom localize=true }}}
+					<select name="system.doom">
+						{{{selectOptions configuration.usageDieList selected=actor.system.doom localize=true }}}
 					</select>
 				</div>
 			</div>

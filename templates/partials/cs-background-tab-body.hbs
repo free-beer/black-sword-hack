@@ -5,9 +5,9 @@
 
 	<h2>{{localize "bsh.headers.background"}}</h2>
     <div class="bsh-field">
-    	<label for="data.birth" class="bsh-label">{{localize "bsh.fields.labels.birth"}}</label>
-    	<select name="data.birth" class="bsh-input bsh-select">
-		{{#select data.birth}}
+    	<label for="system.birth" class="bsh-label">{{localize "bsh.fields.labels.birth"}}</label>
+    	<select name="system.birth" class="bsh-input bsh-select">
+		{{#select actor.system.birth}}
 		{{#each configuration.birthList as |value|}}
     		<option value="{{value}}">{{localize value}}</option>
 		{{/each}}
@@ -16,9 +16,9 @@
     </div>
 
 	<div class="bsh-field">
-    	<label for="data.origin" class="bsh-label">{{localize "bsh.fields.labels.origin"}}</label>
-    	<select name="data.origin" class="bsh-input bsh-select">
-		{{#select data.origin}}
+    	<label for="system.origin" class="bsh-label">{{localize "bsh.fields.labels.origin"}}</label>
+    	<select name="system.origin" class="bsh-input bsh-select">
+		{{#select actor.system.origin}}
 		{{#each configuration.originList as |label value|}}
     		<option value="{{value}}">{{localize label}}</option>
 		{{/each}}
@@ -28,9 +28,9 @@
 
     <div class="bsh-field">
     {{#backgroundSelect "first" fromOrigin=true}}
-		<label for="data.backgrounds.first" class="bsh-label">{{localize labelKey}}</label>
-		<select name="data.backgrounds.first" class="bsh-input bsh-select">
-		{{#select ../data.backgrounds.first}}
+		<label for="system.backgrounds.first" class="bsh-label">{{localize labelKey}}</label>
+		<select name="system.backgrounds.first" class="bsh-input bsh-select">
+		{{#select ../actor.system.backgrounds.first}}
 		{{#each options as |label value|}}
 			<option value="{{value}}">{{localize label}}</option>
 		{{/each}}
@@ -42,9 +42,9 @@
 
     <div class="bsh-field">
     {{#backgroundSelect "second" fromOrigin=true}}
-		<label for="data.backgrounds.second" class="bsh-label">{{localize labelKey}}</label>
-		<select name="data.backgrounds.second" class="bsh-input bsh-select">
-		{{#select ../data.backgrounds.second}}
+		<label for="system.backgrounds.second" class="bsh-label">{{localize labelKey}}</label>
+		<select name="system.backgrounds.second" class="bsh-input bsh-select">
+		{{#select ../actor.system.backgrounds.second}}
 		{{#each options as |label value|}}
 			<option value="{{value}}">{{localize label}}</option>
 		{{/each}}
@@ -56,9 +56,9 @@
 
     <div class="bsh-field">
     {{#backgroundSelect "third" fromOrigin=false}}
-		<label for="data.backgrounds.third" class="bsh-label">{{localize labelKey}}</label>
-		<select name="data.backgrounds.third" class="bsh-input bsh-select">
-		{{#select ../data.backgrounds.third}}
+		<label for="system.backgrounds.third" class="bsh-label">{{localize labelKey}}</label>
+		<select name="system.backgrounds.third" class="bsh-input bsh-select">
+		{{#select ../actor.system.backgrounds.third}}
 		{{#each options as |label value|}}
 			<option value="{{value}}">{{localize label}}</option>
 		{{/each}}

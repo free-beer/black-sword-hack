@@ -50,9 +50,9 @@ export function deleteOwnedItem(itemId) {
  * Calculates a set of dynamic data values related to a character.
  */
 export function calculateCharacterData(context, configuration) {
-    context.data.level = calculateLevel(context.data, configuration);
-    context.data.calculated = calculateAttributeValues(context.data, configuration);
-    context.data.maximumHitPoints = calculateMaximumHitPoints(context.data, context.data.level);
+    context.actor.system.level = calculateLevel(context.actor.system, configuration);
+    context.actor.system.calculated = calculateAttributeValues(context.actor.system, configuration);
+    context.actor.system.maximumHitPoints = calculateMaximumHitPoints(context.actor.system, context.actor.system.level);
 }
 
 /**
@@ -60,10 +60,6 @@ export function calculateCharacterData(context, configuration) {
  * values.
  */
 export function calculateAttributeValues(data, configuration) {
-    if(data.data) {
-        data = data.data;
-    }
-
     let calculated      = {constitution: data.attributes.constitution,
                            charisma:     data.attributes.charisma,
                            dexterity:    data.attributes.dexterity,
@@ -135,7 +131,7 @@ export function calculateMaximumHitPoints(context, level) {
  */
 export function calculateLevel(data, configuration) {
     let totalStories = 0;
-    let stories      = (data.stories || data.data.stories);
+    let stories      = data.stories;
 
     Object.keys(stories).sort().forEach((index) => {
         if(stories[index].title && stories[index].title.trim() !== "") {
@@ -230,14 +226,14 @@ export function generateDamageRollFormula(actor, weapon, options={}) {
     let formula = null;
     let dieType = null;
 
-    if(weapon.data.data.type !== "unarmed") {
-        dieType = actor.data.data.damageDice.armed;
+    if(weapon.system.type !== "unarmed") {
+        dieType = actor.system.damageDice.armed;
     } else {
-        dieType = actor.data.data.damageDice.unarmed;
+        dieType = actor.system.damageDice.unarmed;
     }
 
     formula = (options.doomed ? `2${dieType}kl` : `1${dieType}`);
-    if(weapon.data.data.hands > 1) {
+    if(weapon.system.hands > 1) {
         if(options.doomed) {
             formula = `1${dieType}`;
         } else {
@@ -328,7 +324,7 @@ function handleActorUsageDieRollEvent(event) {
     event.preventDefault();
     if(actor) {
         if(element.dataset.die) {
-            let usageDie = getObjectField(element.dataset.die, actor.data);
+            let usageDie = getObjectField(element.dataset.die, actor.system);
 
             if(usageDie) {
                 if(usageDie !== "exhausted") {
@@ -425,8 +421,8 @@ export async function resetItemUsageDie(itemId) {
     let item = getOwnedItemById(itemId);
 
     if(item) {
-        if(item.data.data.quantity > 0) {
-            let data = {data: {usageDie: {current: item.data.data.usageDie.maximum}}};
+        if(item.system.quantity > 0) {
+            let data = {system: {usageDie: {current: item.system.usageDie.maximum}}};
             item.update(data, {diff: true});
         } else {
             console.warn(`Unable to reset the usage die for owned item id '${itemId}' as it has a quantity of zero.`);
@@ -445,8 +441,8 @@ export async function decrementItemQuantity(itemId) {
     let item = getOwnedItemById(itemId);
 
     if(item) {
-        if(item.data.data.quantity > 0) {
-            let data = setObjectField("data.quantity", item.data.data.quantity - 1);
+        if(item.system.quantity > 0) {
+            let data = setObjectField("system.quantity", item.system.quantity - 1);
             item.update(data, {diff: true});
         } else {
             console.error(`Unable to reduce the quantity for owned item id '${itemId}'.`);
@@ -465,7 +461,7 @@ export async function incrementItemQuantity(itemId) {
     let item = getOwnedItemById(itemId);
 
     if(item) {
-        let data = setObjectField("data.quantity", item.data.data.quantity + 1);
+        let data = setObjectField("system.quantity", item.system.quantity + 1);
         item.update(data, {diff: true});
     } else {
         console.error(`Unable to locate an owned item with the id '${itemId}'.`);
@@ -539,7 +535,7 @@ export function onInfoIconClicked(event) {
     Dialog.prompt({callback: () => {},
                    content:  content,
                    label:    game.i18n.localize("bsh.creatures.actions.info.dismiss"),
-                   title:    game.i18n.localize("bsh.creatures.actions.info.title")}).render(true);
+                   title:    game.i18n.localize("bsh.creatures.actions.info.title")});
 }
 
 /**

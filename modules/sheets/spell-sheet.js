@@ -6,6 +6,7 @@ export default class SpellSheet  extends ItemSheet {
 	getData() {
 		let data = super.getData();
 		data.configuration = CONFIG.configuration;
+		data.disabled      = (data.item.system.state === "unavailable");
 		return(data);
 	}
 }

@@ -14,21 +14,21 @@ export async function castSpell(spellId) {
     let spell = getOwnedItemById(spellId);
 
     if(spell && spell.type === "spell") {
-        if(spell.data.data.state !== "unavailable") {
+        if(spell.system.state !== "unavailable") {
             let caster     = spell.actor;
             let dice       = null;
-            let attributes = calculateAttributeValues(caster.data.data, BSHConfiguration);
+            let attributes = calculateAttributeValues(caster.system, BSHConfiguration);
             let message;
-            let data       = {data: {state: "cast"}};
+            let data       = {system: {state: "cast"}};
 
-            if(spell.data.data.state === "available") {
+            if(spell.system.state === "available") {
                 dice = new Roll("1d20");
             } else {
                 dice = new Roll("2d20kh");
             }
             rollEm(dice).then((roll) => {
                 if(roll.total >= attributes.intelligence) {
-                    data.data.state = "unavailable";
+                    data.system.state = "unavailable";
                     logSpellCastFailure(spell, roll);
                 } else {
                     logSpellCast(spell, roll);
@@ -51,7 +51,7 @@ export async function resetSpellState(spellId) {
     let spell = getOwnedItemById(spellId);
 
     if(spell && spell.type === "spell") {
-        spell.update({data: {state: "available"}}, {diff: true});
+        spell.update({system: {state: "available"}}, {diff: true});
     } else {
         console.error(`Unable to locate a spell with the id ${spellId}.`);
         ui.notifications.error(game.i18n.localize("bsh.errors.spells.notFound"));

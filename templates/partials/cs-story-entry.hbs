@@ -1,7 +1,7 @@
 <div class="bsh-story-entry-container">
 	<div class="bsh-field">
 		<label class="bsh-label">{{localize "bsh.fields.labels.adventureName"}}</label>
-		<input name="data.stories.{{@key}}.title" type="text" value="{{title}}">
+		<input name="system.stories.{{@key}}.title" type="text" value="{{title}}">
 	</div>
 
 {{#if improvements}}
@@ -27,7 +27,7 @@
 	{{#if improvements.gift.granted}}
 	    <div class="bsh-field">
 	    	<label class="bsh-label">{{localize "bsh.fields.labels.gift"}}</label>
-	    	<select name="data.stories.{{@key}}.improvements.attributes.first.choice">
+	    	<select name="system.stories.{{@key}}.improvements.gift.choice">
     	{{#each configuration.giftList}}
             {{{selectGiftOption ../improvements.gift.choice}}}
     	{{/each}}
@@ -39,7 +39,7 @@
 	    {{#if improvements.attributes.first}}
 		    <div class="bsh-field">
 		    	<label class="bsh-label">{{localize "bsh.fields.labels.attributeBonus"}}</label>
-		    	<select name="data.stories.{{@key}}.improvements.attributes.first.choice">
+		    	<select name="system.stories.{{@key}}.improvements.attributes.first.choice">
 	    	{{#each configuration.optionalAttributeListLong}}
                 {{{selectAttributeOption ../improvements.attributes.first.choice}}}
 	    	{{/each}}
@@ -50,7 +50,7 @@
 	    {{#if improvements.attributes.second}}
 		    <div class="bsh-field">
 		    	<label class="bsh-label">{{localize "bsh.fields.labels.attributeBonus"}}</label>
-		    	<select name="data.stories.{{@key}}.improvements.attributes.second.choice">
+		    	<select name="system.stories.{{@key}}.improvements.attributes.second.choice">
 	    	{{#each configuration.optionalAttributeListLong}}
                 {{{selectAttributeOption ../improvements.attributes.second.choice}}}
 	    	{{/each}}

@@ -2,7 +2,7 @@
 	<div class="bsh-field">
 		<h2>{{localize "bsh.fields.labels.stories"}}</h2>
 		<p class="bsh-blurb">{{localize "bsh.blurbs.stories"}}</p>
-    {{#each data.stories}}
+    {{#each actor.system.stories}}
         {{> "systems/black-sword-hack/templates/partials/cs-story-entry.hbs"}}
     {{/each}}
 	</div>

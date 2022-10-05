@@ -60,8 +60,8 @@ export default class CreatureSheet extends ActorSheet {
             if(item.type === "creature_action") {
                 let attributes = [];
 
-                Object.keys(item.data.attributes).forEach((attribute) => {
-                    if(item.data.attributes[attribute]) {
+                Object.keys(item.system.attributes).forEach((attribute) => {
+                    if(item.system.attributes[attribute]) {
                         attributes.push(attribute);
                     }
                 });

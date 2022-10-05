@@ -12,7 +12,6 @@ export default class CreatureActionSheet extends ItemSheet {
 
     getData() {
         let data = super.getData();
-        let attributes = data.data.data.attributes;
 
         data.configuration = CONFIG.configuration;
         return(data);
@@ -24,7 +23,7 @@ export default class CreatureActionSheet extends ItemSheet {
     }
 
     _onAttributeSelectionChange(event, html) {
-        let field = html[0].querySelector('input[name="data.attributes"]');
+        let field = html[0].querySelector('input[name="system.attributes"]');
         let selected = html[0].querySelectorAll(".bsh-attribute-selector:checked");
 
         if(selected.length > 0) {

@@ -13,11 +13,11 @@ export function rollDoom(actor, rollType="standard") {
                            starting: null},
                      downgraded: false,
                      rolled: false};
-    let actorData = actor.data.data;
+    let actorData = actor.system;
 
     result.die.starting = result.die.ending = actorData.doom;
     if(actorData.doom !== "exhausted") {
-        let data      = {data: {doom: actorData.doom}};
+        let data      = {system: {doom: actorData.doom}};
         let dice;
 
 
@@ -39,7 +39,7 @@ export function rollDoom(actor, rollType="standard") {
 
                         result.downgraded = true;
                         result.die.ending = newDie;
-                        data.data.doom    = newDie;
+                        data.system.doom  = newDie;
                         if(result.die.ending === "exhausted") {
                             ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
                         }
@@ -65,9 +65,9 @@ export async function exhaustDoomDie(actor) {
     }
 
     if(actor) {
-        let updates = {data:      {doom: "exhausted",
-                       summoning: {demon: "unavailable",
-                                   spirit: "unavailable"}}};
+        let updates = {system: {doom: "exhausted",
+                                summoning: {demon: "unavailable",
+                                            spirit: "unavailable"}}};
 
         actor.update(updates, {diff: true});
     } else {
@@ -84,12 +84,12 @@ export function resetDoomDie(actor) {
     }
 
     if(actor) {
-        let data    = actor.data.data;
-        let updates = {data: {doom: "d6"}};
+        let data    = actor.system;
+        let updates = {system: {doom: "d6"}};
 
-        calculateCharacterData(actor.data, CONFIG.configuration);
+        calculateCharacterData(data, CONFIG.configuration);
         if(actor.level > 9) {
-            updates.data.doom = "d8";
+            updates.system.doom = "d8";
         }
         actor.update(updates, {diff: true});
     } else {

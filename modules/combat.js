@@ -133,8 +133,8 @@ export default class BSHCombat extends Combat {
                         let wisdom;
                         let roll = new Roll("1d20");
 
-                        calculateCharacterData(combatant.actor.data, CONFIG.configuration);
-                        wisdom = combatant.actor.data.data.calculated.wisdom;
+                        calculateCharacterData(combatant.actor.system, CONFIG.configuration);
+                        wisdom = combatant.actor.system.calculated.wisdom;
         
                         return(roll.evaluate()
                                    .then(() => {

@@ -152,7 +152,7 @@ export function randomizeCharacter(actor) {
             return(data);
         })
         .then(async (data) => {
-            await actor.update({data: data});
+            await actor.update({system: data});
         });
 }
 

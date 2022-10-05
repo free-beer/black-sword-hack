@@ -2,10 +2,10 @@
 	<span class="bsh-item-name" data-item="{{_id}}">{{name}}</span>
 </div>
 <div class="bsh-spell-state">
-	{{spellState data.state}}
+	{{spellState system.state}}
 </div>
 <div class="bsh-spell-entry-actions">
-	<i class="fas fa-hand-sparkles bsh-cast-spell-icon bsh-action-icon" title="{{localize "bsh.fields.titles.castSpell"}}" data-spell="{{_id}}"></i>
+	<i class="fas fa-hand-sparkles bsh-cast-spell-icon bsh-action-icon {{spellStateClass system.state}}" title="{{localize "bsh.fields.titles.castSpell"}}" data-spell="{{_id}}"></i>
 	<i class="fas fa-undo-alt bsh-reset-spell-state-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetSpell"}}" data-spell="{{_id}}"></i>
 	<i class="far fa-trash-alt bsh-delete-item-icon bsh-action-icon" title="{{localize "bsh.fields.titles.deleteSpell"}}" data-item="{{_id}}" data-type="{{type}}"></i>
 </div>

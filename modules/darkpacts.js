@@ -17,9 +17,9 @@ export async function resetDarkPact(actorId, type) {
 
     if(actor) {
         if(type === "demon") {
-            actor.update({data: {summoning: {demon: "unused"}}}, {diff: true});
+            actor.update({system: {summoning: {demon: "unused"}}}, {diff: true});
         } else if(type === "spirit") {
-            actor.update({data: {summoning: {spirit: "unused"}}}, {diff: true});
+            actor.update({system: {summoning: {spirit: "unused"}}}, {diff: true});
         } else {
             console.error(`Unreognised dark pact type '${type}' specified.`);
         }
@@ -36,8 +36,8 @@ export async function summonDemon(demonId, rollType) {
     let demon = getOwnedItemById(demonId);
 
     if(demon && demon.type === "demon") {
-        if(demon.actor.data.data.doom !== "exhausted") {
-            if(demon.actor.data.data.summoning.demon !== "unused") {
+        if(demon.actor.system.doom !== "exhausted") {
+            if(demon.actor.system.summoning.demon !== "unused") {
                 if(rollType === "advantage") {
                     rollType = "standard";
                 } else if(rollType === "standard") {
@@ -46,7 +46,7 @@ export async function summonDemon(demonId, rollType) {
             }
 
             rollDoom(demon.actor, rollType).then((result) => {
-                demon.actor.update({data: {summoning: {demon: "used"}}}, {diff: true});
+                demon.actor.update({system: {summoning: {demon: "used"}}}, {diff: true});
                 result.doomed = (result.die.ending === "exhausted");
                 if(result.downgraded) {
                     logDemonSummoningFailure(demon, result);
@@ -71,8 +71,8 @@ export async function summonSpirit(spiritId, rollType) {
     let spirit = getOwnedItemById(spiritId);
 
     if(spirit && spirit.type === "spirit") {
-        if(spirit.actor.data.data.doom !== "exhausted") {
-            if(spirit.actor.data.data.summoning.spirit !== "unused") {
+        if(spirit.actor.system.doom !== "exhausted") {
+            if(spirit.actor.system.summoning.spirit !== "unused") {
                 if(rollType === "advantage") {
                     rollType = "standard";
                 } else if(rollType === "standard") {
@@ -81,7 +81,7 @@ export async function summonSpirit(spiritId, rollType) {
             }
 
             rollDoom(spirit.actor, rollType).then((result) => {
-                spirit.actor.update({data: {summoning: {spirit: "used"}}}, {diff: true});
+                spirit.actor.update({system: {summoning: {spirit: "used"}}}, {diff: true});
                 result.doomed = (result.die.ending === "exhausted");
                 if(result.downgraded) {
                     logCallSpiritFailure(spirit, result);
