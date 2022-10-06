@@ -1,4 +1,4 @@
-# Barbarians Of Lemuria (Mythic Edition) - Unoffical
+# The Black Sword Hack - Unoffical
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H645D60)
 
