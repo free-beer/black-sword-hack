@@ -265,26 +265,31 @@ export default class CharacterSheet extends ActorSheet {
 
 	_onTabLabelClicked(event) {
 		let element   = event.currentTarget;
-		if(element.dataset.tab) {
+		event.preventDefault();
+		if(element.dataset.tab !== undefined && element.dataset.actor !== undefined) {
 			let actor     = null;
-			let container = document.getElementsByClassName("bsh-cs-container")[0];
-			let data      = {system: {tabSelected: element.dataset.tab}};
+			let container = Array.from(document.querySelectorAll(".bsh-character-sheet")).filter((e) => e.dataset.id === element.dataset.actor);
+	
+	        if(container.length === 1) {			
+				let data      = {system: {tabSelected: element.dataset.tab}};
 
-			event.preventDefault();
+                container = container[0];
+				if(!container) {
+					throw("Failed to locate the character sheet container element.");
+				}
 
-			if(!container) {
-				throw("Failed to locate the character sheet container element.");
+		        actor = getActorById(element.dataset.actor);
+		        if(!actor) {
+		        	throw(`Failed to locate an actor with an id of ${container.data.id}.`);
+		        }
+
+		        data.id = actor.id;
+				actor.update(data, {diff: true});
+				this.selectTabLabel(element.dataset.tab, actor);
+				this.showTabBody(element.dataset.tab, actor);
+			} else {
+				return(false);
 			}
-
-	        actor = getActorById(container.dataset.actor);
-	        if(!actor) {
-	        	throw(`Failed to locate an actor with an id of ${container.data.id}.`);
-	        }
-
-	        data.id = actor.id;
-			actor.update(data, {diff: true});
-			this.selectTabLabel(element.dataset.tab);
-			this.showTabBody(element.dataset.tab);
 		}
 		return(false);
 	}
@@ -338,24 +343,35 @@ export default class CharacterSheet extends ActorSheet {
         context.hasSpirits  = (context.spirits.length > 0);
     }
 
-	selectTabLabel(tabName) {
-		let tabLabels = document.getElementsByClassName("bsh-tab-label");
-		for(let i = 0; i < tabLabels.length; i++) {
-			if(tabLabels[i].dataset.tab === tabName) {
-				tabLabels[i].classList.add("bsh-tab-selected");
-			} else {
-				tabLabels[i].classList.remove("bsh-tab-selected");
-			}
-		}
+	selectTabLabel(tabName, actor) {
+		let rootElement = Array.from(document.querySelectorAll(".bsh-character-sheet")).filter((e) => e.dataset.id === actor._id);
 
+		if(rootElement.length === 1) {
+			let tabLabels = rootElement[0].getElementsByClassName("bsh-tab-label");
+			for(let i = 0; i < tabLabels.length; i++) {
+				if(tabLabels[i].dataset.tab === tabName) {
+					tabLabels[i].classList.add("bsh-tab-selected");
+				} else {
+					tabLabels[i].classList.remove("bsh-tab-selected");
+				}
+			}
+		} else {
+			console.error(`Failed to locate the character sheet for actor id '${actor._id}'.`);
+		}
 	}
 
-	showTabBody(tabName) {
-		let tabBodies = document.getElementsByClassName("bsh-tab-body");
+	showTabBody(tabName, actor) {
+		let rootElement = Array.from(document.querySelectorAll(".bsh-character-sheet")).filter((e) => e.dataset.id === actor._id);
 
-		for(let i = 0; i < tabBodies.length; i++) {
-			tabBodies[i].classList.add("bsh-tab-hidden");
+		if(rootElement.length === 1) {
+			let tabBodies = rootElement[0].getElementsByClassName("bsh-tab-body");
+
+			for(let i = 0; i < tabBodies.length; i++) {
+				tabBodies[i].classList.add("bsh-tab-hidden");
+			}
+			rootElement[0].getElementsByClassName(`bsh-${tabName}-tab`)[0].classList.remove("bsh-tab-hidden");
+		} else {
+			console.error(`Failed to locate the character sheet for actor id '${actor._id}'.`);
 		}
-		document.getElementsByClassName(`bsh-${tabName}-tab`)[0].classList.remove("bsh-tab-hidden");
 	}
 }

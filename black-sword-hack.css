@@ -55,6 +55,10 @@
 	text-align: justify;
 }
 
+.bsh-capitalized-text {
+	text-transform: capitalize;
+}
+
 .bsh-centered-input {
 	text-align: center !important;
 }
@@ -253,7 +257,7 @@
 	display: grid;
 	font-size: 1.1em;
 	gap: 5px 3px;
-	grid-template-columns: auto 50px;
+	grid-template-columns: auto 100px 50px;
 	margin-bottom: 20px;	
 }
 
