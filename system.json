@@ -21,7 +21,7 @@
      "name": "English",
      "path": "languages/en.json"}
   ],
-  "url": "https://github.com/free-beer/bsh",
+  "url": "https://github.com/free-beer/black-sword-hack",
   "manifest": "https://raw.githubusercontent.com/free-beer/black-sword-hack/master/system.json",
   "download": "https://github.com/free-beer/black-sword-hack/archive/refs/tags/v1.0.1.zip"
 }
