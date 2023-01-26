@@ -9,7 +9,7 @@ export function takeLongRest(character) {
     let data    = character.system;
     let updates = {system: {}}
 
-    calculateCharacterData(ata, CONFIG.configuration);
+    calculateCharacterData(character, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
         updates.system.currentHitPoints = data.maximumHitPoints;
     }
@@ -42,7 +42,7 @@ export function takeShortRest(character) {
     let data    = character.system;
     let updates = {system: {}};
 
-    calculateCharacterData(data, CONFIG.configuration);
+    calculateCharacterData(character, CONFIG.configuration);
     if(data.maximumHitPoints > data.currentHitPoints) {
         updates.system.currentHitPoints = data.currentHitPoints + Math.floor(data.calculated.constitution / 2);
         if(updates.system.currentHitPoints > data.maximumHitPoints) {

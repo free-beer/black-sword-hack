@@ -87,7 +87,7 @@ export function resetDoomDie(actor) {
         let data    = actor.system;
         let updates = {system: {doom: "d6"}};
 
-        calculateCharacterData(data, CONFIG.configuration);
+        calculateCharacterData(actor, CONFIG.configuration);
         if(actor.level > 9) {
             updates.system.doom = "d8";
         }

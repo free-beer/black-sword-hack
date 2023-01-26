@@ -50,9 +50,13 @@ export function deleteOwnedItem(itemId) {
  * Calculates a set of dynamic data values related to a character.
  */
 export function calculateCharacterData(context, configuration) {
-    context.actor.system.level = calculateLevel(context.actor.system, configuration);
-    context.actor.system.calculated = calculateAttributeValues(context.actor.system, configuration);
-    context.actor.system.maximumHitPoints = calculateMaximumHitPoints(context.actor.system, context.actor.system.level);
+    if(context.actor) {
+        context = context.actor;
+    }
+
+    context.system.level            = calculateLevel(context.system, configuration);
+    context.system.calculated       = calculateAttributeValues(context.system, configuration);
+    context.system.maximumHitPoints = calculateMaximumHitPoints(context.system, context.system.level);
 }
 
 /**
