@@ -38,6 +38,15 @@ BSHConfiguration.backgroundList = {
 		"name": "bsh.backgrounds.berserker.name",
 		"unique": true
 	},
+	"bodyguard": {
+		"attributes": {
+			"constitution": 1
+		},
+		"key": "bodyguard",
+		"origin": "civilized",
+		"name": "bsh.backgrounds.bodyguard.name",
+		"unique": false
+	},
 	"bookworm": {
 		"attributes": {
 			"intelligence": 1
@@ -45,6 +54,33 @@ BSHConfiguration.backgroundList = {
 		"key": "bookworm",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.bookworm.name",
+		"unique": false
+	},
+	"changeling": {
+		"attributes": {
+			"charisma": 1
+		},
+		"key": "changeling",
+		"origin": "decadent",
+		"name": "bsh.backgrounds.changeling.name",
+		"unique": true
+	},
+	"chieftain": {
+		"attributes": {
+			"strength": 1
+		},
+		"key": "chieftain",
+		"origin": "barbarian",
+		"name": "bsh.backgrounds.chieftain.name",
+		"unique": false
+	},
+	"diplomat": {
+		"attributes": {
+			"charisma": 1
+		},
+		"key": "diplomat",
+		"origin": "civilized",
+		"name": "bsh.backgrounds.diplomat.name",
 		"unique": false
 	},
 	"forbidden_knowledge": {
@@ -101,6 +137,24 @@ BSHConfiguration.backgroundList = {
 		"name": "bsh.backgrounds.pit_fighter.name",
 		"unique": false
 	},
+	"raider": {
+		"attributes": {
+			"strength": 1
+		},
+		"key": "raider",
+		"origin": "barbarian",
+		"name": "bsh.backgrounds.raider.name",
+		"unique": false
+	},
+	"scout": {
+		"attributes": {
+			"wisdom": 1
+		},
+		"key": "scout",
+		"origin": "barbarian",
+		"name": "bsh.backgrounds.scout.name",
+		"unique": false
+	},
 	"shaman": {
 		"attributes": {
 			"wisdom": 1
@@ -153,6 +207,15 @@ BSHConfiguration.backgroundList = {
 		"key": "surgeon",
 		"origin": "civilized",
 		"name": "bsh.backgrounds.surgeon.name",
+		"unique": false
+	},
+	"survivor": {
+		"attributes": {
+			"constitution": 1
+		},
+		"key": "survivor",
+		"origin": "barbarian",
+		"name": "bsh.backgrounds.survivor.name",
 		"unique": false
 	},
 	"swordmaster": {

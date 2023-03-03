@@ -1,4 +1,5 @@
 import {BSHConfiguration} from './configuration.js';
+import {getBackgrounds} from './origins.js';
 
 /**
  * A constant outlining attribute scores obtained from a 2d6 roll.
@@ -27,21 +28,9 @@ const ORIGINS = ["barbarian", "civilized", "decadent"];
  * origin, whether uniques are allowed and what backgrounds are excluded).
  */
 function filterBackgroundsByOrigin(origin, allowUniques, ignoreList) {
-    let backgrounds = [];
-
-    Object.keys(BSHConfiguration.backgroundList).forEach((key) => {
-        let background = BSHConfiguration.backgroundList[key];
-
-        if(background.origin === origin) {
-            if(allowUniques || !background.unique) {
-                if(!ignoreList.includes(background.key)) {
-                    backgrounds.push(background);
-                }
-            }
-        }
-    });
-
-    return(backgrounds)
+    return(getBackgrounds(origin).filter((background) => {
+        return((allowUniques || !background.unique) && !ignoreList.includes(background.key));
+    }));
 }
 
 /**

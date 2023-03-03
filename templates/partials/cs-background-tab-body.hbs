@@ -4,6 +4,7 @@
     {{> "systems/black-sword-hack/templates/partials/cs-base-attributes-list.hbs"}}
 
 	<h2>{{localize "bsh.headers.background"}}</h2>
+
     <div class="bsh-field">
     	<label for="system.birth" class="bsh-label">{{localize "bsh.fields.labels.birth"}}</label>
     	<select name="system.birth" class="bsh-input bsh-select">
@@ -15,57 +16,7 @@
     	</select>
     </div>
 
-	<div class="bsh-field">
-    	<label for="system.origin" class="bsh-label">{{localize "bsh.fields.labels.origin"}}</label>
-    	<select name="system.origin" class="bsh-input bsh-select">
-		{{#select actor.system.origin}}
-		{{#each configuration.originList as |label value|}}
-    		<option value="{{value}}">{{localize label}}</option>
-		{{/each}}
-		{{/select}}
-    	</select>
-    </div>
-
-    <div class="bsh-field">
-    {{#backgroundSelect "first" fromOrigin=true}}
-		<label for="system.backgrounds.first" class="bsh-label">{{localize labelKey}}</label>
-		<select name="system.backgrounds.first" class="bsh-input bsh-select">
-		{{#select ../actor.system.backgrounds.first}}
-		{{#each options as |label value|}}
-			<option value="{{value}}">{{localize label}}</option>
-		{{/each}}
-		{{/select}}
-		</select>
-    {{/backgroundSelect}}
-    </div>
-
-
-    <div class="bsh-field">
-    {{#backgroundSelect "second" fromOrigin=true}}
-		<label for="system.backgrounds.second" class="bsh-label">{{localize labelKey}}</label>
-		<select name="system.backgrounds.second" class="bsh-input bsh-select">
-		{{#select ../actor.system.backgrounds.second}}
-		{{#each options as |label value|}}
-			<option value="{{value}}">{{localize label}}</option>
-		{{/each}}
-		{{/select}}
-		</select>
-    {{/backgroundSelect}}
-    </div>
-
-
-    <div class="bsh-field">
-    {{#backgroundSelect "third" fromOrigin=false}}
-		<label for="system.backgrounds.third" class="bsh-label">{{localize labelKey}}</label>
-		<select name="system.backgrounds.third" class="bsh-input bsh-select">
-		{{#select ../actor.system.backgrounds.third}}
-		{{#each options as |label value|}}
-			<option value="{{value}}">{{localize label}}</option>
-		{{/each}}
-		{{/select}}
-		</select>
-    {{/backgroundSelect}}
-    </div>
+    {{> "systems/black-sword-hack/templates/partials/cs-backgrounds-classic.hbs"}}
 
     <br>
     <h2>{{localize "bsh.headers.random"}}</h2>

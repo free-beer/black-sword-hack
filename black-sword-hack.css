@@ -28,6 +28,75 @@
 	cursor: pointer;
 }
 
+.bsh-background-form {
+	margin: 0 5px;
+	position: relative;
+}
+
+.bsh-background-grey {
+	background-color: #eee;
+}
+
+.bsh-background-white {
+	background-color: #fff;
+}
+
+.bsh-backgrounds-header {
+	display: grid;
+	font-size: 110%;
+	gap: 0 3px;
+	grid-template-columns: auto 50px;
+}
+
+.bsh-backgrounds-header-icons {
+	position: relative;
+}
+
+.bsh-backgrounds-list {
+	background-color: #ccc;
+	max-height: 400px;
+	padding: 0 0 10px 0;
+	overflow: auto;
+}
+
+.bsh-background-row:hover {
+	color: #fff;
+	background-color: rgb(0, 0, 255, 0.2);
+}
+
+.bsh-background-row {
+	cursor: pointer;
+	display: grid;
+	font-size: 1.2em;
+	gap: 0 3px;
+    grid-template-columns: 30px auto;
+    margin: 2px 0;
+    padding: 5px 3px;
+}
+
+.bsh-backgrounds-stats-entry {
+	margin-bottom: 10px;
+}
+
+.bsh-backgrounds-stats-entry p {
+	font-weight: bold;
+	text-align: center;
+}
+
+.bsh-backgrounds-stats-entry input {
+	max-width: 50px;
+	text-align: center;
+}
+
+.bsh-backgrounds-stats-list {
+	align-items: center;
+	display: grid;
+	gap: 0 3px;
+    grid-auto-flow: column;
+    justify-items: center;
+	margin-bottom: 10px;
+}
+
 .bsh-base-attribute-input {
 	background-color: #fff  !important;
 	font-size: 1.2em !important;
@@ -55,6 +124,15 @@
 	text-align: justify;
 }
 
+.bsh-button-group {
+	align-items: center;
+	display: grid;
+	gap: 0 5px;
+    grid-auto-flow: column;
+    justify-items: center;
+	margin: 5px 0;
+}
+
 .bsh-capitalized-text {
 	text-transform: capitalize;
 }
@@ -63,8 +141,25 @@
 	text-align: center !important;
 }
 
+.bsh-checkbox {
+	align-items: left;
+	display: grid;
+	gap: 0 3px;
+    grid-template-columns: 30px 100px;
+    justify-items: left;
+	margin: 10px 5px;
+}
+
 .bsh-clickable {
 	cursor: pointer;
+}
+
+.bsh-close-icon {
+	cursor: pointer;
+	font-size: 150%;
+	position: absolute;
+	right: 5px;
+	top: 5px;
 }
 
 .bsh-coins-container {
@@ -286,6 +381,16 @@
 	display: none;
 }
 
+.bsh-icons-list {
+	text-align: right;
+}
+
+.bsh-icons-list i {
+	font-size: 110%;
+	font-weight: bold;
+	margin: 0 5px;
+}
+
 .bsh-input {
 	width: 100%;
 }
@@ -338,6 +443,13 @@
 	font-size: 1.1em;
 	height: 100%;
 	justify-content: center;
+}
+
+.bsh-origin-container {
+	display: grid;
+	gap: 0 10px;
+    grid-template-columns: 128px auto;
+	margin-bottom: 10px;
 }
 
 .bsh-possession-field {
@@ -533,6 +645,10 @@
 	grid-template-columns: auto 75px 85px;
 	margin-bottom: 15px;
 	width: 98%;
+}
+
+.bsh-white-background {
+	background-color: #fff;
 }
 
 .bsh-usage-die-feedback {

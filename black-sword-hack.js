@@ -1,6 +1,8 @@
 import {BSHActor} from './modules/documents/bsh_actor.js';
 import BSHCombat from './modules/combat.js';
 import {BSHConfiguration} from './modules/configuration.js';
+import {CLASSIC_ORIGINS} from './modules/constants.js';
+import {updateCharacterBackgrounds} from './modules/migrations.js';
 import {BSHItem} from './modules/documents/bsh_item.js';
 import CharacterSheet from './modules/sheets/character-sheet.js';
 import ConsumableSheet from './modules/sheets/consumable-sheet.js';
@@ -8,11 +10,14 @@ import CreatureActionSheet from './modules/sheets/creature-action-sheet.js';
 import CreatureSheet from './modules/sheets/creature-sheet.js';
 import EquipmentSheet from './modules/sheets/equipment-sheet.js';
 import GiftSheet from './modules/sheets/gift-sheet.js';
+import OriginSheet from './modules/sheets/origin-sheet.js';
 import DemonSheet from './modules/sheets/demon-sheet.js';
 import SpellSheet from './modules/sheets/spell-sheet.js';
 import SpiritSheet from './modules/sheets/spirit-sheet.js';
 import WeaponSheet from './modules/sheets/weapon-sheet.js';
 import {logDamageRoll, toggleAttributeTestDisplay} from './modules/chat_messages.js';
+import {getBackgrounds, getOrigins} from './modules/origins.js';
+import {capitalize, stringToKey} from './modules/shared.js';
 
 async function preloadHandlebarsTemplates() {
     const paths = ["systems/black-sword-hack/templates/messages/attack-roll.hbs",
@@ -28,7 +33,9 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/messages/spirit-success.hbs",
                    "systems/black-sword-hack/templates/messages/usage-die-roll.hbs",
                    "systems/black-sword-hack/templates/partials/cs-attribute-list.hbs",
+                   "systems/black-sword-hack/templates/partials/cs-background-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-background-tab-body.hbs",
+                   "systems/black-sword-hack/templates/partials/cs-backgrounds-classic.hbs",
                    "systems/black-sword-hack/templates/partials/cs-base-attributes-list.hbs",
                    "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-demon-entry.hbs",
@@ -48,6 +55,11 @@ async function preloadHandlebarsTemplates() {
     return(loadTemplates(paths))
 }
 
+async function runMigrations() {
+    console.log("Running migrations...");
+    updateCharacterBackgrounds();
+}
+
 Hooks.once("init", function() {
     console.log("Initializing the Black Sword Hack System.");
 
@@ -56,12 +68,20 @@ Hooks.once("init", function() {
     CONFIG.configuration        = BSHConfiguration;
     CONFIG.Item.documentClass   = BSHItem;
 
+    game.settings.register("black-sword-hack", "customOrigins", {config:  true,
+                                                                 default: false,
+                                                                 hint:    game.i18n.localize("bsh.settings.options.customOrigins.blurb"),
+                                                                 name:    game.i18n.localize("bsh.settings.options.customOrigins.title"),
+                                                                 scope:   "world",
+                                                                 type:    Boolean});
+
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("black-sword-hack", ConsumableSheet, {types: ["consumable"]});
     Items.registerSheet("black-sword-hack", CreatureActionSheet, {types: ["creature_action"]});
     Items.registerSheet("black-sword-hack", DemonSheet, {types: ["demon"]});
     Items.registerSheet("black-sword-hack", EquipmentSheet, {types: ["equipment"]});
     Items.registerSheet("black-sword-hack", GiftSheet, {types: ["gift"]});
+    Items.registerSheet("black-sword-hack", OriginSheet, {types: ["origin"]});
     Items.registerSheet("black-sword-hack", SpellSheet, {types: ["spell"]});
     Items.registerSheet("black-sword-hack", SpiritSheet, {types: ["spirit"]});
     Items.registerSheet("black-sword-hack", WeaponSheet, {types: ["weapon"]});
@@ -73,6 +93,10 @@ Hooks.once("init", function() {
 
     // Load templates.
     preloadHandlebarsTemplates();
+
+    Handlebars.registerHelper("arrayIndexAdjuster", (index) => {
+        return(`${index + 1}`);
+    });
 
     Handlebars.registerHelper("backgroundSelect", function(offset, options) {
     	let backgrounds = {"": ""};
@@ -96,6 +120,63 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("checkboxStateSelector", (setting) => {
         return(setting ? "checked" : "");
+    });
+
+    Handlebars.registerHelper("backgroundColourClassChooser", (value) => {
+        return(value % 2 === 0 ? "bsh-background-grey" : "bsh-background-white");
+    });
+
+    Handlebars.registerHelper("originBackgroundSelect", (originId, originField, selectedKey) => {
+        let origin   = getOrigins(originId).find((o) => stringToKey(o.name) === originId);
+        let template = "<div>NO BACKGROUND OPTIONS AVAILABLE.</div>";
+
+        if(origin) {
+            let backgrounds = (origin.system ? origin.system.backgrounds : origin.backgrounds);
+            let options     =  [`<option value=""></option>`];
+            options = options.concat(getBackgrounds(originId).map((background) => {
+                let selected = (background.key === selectedKey ? 'selected="selected"' : "");
+                let suffix   = [capitalize(origin.name)];
+
+                if(background.unique) {
+                    suffix.push("Unique");
+                }
+
+                return(`<option ${selected}value="${background.key}">${background.name} (${suffix.join(', ')})</option>`);
+            }));
+
+            return(`<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
+        } else {
+            console.error(`Unable to locate an origin with the id '${originId}'.`);
+        }
+
+        return(template);
+    });
+
+    Handlebars.registerHelper("nonOriginBackgroundSelect", (originId, originField, selectedKey) => {
+        let origins     = getOrigins();
+        let template    = "<div>NO BACKGROUND OPTIONS AVAILABLE.</div>";
+
+        if(origins.length > 0) {
+            let keys        = origins.map((o) => stringToKey(o.name));
+            let backgrounds = getBackgrounds(...keys);
+            let options     = ['<option value=""></option>'];
+
+            backgrounds.sort((lhs, rhs) => lhs.name.localeCompare(rhs.name)).map((background) => {
+                let selected = (background.key === selectedKey ? 'selected="selected"' : '');
+                let suffix   = [capitalize(background.origin)];
+
+                if(background.unique) {
+                    suffix.push("Unique");
+                }
+                options.push(`<option ${selected}value="${background.key}">${background.name} (${suffix.join(', ')})</option>`);
+            });
+
+            template = `<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`;
+        } else {
+            console.error(`Unable to locate an origin with the id '${originId}'.`);
+        }
+
+        return(template);
     });
 
     Handlebars.registerHelper("spellStateClass", function(state) {
@@ -163,17 +244,8 @@ Hooks.once("init", function() {
             }
         }, 250);
     });
+});
 
-    // Handlebars.registerHelper("attackKind", function(key) {
-    //     return(game.i18n.localize(`bh2e.weapons.kinds.${key}`));
-    // });
-    // Handlebars.registerHelper("longAttributeName", function(key) {
-    //     return(game.i18n.localize(`bh2e.fields.labels.attributes.${key}.long`));
-    // });
-    // Handlebars.registerHelper("rangeName", function(name) {
-    //     return(game.i18n.localize(`bh2e.ranges.${name}`));
-    // });
-    // Handlebars.registerHelper("shortAttributeName", function(key) {
-    //     return(game.i18n.localize(`bh2e.fields.labels.attributes.${key}.short`));
-    // });
+Hooks.once("ready", function() {
+    setTimeout(runMigrations, 500);
 });

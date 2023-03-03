@@ -585,6 +585,22 @@ export function setObjectField(path, value, object=null) {
 }
 
 /**
+ * Converts an input value into a 'key'. The process of conversion involves
+ * trimming leading and trailing whitespace, replacing all other spaces with
+ * udnerscores and converting all the text to lower case.
+ */
+export function stringToKey(text) {
+    return(`${text}`.trim().replaceAll(/\s+/g, "_").toLowerCase());
+}
+
+/**
+ * Capitalize and returns an input string.
+ */
+export function capitalize(text) {
+    return(`${text.substring(0, 1).toUpperCase()}${text.substring(1)}`);
+}
+
+/**
  * Displays a dialog that allows for manual and finer level control over an
  * attribute test roll.
  */

@@ -1,0 +1,56 @@
+<form>
+	<div class="bsh-background-form">
+		<input type="hidden" name="index" value="{{object.index}}">
+
+		<div class="bsh-field">
+			<label class="bsh-label">{{localize "bsh.fields.labels.name"}}</label>
+			<input autofocus type="text" name="name" value="{{object.name}}">
+		</div>
+		<input type="hidden" name="key" value={{object.key}}>
+
+        <label class="bsh-label">{{localize "bsh.headers.statBonuses"}}</label>
+		<div class="bsh-backgrounds-stats-list">
+			<div class="bsh-backgrounds-stats-entry">
+				<p>STR</p>
+				<input type="text" name="strength" value="{{object.stats.strength}}">
+			</div>
+			<div class="bsh-backgrounds-stats-entry" value="+0">
+				<p>DEX</p>
+				<input type="text" name="dexterity" value="{{object.stats.dexterity}}">
+			</div>
+			<div class="bsh-backgrounds-stats-entry" value="+0">
+				<p>CON</p>
+				<input type="text" name="constitution" value="{{object.stats.constitution}}">
+			</div>
+			<div class="bsh-backgrounds-stats-entry" value="+0">
+				<p>INT</p>
+				<input type="text" name="intelligence" value="{{object.stats.intelligence}}">
+			</div>
+			<div class="bsh-backgrounds-stats-entry" value="+0">
+				<p>WIS</p>
+				<input type="text" name="wisdom" value="{{object.stats.wisdom}}">
+			</div>
+			<div class="bsh-backgrounds-stats-entry" value="+0">
+				<p>CHA</p>
+				<input type="text" name="charisma" value="{{object.stats.charisma}}">
+			</div>
+		</div>
+
+		<div class="bsh-field">
+			<label class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+			{{editor object.description button=true collaborate=false editable=true engine="prosemirror" target="description"}}
+		</div>
+
+		<hr>
+
+		<div class="bsh-checkbox">
+			<input {{checkboxStateSelector object.unique}} name="unique" type="checkbox">
+			<p>{{localize "bsh.fields.labels.unique"}}</p>
+		</div>
+	</div>
+
+	<div class="bsh-button-group">
+		<button class="save-button" type="button">Save</button>
+		<button class="close-button" type="button">Close</button>
+	</div>
+</form>

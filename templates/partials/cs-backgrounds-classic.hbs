@@ -1,0 +1,28 @@
+<div class="bsh-field">
+	<label for="system.origin" class="bsh-label">{{localize "bsh.fields.labels.origin"}}</label>
+	<select name="system.origin" class="bsh-input bsh-select">
+	{{#select actor.system.origin}}
+	{{#each configuration.originList as |label value|}}
+		<option value="{{value}}">{{localize label}}</option>
+	{{/each}}
+	{{/select}}
+	</select>
+</div>
+
+
+<div class="bsh-field">
+	<label for="system.backgrounds.first" class="bsh-label">{{localize "bsh.fields.labels.firstBackground"}}</label>
+	{{{originBackgroundSelect actor.system.origin "first" actor.system.backgrounds.first}}}
+</div>
+
+
+<div class="bsh-field">
+	<label for="system.backgrounds.second" class="bsh-label">{{localize "bsh.fields.labels.secondBackground"}}</label>
+	{{{originBackgroundSelect actor.system.origin "second" actor.system.backgrounds.second}}}
+</div>
+
+
+<div class="bsh-field">
+	<label for="system.backgrounds.third" class="bsh-label">{{localize "bsh.fields.labels.thirdBackground"}}</label>
+	{{{nonOriginBackgroundSelect actor.system.origin "third" actor.system.backgrounds.third}}}
+</div>

@@ -1,0 +1,36 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="bsh-origin-sheet-body">
+    	<div class="bsh-origin-main">
+    		<div class="bsh-origin-container">
+    			<div>
+    				<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+    			</div>
+
+    			<div>
+				    <div class="bsh-field">
+				    	<input class="bsh-input" name="name" type="text" value="{{item.name}}" />
+				    </div>
+
+			        <div>
+			        	<div class="bsh-backgrounds-header">
+			                <label class="bsh-label">{{localize "bsh.headers.backgrounds"}}</label>
+			    
+			                <div class="bsh-backgrounds-header-icons">
+								<p class="bsh-icons-list">
+									<i class="fas fa-plus bsh-action-icon bsh-new-background-icon" data-origin="{{item.id}}"></i>
+								</p>
+							</div>
+			        	</div>
+			        	<hr>
+
+						<div class="bsh-backgrounds-list">
+							{{#each data.system.backgroundObjects as |background index|}}
+							    {{> "systems/black-sword-hack/templates/partials/cs-background-entry.hbs" background}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+    		</div>
+		</div>
+    </div>
+</form>

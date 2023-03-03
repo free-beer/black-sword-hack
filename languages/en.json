@@ -39,8 +39,20 @@
       "berserker": {
         "name": "Berserker (Barbarian, Unique)"
       },
+      "bodyguard": {
+        "name": "Bodyguard (Civilized)"
+      },
       "bookworm": {
         "name": "Bookworm (Civilized)"
+      },
+      "changeling": {
+        "name": "Changeling (Decadent)"
+      },
+      "chieftain": {
+        "name": "Chieftain (Barbarian)"
+      },
+      "diplomat": {
+        "name": "Diplomat (Civilized)"
       },
       "forbidden_knowledge": {
         "name": "Forbidden Knowledge (Decadent)"
@@ -60,6 +72,12 @@
       "pit_fighter": {
         "name": "Pit Fighter (Decadent)"
       },
+      "raider": {
+        "name": "Raider (Barbarian)"
+      },
+      "scout": {
+        "name": "Scout (Barbarian)"
+      },
       "shaman": {
         "name": "Shaman (Barbarian)"
       },
@@ -77,6 +95,9 @@
       },
       "surgeon": {
         "name": "Surgeon (Civilized)"
+      },
+      "survivor": {
+        "name": "Survivor (Barbarian)"
       },
       "swordmaster": {
         "name": "Swordmaster (Civilized)"
@@ -121,8 +142,10 @@
       "stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your gifts and attribute bonuses as you attain the appropriate level."
     },
     "buttons": {
+      "cancel": "Cancel",
       "random_generation": "Randomize Me A Character!",
-      "rollIt": "Roll It!"
+      "rollIt": "Roll It!",
+      "save": "Save"
     },
     "controls": {
       "titles": {
@@ -148,6 +171,11 @@
         "doom": "doom",
         "unarmedDamage": "damage",
         "usageDie": "usage die"
+      }
+    },
+    "dialogs": {
+      "titles": {
+        "background": "Background"
       }
     },
     "dice": {
@@ -239,6 +267,7 @@
         "title": "Title",
         "threat": "Threat Level",
         "type": "Type",
+        "unique": "Unique",
         "usageDie": "Usage Die",
         "vulnerabilities": "Vulnerabilities"
       },
@@ -351,6 +380,7 @@
     },
     "headers": {
       "background": "Origin & Backgrounds",
+      "backgrounds": "Backgrounds",
       "base_attributes": "Base Attributes",
       "coins": "Coins",
       "consumables": "Consumables",
@@ -368,6 +398,7 @@
       "spellState": "State",
       "spiritName": "Name",
       "spirits": "Spirits",
+      "statBonuses": "Stat Bonuses",
       "story": "Story",
       "wealth": "Wealth",
       "weaponKind": "Type",
@@ -530,6 +561,14 @@
         "advantage": "Advantage",
         "disadvantage": "Disadvantage",
         "standard": "Standard"
+      }
+    },
+    "settings": {
+      "options": {
+        "customOrigins": {
+          "blurb": "Activate custom character origins. Don't toggle this if you already have characters created as this will break things!",
+          "title": "Custom Character Origins"
+        }
       }
     },
     "spells": {

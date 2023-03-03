@@ -1,4 +1,5 @@
 import {randomizeCharacter} from '../characters.js';
+import {CLASSIC_ORIGINS} from '../constants.js';
 import {initializeCollapsibles} from '../collapsible.js';
 import {logDefendRoll,
 	    logDoomDieRoll,
@@ -8,6 +9,7 @@ import {resetDarkPact,
         summonDemon,
         summonSpirit} from '../darkpacts.js';
 import {rollDoom} from '../doom.js';
+import {getCustomOrigins} from '../origins.js';
 import {takeLongRest,
         takeShortRest} from '../rests.js';
 import {calculateCharacterData,
@@ -22,7 +24,8 @@ import {calculateCharacterData,
 	    incrementItemQuantity,
 	    onInfoIconClicked,
 	    resetItemUsageDie,
-	    showAttributeRollModal} from '../shared.js';
+	    showAttributeRollModal,
+	    stringToKey} from '../shared.js';
 import {castSpell,
         resetSpellState,
         resetSpellStatesForActor} from '../spells.js';
@@ -40,7 +43,8 @@ export default class CharacterSheet extends ActorSheet {
         const context = super.getData();
         let   data    = context.actor.system;
 
-        context.flags = context.actor.flags;
+        context.flags         = context.actor.flags;
+        context.customOrigins = game.settings.get("black-sword-hack", "customOrigins");
         Object.keys(data.stories).forEach((key) => data.stories[key].configuration = CONFIG.configuration);
 
         if(context.actor.type === "character") {
@@ -78,6 +82,18 @@ export default class CharacterSheet extends ActorSheet {
 		html.find(".bsh-rest-icon").click(this._onTakeRestClicked.bind(this));
 		initializeCollapsibles();
 		super.activateListeners(html);
+	}
+
+	_getCustomOrigins() {
+		let origins = {};
+
+		getCustomOrigins().forEach((origin) => {
+			let key = stringToKey(origin.name);
+
+			origins[key] = {backgrounds: [].concat(origin.system.backgrounds), id: key, name: origin.name};
+		});
+
+		return(origins);
 	}
 
 	_onAttributeRollClicked(event) {
@@ -329,8 +345,11 @@ export default class CharacterSheet extends ActorSheet {
 	}
 
     _prepareCharacterData(context) {
-        context.configuration = CONFIG.configuration;
+        context.configuration                = CONFIG.configuration;
+        context.configuration.classicOrigins = mergeObject({}, CLASSIC_ORIGINS);
+        context.configuration.customOrigins  = this._getCustomOrigins();
         calculateCharacterData(context, CONFIG.configuration);
+
         context.consumables = context.items.filter((item) => item.type === "consumable");
         context.demons      = context.items.filter((item) => item.type === "demon");
         context.equipment   = context.items.filter((item) => item.type === "equipment");
