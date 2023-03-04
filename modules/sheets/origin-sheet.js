@@ -26,6 +26,9 @@ export default class OriginSheet extends ItemSheet {
 
 		Array.from(html.find(".bsh-background-row")).forEach((row) => row.dataset.origin = this.object.id);
 		super.activateListeners(html);
+		if(!game.settings.get("black-sword-hack", "customOrigins")) {
+		    ui.notifications.error(game.i18n.localize("bsh.errors.origins.custom.inactive"));
+		}
 	}
 
 	_findRootElement(element) {

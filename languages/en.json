@@ -211,6 +211,11 @@
           "unavailable": "Unable to reset item usage die as the current quantity is zero."
         }
       },
+      "origins": {
+        "custom": {
+          "inactive": "You must activate custom character origins in the game settings to make use of these."
+        }
+      },
       "spells": {
         "notFound": "Unable to locate the specified spell."
       },
