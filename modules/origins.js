@@ -20,6 +20,10 @@ function getBackgrounds(firstOriginKey, ...otherOriginKeys) {
     return(backgrounds);
 }
 
+function getOriginKeys() {
+    return(getOrigins().map((o) => stringToKey(o.name)));
+}
+
 function getOrigins() {
     let customOrigins = game.settings.get("black-sword-hack", "customOrigins");
 
@@ -37,5 +41,6 @@ function getCustomOrigins() {
 export {
     getBackgrounds,
 	getCustomOrigins,
+    getOriginKeys,
     getOrigins
 };

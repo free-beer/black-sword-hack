@@ -179,6 +179,18 @@ Hooks.once("init", function() {
         return(template);
     });
 
+    Handlebars.registerHelper("originSelect", (fieldName, selectedKey) => {
+        let entries = getOrigins().map((origin) => {
+            return({key: origin.key, name: origin.name, selected: (stringToKey(origin.name) === selectedKey)});
+        }).sort((lhs, rhs) => lhs.name.localeCompare(rhs.name));
+        let options = entries.map((entry) => {
+            let selected = (entry.selected ? 'selected="selected"' : '');
+            return(`<option ${selected} value="${stringToKey(entry.name)}">${entry.name}</option>`);
+        });
+
+        return(`<select class="bsh-input bsh-select" name="${fieldName}">${options.join("")}</select>`);
+    });
+
     Handlebars.registerHelper("spellStateClass", function(state) {
         return(state === "unavailable" ? "bsh-disabled" : "");
     });

@@ -1,12 +1,6 @@
 <div class="bsh-field">
 	<label for="system.origin" class="bsh-label">{{localize "bsh.fields.labels.origin"}}</label>
-	<select name="system.origin" class="bsh-input bsh-select">
-	{{#select actor.system.origin}}
-	{{#each configuration.originList as |label value|}}
-		<option value="{{value}}">{{localize label}}</option>
-	{{/each}}
-	{{/select}}
-	</select>
+	{{{originSelect "system.origin" actor.system.origin}}}
 </div>
 
 
