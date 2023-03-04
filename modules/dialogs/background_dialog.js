@@ -84,7 +84,6 @@ export default class BackgroundDialog extends FormApplication {
         }
 
         if(keyField.value.trim() === "") {
-            console.log(`Setting background key for the '${nameField.value}' background.`);
             this.object.key = keyField.value = stringToKey(nameField.value);
         }
 

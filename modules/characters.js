@@ -29,8 +29,6 @@ const ORIGINS = ["barbarian", "civilized", "decadent"];
  */
 function filterBackgroundsByOrigin(origin, allowUniques, ignoreList) {
     return(getBackgrounds(origin).filter((background) => {
-        console.log("CONSIDERING BACKGROUND:", background);
-        console.log("RESULT:", ((allowUniques || !background.unique) && !ignoreList.includes(background.key)), `${allowUniques}, ${!background.unique}, ${!ignoreList.includes(background.key)}`);
         return((allowUniques || !background.unique) && !ignoreList.includes(background.key));
     }));
 }
@@ -87,10 +85,7 @@ function generateAttributeScore() {
  */
 function generateBackground(origin, allowUniques, ignoreList) {
     let options = filterBackgroundsByOrigin(origin, allowUniques, ignoreList);
-    console.log(`PARAMETERS: origin="${origin}", allowUniques=${allowUniques}, ignoreList=${ignoreList}`);
-    console.log("BACKGROUND OPTIONS:", options);
     return((new Roll(`1d${options.length}-1`)).evaluate({async: true}).then((roll) => {
-        console.log("ROLL:", roll.total);
         return(options[roll.total]);
     }));
 }
@@ -126,7 +121,6 @@ export function randomizeCharacter(actor) {
             return(randomOrigin());
         })
         .then((origin) => {
-            console.log("ASSIGNING ORIGIN:", origin);
             data.origin = origin;
             return(selectBackgrounds(data.origin));
         })
@@ -147,8 +141,6 @@ export function randomizeCharacter(actor) {
             return(data);
         })
         .then(async (data) => {
-            console.log("ACTOR:", actor);
-            console.log("DATA:", data);
             await actor.update({system: data}, {diff: true});
         });
 }
@@ -160,9 +152,7 @@ export function randomizeCharacter(actor) {
 function randomOrigin() {
     let keys = getOriginKeys();
 
-    console.log("ORIGIN KEYS:", keys);
     return(new Roll(`1d${keys.length}-1`)).evaluate({async: true}).then((roll) => {
-        console.log("ORIGIN ROLL:", roll.total, `'${keys[roll.total]}'`);
         return(keys[roll.total]);
     });
 }
@@ -178,7 +168,6 @@ function selectBackgrounds(origin) {
 
     return(generateBackground(origin, allowUniques, [])
             .then((background) => {
-                console.log("BACKGROUND:", background);
                 allowUniques = !background.unique;
                 backgrounds.first = background.key;
                 return(generateBackground(origin, allowUniques, [backgrounds.first]));

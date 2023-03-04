@@ -41,7 +41,6 @@ async function updateCharacterBackgrounds() {
                 	updates.system.backgrounds.third = CLASSIC_ORIGIN_MAP[third];
                 }
 
-                console.log("UPDATES:", updates);
                 // actor.update(updates, {diff: true});
 			}
 		}
