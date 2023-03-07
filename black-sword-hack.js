@@ -2,7 +2,7 @@ import {BSHActor} from './modules/documents/bsh_actor.js';
 import BSHCombat from './modules/combat.js';
 import {BSHConfiguration} from './modules/configuration.js';
 import {CLASSIC_ORIGINS} from './modules/constants.js';
-import {updateCharacterBackgrounds} from './modules/migrations.js';
+import {runMigrations} from './modules/migrations.js';
 import {BSHItem} from './modules/documents/bsh_item.js';
 import CharacterSheet from './modules/sheets/character-sheet.js';
 import ConsumableSheet from './modules/sheets/consumable-sheet.js';
@@ -41,6 +41,7 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/partials/cs-demon-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-equipment-tab-body.hbs",
+                   "systems/black-sword-hack/templates/partials/cs-fp-background-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-front-page-tab-body.hbs",
                    "systems/black-sword-hack/templates/partials/cs-gift-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cs-magic-tab-body.hbs",
@@ -53,11 +54,6 @@ async function preloadHandlebarsTemplates() {
                    "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs",
                    "systems/black-sword-hack/templates/partials/cr-action-entry.hbs"];
     return(loadTemplates(paths))
-}
-
-async function runMigrations() {
-    console.log("Running migrations...");
-    updateCharacterBackgrounds();
 }
 
 Hooks.once("init", function() {
@@ -116,6 +112,10 @@ Hooks.once("init", function() {
         }        
 
         return(options.fn(context));
+    });
+
+    Handlebars.registerHelper("capitalize", function(text) {
+        return(`${text.substring(0, 1).toUpperCase()}${text.substring(1)}`);
     });
 
     Handlebars.registerHelper("checkboxStateSelector", (setting) => {

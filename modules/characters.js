@@ -1,5 +1,7 @@
 import {BSHConfiguration} from './configuration.js';
-import {getBackgrounds, getOriginKeys} from './origins.js';
+import {generateBirthPlace,
+        getBackgrounds,
+        getOriginKeys} from './origins.js';
 
 /**
  * A constant outlining attribute scores obtained from a 2d6 roll.
@@ -27,8 +29,8 @@ const ORIGINS = ["barbarian", "civilized", "decadent"];
  * Returns an array of background after filtering by a number of criteria (i.e.
  * origin, whether uniques are allowed and what backgrounds are excluded).
  */
-function filterBackgroundsByOrigin(origin, allowUniques, ignoreList) {
-    return(getBackgrounds(origin).filter((background) => {
+function filterBackgroundsByOrigin(origins, allowUniques, ignoreList) {
+    return(getBackgrounds(...origins).filter((background) => {
         return((allowUniques || !background.unique) && !ignoreList.includes(background.key));
     }));
 }
@@ -83,8 +85,8 @@ function generateAttributeScore() {
  * that should not be selected). Returns a promise the yields the background
  * selected when resolved.
  */
-function generateBackground(origin, allowUniques, ignoreList) {
-    let options = filterBackgroundsByOrigin(origin, allowUniques, ignoreList);
+function generateBackground(origins, allowUniques, ignoreList) {
+    let options = filterBackgroundsByOrigin(origins, allowUniques, ignoreList);
     return((new Roll(`1d${options.length}-1`)).evaluate({async: true}).then((roll) => {
         return(options[roll.total]);
     }));
@@ -114,14 +116,14 @@ export function randomizeCharacter(actor) {
     generateAttributeScores()
         .then((attributes) => {
             data.attributes = attributes;
-            return((new Roll("2d6")).evaluate({async: true}));
-        })
-        .then((roll) => {
-            data.birth = game.i18n.localize(BSHConfiguration.birthList[roll.total]);
             return(randomOrigin());
         })
         .then((origin) => {
             data.origin = origin;
+            return(generateBirthPlace(origin))
+        })
+        .then((birthPlace) => {
+            data.birth = birthPlace;
             return(selectBackgrounds(data.origin));
         })
         .then((backgrounds) => {
@@ -166,11 +168,11 @@ function selectBackgrounds(origin) {
     let backgrounds  = {first: "", second: "", third: ""};
     let allowUniques = true;
 
-    return(generateBackground(origin, allowUniques, [])
+    return(generateBackground([origin], allowUniques, [])
             .then((background) => {
                 allowUniques = !background.unique;
                 backgrounds.first = background.key;
-                return(generateBackground(origin, allowUniques, [backgrounds.first]));
+                return(generateBackground([origin], allowUniques, [backgrounds.first]));
             })
             .then((background) => {
                 allowUniques = allowUniques && !background.unique;
@@ -178,7 +180,7 @@ function selectBackgrounds(origin) {
                 return(randomOrigin());
             })
             .then((newOrigin) => {
-                return(generateBackground(newOrigin, allowUniques, [backgrounds.first, backgrounds.second]));
+                return(generateBackground(getOriginKeys(), allowUniques, [backgrounds.first, backgrounds.second]));
             })
             .then((background) => {
                 backgrounds.third = background.key;

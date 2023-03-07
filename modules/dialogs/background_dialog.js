@@ -147,7 +147,7 @@ export default class BackgroundDialog extends FormApplication {
     }
 
     _updateKey(event, nameField, keyField) {
-        keyField.value = stringToKey(nameField.value);
+        keyField.value = `${this.originId}-${stringToKey(nameField.value)}`;
     }
 
     static buildForOrigin(element, background, options) {

@@ -111,4 +111,23 @@
             </div>
         </div>
     </div>
+
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.backgrounds"}}
+        </h2>
+
+        <div class="collapsible-widget-target">
+            <div class="bsh-background-entries">
+            {{#each backgrounds as |background id|}}
+              {{> "systems/black-sword-hack/templates/partials/cs-fp-background-entry.hbs" background}}
+            {{/each}}
+            </div>
+        </div>
+    </div>
 </div>

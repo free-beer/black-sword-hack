@@ -1,4 +1,6 @@
 <div class="bsh-background-row {{backgroundColourClassChooser index}}" data-index="{{index}}">
-    <div>{{arrayIndexAdjuster index}}</div>
-    <div>{{name}}</div>
+    <div>
+        <input class="bsh-background-checkbox" data-key="{{key}}" type="checkbox">
+    </div>
+    <div class="bsh-background-column" data-key="{{key}}">{{name}}</div>
 </div>

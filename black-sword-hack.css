@@ -41,11 +41,20 @@
 	background-color: #fff;
 }
 
+.bsh-background-name {
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.bsh-background-origin {
+	overflow: hidden;
+}
+
 .bsh-backgrounds-header {
 	display: grid;
 	font-size: 110%;
 	gap: 0 3px;
-	grid-template-columns: auto 50px;
+	grid-template-columns: auto 100px;
 }
 
 .bsh-backgrounds-header-icons {
@@ -72,6 +81,13 @@
     grid-template-columns: 30px auto;
     margin: 2px 0;
     padding: 5px 3px;
+}
+
+.bsh-backgrounds-container-row {
+	display: grid;
+	font-size: 120%;
+	gap: 2px 3px;
+	grid-template-columns: auto 100px 30px;
 }
 
 .bsh-backgrounds-stats-entry {
@@ -354,6 +370,11 @@
 	gap: 5px 3px;
 	grid-template-columns: auto 100px 50px;
 	margin-bottom: 20px;	
+}
+
+.bsh-greyed-out {
+	color: #aaa;
+	cursor: default !important;
 }
 
 .bsh-grid {

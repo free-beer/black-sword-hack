@@ -1,7 +1,7 @@
 // Classic origin backgrounds.
 const BERSERKER = {description: "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>",
                    index:       0,
-                   key:         "berserker",
+                   key:         "barbarian#berserker",
                    name:        "Berserker",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -13,7 +13,7 @@ const BERSERKER = {description: "<p>When you go berserk add a d6 to the damage y
 
 const HERBALIST = {description: "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>",
                    index:       1,
-                   key:         "herbalist",
+                   key:         "barbarian#herbalist",
                    name:        "Herbalist",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -25,7 +25,7 @@ const HERBALIST = {description: "<p>You can create d6 doses of healing balms (re
 
 const HUNTER    = {description: "<p>In combat your first arrow always hits, add your level to the damage.</p>",
                    index:       2,
-                   key:         "hunter",
+                   key:         "barbarian#hunter",
                    name:        "Hunter",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -37,7 +37,7 @@ const HUNTER    = {description: "<p>In combat your first arrow always hits, add 
 
 const SHAMAN    = {description: "<p>You have made a pact with two spirits.</p>",
                    index:       3,
-                   key:         "shaman",
+                   key:         "barbarian#shaman",
                    name:        "Shaman",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -49,7 +49,7 @@ const SHAMAN    = {description: "<p>You have made a pact with two spirits.</p>",
 
 const STORYTELLER = {description: "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>",
                      index:       4,
-                     key:         "storyteller",
+                     key:         "barbarian#storyteller",
                      name:        "Storyteller",
                      stats:       {charisma:     "+1",
                                    constitution: "+0",
@@ -61,7 +61,7 @@ const STORYTELLER = {description: "<p>You always know d4 interesting things abou
 
 const WILDLING  = {description: "<p>You can take a <strong>long rest</strong> anywhere.</p>",
                    index:       5,
-                   key:         "wildling",
+                   key:         "barbarian#wildling",
                    name:        "Wildling",
                    stats:       {charisma:     "+0",
                                  constitution: "+1",
@@ -73,7 +73,7 @@ const WILDLING  = {description: "<p>You can take a <strong>long rest</strong> an
 
 const CHIEFTAIN = {description: "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>",
                    index:       6,
-                   key:         "chieftain",
+                   key:         "barbarian#chieftain",
                    name:        "Chieftain",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -85,7 +85,7 @@ const CHIEFTAIN = {description: "<p>You can use Strength instead of Charisma whe
 
 const RAIDER   = {description: "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>",
                   index:       7,
-                  key:         "raider",
+                  key:         "barbarian#raider",
                   name:        "Raider",
                   stats:       {charisma:     "+0",
                                 constitution: "+0",
@@ -97,7 +97,7 @@ const RAIDER   = {description: "<p>When you get a critical success on an Attack 
 
 const SCOUT    = {description: "<p>You get Advantage on your initiative rolls.</p>",
                    index:       8,
-                   key:         "scout",
+                   key:         "barbarian#scout",
                    name:        "Scout",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -109,7 +109,7 @@ const SCOUT    = {description: "<p>You get Advantage on your initiative rolls.</
 
 const SURVIVOR = {description: "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>",
                    index:       9,
-                   key:         "survivor",
+                   key:         "barbarian#survivor",
                    name:        "Survivor",
                    stats:       {charisma:     "+0",
                                  constitution: "+1",
@@ -121,7 +121,7 @@ const SURVIVOR = {description: "<p>It takes you 1d6 minutes to find something th
 
 const BOOKWORM   = {description: "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>",
                    index:       0,
-                   key:         "bookworm",
+                   key:         "civilized#bookworm",
                    name:        "Bookworm",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -133,7 +133,7 @@ const BOOKWORM   = {description: "<p>You can substitute any attribute test with 
 
 const INVENTOR   = {description: "<p>You know how to build 2 scientific marvels.</p>",
                     index:       1,
-                    key:         "inventor",
+                    key:         "civilized#inventor",
                     name:        "Inventor",
                     stats:       {charisma:     "+0",
                                   constitution: "+0",
@@ -145,7 +145,7 @@ const INVENTOR   = {description: "<p>You know how to build 2 scientific marvels.
 
 const LEGIONNAIRE = {description: "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>",
                      index:       2,
-                     key:         "legionnaire",
+                     key:         "civilized#legionnaire",
                      name:        "Legionnaire",
                      stats:       {charisma:     "+0",
                                    constitution: "+0",
@@ -157,7 +157,7 @@ const LEGIONNAIRE = {description: "<p>You are used to fighting in groups. Three 
 
 const SOPHIST    = {description: "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>",
                     index:       3,
-                    key:         "sophist",
+                    key:         "civilized#sophist",
                     name:        "Sophist",
                     stats:       {charisma:     "+1",
                                   constitution: "+0",
@@ -169,19 +169,19 @@ const SOPHIST    = {description: "<p>You can make someone believe a blatant lie 
 
 const STREET_URCHIN = {description: "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>",
                        index:       4,
-                       key:         "street_urchin",
-	                name:        "Street Urchin",
-	                stats:       {charisma:     "+0",
-	                              constitution: "+0",
-	                              dexterity:    "+1",
-	                              intelligence: "+0",
-	                              strength:     "+0",
-	                              wisdom:       "+0"},
-	                 unique:     false};
+                       key:         "civilized#street_urchin",
+	                     name:        "Street Urchin",
+	                     stats:       {charisma:     "+0",
+	                                   constitution: "+0",
+	                                   dexterity:    "+1",
+                                     intelligence: "+0",
+                                     strength:     "+0",
+                                     wisdom:       "+0"},
+	                     unique:     false};
 
 const SURGEON   = {description: "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>",
                    index:       5,
-                   key:         "surgeon",
+                   key:         "civilized#surgeon",
                    name:        "Surgeon",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -193,7 +193,7 @@ const SURGEON   = {description: "<p>Make an <strong>INT</strong> test when takin
 
 const SWORDMASTER = {description: "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>",
                      index:       6,
-                     key:         "swordmaster",
+                     key:         "civilized#swordmaster",
                      name:        "Swordmaster",
                      stats:       {charisma:     "+0",
                                    constitution: "+0",
@@ -205,7 +205,7 @@ const SWORDMASTER = {description: "<p>You can use <strong>DEX</strong> instead o
 
 const BODYGUARD  = {description: "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>",
                     index:       7,
-                    key:         "bodyguard",
+                    key:         "civilized#bodyguard",
                     name:        "Bodyguard",
                     stats:       {charisma:     "+0",
                                   constitution: "+1",
@@ -217,7 +217,7 @@ const BODYGUARD  = {description: "<p>If you use an action to protect a Close cha
 
 const DIPLOMAT   = {description: "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>",
                     index:       8,
-                    key:         "diplomat",
+                    key:         "civilized#diplomat",
                     name:        "Diplomat",
                     stats:       {charisma:     "+1",
                                   constitution: "+0",
@@ -229,7 +229,7 @@ const DIPLOMAT   = {description: "<p>You know two additional languages and can m
 
 const ASSASSIN  = {description: "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>",
                    index:       0,
-                   key:         "assassin",
+                   key:         "decadent#assassin",
                    name:        "Assassin",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -241,19 +241,19 @@ const ASSASSIN  = {description: "<p>Your first attack against an unaware target 
 
 const FORBIDDEN_KNOWLEDGE = {description: "<p>You start the game with 4 randomly selected spells.</p>",
                              index:       1,
-                             key:         "forbidden_knowledge",
-		               name:        "Forbidden Knowledge",
-		               stats:       {charisma:     "+0",
-		                             constitution: "+0",
-		                             dexterity:    "+0",
-		                             intelligence: "+1",
-		                             strength:     "+0",
-		                             wisdom:       "+0"},
-		               unique:      false};
+                             key:         "decadent#forbidden_knowledge",
+                             name:        "Forbidden Knowledge",
+                             stats:       {charisma:     "+0",
+                                           constitution: "+0",
+                                           dexterity:    "+0",
+                                           intelligence: "+1",
+                                           strength:     "+0",
+                                           wisdom:       "+0"},
+                             unique:      false};
 
 const PIT_FIGHTER = {description: "<p>Your unarmed damage is equal to your armed damage.</p>",
                      index:       2,
-                     key:         "pit-fighter",
+                     key:         "decadent#pit-fighter",
                      name:        "Pit-fighter",
                      stats:       {charisma:     "+0",
                                    constitution: "+0",
@@ -265,7 +265,7 @@ const PIT_FIGHTER = {description: "<p>Your unarmed damage is equal to your armed
 
 const SNAKE_BLOOD = {description: "<p>You're immune to poisons and venom.</p>",
                      index:       3,
-                     key:         "snake_blood",
+                     key:         "decadent#snake_blood",
                      name:        "Snake Blood",
                      stats:       {charisma:     "+0",
                                    constitution: "+1",
@@ -277,7 +277,7 @@ const SNAKE_BLOOD = {description: "<p>You're immune to poisons and venom.</p>",
 
 const VICIOUS   = {description: "<p>Your damage die is now d8 (d6 unarmed).</p>",
                    index:       4,
-                   key:         "vicious",
+                   key:         "decadent#vicious",
                    name:        "Vicious",
                    stats:       {charisma:     "+0",
                                  constitution: "+0",
@@ -289,7 +289,7 @@ const VICIOUS   = {description: "<p>Your damage die is now d8 (d6 unarmed).</p>"
 
 const WARLOCK   = {description: "<p>You have a pact with two demons.</p>",
                    index:       5,
-                   key:         "warlock",
+                   key:         "decadent#warlock",
                    name:        "Warlock",
                    stats:       {charisma:     "+1",
                                  constitution: "+0",
@@ -301,7 +301,7 @@ const WARLOCK   = {description: "<p>You have a pact with two demons.</p>",
 
 const CHANGELING = {description: "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>",
                     index:       6,
-                    key:         "changeling",
+                    key:         "decadent#changeling",
                     name:        "Changeling",
                     stats:       {charisma:     "+1",
                                   constitution: "+0",
@@ -319,11 +319,11 @@ const BARBARIAN = {backgrounds: [
 	                   JSON.stringify(SHAMAN),
 	                   JSON.stringify(STORYTELLER),
 	                   JSON.stringify(WILDLING),
-                          JSON.stringify(CHIEFTAIN),
-                          JSON.stringify(RAIDER),
-                          JSON.stringify(SCOUT),
-                          JSON.stringify(SURVIVOR)
-	               ],
+                     JSON.stringify(CHIEFTAIN),
+                     JSON.stringify(RAIDER),
+                     JSON.stringify(SCOUT),
+                     JSON.stringify(SURVIVOR)
+	                 ],
                    id:          "barbarian",
                    name:        "Barbarian"};
 
@@ -335,9 +335,9 @@ const CIVILIZED = {backgrounds: [
 	                   JSON.stringify(STREET_URCHIN),
 	                   JSON.stringify(SURGEON),
 	                   JSON.stringify(SWORDMASTER),
-                          JSON.stringify(BODYGUARD),
-                          JSON.stringify(DIPLOMAT)
-	               ],
+                     JSON.stringify(BODYGUARD),
+                     JSON.stringify(DIPLOMAT)
+	                 ],
                    id:          "civilized",
                    name:        "Civilized"};
 
@@ -348,8 +348,8 @@ const DECADENT  = {backgrounds: [
 	                   JSON.stringify(SNAKE_BLOOD),
 	                   JSON.stringify(VICIOUS),
 	                   JSON.stringify(WARLOCK),
-                          JSON.stringify(CHANGELING)
-	               ],
+                     JSON.stringify(CHANGELING)
+	                 ],
                    id:          "decadent",
                    name:        "Decadent"};
 
@@ -360,10 +360,10 @@ const CLASSIC_ORIGINS = {barbarian: BARBARIAN,
 const CLASSIC_ORIGIN_MAP = {
 	"assassin":            {id: "decadent", index: 0, key: "assassin"},
 	"berserker":           {id: "barbarian", index: 0, key: "berserker"},
-       "bodyguard":           {id: "civilized", index: 7, key: "bodyguard"},
-       "changeling":          {id: "decadent", index: 6, key: "changeling"},
-       "chieftain":           {id: "barbarian", index: 6, key: "chieftain"},
-       "diplomat":            {id: "civilized", index: 8, key: "diplomat"},
+  "bodyguard":           {id: "civilized", index: 7, key: "bodyguard"},
+  "changeling":          {id: "decadent", index: 6, key: "changeling"},
+  "chieftain":           {id: "barbarian", index: 6, key: "chieftain"},
+  "diplomat":            {id: "civilized", index: 8, key: "diplomat"},
 	"bookworm":            {id: "civilized", index: 0, key: "bookworm"},
 	"forbidden_knowledge": {id: "decadent", index: 1, key: "forbidden_knowledge"},
 	"herbalist":           {id: "barbarian", index: 1, key: "herbalist"},
@@ -371,15 +371,15 @@ const CLASSIC_ORIGIN_MAP = {
 	"inventor":            {id: "civilized", index: 1, key: "inventor"},
 	"legionnaire":         {id: "civilized", index: 2, key: "legionnaire"},
 	"pit-fighter":         {id: "decadent", index: 2, key: "pit-fighter"},
-       "raider":              {id: "barbarian", index: 7, key: "raider"},
-       "scout":               {id: "barbarian", index: 8, key: "scout"},
+  "raider":              {id: "barbarian", index: 7, key: "raider"},
+  "scout":               {id: "barbarian", index: 8, key: "scout"},
 	"shaman":              {id: "barbarian", index: 3, key: "shaman"},
 	"snake_blood":         {id: "decadent", index: 3, key: "snake_blood"},
 	"sophist":             {id: "civilized", index: 3, key: "sophist"},
 	"storyteller":         {id: "barbarian", index: 4, key: "storyteller"},
 	"street_urchin":       {id: "civilized", index: 4, key: "street_urchin"},
 	"surgeon":             {id: "civilized", index: 5, key: "surgeon"},
-       "survivor":            {id: "barbarian", index: 9, key: "survivor"},
+  "survivor":            {id: "barbarian", index: 9, key: "survivor"},
 	"swordmaster":         {id: "civilized", index: 6, key: "swordmaster"},
 	"vicious":             {id: "decadent", index: 4, key: "vicious"},
 	"warlock":             {id: "decadent", index: 5, key: "warlock"},

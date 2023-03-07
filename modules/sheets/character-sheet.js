@@ -9,7 +9,8 @@ import {resetDarkPact,
         summonDemon,
         summonSpirit} from '../darkpacts.js';
 import {rollDoom} from '../doom.js';
-import {getCustomOrigins} from '../origins.js';
+import {getCharacterBackgrounds,
+        getCustomOrigins} from '../origins.js';
 import {takeLongRest,
         takeShortRest} from '../rests.js';
 import {calculateCharacterData,
@@ -350,6 +351,7 @@ export default class CharacterSheet extends ActorSheet {
         context.configuration.customOrigins  = this._getCustomOrigins();
         calculateCharacterData(context, CONFIG.configuration);
 
+        context.backgrounds = getCharacterBackgrounds(this.object);
         context.consumables = context.items.filter((item) => item.type === "consumable");
         context.demons      = context.items.filter((item) => item.type === "demon");
         context.equipment   = context.items.filter((item) => item.type === "equipment");
