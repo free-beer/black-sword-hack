@@ -1,0 +1,689 @@
+{
+  "bsh": {
+    "armour": {
+      "heavy": "Pesada (3pt)",
+      "light": "Ligera (1pt)",
+      "medium": "Media (2pt)",
+      "none": "Ninguna (0pt)"
+    },
+    "attributes": {
+      "constitution": {
+        "long": "Constitución",
+        "short": "CON"
+      },
+      "charisma": {
+        "long": "Carisma",
+        "short": "CAR"
+      },
+      "dexterity": {
+        "long": "Destreza",
+        "short": "DES"
+      },
+      "intelligence": {
+        "long": "Inteligencia",
+        "short": "INT"
+      },
+      "strength": {
+        "long": "Fuerza",
+        "short": "FUE"
+      },
+      "wisdom": {
+        "long": "Sabiduría",
+        "short": "SAB"
+      }
+    },
+    "backgrounds": {
+      "assassin": {
+        "name": "Asesino (Decadente, Único)"
+      },
+      "berserker": {
+        "name": "Berserker (Bárbaro, Único)"
+      },
+      "bodyguard": {
+        "name": "Guardaespaldas (Civilizado)"
+      },
+      "bookworm": {
+        "name": "Ratón de biblioteca (Civilizado)"
+      },
+      "changeling": {
+        "name": "Changeling (Decadente)"
+      },
+      "chieftain": {
+        "name": "Caudillo (Bárbaro)"
+      },
+      "diplomat": {
+        "name": "Diplomático (Civilizado)"
+      },
+      "forbidden_knowledge": {
+        "name": "Conocimiento prohibido (Decadente)"
+      },
+      "herbalist": {
+        "name": "Herborista (Bárbaro)"
+      },
+      "hunter": {
+        "name": "Cazador (Bárbaro)"
+      },
+      "inventor": {
+        "name": "Inventor (Civilizado, Único)"
+      },
+      "legionnaire": {
+        "name": "Legionario (Civilizado)"
+      },
+      "pit_fighter": {
+        "name": "Luchador del foso (Decadente)"
+      },
+      "raider": {
+        "name": "Saqueador (Bárbaro)"
+      },
+      "scout": {
+        "name": "Explorador (Bárbaro)"
+      },
+      "shaman": {
+        "name": "Chamán (Bárbaro)"
+      },
+      "snake_blood": {
+        "name": "Sangre de serpiente (Decadente)"
+      },
+      "sophist": {
+        "name": "Sofista (Civilizado)"
+      },
+      "storyteller": {
+        "name": "Cuentacuentos (Bárbaro)"
+      },
+      "street_urchin": {
+        "name": "Pillo (Civilizado)"
+      },
+      "surgeon": {
+        "name": "Cirujano (Civilizado)"
+      },
+      "survivor": {
+        "name": "Survivor (Bárbaro)"
+      },
+      "swordmaster": {
+        "name": "Maestro de esgrima (Civilizado)"
+      },
+      "vicious": {
+        "name": "Despiadado (Decadente)"
+      },
+      "warlock": {
+        "name": "Brujo (Decadente)"
+      },
+      "wildling": {
+        "name": "Salvaje (Bárbaro)"
+      }
+    },
+    "births": {
+      "1": "...en una torre cubierta de joyas de un imperio corrupto.",
+      "2": "...a la sombra de una teocracia.",
+      "3": "...en un burdel de la Ciudad de los Ladrones.",
+      "4": "...en la bulliciosa Alianza Mercante.",
+      "5": "...en las duras tierras de una tribu del desierto.",
+      "6": "...en la guarida de una sociedad secreta en el Lejano Este.",
+      "7": "...en un palacio del califato.",
+      "8": "...entre sus hermanos y hermanas pictos tras una incursión.",
+      "9": "...a bordo de un drakkar de los Saqueadores del Norte.",
+      "10": "...en la última ciudad de una especie moribunda.",
+      "11": "...mientras el resto de la Horda de Hierro atacaba una caravana.",
+      "12": "...en una solitaria granja de la frontera.",
+      "13": "...en una fortaleza quemada por los enemigos de tu familia.",
+      "14": "...en las ruinas de un palacio de cristal.",
+      "15": "...en el centro de un campamento de mercenarios.",
+      "16": "...en una isla tropical justo antes de que se hundiera.",
+      "17": "...en un manicomio en las profundidades de la Ciudad Prohibida.",
+      "18": "...dentro de un hombre de mimbre a punto de ser quemado.",
+      "19": "...en la cima de una pirámide negra.",
+      "20": "...en un huracán invocado por tu madre.",
+      "barbarian": {
+        "1": "...en un campamento de esclavos.",
+        "2": "...en una isla justo antes de que llegaran los invasores.",
+        "3": "...durante la última incursión de tu clan.",
+        "4": "...en el campamento de un ejército invasor antes de que te secuestraran",
+        "5": "...bajo un sol abrasador, en los dominios de una tribu del desierto.",
+        "6": "...en la cabaña de un druida exiliado.",
+        "7": "...en un círculo de piedra rechazado por tu gente.",
+        "8": "...entre tus hermanos y hermanas pictos después de una sangrienta batalla.",
+        "9": "...a bordo de un drakkar lleno de Saqueadores del Norte.",
+        "10": "...nueve meses después de que un mercenario extranjero se casara con tu madre.",
+        "11": "...mientras el resto de la Horda de Hierro atacaba una caravana.",
+        "12": "...en un reino civilizado, pero fuiste intercambiado como rehén.",
+        "13": "...en una red de cuevas controlada por extrañas criaturas insectoides.",
+        "14": "...en un palacio, poco después asaltado por tu tribu adoptiva.",
+        "15": "...la noche en que tu clan quemó la capital del Imperio.",
+        "16": "...en un claro del bosque, acusado por los druidas como un oscuro presagio.",
+        "17": "...en el último barco de un clan de marinos.",
+        "18": "...dentro de un hombre de mimbre a punto de ser quemado.",
+        "19": "...en el barco extranjero que trae a tu familia de vuelta a casa.",
+        "20": "...en fragor de una batalla contra tus conquistadores."
+      },
+      "civilized": {
+        "1": "...en los peores tugurios de la ciudad.",
+        "2": "...a la sombra de una teocracia.",
+        "3": "...a bordo de un barco infestado, siendo de algún modo el único superviviente.",
+        "4": "...en una bulliciosa ciudad minera.",
+        "5": "...durante una expedición en busca de una ciudad mítica.",
+        "6": "...en la calle, mientras tu familia huía de las fuerzas revolucionarias.",
+        "7": "...en tierra extranjera tras naufragar el barco de tus padres.",
+        "8": "...dentro de un pentáculo de invocación, cerca del cuerpo del hechicero.",
+        "9": "...en una isla prisión donde los opositores políticos del monarca son enviados.",
+        "10": "...el día en que el rey fue decapitado por tu padre.",
+        "11": "...a bordo de un barco enviado a encontrar una nueva ruta marítima.",
+        "12": "...en la academia militar donde tus padres enseñaban.",
+        "13": "...en una fortaleza posteriormente quemada por los enemigos de tu familia.",
+        "14": "...en la mayor mansión del barrio mercantil de la ciudad.",
+        "15": "...en el centro de un campamento de mercenarios.",
+        "16": "...en una comunidad religiosa recluida.",
+        "17": "...en la destartalada mansión de tu arruinada familia.",
+        "18": "...en una solitaria granja de la frontera.",
+        "19": "...en el palacio más rico del Califato.",
+        "20": "...en el escondrijo del gremio de asesinos."
+      },
+      "decadent": {
+        "1": "...en una torre ornamentada, símbolo de un imperio corrupto.",
+        "2": "...en los barracones de los soldados esclavos.",
+        "3": "...en un burdel de mala muerte de la Ciudad de los Ladrones.",
+        "4": "...en los campos de amapolas propiedad del mayor hechicero de la corte.",
+        "5": "...en la necrópolis donde te criaron los fantasmas.",
+        "6": "...en un museo, como parte de la exposición permanente.",
+        "7": "...en las ruinas de un palacio de cristal.",
+        "8": "...dentro de una criatura monstruosa asesinada por tus padres adoptivos.",
+        "9": "...como recipiente para el alma de un noble moribundo. El ritual fracasó.",
+        "10": "...en la última ciudad de una especie moribunda.",
+        "11": "...cubierto con la sangre de tu propio pueblo tras una invocación fallida.",
+        "12": "...en los cuarteles de los campeones de la arena.",
+        "13": "...en los aposentos de los sirvientes de la torre de un vampiro.",
+        "14": "...bajo el palacio de la Emperatriz, entre sus esclavos.",
+        "15": "...en los jardines marchitos de una moribunda ciudad del desierto.",
+        "16": "...en una isla tropical justo antes de que se hundiera.",
+        "17": "...en un manicomio en las profundidades de la Ciudad Prohibida.",
+        "18": "...en el laboratorio del alquimista que tu llamabas padre.",
+        "19": "...en la cima de una pirámide de obsidiana roja.",
+        "20": "...en un huracán invocado por tu madre."
+      }
+    },
+    "blurbs": {
+      "base_attributes": "Los valores de abajo son las puntuaciones base para tus características. Estos serán alterados por los trasfondos generando las puntuaciones finales de las características. Los cambios en los valores de las características y los trasfondos modificarán dichas puntuaciones de las características.",
+      "critical_failure": "¡Tu siguiente prueba de característica o tirada de ataque debe realizarse con desventaja!",
+      "defend_fumble": "¡Tu armadura no te protege del daño de este ataque!",
+      "random_generation": "Haciendo clic en el botón inferior generarás aleatoriamente todos los parámetros de tu personaje de acuerdo con las reglas por defecto del sistema. Ten en cuenta que al hacer esto se sobrescribirá la configuración actual de tu personaje - ¡estás avisado!",
+      "stories": "Las historias determinan tu nivel. Cuantas más historias hayas sobrevivido, más alto será tu nivel. La siguiente lista muestra las historias en las que has participado y el nivel que has alcanzado. Recuerda seleccionar también tus dones y bonificaciones a tus características a medida que subas de nivel."
+    },
+    "buttons": {
+      "cancel": "Cancelar",
+      "random_generation": "¡Crea un personaje al azar!",
+      "rollIt": "¡Dale caña!",
+      "save": "Guardar"
+    },
+    "controls": {
+      "titles": {
+        "longRest": "Realizar un descanso largo",
+        "shortRest": "Realizar un descanso corto"
+      }
+    },
+    "creatures": {
+      "actions": {
+        "attributes": {
+          "title": "Prueba de característica"
+        },
+        "info": {
+          "dismiss": "Cerrar",
+          "noDescription": "<center>Sin descripción para esta acción.</center>",
+          "title": "Descripción de la acción"
+        }
+      }
+    },
+    "data": {
+      "descriptions": {
+        "armedDamage": "daño",
+        "doom": "perdición",
+        "unarmedDamage": "daño",
+        "usageDie": "dado de uso"
+      }
+    },
+    "dialogs": {
+      "titles": {
+        "background": "Trasfondo"
+      }
+    },
+    "dice": {
+      "d4": "1d4",
+      "d6": "1d6",
+      "d8": "1d8",
+      "d10": "1d10",
+      "d12": "1d12",
+      "d20": "1d20",
+      "exhausted": "Agotado"
+    },
+    "demons": {
+      "tableName": "Represalia demoníaca"
+    },
+    "doom": {
+      "die": {
+        "upgraded": "El dado de Perdición pasa a ser un D8"
+      }
+    },
+    "errors": {
+      "actors": {
+        "notFound": "No se ha podido localizar al actor requerido."
+      },
+      "attributes": {
+        "invalid": "No se ha encontrado la característica del actor. ¡Es un bug!",
+        "missing": "No se ha encontrado la característica del elemento. ¡Es un bug!",
+        "notFound": "No se puede establecer una característica válida para la tirada de característica."
+      },
+      "items": {
+        "notFound": "No se ha encontrado el objeto especificado.",
+        "owned": {
+          "notFound": "No se ha encontrado el objeto o su propietario..",
+          "unavailable": "No se puede restablecer el dado de uso del objeto porque la cantidad actual es cero.."
+        }
+      },
+      "origins": {
+        "custom": {
+          "inactive": "Debes activar los orígenes personalizados de los personajes en los ajustes del juego para poder utilizarlos."
+        }
+      },
+      "spells": {
+        "notFound": "No se ha encontrado el conjuro especificado."
+      },
+      "usageDie": {
+        "exhausted": "No se puede realizar la tirada del dado de uso porque está agotado..",
+        "notFound": "No se han encontrado los detalles del dado de uso del objeto."
+      },
+      "weapons": {
+        "notFound": "No se ha encontrado el arma especificada.",
+        "unowned": "El arma especificada no se posee y no se puede utilizar."
+      }
+    },
+    "fields": {
+      "labels": {
+        "advantage": "Ventaja",
+        "adventureName": "Nombre de la historia",
+        "armourDescription": "Descripción de la armadura",
+        "armourType": "Tipo de armadura",
+        "attribute": "Característica",
+        "attributeBonus": "Bonificador de característica",
+        "backgroundFreeform": "Trasfondo (cualquier Origen)",
+        "backgroundFromOrigin": "Trasfondo (del Origen)",
+        "bonusPenalty": "Bonificador/Penalizador",
+        "birth": "Nacido...",
+        "coins": "Monedas",
+        "damage": "Daño",
+        "damageArmed": "Daño armado",
+        "damageUnarmed": "Daño desarmado",
+        "description": "Descripción",
+        "disadvantage": "Desventaja",
+        "doomDie": "Perdición",
+        "doomDieUpgrade": "Mejora del Dado de Perdición",
+        "firstBackground": "Trasfondo 1",
+        "gift": "Don",
+        "hands": "Manos",
+        "hitPoints": "PG",
+        "hitPointsCurrent": "PG (Actual)",
+        "hitPointsMaximum": "PG (Máximo)",
+        "level": "Nivel",
+        "name": "Nombre",
+        "origin": "Origen",
+        "otherPossessions": "Otras posesiones",
+        "playerName": "Jugador",
+        "power": "Poder",
+        "quantity": "Cantidad",
+        "rarity": "Rareza",
+        "resistances": "Resistencias",
+        "rollType": "Tipo de tirada",
+        "secondBackground": "Trasfondo 2",
+        "shield": "¿Escudo?",
+        "standardRoll": "Estándar", 
+        "stories": "Historias",
+        "thirdBackground": "Trasfondo 3",
+        "title": "Título",
+        "threat": "Nivel de amenaza",
+        "type": "Tipo",
+        "unique": "Único",
+        "usageDie": "Dado de Uso",
+        "vulnerabilities": "Vulnerabilidades"
+      },
+      "titles": {
+        "calculatedAttribute": "Consulta la pestaña Básico para modificar tus características.",
+        "castSpell": "Lanzar este conjuro.",
+        "criticalFailure": "¡Fallos crítico!",
+        "criticalSuccess": "¡Éxito crítico!",
+        "decrementConsumable": "Reduce la cantidad del objeto.",
+        "deleteConsumable": "Eliminar el objeto.",
+        "deleteDemon": "Eliminar el demonio.",
+        "deleteEquipment": "Eliminar el elemento.",
+        "deleteGift": "Eliminar el don.",
+        "deleteSpell": "Eliminar el conjuro.",
+        "deleteSpirit": "Eliminar el espíritu.",
+        "deleteWeapon": "Eliminar el arma.",
+        "dieRolls": {
+          "armedDamage": "Tirada de daño (armado)",
+          "attributes": {
+            "constitution": "Prueba de Constitución",
+            "charisma": "Prueba de Carisma",
+            "dexterity": "Prueba de Destreza",
+            "intelligence": "Prueba de Inteligencia",
+            "strength": "Prueba de Fuerza",
+            "wisdom": "Prueba de Sabiduría"
+          },
+          "damage": "Tirada de daño",
+          "unarmedDamage": "Tirada de daño (desarmado)"
+        },
+        "failure": "Fallo",
+        "incrementConsumable": "Aumenta la cantidad del objeto.",
+        "resetAllDemons": "Restablecer el estado de la invocación demoníaca.",
+        "resetAllSpells": "Restablecer el estado de todos los conjuros.",
+        "resetAllSpirits": "Restablecer el estado de la llamada espiritual.",
+        "resetConsumable": "Restablecer el dado de uso (requiere una cantidad disponible).",
+        "resetSpell": "Restablecer el estado del conjuro.",
+        "rollAttack": "Tirada de ataque de arma.",
+        "rollAttributeTest": "Tirar prueba de característica.",
+        "rollDodge": "Tirada de defensa (esquiva).",
+        "rollInitiative": "Tirar iniciativa.",
+        "rollParry": "Tirada de defensa (parada).",
+        "rollPerception": "Tirar percepción.",
+        "rollDie": "Tirar dado.",
+        "success": "¡Éxito!",
+        "summonDemon": "Invocar a este demonio.",
+        "summonSpirit": "Llamar a este espíritu."
+      }
+    },
+    "gifts": {
+      "fortressOfTheMind": {
+        "label": "",
+        "name": "Baluarte mental (Equilibrio)"
+      },
+      "meditation": {
+        "label": "",
+        "name": "Meditación (Equilibrio)"
+      },
+      "secondWind": {
+        "label": "",
+        "name": "Segundo aliento (Equilibrio)"
+      },
+      "spiritAlliance": {
+        "label": "",
+        "name": "Alianza espiritual (Equilibrio)"
+      },
+      "survivorsLuck": {
+        "label": "",
+        "name": "Suerte del superviviente (Equilibrio)"
+      },
+      "armorOfScars": {
+        "label": "",
+        "name": "Armadura de cicatrices (Caos)"
+      },
+      "bloodlust": {
+        "label": "",
+        "name": "Sed de sangre (Caos)"
+      },
+      "darkRevelation": {
+        "label": "",
+        "name": "Revelación oscura (Caos)"
+      },
+      "dubiousFriendships": {
+        "label": "",
+        "name": "Amistades dudosas (Caos)"
+      },
+      "paranoid": {
+        "label": "",
+        "name": "Paranoico (Caos)"
+      },
+      "battleHardened": {
+        "label": "",
+        "name": "Templado en batalla (Ley)"
+      },
+      "resourceful": {
+        "label": "",
+        "name": "Resolutivo (Ley)"
+      },
+      "riddleOfSteel": {
+        "label": "",
+        "name": "Enigma del acero (Ley)"
+      },
+      "toughAsNails": {
+        "label": "",
+        "name": "Duro como la roca (Ley)"
+      },
+      "willToLive": {
+        "label": "",
+        "name": "Ganas de vivir (Ley)"
+      }
+    },
+    "headers": {
+      "background": "Origen y Trasfondo",
+      "backgrounds": "Trasfondos",
+      "base_attributes": "Características base",
+      "coins": "Monedas",
+      "consumables": "Consumible",
+      "demonName": "Nombre",
+      "demons": "Demonios",
+      "equipment": "Otro equipo",
+      "gifts": "Dones",
+      "itemName": "Objeto",
+      "itemQuantity": "Cantidad",
+      "itemUsageDie": "Dado",
+      "level": "Nivel",
+      "random": "Generar un personaje aleatoriamente",
+      "spellName": "Conjuro",
+      "spells": "Conjuros",
+      "spellState": "Estado",
+      "spiritName": "Nombre",
+      "spirits": "Espíritus",
+      "statBonuses": "Bonificadores a las estadísticas",
+      "story": "Historia",
+      "wealth": "Riqueza",
+      "weaponKind": "Tipo",
+      "weaponName": "Arma",
+      "weapons": "Armas"
+    },
+    "initiative": {
+      "roll": "Prueba de SAB para la iniciativa."
+    },
+    "levels": {
+      "names": {
+        "2": "2º",
+        "3": "3º",
+        "4": "4º",
+        "5": "5º",
+        "6": "6º",
+        "7": "7º",
+        "8": "8º",
+        "9": "9º",
+        "10": "10º"
+      }
+    },
+    "messages":{
+      "attackHit": "Es un impacto.",
+      "attackMiss": "Es un fallo.",
+      "attributeRollFailed": "La prueba de característica %NAME% %ATTRIBUTE% es un fallo.",
+      "attributeRollSuccess": "La prueba de característica %NAME% %ATTRIBUTE% es un éxito.",
+      "blurbs": {
+        "attacksWith": "Ataca con",
+        "calls": "Llama a",
+        "callFailure": "¡El espíritu ignora la llamada!",
+        "castFumble": "El conjuro falla catastróficamente (tira en la tabla de Rasgar el velo).",
+        "callSuccess": "El espíritu responde a la llamada!",
+        "casts": "Lanza",
+        "castFailure": "¡Sin embargo, el conjuro se disipa y falla!",
+        "castSuccess": "¡Y el lanzamiento del conjuro es un éxito!",
+        "damageInflicted": "Se inflinge daño",
+        "doomed": "¡El personaje está Condenado!",
+        "rollsDoom": "Tirada de Perdición para",
+        "rollsUsageDie": "Tirada del Dado de uso para",
+        "summons": "Invoca",
+        "summonFailure": "¡El demonio ignora la invocación!",
+        "summonFumble": "¡El demonio se enfurece por la invocación (tira en la tabla de Represalia demoníaca)!",
+        "summonSuccess": "¡El demonio responde a la invocación!"
+      },
+      "demons": {
+        "summonFumbled": "La invocación del demonio %NAME% fue un fallo. Tira en la tabla %TABLE%.",
+        "summonSuccessful": "La invocación del demonio %NAME% fue un éxito.",
+        "unavailable": "La invocación del demonio %NAME% falló - ¡se ha agotado el dado de Perdición!"
+      },
+      "doom": {
+        "downgraded": "El dado de Perdición para %NAME% ha descendido a %DIE%.",
+        "exhausted": "¡No se puede tirar Perdición para %NAME% porque el dado está agotado!",
+        "failExhausted": "¡%NAME% ha agotado su dado de Perdición!",
+        "unchanged": "El dado de Perdición para %NAME% no ha cambiado."
+      },
+      "labels": {
+        "buttons": {
+          "rollDamage": "Tirada de daño"
+        },
+        "criticalFailure": "¡Fallo crítico!",
+        "criticalHit": "¡Impacto crítico!",
+        "criticalMiss": "¡Fallo crítico!",
+        "criticalSuccess": "¡Éxito crítico!",
+        "failure": "Fallo.",
+        "hit": "¡Impacto!",
+        "miss": "Fallo.",
+        "success": "¡Éxito!"
+      },
+      "rests": {
+        "longRest": "Los beneficios de un descanso largo se han aplicado a %NAME%.",
+        "shortRest": "Los beneficios de un descanso corto se han aplicado a %NAME%."
+      },
+      "spells": {
+        "castFumbled": "El lanzamiento del conjuro %NAME% falló estrepitosamente. ¡Tira en la tabla %TABLE%!",
+        "castFailed": "El lanzamiento del conjuro %NAME% falló.",
+        "castSuccessful": "El lanzamiento del conjuro %NAME% tuvo éxito."
+      },
+      "spirits": {
+        "unavailable": "La llamada al espíritu %NAME% falló - ¡El dado de Perdición está agotado!",
+        "summonFailed": "La llamada al espíritu %NAME% falló - Se ha agotado la Perdición.",
+        "summonSuccessful": "Tu llamada al espíritu %NAME% fue un éxito."
+      },
+      "titles": {
+        "attackRoll": "Tirada de ataque",
+        "callSpirit": "Llamar espíritu (Tirada de Perdición)",
+        "castSpell": "Lanzar conjuro (prueba de INT)",
+        "damageRoll": "Tirada de daño",
+        "dodgeRoll": "Tirada de esquiva",
+        "doomRoll": "Tirada de Perdición",
+        "formula": "Tira",
+        "initiativeRoll": "Tirada de iniciativa",
+        "parryRoll": "Tirada de parada",
+        "perceptionRoll": "Tirada de percepción",
+        "roll": "Resultado",
+        "summonDemon": "Invocar demonio (Tirada de Perdición)",
+        "usageDieRoll": "Dado de uso"
+      },
+      "usageDie": {
+        "downgraded": "El dado ha descendido a %DIE%.",
+        "exhausted": "El dado se ha agotado.",
+        "unchanged": "El dado no cambia."
+      }
+    },
+    "no": "No",
+    "none": "Ninguno",
+    "origins": {
+      "barbarian": {
+        "backgrounds": {},
+        "name": "Bárbaro"},
+      "civilized": {
+        "backgrounds": {},
+        "name": "Civilizado"},
+      "decadent": {
+        "backgrounds": {},
+        "name": "Decadente"}
+    },
+    "powers": {
+      "balance": {
+        "name": "Equilibrio"
+      },
+      "chaos": {
+        "name": "Caos"
+      },
+      "law": {
+        "name": "Ley"
+      }
+    },
+    "rarities": {
+      "common": "Común ",
+      "exotic": "Éxótio",
+      "rare": "Raro",
+      "unique": "Único"
+    },
+    "rollModal": {
+      "title": "¡Tira modal!"
+    },
+    "rolls": {
+      "tests": {
+        "charisma": {
+          "title": "Prueba de Carisma"
+        },
+        "constitution": {
+          "title": "Prueba de Constitución"
+        },
+        "dexterity": {
+          "title": "Prueba de Destreza"
+        },
+        "intelligence": {
+          "title": "Prueba de Inteligencia"
+        },
+        "strength": {
+          "title": "Prueba de Fuerza"
+        },
+        "wisdom": {
+          "title": "Prueba de Sabiduría"
+        }
+      },
+      "types": {
+        "advantage": "Ventaja",
+        "disadvantage": "Desventaja",
+        "standard": "Normal"
+      }
+    },
+    "settings": {
+      "options": {
+        "customOrigins": {
+          "blurb": "Activar orígenes de personajes personalizados. ¡No actives esta opción si ya tienes personajes creados, ya que se romperán algunas cosas.",
+          "title": "Orígenes de personajes personalizados"
+        }
+      }
+    },
+    "spells": {
+      "states": {
+        "available": "Sin lanzar",
+        "cast": "Ya lanzado",
+        "unavailable": "No disponible"
+      },
+      "tableName": "Rasgar el velo"
+    },
+    "summoning": {
+      "states": {
+        "unused": "Sin usar",
+        "used": "Ya usado"
+      }
+    },
+    "tables": {
+      "columns": {
+        "attribute": "Prueba de característica",
+        "damage": "Daño",
+        "description": "Descipción",
+        "name": "Acción"
+      }
+    },
+    "tabs": {
+      "labels": {
+        "background": "Básico",
+        "equipment": "Posesiones",
+        "front": "Principal",
+        "magic": "Magia",
+        "saga": "Saga"
+      }
+    },
+    "weapons": {
+      "hands": {
+        "one": "Una",
+        "two": "Dos"
+      },
+      "types": {
+        "melee": "Cuerpo a cuerpo",
+        "ranged": "A distancia",
+        "unarmed": "Desarmado"
+      }
+    },
+    "yes": "Sí"
+  }
+}
