@@ -19,7 +19,10 @@
   "languages": [
   	{"lang": "en",
      "name": "English",
-     "path": "languages/en.json"}
+     "path": "languages/en.json"},
+    {"lang": "es",
+     "name": "Spanish",
+     "path": "languages/es.json"}
   ],
   "url": "https://github.com/free-beer/black-sword-hack",
   "manifest": "https://raw.githubusercontent.com/free-beer/black-sword-hack/master/system.json",
