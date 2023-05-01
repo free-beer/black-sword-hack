@@ -21,7 +21,6 @@ async function updateCharacterBirthPlaces() {
  */
 async function updateClassicCharacterBackgrounds() {
     if(!game.settings.get("black-sword-hack", "customOrigins")) {
-        console.log(`Attempting classic background migration for '${actor.name}' (id: ${actor.id}).`);
     	game.actors.forEach((actor) => {
     		if(actor.type === "character") {
     			let first  = `${actor.system.backgrounds.first}`.trim();
