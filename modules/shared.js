@@ -51,7 +51,7 @@ export function deleteOwnedItem(itemId) {
  */
 export function calculateCharacterData(context, configuration) {
     if(context.actor) {
-        context = context.actor;
+        context = context.actor.system;
     }
 
     context.level            = calculateLevel(context, configuration);
