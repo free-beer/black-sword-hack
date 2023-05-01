@@ -54,9 +54,9 @@ export function calculateCharacterData(context, configuration) {
         context = context.actor;
     }
 
-    context.system.level            = calculateLevel(context.system, configuration);
-    context.system.calculated       = calculateAttributeValues(context.system, configuration);
-    context.system.maximumHitPoints = calculateMaximumHitPoints(context.system, context.system.level);
+    context.level            = calculateLevel(context, configuration);
+    context.calculated       = calculateAttributeValues(context, configuration);
+    context.maximumHitPoints = calculateMaximumHitPoints(context, context.level);
 }
 
 /**
