@@ -136,7 +136,7 @@ export default class BSHCombat extends Combat {
                         calculateCharacterData(combatant.actor.system, CONFIG.configuration);
                         wisdom = combatant.actor.system.calculated.wisdom;
         
-                        return(roll.evaluate()
+                        return(roll.evaluate({async: true})
                                    .then(() => {
                                        if(game.dice3d) {
                                            game.dice3d.showForRoll(roll);
