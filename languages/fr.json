@@ -1,4 +1,21 @@
 {
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage joueur",
+      "creature": "Créature"
+    },
+    "Item": {
+      "consumable": "Consommable",
+      "creature_action": "Action de créature",
+      "demon": "Démon",
+      "equipment": "Équipement",
+      "gift": "Don",
+      "origin": "Origine",
+      "spell": "Sort",
+      "spirit": "Esprit",
+      "weapon": "Arme"
+    }
+  },
   "bsh": {
     "armour": {
       "heavy": "Lourde (3pt)",
@@ -146,13 +163,13 @@
         "10": "...neuf mois après le mariage de votre mère avec un mercenaire étranger.",
         "11": "...alors que le reste de la Horde de Fer attaquait une caravane.",
         "12": "...dans un royaume civilisé, mais vous avez été échangé comme otage.",
-        "13": "...dans un réseau de grottes ogouverné par d'étranges créatures insectoïdes.",
+        "13": "...dans un réseau de grottes gouverné par d'étranges créatures insectoïdes.",
         "14": "...dans un palais attaqué par votre tribu d'adoption.",
         "15": "...la nuit où votre clan a brûlé la capitale d'un empire.",
         "16": "...dans une clairière, recevant une prophétie funeste d'un druide.",
         "17": "...sur le dernier navire d'un peuple de marins.",
         "18": "...à l'intérieur d'une homme d'osier sur le point d'être brûlé.",
-        "19": "...sur un navire étranger qui a ramèné votre famille chez elle.",
+        "19": "...sur un navire étranger qui a ramené votre famille chez elle.",
         "20": "...au milieu d'une bataille contre vos conquérants."
       },
       "civilized": {
@@ -309,7 +326,7 @@
         "coins": "Monnaies",
         "damage": "Dégât",
         "damageArmed": "Dégâts armés",
-        "damageUnarmed": "Dégâts à main nu",
+        "damageUnarmed": "Dégâts à mains nues",
         "description": "Description",
         "disadvantage": "Désavantage",
         "doomDie": "Destin",
@@ -318,14 +335,14 @@
         "gift": "Don",
         "hands": "Mains",
         "hitPoints": "PV",
-        "hitPointsCurrent": "PV Actuel)",
+        "hitPointsCurrent": "PV (Actuel)",
         "hitPointsMaximum": "PV (Maximum)",
         "level": "Niveau",
         "name": "Nom",
         "origin": "Origine",
-        "otherPossessions": "wAutre possessions",
+        "otherPossessions": "Autres possessions",
         "playerName": "Joueur",
-        "power": "Puissancce",
+        "power": "Puissance",
         "quantity": "Quantité",
         "rarity": "Rareté",
         "resistances": "Résistances",
@@ -373,14 +390,14 @@
         "resetAllDemons": "Réinitialisation de l'état pour l'invocation démoniaque.",
         "resetAllSpells": "Remise à zéro de l'état de tous les sorts.",
         "resetAllSpirits": "Réinitialisation de l'état pour l'invocation de l'esprit.",
-        "resetConsumable": "Réinitialisation du dé d'usage (nécéssite la quantitié disponible).",
+        "resetConsumable": "Réinitialisation du dé d'usage (nécessite la quantité disponible).",
         "resetSpell": "Réinitialiser l'état de ces sorts.",
         "rollAttack": "Lancer l'attaque pour l'arme.",
         "rollAttributeTest": "Lancer un test d'attribut.",
         "rollDodge": "Jet de défense (Esquive).",
         "rollInitiative": "Jet d'initiative.",
         "rollParry": "Jet de défense (Parade).",
-        "rollPerception": "Jet de perseption.",
+        "rollPerception": "Jet de perception.",
         "rollDie": "Lancer le dé",
         "success": "Succès !",
         "summonDemon": "Invoquez ce démon.",
@@ -450,7 +467,7 @@
       }
     },
     "headers": {
-      "background": "Origine & Historique",
+      "background": "Origine & Historiques",
       "backgrounds": "Historiques",
       "base_attributes": "Attributs de Base",
       "coins": "Pièces",
@@ -563,7 +580,7 @@
         "formula": "Jet",
         "initiativeRoll": "Jet d'initiative",
         "parryRoll": "Jet de parade",
-        "perceptionRoll": "Jet de perseption",
+        "perceptionRoll": "Jet de perception",
         "roll": "Résultat",
         "summonDemon": "Invoquer un démon (Jet de Destin)",
         "usageDieRoll": "Dé d'usage"
