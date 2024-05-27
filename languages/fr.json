@@ -1,0 +1,709 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage joueur",
+      "creature": "Créature"
+    },
+    "Item": {
+      "consumable": "Consommable",
+      "creature_action": "Action de créature",
+      "demon": "Démon",
+      "equipment": "Équipement",
+      "gift": "Don",
+      "origin": "Origine",
+      "spell": "Sort",
+      "spirit": "Esprit",
+      "weapon": "Arme"
+    }
+  },
+  "bsh": {
+    "armour": {
+      "heavy": "Lourde (3pt)",
+      "light": "Légère (1pt)",
+      "medium": "Intermédiaire (2pt)",
+      "none": "Aucune (0pt)"
+    },
+    "attributes": {
+      "constitution": {
+        "long": "Constitution",
+        "short": "CON"
+      },
+      "charisma": {
+        "long": "Charisme",
+        "short": "CHA"
+      },
+      "dexterity": {
+        "long": "Dextérité",
+        "short": "DEX"
+      },
+      "intelligence": {
+        "long": "Intelligence",
+        "short": "INT"
+      },
+      "strength": {
+        "long": "Force",
+        "short": "FOR"
+      },
+      "wisdom": {
+        "long": "Sagesse",
+        "short": "SAG"
+      }
+    },
+    "backgrounds": {
+      "assassin": {
+        "name": "Assassin (Décadent, Unique)"
+      },
+      "berserker": {
+        "name": "Berserker (Barbare, Unique)"
+      },
+      "bodyguard": {
+        "name": "Garde du corps (Civilisé)"
+      },
+      "bookworm": {
+        "name": "Rat de bibliothèque (Civilisé)"
+      },
+      "changeling": {
+        "name": "Changelin (Décadent)"
+      },
+      "chieftain": {
+        "name": "Chef de tribu (Barbare)"
+      },
+      "diplomat": {
+        "name": "Diplomate (Civilisé)"
+      },
+      "forbidden_knowledge": {
+        "name": "Connaissances interdites (Décadent)"
+      },
+      "herbalist": {
+        "name": "Herboriste (Barbare)"
+      },
+      "hunter": {
+        "name": "Chasseur (Barbare)"
+      },
+      "inventor": {
+        "name": "Inventeur (Civilisé, Unique)"
+      },
+      "legionnaire": {
+        "name": "Legionnaire (Civilisé)"
+      },
+      "pit_fighter": {
+        "name": "Combattant de fosse (Décadent)"
+      },
+      "raider": {
+        "name": "Pilleur (Barbare)"
+      },
+      "scout": {
+        "name": "Éclaireur (Barbare)"
+      },
+      "shaman": {
+        "name": "Shaman (Barbarian)"
+      },
+      "snake_blood": {
+        "name": "Sang de serpent (Décadent)"
+      },
+      "sophist": {
+        "name": "Sophiste (Civilisé)"
+      },
+      "storyteller": {
+        "name": "Conteur (Barbare)"
+      },
+      "street_urchin": {
+        "name": "Gamin des rues (Civilisé)"
+      },
+      "surgeon": {
+        "name": "Chirurgien (Civilisé)"
+      },
+      "survivor": {
+        "name": "Survivant (Barbare)"
+      },
+      "swordmaster": {
+        "name": "Maître d'armes (Civilisé)"
+      },
+      "vicious": {
+        "name": "Vicieux (Décadent)"
+      },
+      "warlock": {
+        "name": "Sorcier (Décadent)"
+      },
+      "wildling": {
+        "name": "Sauvageon (Barbare)"
+      }
+    },
+    "births": {
+      "1": "...dans la tour ornée de joyaux d'un empire corrompu.",
+      "2": "...dans l'ombre d'une théocratie.",
+      "3": "...dans une maison close de la Cité des voleurs.",
+      "4": "...dans la très active Ligue des marchands.",
+      "5": "...dans les terres hostiles d'une tribu du désert.",
+      "6": "...dans une cachette d'une société secrète en Extrême-Orient.",
+      "7": "...dans un palais du Califat.",
+      "8": "...parmi vos frères et sœurs Pictes après un raid.",
+      "9": "...à bord d'un drakkar des pillards du Nord.",
+      "10": "...dans la dernière cité d'une espèce en voie de disparition.",
+      "11": "...pendant que le reste de la Horde de Fer attaquait une caravane.",
+      "12": "...dans une ferme isolé à la frontière.",
+      "13": "...dans une forteresse incendiée par les ennemis de votre famille.",
+      "14": "...dans les ruines d'un palais de cristal.",
+      "15": "...au milieu d'un camp de mercenaires.",
+      "16": "...sur une île tropicale juste avant qu'elle ne coule.",
+      "17": "...dans un asile au cœur de la Cité interdite.",
+      "18": "...à l'intérieur d'un homme en osier sur le point d'être brûlé.",
+      "19": "...au sommet d'une pyramide noire.",
+      "20": "...dans un ouragan invoqué par votre mère.",
+      "barbarian": {
+        "1": "...dans un camp d'esclaves.",
+        "2": "...au coeur d'une île sur le point d'être envahie.",
+        "3": "...pendant le dernier raid de votre clan.",
+        "4": "...dans un camp de l'armée d'invasion avant d'être kidnappé.",
+        "5": "...sous un soleil brûlant, sur les terres d'une tribu du désert.",
+        "6": "...dans la hutte d'un druide banni.",
+        "7": "...dans un cercle de pierre rejeté par votre peuple.",
+        "8": "...parmi vos frères et sœurs pictes après un raid",
+        "9": "...à bord d'un drakkar des pillards du nord.",
+        "10": "...neuf mois après le mariage de votre mère avec un mercenaire étranger.",
+        "11": "...alors que le reste de la Horde de Fer attaquait une caravane.",
+        "12": "...dans un royaume civilisé, mais vous avez été échangé comme otage.",
+        "13": "...dans un réseau de grottes gouverné par d'étranges créatures insectoïdes.",
+        "14": "...dans un palais attaqué par votre tribu d'adoption.",
+        "15": "...la nuit où votre clan a brûlé la capitale d'un empire.",
+        "16": "...dans une clairière, recevant une prophétie funeste d'un druide.",
+        "17": "...sur le dernier navire d'un peuple de marins.",
+        "18": "...à l'intérieur d'une homme d'osier sur le point d'être brûlé.",
+        "19": "...sur un navire étranger qui a ramené votre famille chez elle.",
+        "20": "...au milieu d'une bataille contre vos conquérants."
+      },
+      "civilized": {
+        "1": "...dans les bidonvilles de la ville.",
+        "2": "...dans l'ombre d'une théocratie.",
+        "3": "...à bord d'un navire de la peste dont vous êtiez le seul survivant.",
+        "4": "...dans une ville minière animée.",
+        "5": "...lors d'une expédition à la recherche d'une cité mythique.",
+        "6": "...dans la rue où vos parents ont été tués par des révolutionnaires.",
+        "7": "...dans un pays étranger après le naufrage qui a tué vos parents.",
+        "8": "...au milieu d'un pentacle d'invocation près du cadavre du sorcier.",
+        "9": "...sur une île prison avec les opposants politiques du monarque.",
+        "10": "...le jour où le roi a été décapité par votre père.",
+        "11": "...à bord d'un navire envoyé à la recherche d'une nouvelle route maritime.",
+        "12": "...dans une académie militaire où vos parents ont enseigné.",
+        "13": "...dans une forteresse brûlée par les ennemis de votre famille.",
+        "14": "...dans la plus grande demeure du quartier des marchands.",
+        "15": "...au milieu d'un camp de mercenaires.",
+        "16": "...dans une communauté religieuse isolée.",
+        "17": "...dans le manoir délabré de votre famille ruinée.",
+        "18": "...dans une ferme isolée à la frontière.",
+        "19": "...dans le plus riche palais du califat.",
+        "20": "...dans un repaire de la guilde des assassins."
+      },
+      "decadent": {
+        "1": "...dans une tour ornée de joyaux d'un empire corrompu.",
+        "2": "...dans une caserne d'esclaves soldats.",
+        "3": "...dans un bordel de la Cité des voleurs.",
+        "4": "...dans les champs de pavots du plus grand sorcier de la Cour.",
+        "5": "...dans une nécropole où vous avez été élevé par des fantômes.",
+        "6": "...dans un musée dans le cadre d'une exposition.",
+        "7": "...dans les ruines d'un palais de cristal.",
+        "8": "...à l'intérieur d'une créature monstrueuse tuée par vos parents adoptifs.",
+        "9": "...pour devenir le réceptacle de l'âme d'une noble mourant. Le rituel a échoué.",
+        "10": "...dans la dernière ville d'une espèce mourante.",
+        "11": "...dans le sang de votre peuple après une invocation ratée.",
+        "12": "...dans les quartiers des champions de l'arène.",
+        "13": "...dans les quartiers des serviteurs du château d'un vampire.",
+        "14": "...dans les quartiers des esclaves du palais de l'impératrice.",
+        "15": "...dans les jardins mourants d'une ville désertique.",
+        "16": "...sur une île tropicale juste avant qu'elle ne coule.",
+        "17": "...dans un asile au coeur de la Cité interdite.",
+        "18": "...dans le laboratoire de l'alchimiste que vous appeliez Père.",
+        "19": "...au sommet d'une pyramide d'obsidienne.",
+        "20": "...dans un ouragan invoqué par votre mère."
+      }
+    },
+    "blurbs": {
+      "base_attributes": "Les valeurs ci-dessous sont les valeurs de base de vos attributs. Elles seront modifiées par vos historiques pour générer les valeurs réelles de vos attributs. Les modifications apportées à vos valeurs d'attributs et à vos historiques ici mettront à jour vos valeurs d'attributs réelles.",
+      "critical_failure": "Votre prochain test d'attribut ou jet d'attaque doit être effectué avec un désavantage !",
+      "defend_fumble": "Votre armure ne vous protège pas des dégâts de cette attaque !",
+      "random_generation": "En cliquant sur le bouton ci-dessous, vous générerez aléatoirement tous les détails de votre personnage selon les règles par défaut du système. Notez que cette opération écrasera les paramètres actuels de votre personnage - vous êtes prévenu !",
+      "stories": "Les histoires déterminent votre niveau. Plus vous avez survécu à des histoires, plus votre niveau sera élevé. La liste ci-dessous répertorie les histoires auxquelles vous avez participé et le niveau qu'elles vous confèrent. N'oubliez pas de sélectionner également vos dons et bonus d'attributs lorsque vous atteignez le niveau approprié."
+    },
+    "buttons": {
+      "cancel": "Annuler",
+      "random_generation": "Générez un personnage au hasard !",
+      "rollIt": "Lancez !",
+      "save": "Sauvegarder"
+    },
+    "controls": {
+      "titles": {
+        "longRest": "Prendre un repos long",
+        "shortRest": "Prendre un repos court"
+      }
+    },
+    "creatures": {
+      "actions": {
+        "attributes": {
+          "title": "Attributs de test"
+        },
+        "info": {
+          "dismiss": "Fermer",
+          "noDescription": "<center>Aucune description n'est fournie pour cette action.</center>",
+          "title": "Description de l'action"
+        }
+      }
+    },
+    "data": {
+      "descriptions": {
+        "armedDamage": "Dégât",
+        "doom": "destin",
+        "unarmedDamage": "dégât",
+        "usageDie": "dé d'usage"
+      }
+    },
+    "dialogs": {
+      "titles": {
+        "background": "Historique"
+      }
+    },
+    "dice": {
+      "d4": "1d4",
+      "d6": "1d6",
+      "d8": "1d8",
+      "d10": "1d10",
+      "d12": "1d12",
+      "d20": "1d20",
+      "exhausted": "Épuisé"
+    },
+    "demons": {
+      "tableName": "La vengeance du démon"
+    },
+    "doom": {
+      "die": {
+        "upgraded": "Le dé du destin passe à 1D8"
+      }
+    },
+    "errors": {
+      "actors": {
+        "notFound": "Impossible de trouver l'acteur requis."
+      },
+      "attributes": {
+        "invalid": "Paramètre d'attribut d'acteur non trouvé. Il s'agit d'un bug !",
+        "missing": "Le réglage de l'attribut de l'élément n'a pas été trouvé sur l'élément. Il s'agit d'un bug !",
+        "notFound": "Impossible de trouver un paramètre d'attribut valide pour le jet de dé d'attribut."
+      },
+      "items": {
+        "notFound": "Impossible de trouver l'élément spécifié.",
+        "owned": {
+          "notFound": "Impossible de localiser l'objet et/ou son propriétaire.",
+          "unavailable": "Impossible de réinitialiser le dé d'usage de l'objet car la quantité actuelle est nulle."
+        }
+      },
+      "origins": {
+        "custom": {
+          "inactive": "Vous devez activer les origines personnalisées des personnages dans les paramètres du jeu pour pouvoir les utiliser."
+        }
+      },
+      "spells": {
+        "notFound": "Impossible de trouver le sort spécifié."
+      },
+      "usageDie": {
+        "exhausted": "Impossible de faire un jet de dé d'usage car le dé d'usage est actuellement épuisé.",
+        "notFound": "Impossible de trouver les détails du dé d'usage de l'objet."
+      },
+      "weapons": {
+        "notFound": "Impossible de trouver l'arme spécifiée.",
+        "unowned": "L'arme spécifiée n'est pas possédée et ne peut pas être utilisée."
+      }
+    },
+    "fields": {
+      "labels": {
+        "advantage": "Avantage",
+        "adventureName": "Nom de l'histoire",
+        "armourDescription": "Description de l'armure",
+        "armourType": "Type d'armure",
+        "attribute": "Attribut",
+        "attributeBonus": "Bonus d'attribut",
+        "backgroundFreeform": "Historique (Toute origine)",
+        "backgroundFromOrigin": "Historique (De l'origine)",
+        "bonusPenalty": "Bonus/Pénalité",
+        "birth": "Né...",
+        "coins": "Monnaies",
+        "damage": "Dégât",
+        "damageArmed": "Dégâts armés",
+        "damageUnarmed": "Dégâts à mains nues",
+        "description": "Description",
+        "disadvantage": "Désavantage",
+        "doomDie": "Destin",
+        "doomDieUpgrade": "Amélioration du dé de Destin",
+        "firstBackground": "Historique 1",
+        "gift": "Don",
+        "hands": "Mains",
+        "hitPoints": "PV",
+        "hitPointsCurrent": "PV (Actuel)",
+        "hitPointsMaximum": "PV (Maximum)",
+        "level": "Niveau",
+        "name": "Nom",
+        "origin": "Origine",
+        "otherPossessions": "Autres possessions",
+        "playerName": "Joueur",
+        "power": "Puissance",
+        "quantity": "Quantité",
+        "rarity": "Rareté",
+        "resistances": "Résistances",
+        "rollType": "Type de jet",
+        "secondBackground": "Historique 2",
+        "shield": "Bouclier ?",
+        "standardRoll": "Standard",
+        "stories": "Historiques",
+        "thirdBackground": "Historique 3",
+        "title": "Titre",
+        "threat": "Niveau de menace",
+        "type": "Type",
+        "unique": "Unique",
+        "usageDie": "Dé d'usage",
+        "vulnerabilities": "Vulnérabilités"
+      },
+      "titles": {
+        "calculatedAttribute": "Consultez l'onglet Bases pour modifier vos attributs.",
+        "castSpell": "Lancer ce sort.",
+        "criticalFailure": "Échec critique !",
+        "criticalSuccess": "Succès critique !",
+        "decrementConsumable": "Réduire la quantité d'articles.",
+        "deleteConsumable": "Supprimer cet élément.",
+        "deleteDemon": "Supprimer ce démon.",
+        "deleteEquipment": "Supprimer cet équipement.",
+        "deleteGift": "Supprimer ce don.",
+        "deleteSpell": "Supprimer ce sort.",
+        "deleteSpirit": "Supprimer cet esprit.",
+        "deleteWeapon": "Supprimer cette arme.",
+        "dieRolls": {
+          "armedDamage": "Jet de dégâts (armé)",
+          "attributes": {
+            "constitution": "Test de constitution",
+            "charisma": "Test de charisme",
+            "dexterity": "Test de dextérité",
+            "intelligence": "Test d'intelligence",
+            "strength": "Test de force",
+            "wisdom": "Test de sagesse"
+          },
+          "damage": "Jet de dégâts",
+          "unarmedDamage": "Jet de dégâts (sans arme)"
+        },
+        "failure": "Échec",
+        "incrementConsumable": "Incrémenter la quantité de l'article.",
+        "resetAllDemons": "Réinitialisation de l'état pour l'invocation démoniaque.",
+        "resetAllSpells": "Remise à zéro de l'état de tous les sorts.",
+        "resetAllSpirits": "Réinitialisation de l'état pour l'invocation de l'esprit.",
+        "resetConsumable": "Réinitialisation du dé d'usage (nécessite la quantité disponible).",
+        "resetSpell": "Réinitialiser l'état de ces sorts.",
+        "rollAttack": "Lancer l'attaque pour l'arme.",
+        "rollAttributeTest": "Lancer un test d'attribut.",
+        "rollDodge": "Jet de défense (Esquive).",
+        "rollInitiative": "Jet d'initiative.",
+        "rollParry": "Jet de défense (Parade).",
+        "rollPerception": "Jet de perception.",
+        "rollDie": "Lancer le dé",
+        "success": "Succès !",
+        "summonDemon": "Invoquez ce démon.",
+        "summonSpirit": "Invoquez cet esprit."
+      }
+    },
+    "gifts": {
+      "fortressOfTheMind": {
+        "label": "",
+        "name": "Forteresse de l'esprit (Balance)"
+      },
+      "meditation": {
+        "label": "",
+        "name": "Méditation (Balance)"
+      },
+      "secondWind": {
+        "label": "",
+        "name": "Second souffle (Balance)"
+      },
+      "spiritAlliance": {
+        "label": "",
+        "name": "Alliance spirituelle (Balance)"
+      },
+      "survivorsLuck": {
+        "label": "",
+        "name": "Chance des survivants (Balance)"
+      },
+      "armorOfScars": {
+        "label": "",
+        "name": "Armure de cicatrices (Chaos)"
+      },
+      "bloodlust": {
+        "label": "",
+        "name": "Soif de sang (Chaos)"
+      },
+      "darkRevelation": {
+        "label": "",
+        "name": "Sombre révélation (Chaos)"
+      },
+      "dubiousFriendships": {
+        "label": "",
+        "name": "Amitiés douteuses (Chaos)"
+      },
+      "paranoid": {
+        "label": "",
+        "name": "Paranoïa (Chaos)"
+      },
+      "battleHardened": {
+        "label": "",
+        "name": "Endurci au combat (Loi)"
+      },
+      "resourceful": {
+        "label": "",
+        "name": "Débrouillard (Loi)"
+      },
+      "riddleOfSteel": {
+        "label": "",
+        "name": "Enigme de l'Acier (Loi)"
+      },
+      "toughAsNails": {
+        "label": "",
+        "name": "Solide comme un Roc (Loi)"
+      },
+      "willToLive": {
+        "label": "",
+        "name": "Volonté de Vivre (Loi)"
+      }
+    },
+    "headers": {
+      "background": "Origine & Historiques",
+      "backgrounds": "Historiques",
+      "base_attributes": "Attributs de Base",
+      "coins": "Pièces",
+      "consumables": "Consommables",
+      "demonName": "Nom",
+      "demons": "Démons",
+      "equipment": "Autres Équipements",
+      "gifts": "Dons",
+      "itemName": "Objet",
+      "itemQuantity": "Quantité",
+      "itemUsageDie": "Dé",
+      "level": "Niveau",
+      "random": "Générer un Personnage Aléatoirement",
+      "spellName": "Sort",
+      "spells": "Sorts",
+      "spellState": "État",
+      "spiritName": "Nom",
+      "spirits": "Esprits",
+      "statBonuses": "Bonus de Statistiques",
+      "story": "Histoire",
+      "wealth": "Richesse",
+      "weaponKind": "Type",
+      "weaponName": "Arme",
+      "weapons": "Armes"
+    },
+    "initiative": {
+      "roll": "Test de SAGESSE pour l'initiative."
+    },
+    "levels": {
+      "names": {
+        "2": "2e",
+        "3": "3e",
+        "4": "4e",
+        "5": "5e",
+        "6": "6e",
+        "7": "7e",
+        "8": "8e",
+        "9": "9e",
+        "10": "10e"
+      }
+    },
+    "messages": {
+      "attackHit": "C'est réussi.",
+      "attackMiss": "C'est raté.",
+      "attributeRollFailed": "Le test d'attribut de %NAME% a échoué pour %ATTRIBUTE%.",
+      "attributeRollSuccess": "Le test d'attribut de %NAME% a réussi pour %ATTRIBUTE%.",
+      "blurbs": {
+        "attacksWith": "Attaque avec",
+        "calls": "Fait appel à",
+        "callFailure": "L'esprit choisit d'ignorer l'appel !",
+        "castFumble": "Le sort échoue de façon catastrophique (faites un jet sur la table du Voile Déchiré).",
+        "callSuccess": "L'esprit répond à l'appel !",
+        "casts": "Lance",
+        "castFailure": "Mais le sort se dissipe et échoue !",
+        "castSuccess": "Et le lancement de sort est un succès !",
+        "damageInflicted": "Dommages Infligés",
+        "doomed": "Le personnage est maudit !",
+        "rollsDoom": "Jet du dé du Destin pour",
+        "rollsUsageDie": "Jet de dé d'usage pour",
+        "summons": "Invoque",
+        "summonFailure": "Le démon choisit d'ignorer l'invocation !",
+        "summonFumble": "Le démon est en colère à cause de l'invocation (faites un jet sur la table de la Vengeance du Démon) !",
+        "summonSuccess": "Le démon répond à l'invocation !"
+      },
+      "demons": {
+        "summonFumbled": "L'invocation du démon %NAME% a échoué. Faites un jet sur la table %TABLE%.",
+        "summonSuccessful": "L'invocation du démon %NAME% a réussi.",
+        "unavailable": "L'invocation du démon %NAME% a échoué - le dé de Destin est épuisé !"
+      },
+      "doom": {
+        "downgraded": "Le dé de Destin pour %NAME% a été dégradé en %DIE%.",
+        "exhausted": "Impossible de faire un jet de Destin pour %NAME% car leur dé de Destin est épuisé !",
+        "failExhausted": "%NAME% a épuisé leur dé de Destin !",
+        "unchanged": "Le dé de Destin pour %NAME% reste inchangé."
+      },
+      "labels": {
+        "buttons": {
+          "rollDamage": "Jet de dégâts"
+        },
+        "criticalFailure": "Échec critique !",
+        "criticalHit": "Coup critique !",
+        "criticalMiss": "Raté critique !",
+        "criticalSuccess": "Réussite critique !",
+        "failure": "Échec.",
+        "hit": "Touché !",
+        "miss": "Manqué.",
+        "success": "Succès !"
+      },
+      "rests": {
+        "longRest": "Les bénéfices d'un long repos ont été appliqués à %NAME%.",
+        "shortRest": "Les bénéfices d'un court repos ont été appliqués à %NAME%."
+      },
+      "spells": {
+        "castFumbled": "Le lancement du sort %NAME% a échoué. Faites un jet sur la table %TABLE% !",
+        "castFailed": "Le lancement du sort %NAME% a échoué.",
+        "castSuccessful": "Le lancement du sort %NAME% a réussi."
+      },
+      "spirits": {
+        "unavailable": "L'invocation de l'esprit %NAME% a échoué - le dé de Destin est épuisé !",
+        "summonFailed": "L'invocation de l'esprit %NAME% a échoué - le dé de Destin est maintenant épuisé.",
+        "summonSuccessful": "Votre invocation de l'esprit %NAME% a réussi."
+      },
+      "titles": {
+        "attackRoll": "Jet d'attaque",
+        "callSpirit": "Appeler l'Esprit (Jet de Destin)",
+        "castSpell": "Lancer un sort Spell (Test d'INT)",
+        "damageRoll": "Jet de dégâts",
+        "dodgeRoll": "Jet d'esquive",
+        "doomRoll": "Jet de Destin",
+        "formula": "Jet",
+        "initiativeRoll": "Jet d'initiative",
+        "parryRoll": "Jet de parade",
+        "perceptionRoll": "Jet de perception",
+        "roll": "Résultat",
+        "summonDemon": "Invoquer un démon (Jet de Destin)",
+        "usageDieRoll": "Dé d'usage"
+      },
+      "usageDie": {
+        "downgraded": "Le dé est dégradé en %DIE%.",
+        "exhausted": "Le dé est désormais épuisé.",
+        "unchanged": "Le dé reste inchangé."
+      }
+    },
+    "no": "Non",
+    "none": "Aucun",
+    "origins": {
+      "barbarian": {
+        "backgrounds": {},
+        "name": "Barbare"
+      },
+      "civilized": {
+        "backgrounds": {},
+        "name": "Civilisé"
+      },
+      "decadent": {
+        "backgrounds": {},
+        "name": "Décadent"
+      }
+    },
+    "powers": {
+      "balance": {
+        "name": "Balance"
+      },
+      "chaos": {
+        "name": "Chaos"
+      },
+      "law": {
+        "name": "Loi"
+      }
+    },
+    "rarities": {
+      "common": "Commun",
+      "exotic": "Exotique",
+      "rare": "Rare",
+      "unique": "Unique"
+    },
+    "rollModal": {
+      "title": "Roll Modal!"
+    },
+    "rolls": {
+      "tests": {
+        "charisma": {
+          "title": "Test de Charisme"
+        },
+        "constitution": {
+          "title": "Test de Constitution"
+        },
+        "dexterity": {
+          "title": "Test de Dextérité"
+        },
+        "intelligence": {
+          "title": "Test d'Intelligence"
+        },
+        "strength": {
+          "title": "Test de Force"
+        },
+        "wisdom": {
+          "title": "Test de Sagesse"
+        }
+      },
+      "types": {
+        "advantage": "Avantage",
+        "disadvantage": "Désavantage",
+        "standard": "Standard"
+      }
+    },
+    "settings": {
+      "options": {
+        "customOrigins": {
+          "blurb": "Activez les origines de personnage personnalisées. N'activez pas cette option si vous avez déjà créé des personnages, cela pourrait causer des problèmes !",
+          "title": "Origines de Personnage Personnalisées"
+        }
+      }
+    },
+    "spells": {
+      "states": {
+        "available": "Non lancé",
+        "cast": "Déjà lancé",
+        "unavailable": "Indisponible"
+      },
+      "tableName": "Voile Déchiré"
+    },
+    "summoning": {
+      "states": {
+        "unused": "Non utilisé",
+        "used": "Déjà utilisé"
+      }
+    },
+    "tables": {
+      "columns": {
+        "attribute": "Test d'attribut",
+        "damage": "Dégâts",
+        "description": "Description",
+        "name": "Action"
+      }
+    },
+    "tabs": {
+      "labels": {
+        "background": "Informations de base",
+        "equipment": "Possessions",
+        "front": "Principal",
+        "magic": "Magie",
+        "saga": "Saga"
+      }
+    },
+    "weapons": {
+      "hands": {
+        "one": "Un",
+        "two": "Deux"
+      },
+      "types": {
+        "melee": "Corps à corps",
+        "ranged": "À distance",
+        "unarmed": "À mains nues"
+      }
+    },
+    "yes": "Oui"
+  }
+}
