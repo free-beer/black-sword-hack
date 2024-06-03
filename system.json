@@ -11,9 +11,8 @@
     ],
   "version": "1.1.3",
   "compatibility": {
-    "minimum": 10,
-    "verified": "10.291",
-    "maximum": 11
+    "minimum": 12,
+    "verified": "12.325",
   },
   "esmodules": ["black-sword-hack.js"],
   "styles": ["black-sword-hack.css"],
