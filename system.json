@@ -9,7 +9,7 @@
             "ko-fi": "peterwood"
         }
     ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "compatibility": {
     "minimum": 12,
     "verified": "12.325"
@@ -33,5 +33,5 @@
     "requires": []
   },
   "manifest": "https://raw.githubusercontent.com/free-beer/black-sword-hack/master/system.json",
-  "download": "https://github.com/free-beer/black-sword-hack/archive/refs/tags/v1.2.0.zip"
+  "download": "https://github.com/free-beer/black-sword-hack/archive/refs/tags/v1.2.1.zip"
 }
