@@ -1,9 +1,9 @@
 export default class CreatureActionSheet extends ItemSheet {
     static get defaultOptions() {
-        return(mergeObject(super.defaultOptions,
-                           {classes: ["bsh", "bsh-sheet", "bsh-creature-action"],
-                            height: 375,
-                            width: 750}));
+        return(foundry.utils.mergeObject(super.defaultOptions,
+                                         {classes: ["bsh", "bsh-sheet", "bsh-creature-action"],
+                                          height: 375,
+                                          width: 750}));
     }
 
     get template() {

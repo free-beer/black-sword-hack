@@ -6,11 +6,7 @@
                 {{localize "bsh.fields.labels.damageArmed"}}
             </label>
             <select name="system.damageDice.armed" class="bsh-input bsh-select">
-            {{#select actor.system.damageDice.armed}}
-            {{#each configuration.diceList as |label value|}}
-                <option value="{{value}}">{{localize label}}</option>
-            {{/each}}
-            {{/select}}
+                {{selectOptions configuration.diceList localize=true selected=actor.system.damageDice.armed}}
             </select>
         </div>
 
@@ -20,11 +16,7 @@
                 {{localize "bsh.fields.labels.damageUnarmed"}}
             </label>
             <select name="system.damageDice.unarmed" class="bsh-input bsh-select">
-            {{#select actor.system.damageDice.unarmed}}
-            {{#each configuration.diceList as |label value|}}
-                <option value="{{value}}">{{localize label}}</option>
-            {{/each}}
-            {{/select}}
+                {{selectOptions configuration.diceList localize=true selected=actor.system.damageDice.unarmed}}
             </select>
         </div>
 
@@ -48,22 +40,14 @@
         <div class="bsh-field">
             <label class="bsh-label" for="system.armour.type">{{localize "bsh.fields.labels.armourType"}}</label>
             <select name="system.armour.type" class="bsh-input bsh-select">
-            {{#select actor.system.armour.type}}
-            {{#each configuration.armourTypes as |armourData value|}}
-                <option value="{{value}}">{{localize armourData.name}}</option>
-            {{/each}}
-            {{/select}}
+                {{selectOptions configuration.armourNames localize=true selected=actor.system.armour.type}}
             </select>
         </div>
 
         <div class="bsh-field">
             <label class="bsh-label" for="system.armour.shield">{{localize "bsh.fields.labels.shield"}}</label>
             <select name="system.armour.shield" class="bsh-input bsh-select">
-            {{#select actor.system.armour.shield}}
-            {{#each configuration.yesNoList as |key value|}}
-                <option value="{{value}}">{{localize key}}</option>
-            {{/each}}
-            {{/select}}
+                {{selectOptions configuration.yesNoList localize=true selected=actor.system.armour.shield}}
             </select>
         </div>
     </div>

@@ -38,13 +38,15 @@ async function updateClassicCharacterBackgrounds() {
     					            };
 
                     Object.values(actor.system.backgrounds).forEach((name) => {
-                        let match = `${name}`.trim().match(/^(barbarian|civilized|decadent)#(.*)/);
+                        if(name.trim() !== "") {
+                            let match = `${name}`.trim().match(/^(barbarian|civilized|decadent)#(.*)/);
 
-                    	if(!match) {
-                            let origin = CLASSIC_ORIGIN_MAP[name.trim()];
-                            if(!origin) {
-                                console.error(`Unable to migrate the '${name}' background for character id '${actor.id}' (${actor.name}).`);
-                                updatable = false;
+                        	if(!match) {
+                                let origin = CLASSIC_ORIGIN_MAP[name.trim()];
+                                if(!origin) {
+                                    console.error(`Unable to migrate the '${name}' background for character id '${actor.id}' (${actor.name}).`);
+                                    updatable = false;
+                                }
                             }
                         }
                     });

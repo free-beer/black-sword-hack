@@ -15,19 +15,22 @@ const STARTING_OBJECT = {description: "",
 
 export default class BackgroundDialog extends FormApplication {
     static get defaultOptions() {
-        return(mergeObject(super.defaultOptions,
-                           {closeOnSubmit: false,
-                            height:        550,
-                            template:      "systems/black-sword-hack/templates/dialogs/background.html",
-                            title:         "Background",
-                            width:         575}));
+        return(foundry.utils.mergeObject(super.defaultOptions,
+                                         {closeOnSubmit: false,
+                                          height:        550,
+                                          template:      "systems/black-sword-hack/templates/dialogs/background.html",
+                                          title:         "Background",
+                                          width:         575}));
     }
 
 	constructor(settings) {
         let buttons = {save: {callback: () => this._saveBackground(),
                               label: game.i18n.localize("bsh.buttons.save")}};
 
-        super(Object.assign(mergeObject({}, (settings.data.background || STARTING_OBJECT)), settings, {buttons: buttons}));
+        super(Object.assign(foundry.utils.mergeObject({},
+                                                      (settings.data.background || STARTING_OBJECT)),
+                                                      settings,
+                                                      {buttons: buttons}));
         this._newOrigin = (settings.newOrigin === true);
         this._originId  = settings.originId;
 	}

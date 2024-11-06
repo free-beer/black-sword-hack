@@ -33,10 +33,10 @@ import {castSpell,
 
 export default class CharacterSheet extends ActorSheet {
 	static get defaultOptions() {
-	    return(mergeObject(super.defaultOptions,
-	    	               {classes: ["bsh", "bsh-sheet", "bsh-character"],
-	    	                height: 920,
-	    	               	template: "systems/black-sword-hack/templates/sheets/character-sheet.html"}));
+	    return(foundry.utils.mergeObject(super.defaultOptions,
+                                         {classes: ["bsh", "bsh-sheet", "bsh-character"],
+                			    	      height: 920,
+                			    	      template: "systems/black-sword-hack/templates/sheets/character-sheet.html"}));
 	}
 
     /** @override */
@@ -347,7 +347,7 @@ export default class CharacterSheet extends ActorSheet {
 
     _prepareCharacterData(context) {
         context.configuration                = CONFIG.configuration;
-        context.configuration.classicOrigins = mergeObject({}, CLASSIC_ORIGINS);
+        context.configuration.classicOrigins = foundry.utils.mergeObject({}, CLASSIC_ORIGINS);
         context.configuration.customOrigins  = this._getCustomOrigins();
         calculateCharacterData(context, CONFIG.configuration);
 

@@ -2,11 +2,11 @@ import BackgroundDialog from "../dialogs/background_dialog.js";
 
 export default class OriginSheet extends ItemSheet {
 	static get defaultOptions() {
-	    return(mergeObject(super.defaultOptions,
-	    	               {classes: ["bsh", "bsh-sheet", "bsh-origin"],
-	    	                height: 600,
-	    	               	template: "systems/black-sword-hack/templates/sheets/origin-sheet.html",
-	    	                width: 700}));
+	    return(foundry.utils.mergeObject(super.defaultOptions,
+	    	                             {classes: ["bsh", "bsh-sheet", "bsh-origin"],
+	    	                              height: 600,
+	    	               	              template: "systems/black-sword-hack/templates/sheets/origin-sheet.html",
+	    	                              width: 700}));
 	}
 
 	get template() {

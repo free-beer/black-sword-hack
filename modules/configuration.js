@@ -1,5 +1,12 @@
 export const BSHConfiguration = {};
 
+BSHConfiguration.armourNames = {
+	"none": "bsh.armour.none",
+	"light": "bsh.armour.light",
+	"medium": "bsh.armour.medium",
+	"heavy": "bsh.armour.heavy"
+};
+
 BSHConfiguration.armourTypes = {
 	"none": {
 		"name": "bsh.armour.none",
