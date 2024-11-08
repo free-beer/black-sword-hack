@@ -25,7 +25,10 @@
      "path": "languages/es.json"},
     {"lang": "fr",
      "name": "Français",
-     "path": "languages/fr.json"}
+     "path": "languages/fr.json"},
+    {"lang": "ru",
+     "name": "Russian",
+     "path": "languages/ru.json"}
   ],
   "url": "https://github.com/free-beer/black-sword-hack",
   "relationships": {
