@@ -63,6 +63,7 @@ export default class CharacterSheet extends ActorSheet {
 	activateListeners(html) {
 		html.find(".bsh-tab-label").click(this._onTabLabelClicked.bind(this));
 		html.find(".bsh-attribute-roll-icon").click(this._onAttributeRollClicked.bind(this));
+		html.find(".bsh-background-select").click(this._onBackgroundSelected.bind(this));
 		html.find(".bsh-dice-roll-icon").click(this._onDieRollClicked.bind(this));
 		html.find(".bsh-usage-die-roll-icon").click(this._onUsageDieRollClicked.bind(this));
 		html.find(".bsh-attack-roll-icon").click(this._onWeaponRollClicked.bind(this));
@@ -84,6 +85,16 @@ export default class CharacterSheet extends ActorSheet {
 		initializeCollapsibles();
 		super.activateListeners(html);
 	}
+
+
+    _onBackgroundSelected(event) {
+        console.log("Background Selected:", event);
+        console.log("Value:", event.currentTarget.value);
+        if(event.currentTarget.value !== "") {
+            let actor = game.actors.get(this.object.id);
+            calculateCharacterData(actor.system, CONFIG.configuration);
+        }
+    }
 
 	_getCustomOrigins() {
 		let origins = {};

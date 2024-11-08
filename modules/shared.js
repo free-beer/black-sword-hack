@@ -72,7 +72,15 @@ export function calculateAttributeValues(data, configuration) {
                            strength:     data.attributes.strength};
     let backgroundNames = [data.backgrounds.first,
                            data.backgrounds.second,
-                           data.backgrounds.third];
+                           data.backgrounds.third].map((name) => {
+                               if(name.includes("#")) {
+                                   let parts = name.split("#");
+                                   return(parts[parts.length - 1]);
+                               } else {
+                                   return(name);
+                               }
+                           });
+
     let backgrounds     = [];
 
     backgroundNames.forEach((name) => backgrounds.push(configuration.backgroundList[name]));

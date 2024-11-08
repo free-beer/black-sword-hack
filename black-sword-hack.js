@@ -144,7 +144,7 @@ Hooks.once("init", function() {
                 return(`<option ${selected}value="${background.key}">${background.name} (${suffix.join(', ')})</option>`);
             }));
 
-            return(`<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
+            return(`<select class="bsh-input bsh-select bsh-background-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
         } else {
             console.error(`Unable to locate an origin with the id '${originId}'.`);
         }
