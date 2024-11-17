@@ -51,82 +51,108 @@
     },
     "backgrounds": {
       "assassin": {
-        "name": "Assassin (Décadent, Unique)"
+        "name": "Assassin (Décadent, Unique)",
+        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>"
       },
       "berserker": {
-        "name": "Berserker (Barbare, Unique)"
+        "name": "Berserker (Barbare, Unique)",
+        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>"
       },
       "bodyguard": {
-        "name": "Garde du corps (Civilisé)"
+        "name": "Garde du corps (Civilisé)",
+        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>"
       },
       "bookworm": {
-        "name": "Rat de bibliothèque (Civilisé)"
+        "name": "Rat de bibliothèque (Civilisé)",
+        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>"
       },
       "changeling": {
-        "name": "Changelin (Décadent)"
+        "name": "Changelin (Décadent)",
+        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>"
       },
       "chieftain": {
-        "name": "Chef de tribu (Barbare)"
+        "name": "Chef de tribu (Barbare)",
+        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>"
       },
       "diplomat": {
-        "name": "Diplomate (Civilisé)"
+        "name": "Diplomate (Civilisé)",
+        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>"
       },
       "forbidden_knowledge": {
-        "name": "Connaissances interdites (Décadent)"
+        "name": "Connaissances interdites (Décadent)",
+        "description": "<p>You start the game with 4 randomly selected spells.</p>"
       },
       "herbalist": {
-        "name": "Herboriste (Barbare)"
+        "name": "Herboriste (Barbare)",
+        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>"
       },
       "hunter": {
-        "name": "Chasseur (Barbare)"
+        "name": "Chasseur (Barbare)",
+        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>"
       },
       "inventor": {
-        "name": "Inventeur (Civilisé, Unique)"
+        "name": "Inventeur (Civilisé, Unique)",
+        "description": "<p>You know how to build 2 scientific marvels.</p>"
       },
       "legionnaire": {
-        "name": "Legionnaire (Civilisé)"
+        "name": "Legionnaire (Civilisé)",
+        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>"
       },
       "pit_fighter": {
-        "name": "Combattant de fosse (Décadent)"
+        "name": "Combattant de fosse (Décadent)",
+        "description": "<p>Your unarmed damage is equal to your armed damage.</p>"
       },
       "raider": {
-        "name": "Pilleur (Barbare)"
+        "name": "Pilleur (Barbare)",
+        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>"
       },
       "scout": {
-        "name": "Éclaireur (Barbare)"
+        "name": "Éclaireur (Barbare)",
+        "description": "<p>You get Advantage on your initiative rolls.</p>"
       },
       "shaman": {
-        "name": "Shaman (Barbarian)"
+        "name": "Shaman (Barbarian)",
+        "description": "<p>You have made a pact with two spirits.</p>"
       },
       "snake_blood": {
-        "name": "Sang de serpent (Décadent)"
+        "name": "Sang de serpent (Décadent)",
+        "description": "<p>You're immune to poisons and venom.</p>"
       },
       "sophist": {
-        "name": "Sophiste (Civilisé)"
+        "name": "Sophiste (Civilisé)",
+        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>"
       },
       "storyteller": {
-        "name": "Conteur (Barbare)"
+        "name": "Conteur (Barbare)",
+        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>"
       },
       "street_urchin": {
-        "name": "Gamin des rues (Civilisé)"
+        "name": "Gamin des rues (Civilisé)",
+        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>"
       },
       "surgeon": {
-        "name": "Chirurgien (Civilisé)"
+        "name": "Chirurgien (Civilisé)",
+        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>"
       },
       "survivor": {
-        "name": "Survivant (Barbare)"
+        "name": "Survivant (Barbare)",
+        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>"
       },
       "swordmaster": {
-        "name": "Maître d'armes (Civilisé)"
+        "name": "Maître d'armes (Civilisé)",
+        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>"
       },
       "vicious": {
-        "name": "Vicieux (Décadent)"
+        "name": "Vicieux (Décadent)",
+        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>"
       },
       "warlock": {
-        "name": "Sorcier (Décadent)"
+        "name": "Sorcier (Décadent)",
+        "description": "<p>You have a pact with two demons.</p>"
       },
       "wildling": {
-        "name": "Sauvageon (Barbare)"
+        "name": "Sauvageon (Barbare)",
+        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>"
       }
     },
     "births": {

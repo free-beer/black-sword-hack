@@ -34,82 +34,108 @@
     },
     "backgrounds": {
       "assassin": {
-        "name": "Ассасин (Декадент, уникальный)"
+        "name": "Ассасин (Декадент, уникальный)",
+        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>"
       },
       "berserker": {
-        "name": "Берсерк (Варвар, уникальный)"
+        "name": "Берсерк (Варвар, уникальный)",
+        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>"
       },
       "bodyguard": {
-        "name": "Телохранитель (Цивилизованный)"
+        "name": "Телохранитель (Цивилизованный)",
+        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>"
       },
       "bookworm": {
-        "name": "Книжный червь (Цивилизованный)"
+        "name": "Книжный червь (Цивилизованный)",
+        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>"
       },
       "changeling": {
-        "name": "Подменыш (Декадент)"
+        "name": "Подменыш (Декадент)",
+        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>"
       },
       "chieftain": {
-        "name": "Вождь (Варвар)"
+        "name": "Вождь (Варвар)",
+        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>"
       },
       "diplomat": {
-        "name": "Дипломат (Цивилизованный)"
+        "name": "Дипломат (Цивилизованный)",
+        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>"
       },
       "forbidden_knowledge": {
-        "name": "Запретное знание (Декадент)"
+        "name": "Запретное знание (Декадент)",
+        "description": "<p>You start the game with 4 randomly selected spells.</p>"
       },
       "herbalist": {
-        "name": "Травник (Варвар)"
+        "name": "Травник (Варвар)",
+        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>"
       },
       "hunter": {
-        "name": "Охотник (Варвар)"
+        "name": "Охотник (Варвар)",
+        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>"
       },
       "inventor": {
-        "name": "Изобретатель (Цивилизованный, уникальный)"
+        "name": "Изобретатель (Цивилизованный, уникальный)",
+        "description": "<p>You know how to build 2 scientific marvels.</p>"
       },
       "legionnaire": {
-        "name": "Легионер (Цивилизованный)"
+        "name": "Легионер (Цивилизованный)",
+        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>"
       },
       "pit_fighter": {
-        "name": "Пит-файтер (Декадент)"
+        "name": "Пит-файтер (Декадент)",
+        "description": "<p>Your unarmed damage is equal to your armed damage.</p>"
       },
       "raider": {
-        "name": "Рейдер (Варвар)"
+        "name": "Рейдер (Варвар)",
+        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>"
       },
       "scout": {
-        "name": "Разведчик (Варвар)"
+        "name": "Разведчик (Варвар)",
+        "description": "<p>You get Advantage on your initiative rolls.</p>"
       },
       "shaman": {
-        "name": "Шаман (Варвар)"
+        "name": "Шаман (Варвар)",
+        "description": "<p>You have made a pact with two spirits.</p>"
       },
       "snake_blood": {
-        "name": "Змеиная кровь (Декадент)"
+        "name": "Змеиная кровь (Декадент)",
+        "description": "<p>You're immune to poisons and venom.</p>"
       },
       "sophist": {
-        "name": "Софист (Цивилизованный)"
+        "name": "Софист (Цивилизованный)",
+        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>"
       },
       "storyteller": {
-        "name": "Рассказчик (Варвар)"
+        "name": "Рассказчик (Варвар)",
+        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>"
       },
       "street_urchin": {
-        "name": "Street Urchin (Цивилизованный)"
+        "name": "Street Urchin (Цивилизованный)",
+        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>"
       },
       "surgeon": {
-        "name": "Хирург (Цивилизованный)"
+        "name": "Хирург (Цивилизованный)",
+        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>"
       },
       "survivor": {
-        "name": "Выживший (Варвар)"
+        "name": "Выживший (Варвар)",
+        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>"
       },
       "swordmaster": {
-        "name": "Мастер меча (Цивилизованный)"
+        "name": "Мастер меча (Цивилизованный)",
+        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>"
       },
       "vicious": {
-        "name": "Беспощадный (Декадент)"
+        "name": "Беспощадный (Декадент)",
+        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>"
       },
       "warlock": {
-        "name": "Чернокнижник (Декадент)"
+        "name": "Чернокнижник (Декадент)",
+        "description": "<p>You have a pact with two demons.</p>"
       },
       "wildling": {
-        "name": "Одичалый (Варвар)"
+        "name": "Одичалый (Варвар)",
+        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>"
       }
     },
     "births": {
@@ -201,11 +227,11 @@
       }
     },
     "blurbs": {
-      "base_attributes": "Приведенные ниже значения являются базовыми значениями ваших характеристик. Они могут быть изменены в зависимости от ваших предысторий для определения фактических характеристик. Изменения ваших значений характеристик и предысторий здесь обновят ваши фактические значения характеристик.",
+      "base_attributes": "Приведенные ниже значения являются базовыми значениями ваших характеристик. Они могут быть изменены в зависимости от ваших предысторий для определения фактических характеристик. Изменения значений характеристик и предысторий здесь обновят ваши фактические значения.",
       "critical_failure": "Ваша следующая проверка характеристик или бросок атаки должны быть сделан с Осложнением!",
       "defend_fumble": "Ваша броня не снижает урон от этой атаки!",
-      "random_generation": "Нажав на кнопку ниже, вы случайным образом сгенерируете все данные для вашего персонажа в соответствии с правилами системы по умолчанию. Обратите внимание, что это действие перезапишет ваши текущие настройки персонажа!",
-      "stories": "Истории определяют ваш уровень. Чем больше историй вы пережили, тем выше будет ваш уровень. В списке ниже указаны истории, в которых вы принимали участие, и какой уровень это вам дает. Не забудьте также выбрать свои дары и бонусы характеристик по мере достижения соответствующего уровня."
+      "random_generation": "Нажав на кнопку ниже, вы случайным образом сгенерируете вашего персонажа в соответствии с правилами системы по умолчанию. Обратите внимание, что это действие перезапишет ваши текущие настройки персонажа!",
+      "stories": "Истории определяют ваш уровень. Чем больше вы пережили, тем выше будет ваш уровень. В списке ниже указаны истории, в которых вы принимали участие, и какой уровень это вам дает. Не забудьте выбрать свои дары и бонусы характеристик по мере достижения соответствующего уровня."
     },
     "buttons": {
       "cancel": "Отмена",
@@ -308,8 +334,8 @@
         "birth": "Рожденный...",
         "coins": "Монеты",
         "damage": "Урон",
-        "damageArmed": "Вооруженный урон",
-        "damageUnarmed": "Невооруженный урон",
+        "damageArmed": "Урон оружия",
+        "damageUnarmed": "Урон без оружия",
         "description": "Описание",
         "disadvantage": "Осложнение",
         "doomDie": "Рок",
@@ -326,7 +352,7 @@
         "otherPossessions": "Другое имущество",
         "playerName": "Игрок",
         "power": "Сила",
-        "quantity": "Количество",
+        "quantity": "Кол-во",
         "rarity": "Редкость",
         "resistances": "Сопротивления",
         "rollType": "Тип проверки",
@@ -460,12 +486,12 @@
       "equipment": "Другое снаряжение",
       "gifts": "Дары",
       "itemName": "Предметы",
-      "itemQuantity": "Количество",
+      "itemQuantity": "Кол-во",
       "itemUsageDie": "Кубик",
       "level": "Уровень",
       "random": "Случайная генерация персонажа",
       "spellName": "Заклинание",
-      "spells": "заклинания",
+      "spells": "Заклинания",
       "spellState": "Состояние",
       "spiritName": "Имя",
       "spirits": "Духи",
@@ -474,7 +500,7 @@
       "wealth": "Богатство",
       "weaponKind": "Тип",
       "weaponName": "Оружие",
-      "weapons": "Оружия"
+      "weapons": "Оружие"
     },
     "initiative": {
       "roll": "Проверка Мудрости для инициативы."
@@ -498,19 +524,19 @@
       "attributeRollFailed": "%NAME% %ATTRIBUTE% проверка провалилась.",
       "attributeRollSuccess": "%NAME% %ATTRIBUTE% проверка успешна.",
       "blurbs": {
-        "attacksWith": "Атаки с",
-        "calls": "Призывает",
+        "attacksWith": "Атака",
+        "calls": "Призыв",
         "callFailure": "Дух решает проигнорировать призыв!",
         "castFumble": "Критический провал заклинания (бросьте по таблице «Разорванная вуаль»).",
         "callSuccess": "Дух откликается на зов!",
         "casts": "Наложение",
-        "castFailure": "Но заклинание терпит неудачу!",
-        "castSuccess": "И заклинание прошло успешно!",
+        "castFailure": "Заклинание терпит неудачу!",
+        "castSuccess": "Заклинание успешно наложено!",
         "damageInflicted": "Нанесенный урон",
         "doomed": "Персонаж Обречен!",
-        "rollsDoom": "Бросок Рока для",
-        "rollsUsageDie": "Бросок Кубика Использования для",
-        "summons": "Вызова",
+        "rollsDoom": "Бросок Рока",
+        "rollsUsageDie": "Бросок Кубика Использования",
+        "summons": "Вызов",
         "summonFailure": "Демон предпочитает игнорировать призыв!",
         "summonFumble": "Демон разгневан вызовом (бросок по таблице «Месть Демона»)!",
         "summonSuccess": "Демон отвечает на призыв!"
@@ -668,7 +694,7 @@
       "labels": {
         "background": "Основное",
         "equipment": "Имущество",
-        "front": "Первая страница",
+        "front": "Главная страница",
         "magic": "Магия",
         "saga": "Сага"
       }
@@ -679,8 +705,8 @@
         "two": "Двуручное"
       },
       "types": {
-        "melee": "Ближний бой",
-        "ranged": "Двльний бой",
+        "melee": "Ближний",
+        "ranged": "Дальний",
         "unarmed": "Безоружный"
       }
     },

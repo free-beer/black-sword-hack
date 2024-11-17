@@ -88,8 +88,6 @@ export default class CharacterSheet extends ActorSheet {
 
 
     _onBackgroundSelected(event) {
-        console.log("Background Selected:", event);
-        console.log("Value:", event.currentTarget.value);
         if(event.currentTarget.value !== "") {
             let actor = game.actors.get(this.object.id);
             calculateCharacterData(actor.system, CONFIG.configuration);
