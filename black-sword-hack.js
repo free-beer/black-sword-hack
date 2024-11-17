@@ -135,13 +135,13 @@ Hooks.once("init", function() {
             let options     =  [`<option value=""></option>`];
             options = options.concat(getBackgrounds(originId).map((background) => {
                 let selected = (background.key === selectedKey ? 'selected="selected"' : "");
-                let suffix   = [capitalize(origin.name)];
+                let suffix   = [game.i18n.localize(`bsh.origins.${origin.id}.name`)];
 
                 if(background.unique) {
-                    suffix.push("Unique");
+                    suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
                 }
 
-                return(`<option ${selected}value="${background.key}">${background.name} (${suffix.join(', ')})</option>`);
+                return(`<option ${selected}value="${background.key}">${game.i18n.localize(background.locale_keys.label)} (${suffix.join(', ')})</option>`);
             }));
 
             return(`<select class="bsh-input bsh-select bsh-background-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
@@ -153,8 +153,8 @@ Hooks.once("init", function() {
     });
 
     Handlebars.registerHelper("nonOriginBackgroundSelect", (originId, originField, selectedKey) => {
-        let origins     = getOrigins();
-        let template    = "<div>NO BACKGROUND OPTIONS AVAILABLE.</div>";
+        let origins  = getOrigins();
+        let template = "<div>NO BACKGROUND OPTIONS AVAILABLE.</div>";
 
         if(origins.length > 0) {
             let keys        = origins.map((o) => stringToKey(o.name));
@@ -162,13 +162,14 @@ Hooks.once("init", function() {
             let options     = ['<option value=""></option>'];
 
             backgrounds.sort((lhs, rhs) => lhs.name.localeCompare(rhs.name)).map((background) => {
+                let origin   = origins.find((o) => background.origin === o.id);
                 let selected = (background.key === selectedKey ? 'selected="selected"' : '');
-                let suffix   = [capitalize(background.origin)];
+                let suffix   = [game.i18n.localize(`bsh.origins.${origin.id}.name`)];
 
                 if(background.unique) {
-                    suffix.push("Unique");
+                    suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
                 }
-                options.push(`<option ${selected}value="${background.key}">${background.name} (${suffix.join(', ')})</option>`);
+                options.push(`<option ${selected}value="${background.key}">${game.i18n.localize(background.locale_keys.label)} (${suffix.join(', ')})</option>`);
             });
 
             template = `<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`;
@@ -181,11 +182,11 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("originSelect", (fieldName, selectedKey) => {
         let entries = getOrigins().map((origin) => {
-            return({key: origin.key, name: origin.name, selected: (stringToKey(origin.name) === selectedKey)});
+            return({key: origin.key, id: origin.id, name: origin.name, selected: (stringToKey(origin.name) === selectedKey)});
         }).sort((lhs, rhs) => lhs.name.localeCompare(rhs.name));
         let options = entries.map((entry) => {
             let selected = (entry.selected ? 'selected="selected"' : '');
-            return(`<option ${selected} value="${stringToKey(entry.name)}">${entry.name}</option>`);
+            return(`<option ${selected} value="${stringToKey(entry.name)}">${game.i18n.localize(`bsh.origins.${entry.id}.name`)}</option>`);
         });
 
         return(`<select class="bsh-input bsh-select" name="${fieldName}">${options.join("")}</select>`);

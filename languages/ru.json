@@ -35,107 +35,133 @@
     "backgrounds": {
       "assassin": {
         "name": "Ассасин (Декадент, уникальный)",
-        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>"
+        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>",
+        "label": "Ассасин"
       },
       "berserker": {
         "name": "Берсерк (Варвар, уникальный)",
-        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>"
+        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>",
+        "label": "Берсерк"
       },
       "bodyguard": {
         "name": "Телохранитель (Цивилизованный)",
-        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>"
+        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>",
+        "label": "Телохранитель"
       },
       "bookworm": {
         "name": "Книжный червь (Цивилизованный)",
-        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>"
+        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>",
+        "label": "Книжный червь"
       },
       "changeling": {
         "name": "Подменыш (Декадент)",
-        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>"
+        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>",
+        "label": "Подменыш"
       },
       "chieftain": {
         "name": "Вождь (Варвар)",
-        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>"
+        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>",
+        "label": "Вождь"
       },
       "diplomat": {
         "name": "Дипломат (Цивилизованный)",
-        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>"
+        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>",
+        "label": "Дипломат"
       },
       "forbidden_knowledge": {
         "name": "Запретное знание (Декадент)",
-        "description": "<p>You start the game with 4 randomly selected spells.</p>"
+        "description": "<p>You start the game with 4 randomly selected spells.</p>",
+        "label": "Запретное знание"
       },
       "herbalist": {
         "name": "Травник (Варвар)",
-        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>"
+        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>",
+        "label": "Травник"
       },
       "hunter": {
         "name": "Охотник (Варвар)",
-        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>"
+        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>",
+        "label": "Охотник"
       },
       "inventor": {
         "name": "Изобретатель (Цивилизованный, уникальный)",
-        "description": "<p>You know how to build 2 scientific marvels.</p>"
+        "description": "<p>You know how to build 2 scientific marvels.</p>",
+        "label": "Изобретатель"
       },
       "legionnaire": {
         "name": "Легионер (Цивилизованный)",
-        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>"
+        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>",
+        "label": "Легионер"
       },
       "pit_fighter": {
         "name": "Пит-файтер (Декадент)",
-        "description": "<p>Your unarmed damage is equal to your armed damage.</p>"
+        "description": "<p>Your unarmed damage is equal to your armed damage.</p>",
+        "label": "Пит-файтер"
       },
       "raider": {
         "name": "Рейдер (Варвар)",
-        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>"
+        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>",
+        "label": "Рейдер"
       },
       "scout": {
         "name": "Разведчик (Варвар)",
-        "description": "<p>You get Advantage on your initiative rolls.</p>"
+        "description": "<p>You get Advantage on your initiative rolls.</p>",
+        "label": "Разведчик"
       },
       "shaman": {
         "name": "Шаман (Варвар)",
-        "description": "<p>You have made a pact with two spirits.</p>"
+        "description": "<p>You have made a pact with two spirits.</p>",
+        "label": "Шаман"
       },
       "snake_blood": {
         "name": "Змеиная кровь (Декадент)",
-        "description": "<p>You're immune to poisons and venom.</p>"
+        "description": "<p>You're immune to poisons and venom.</p>",
+        "label": "Змеиная кровь"
       },
       "sophist": {
         "name": "Софист (Цивилизованный)",
-        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>"
+        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>",
+        "label": "Софист"
       },
       "storyteller": {
         "name": "Рассказчик (Варвар)",
-        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>"
+        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>",
+        "label": "Рассказчик"
       },
       "street_urchin": {
         "name": "Street Urchin (Цивилизованный)",
-        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>"
+        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>",
+        "label": "Street Urchin"
       },
       "surgeon": {
         "name": "Хирург (Цивилизованный)",
-        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>"
+        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>",
+        "label": "Хирург"
       },
       "survivor": {
         "name": "Выживший (Варвар)",
-        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>"
+        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>",
+        "label": "Выживший"
       },
       "swordmaster": {
         "name": "Мастер меча (Цивилизованный)",
-        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>"
+        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>",
+        "label": "Мастер меча"
       },
       "vicious": {
         "name": "Беспощадный (Декадент)",
-        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>"
+        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>",
+        "label": "Беспощадный"
       },
       "warlock": {
         "name": "Чернокнижник (Декадент)",
-        "description": "<p>You have a pact with two demons.</p>"
+        "description": "<p>You have a pact with two demons.</p>",
+        "label": "Чернокнижник"
       },
       "wildling": {
         "name": "Одичалый (Варвар)",
-        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>"
+        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>",
+        "label": "Одичалый"
       }
     },
     "births": {

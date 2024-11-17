@@ -35,107 +35,133 @@
     "backgrounds": {
       "assassin": {
         "name": "Asesino (Decadente, Único)",
-        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>"
+        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>",
+        "label": "Asesino"
       },
       "berserker": {
         "name": "Berserker (Bárbaro, Único)",
-        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>"
+        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>",
+        "label": "Berserker"
       },
       "bodyguard": {
         "name": "Guardaespaldas (Civilizado)",
-        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>"
+        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>",
+        "label": "Guardaespaldas"
       },
       "bookworm": {
         "name": "Ratón de biblioteca (Civilizado)",
-        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>"
+        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>",
+        "label": "Ratón de biblioteca"
       },
       "changeling": {
         "name": "Changeling (Decadente)",
-        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>"
+        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>",
+        "label": "Changeling"
       },
       "chieftain": {
         "name": "Caudillo (Bárbaro)",
-        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>"
+        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>",
+        "label": "Caudillo"
       },
       "diplomat": {
         "name": "Diplomático (Civilizado)",
-        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>"
+        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>",
+        "label": "Diplomático"
       },
       "forbidden_knowledge": {
         "name": "Conocimiento prohibido (Decadente)",
-        "description": "<p>You start the game with 4 randomly selected spells.</p>"
+        "description": "<p>You start the game with 4 randomly selected spells.</p>",
+        "label": "Conocimiento prohibido"
       },
       "herbalist": {
         "name": "Herborista (Bárbaro)",
-        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>"
+        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>",
+        "label": "Herborista"
       },
       "hunter": {
         "name": "Cazador (Bárbaro)",
-        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>"
+        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>",
+        "label": "Cazador"
       },
       "inventor": {
         "name": "Inventor (Civilizado, Único)",
-        "description": "<p>You know how to build 2 scientific marvels.</p>"
+        "description": "<p>You know how to build 2 scientific marvels.</p>",
+        "label": "Inventor"
       },
       "legionnaire": {
         "name": "Legionario (Civilizado)",
-        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>"
+        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>",
+        "label": "Legionario"
       },
       "pit_fighter": {
         "name": "Luchador del foso (Decadente)",
-        "description": "<p>Your unarmed damage is equal to your armed damage.</p>"
+        "description": "<p>Your unarmed damage is equal to your armed damage.</p>",
+        "label": "Luchador del foso"
       },
       "raider": {
         "name": "Saqueador (Bárbaro)",
-        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>"
+        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>",
+        "label": "Saqueador"
       },
       "scout": {
         "name": "Explorador (Bárbaro)",
-        "description": "<p>You get Advantage on your initiative rolls.</p>"
+        "description": "<p>You get Advantage on your initiative rolls.</p>",
+        "label": "Explorador"
       },
       "shaman": {
         "name": "Chamán (Bárbaro)",
-        "description": "<p>You have made a pact with two spirits.</p>"
+        "description": "<p>You have made a pact with two spirits.</p>",
+        "label": "Chamán"
       },
       "snake_blood": {
         "name": "Sangre de serpiente (Decadente)",
-        "description": "<p>You're immune to poisons and venom.</p>"
+        "description": "<p>You're immune to poisons and venom.</p>",
+        "label": "Sangre de serpiente"
       },
       "sophist": {
         "name": "Sofista (Civilizado)",
-        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>"
+        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>",
+        "label": "Sofista"
       },
       "storyteller": {
         "name": "Cuentacuentos (Bárbaro)",
-        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>"
+        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>",
+        "label": "Cuentacuentos"
       },
       "street_urchin": {
         "name": "Pillo (Civilizado)",
-        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>"
+        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>",
+        "label": "Pillo"
       },
       "surgeon": {
         "name": "Cirujano (Civilizado)",
-        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>"
+        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>",
+        "label": "Cirujano"
       },
       "survivor": {
         "name": "Survivor (Bárbaro)",
-        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>"
+        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>",
+        "label": "Survivor"
       },
       "swordmaster": {
         "name": "Maestro de esgrima (Civilizado)",
-        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>"
+        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>",
+        "label": "Maestro de esgrima"
       },
       "vicious": {
         "name": "Despiadado (Decadente)",
-        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>"
+        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>",
+        "label": "Despiadado"
       },
       "warlock": {
         "name": "Brujo (Decadente)",
-        "description": "<p>You have a pact with two demons.</p>"
+        "description": "<p>You have a pact with two demons.</p>",
+        "label": "Brujo"
       },
       "wildling": {
         "name": "Salvaje (Bárbaro)",
-        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>"
+        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>",
+        "label": "Salvaje"
       }
     },
     "births": {

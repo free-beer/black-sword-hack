@@ -35,107 +35,133 @@
     "backgrounds": {
       "assassin": {
         "name": "Assassin (Decadent, Unique)",
-        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>"
+        "description": "<p>Your first attack against an unaware target is an automatic hit that deals 2d6 + your level points of damage.</p>",
+        "label": "Assassin"
       },
       "berserker": {
         "name": "Berserker (Barbarian, Unique)",
-        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>"
+        "description": "<p>When you go berserk add a d6 to the damage you deal. Damage you receive is divided by 2. Your rage stops when you roll a 1 on the d6. You need a <strong>long rest</strong> to be able to go berserk again.</p>",
+        "label": "Berserker"
       },
       "bodyguard": {
         "name": "Bodyguard (Civilized)",
-        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>"
+        "description": "<p>If you use an action to protect a Close character during your turn, you absorb any damage from attacks against them, but you divide it by two (rounding up).</p>",
+        "label": "Bodyguard"
       },
       "bookworm": {
         "name": "Bookworm (Civilized)",
-        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>"
+        "description": "<p>You can substitute any attribute test with an <strong>INT</strong> test (explain how and why your knowledge helps you). Replenishes after a <strong>long rest</strong>.</p>",
+        "label": "Bookworm"
       },
       "changeling": {
         "name": "Changeling (Decadent)",
-        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>"
+        "description": "<p>You were abducted as a baby and raised by very different folk. Choose two faerie ties.</p>",
+        "label": "Changeling"
       },
       "chieftain": {
         "name": "Chieftain (Barbarian)",
-        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>"
+        "description": "<p>You can use Strength instead of Charisma when trying to intimidate someone.</p>",
+        "label": "Chieftain"
       },
       "diplomat": {
         "name": "Diplomat (Civilized)",
-        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>"
+        "description": "<p>You know two additional languages and can make yourself understood by anyone willing to do so. If all you do is talk you can act first at the beginning of any combat Turn.</p>",
+        "label": "Diplomat"
       },
       "forbidden_knowledge": {
         "name": "Forbidden Knowledge (Decadent)",
-        "description": "<p>You start the game with 4 randomly selected spells.</p>"
+        "description": "<p>You start the game with 4 randomly selected spells.</p>",
+        "label": "Forbidden Knowledge"
       },
       "herbalist": {
         "name": "Herbalist (Barbarian)",
-        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>"
+        "description": "<p>You can create d6 doses of healing balms (restores d6 HP + level each), hallucinogenic drugs or poisons (d6 damage per dose). You need a <strong>long rest</strong> in a natural environment to replenish it.</p>",
+        "label": "Herbalist"
       },
       "hunter": {
         "name": "Hunter (Barbarian)",
-        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>"
+        "description": "<p>In combat your first arrow always hits, add your level to the damage.</p>",
+        "label": "Hunter"
       },
       "inventor": {
         "name": "Inventor (Civilized, Unique)",
-        "description": "<p>You know how to build 2 scientific marvels.</p>"
+        "description": "<p>You know how to build 2 scientific marvels.</p>",
+        "label": "Inventor"
       },
       "legionnaire": {
         "name": "Legionnaire (Civilized)",
-        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>"
+        "description": "<p>You are used to fighting in groups. Three times per session, a <strong>Nearby</strong> ally can re-roll a failed dodge, parry or attack roll.</p>",
+        "label": "Legionnaire"
       },
       "pit_fighter": {
         "name": "Pit Fighter (Decadent)",
-        "description": "<p>Your unarmed damage is equal to your armed damage.</p>"
+        "description": "<p>Your unarmed damage is equal to your armed damage.</p>",
+        "label": "Pit Fighter"
       },
       "raider": {
         "name": "Raider (Barbarian)",
-        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>"
+        "description": "<p>When you get a critical success on an Attack roll you inflict damage equal to your Strength score (no need to roll the damage).</p>",
+        "label": "Raider"
       },
       "scout": {
         "name": "Scout (Barbarian)",
-        "description": "<p>You get Advantage on your initiative rolls.</p>"
+        "description": "<p>You get Advantage on your initiative rolls.</p>",
+        "label": "Scout"
       },
       "shaman": {
         "name": "Shaman (Barbarian)",
-        "description": "<p>You have made a pact with two spirits.</p>"
+        "description": "<p>You have made a pact with two spirits.</p>",
+        "label": "Shaman"
       },
       "snake_blood": {
         "name": "Snake Blood (Decadent)",
-        "description": "<p>You're immune to poisons and venom.</p>"
+        "description": "<p>You're immune to poisons and venom.</p>",
+        "label": "Snake Blood"
       },
       "sophist": {
         "name": "Sophist (Civilized)",
-        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>"
+        "description": "<p>You can make someone believe a blatant lie if you succeed at a <strong>CHA</strong> test. The 'effect' lasts one hour.</p>",
+        "label": "Sophist"
       },
       "storyteller": {
         "name": "Storyteller (Barbarian)",
-        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>"
+        "description": "<p>You always know d4 interesting things about objects, places or people (one roll per session). While you tell a story, your audience doesn't notice what happens <strong>Nearby</strong>.</p>",
+        "label": "Storyteller"
       },
       "street_urchin": {
         "name": "Street Urchin (Civilized)",
-        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>"
+        "description": "<p>Get <strong>Advantage</strong> on actions involving stealth, pick-pocketing, eavesdropping and streetwise.</p>",
+        "label": "Street Urchin"
       },
       "surgeon": {
         "name": "Surgeon (Civilized)",
-        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>"
+        "description": "<p>Make an <strong>INT</strong> test when taking care of someone who has fallen to 0 HP. They roll a d4 on the Helpless table instead of a d6 if you succeed.</p>",
+        "label": "Surgeon"
       },
       "survivor": {
         "name": "Survivor (Barbarian)",
-        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>"
+        "description": "<p>It takes you 1d6 minutes to find something that can be used as a knife or club.</p>",
+        "label": "Survivor"
       },
       "swordmaster": {
         "name": "Swordmaster (Civilized)",
-        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>"
+        "description": "<p>You can use <strong>DEX</strong> instead of <strong>STR</strong> when making a melee attack with one-handed bladed weapons.</p>",
+        "label": "Swordmaster"
       },
       "vicious": {
         "name": "Vicious (Decadent)",
-        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>"
+        "description": "<p>Your damage die is now d8 (d6 unarmed).</p>",
+        "label": "Vicious"
       },
       "warlock": {
         "name": "Warlock (Decadent)",
-        "description": "<p>You have a pact with two demons.</p>"
+        "description": "<p>You have a pact with two demons.</p>",
+        "label": "Warlock"
       },
       "wildling": {
         "name": "Wildling (Barbarian)",
-        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>"
+        "description": "<p>You can take a <strong>long rest</strong> anywhere.</p>",
+        "label": "Wildling"
       }
     },
     "births": {
