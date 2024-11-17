@@ -52,6 +52,10 @@ export default class CharacterSheet extends ActorSheet {
             this._prepareCharacterData(context);
         }
 
+        context.backgrounds.forEach((background) => {
+        	background.originLocaleKey = `bsh.origins.${background.origin}.name`;
+        });
+
         return(context);
 	}
 

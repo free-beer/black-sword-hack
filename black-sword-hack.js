@@ -141,7 +141,7 @@ Hooks.once("init", function() {
                     suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
                 }
 
-                return(`<option ${selected}value="${background.key}">${game.i18n.localize(background.locale_keys.label)} (${suffix.join(', ')})</option>`);
+                return(`<option ${selected}value="${background.key}">${game.i18n.localize(background.localeKeys.label)} (${suffix.join(', ')})</option>`);
             }));
 
             return(`<select class="bsh-input bsh-select bsh-background-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
@@ -169,7 +169,7 @@ Hooks.once("init", function() {
                 if(background.unique) {
                     suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
                 }
-                options.push(`<option ${selected}value="${background.key}">${game.i18n.localize(background.locale_keys.label)} (${suffix.join(', ')})</option>`);
+                options.push(`<option ${selected}value="${background.key}">${game.i18n.localize(background.localeKeys.label)} (${suffix.join(', ')})</option>`);
             });
 
             template = `<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`;
