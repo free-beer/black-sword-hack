@@ -53,6 +53,7 @@ export function calculateCharacterData(context, configuration) {
     if(context.actor) {
         context = context.actor.system;
     }
+    else context = context.system;
 
     context.level            = calculateLevel(context, configuration);
     context.calculated       = calculateAttributeValues(context, configuration);
