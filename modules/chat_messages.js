@@ -44,8 +44,9 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                 }
             }
             rollEm(dice).then((roll) => {
-                critical.failure = (roll.terms[0].results[0] === 20);
-                critical.success = (roll.terms[0].results[0] === 1);
+                let dieResult = roll.terms[0].results[0].result;
+                    critical.failure = (dieResult === 20);
+                    critical.success = (dieResult === 1);
                 data.roll        = {expanded: expanded,
                                     formula:  roll.formula,
                                     labels:   {title: interpolate("bsh.messages.titles.attackRoll")},
@@ -117,8 +118,9 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     }
 
     rollEm(new Roll(message.roll.formula)).then((roll) => {
-        critical.failure     = (roll.terms[0].results[0] === 20);
-        critical.success     = (roll.terms[0].results[0] === 1);
+        let dieResult = roll.terms[0].results[0].result;
+            critical.failure = (dieResult === 20);
+            critical.success = (dieResult === 1);
         message.roll.result  = roll.total;
         message.roll.success = (critical.success || roll.total < attributes[attribute]);
         if(message.roll.success) {
@@ -305,8 +307,9 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
         message.roll.formula = (shiftKey || shield ? "1d20" : "2d20kh");
     }
     rollEm(new Roll(message.roll.formula)).then((roll) => {
-        critical.failure     = (roll.total === 20);
-        critical.success     = (roll.total === 1);
+        let dieResult = roll.terms[0].results[0].result;
+            critical.failure = (dieResult === 20);
+            critical.success = (dieResult === 1);
         message.roll.result  = roll.total;
         message.roll.success = (critical.success || roll.total < attributes["dexterity"]);
 
@@ -393,8 +396,9 @@ export function logInitiativeRoll(event) {
             message.roll.formula = (event.shiftKey ? "1d20" : "2d20kh");
         }
         rollEm(new Roll(message.roll.formula)).then((roll) => {
-            critical.failure     = (roll.total === 20);
-            critical.success     = (roll.total === 1);
+            let dieResult = roll.terms[0].results[0].result;
+                critical.failure = (dieResult === 20);
+                critical.success = (dieResult === 1);
             message.roll.result  = roll.total;
             message.roll.success = (critical.success || roll.total < attributes["wisdom"]);
 
@@ -502,8 +506,9 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
         message.roll.formula = (shiftKey || shield ? "1d20" : "2d20kh");
     }
     rollEm(new Roll(message.roll.formula)).then((roll) => {
-        critical.failure     = (roll.total === 20);
-        critical.success     = (roll.total === 1);
+        let dieResult = roll.terms[0].results[0].result;
+            critical.failure = (dieResult === 20);
+            critical.success = (dieResult === 1);
         message.roll.result  = roll.total;
         message.roll.success = (critical.success || roll.total < attributes["strength"]);
 
@@ -553,8 +558,9 @@ export function logPerceptionRoll(event) {
             message.roll.formula = (event.shiftKey ? "1d20" : "2d20kh");
         }
         rollEm(new Roll(message.roll.formula)).then((roll) => {
-            critical.failure     = (roll.total === 20);
-            critical.success     = (roll.total === 1);
+            let dieResult = roll.terms[0].results[0].result;
+                critical.failure = (dieResult === 20);
+                critical.success = (dieResult === 1);
             message.roll.result  = roll.total;
             message.roll.success = (critical.success || roll.total < attributes["intelligence"]);
 
@@ -640,4 +646,3 @@ export function toggleAttributeTestDisplay(event) {
         }
     }
 }
-
